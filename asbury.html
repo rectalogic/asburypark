@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Asbury Park Happenings</title>
+</head>
+<body>
+<div id="fb-root"></div>
+<script type="text/javascript">
+var pages = [
+    "TheAsburyParkBoardwalk",
+    "DauphinGrille",
+    "LangostaLounge",
+    "PopsGarage",
+    //"asbury.lanes",
+    "AsburyParkYachtClub",
+    "TheWonderBarNJ",
+    "brickwalltavern",
+    "watermarkap",
+    "pages/Hotel-Tides-Restaurant-Spa/169751627077",
+    "pizzaportaculture",
+    "CubacanAP"
+];
+for (var i = 0; i < pages.length; i++) {
+    var div = document.createElement("div");
+    div.className = "fb-like-box";
+    div.setAttribute("data-href", "http://www.facebook.com/" + pages[i]);
+    div.setAttribute("data-width", "500");
+    div.setAttribute("data-colorscheme", "light");
+    div.setAttribute("data-show-faces", "false");
+    div.setAttribute("data-header", "false");
+    div.setAttribute("data-stream", "true");
+    div.setAttribute("data-show-border", "true");
+    document.body.appendChild(div);
+}
+
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1&appId=646725368682467";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+</body>
+</html>
