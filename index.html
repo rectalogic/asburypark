@@ -58,14 +58,14 @@ var pages = [
     "pages/Historical-Society-of-Ocean-Grove/174017379308029"
 ];
 for (var i = 0; i < pages.length; i++) {
+    var anchor = document.createElement("a");
+    anchor.id = pages[i];
     if (i < pages.length - 1) {
-        var anchor = document.createElement("a");
-        anchor.id = pages[i];
         anchor.href = '#' + pages[i + 1];
         anchor.appendChild(document.createTextNode("Next (" + pages[i + 1] + ")"));
         anchor.style.display = "block";
-        document.body.appendChild(anchor);
     }
+    document.body.appendChild(anchor);
 
     var div = document.createElement("div");
     div.className = "fb-like-box";
