@@ -60,10 +60,14 @@ var pages = [
 for (var i = 0; i < pages.length; i++) {
     var anchor = document.createElement("a");
     anchor.id = pages[i];
+    anchor.style.display = "block";
     if (i < pages.length - 1) {
+        anchor.appendChild(document.createTextNode("Next"));
         anchor.href = '#' + pages[i + 1];
-        anchor.appendChild(document.createTextNode("Next (" + pages[i + 1] + ")"));
-        anchor.style.display = "block";
+    }
+    else {
+        anchor.appendChild(document.createTextNode("Top"));
+        anchor.href = '#fb-root';
     }
     document.body.appendChild(anchor);
 
