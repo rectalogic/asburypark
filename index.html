@@ -20,6 +20,14 @@
 -->
 
 <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=646725368682467";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <script type="text/javascript">
 var pages = [
     "inAsburyPark",
@@ -83,6 +91,8 @@ for (var i = 0; i < pages.length; i++) {
     var anchor = document.createElement("a");
     anchor.id = pages[i];
     anchor.style.display = "block";
+    anchor.style.height = "30px";
+    anchor.style.background = "#ddd";
     if (i < pages.length - 1) {
         anchor.appendChild(document.createTextNode("Next"));
         anchor.href = '#' + pages[i + 1];
@@ -94,28 +104,20 @@ for (var i = 0; i < pages.length; i++) {
     document.body.appendChild(anchor);
 
     var div = document.createElement("div");
-    div.className = "fb-like-box";
+    div.className = "fb-page";
     div.setAttribute("data-href", "http://www.facebook.com/" + pages[i]);
-    div.setAttribute("data-width", "100%");
-    div.setAttribute("data-height", "600");
-    div.setAttribute("data-colorscheme", "light");
-    div.setAttribute("data-show-faces", "false");
-    div.setAttribute("data-header", "false");
-    div.setAttribute("data-stream", "true");
-    div.setAttribute("data-show-border", "true");
+    div.setAttribute("data-width", "500");
+    div.setAttribute("data-height", "100%");
+    div.setAttribute("data-small-header", "true");
+    div.setAttribute("data-adapt-container-width", "true");
+    div.setAttribute("data-hide-cover", "false");
+    div.setAttribute("data-show-facepile", "false");
+    div.setAttribute("data-show-posts", "true");
     document.body.appendChild(div);
 }
 var div = document.createElement("div");
 div.style.clear = "both";
 document.body.appendChild(div);
-
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1&appId=646725368682467";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 </script>
 
 <!--
