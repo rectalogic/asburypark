@@ -19,7 +19,13 @@
 </div>
 -->
 
-<div id="fb-root"></div>
+<div>
+    <select id="picker" onchange="selectPage(this.value)"></select>
+    <button onclick="nextPage()">Next</button>
+</div>
+
+<div id="fb-page" class="fb-page" data-width="500" data-height="100%" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"></div>
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -29,96 +35,95 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <script type="text/javascript">
+var fbPage = document.getElementById("fb-page");
+var picker = document.getElementById("picker");
+
+function selectPage(page) {
+    fbPage.setAttribute("data-href", "http://www.facebook.com/" + page);
+    if (typeof FB != 'undefined')
+        FB.XFBML.parse();
+}
+
+function nextPage() {
+    picker.selectedIndex = (picker.selectedIndex + 1) % picker.length;
+    picker.onchange();
+}
+
 var pages = [
-    "inAsburyPark",
-    "pizzaportaculture",
-    "LangostaLounge",
-    "PopsGarage",
-    "kimmarieseatndrinkaway",
-    "happinessbargrill",
-    "Redemption-832774426830599",
-    "The-Bonney-Read-1496114797304037",
-    "eatmogo",
-    "AsburyParkYachtClub",
-    "TheWonderBarNJ",
-    "TheAsburyParkBoardwalk",
-    "Bond-Street-Bar-105889419454234",
-    "TheSpeakeatery",
-    "asbury.lanes",
-    "BrickwallTavernAsburyPark",
-    "Johnnymachouseofspirits",
-    "watermarkap",
-    "takaasbury",
-    "crossandorange",
-    "porkrolltruck",
-    "talulasap",
-    "asburyfresh",
-    "TheShowRoomAP",
-    "The-Stephen-Crane-House-92768250949",
-    "ParadiseNightclubAP",
-    "theanchorsbend",
-    "pages/The-Beach-Bar/118218961550042",
-    "pages/Hotel-Tides-Restaurant-Spa/169751627077",
-    "CubacanAP",
-    "ciboevinoap",
-    "prohibitionnj",
-    "Asburyalehouse",
-    "pascalandsabine",
-    "Asburybiergarten",
-    "DarkCityBrewingCo",
-    "asburyparkbrewery",
-    "asburyparkdistilling",
-    "pages/Lolas-European-Cafe/212096058815710",
-    "pages/Moonstruck-Restaurant-Cocktail-Lounge/207630600679",
-    "timmcloonessupperclub",
-    "pages/McGillicuddys-Lakeside-Taphouse/192344650825759",
-    "pages/Toast-Asbury-Park-NJ/279714352041812",
-    "pages/Asbury-Park-Film-Initiative/185476197517",
-    "AsburyParkWaterfront",
-    "FISHAsburyPark",
-    "ParamountTheatreAP",
-    "marketatfifthavenue",
-    "AsburyParkEvents",
-    "AsburyParkSun",
-    "ApvibeDowntownAsburyPark",
-    "oceangrovechamber",
-    "pages/Historical-Society-of-Ocean-Grove/174017379308029",
-    "pages/Beach-Haus-Beer/128713067173452",
-    "APHomeowners",
-    "houseofindependents",
-    "stonepony"
+    {"title": "America's Cup Coffee Company", "page": "AmericasCupCoffeeCompany"},
+    {"title": "The Anchor's Bend", "page": "theanchorsbend"},
+    {"title": "APVibe Downton", "page": "ApvibeDowntownAsburyPark"},
+    {"title": "Asbury Ale House", "page": "Asburyalehouse"},
+    {"title": "Asbury Festhalle & Biergarten", "page": "Asburybiergarten"},
+    {"title": "Asbury Fresh", "page": "asburyfresh"},
+    {"title": "Asbury Lanes", "page": "asbury.lanes"},
+    {"title": "Asbury Oyster Bar", "page": "asburyoysterbar"},
+    {"title": "Asbury Park Boardwalk", "page": "TheAsburyParkBoardwalk"},
+    {"title": "Asbury Park Brewery", "page": "asburyparkbrewery"},
+    {"title": "Asbury Park Distilling", "page": "asburyparkdistilling"},
+    {"title": "Asbury Park Events", "page": "AsburyParkEvents"},
+    {"title": "Asbury Park Film Initiative", "page": "pages/Asbury-Park-Film-Initiative/185476197517"},
+    {"title": "Asbury Park Homeowners's Association", "page": "APHomeowners"},
+    {"title": "Asbury Park Sun", "page": "AsburyParkSun"},
+    {"title": "Asbury Park Yacht Club", "page": "AsburyParkYachtClub"},
+    {"title": "Asbury Park Waterfront", "page": "AsburyParkWaterfront"},
+    {"title": "The Beach Bar", "page": "pages/The-Beach-Bar/118218961550042"},
+    {"title": "Beach Haus Brewery", "page": "pages/Beach-Haus-Beer/128713067173452"},
+    {"title": "The Berkeley Oceanfront Hotel", "page": "The-Berkeley-Oceanfront-Hotel-403968719632014"},
+    {"title": "Bond Street Bar", "page": "Bond-Street-Bar-105889419454234"},
+    {"title": "The Bonney Read", "page": "The-Bonney-Read-1496114797304037"},
+    {"title": "Brickwall Tavern", "page": "BrickwallTavernAsburyPark"},
+    {"title": "Cafe Volan", "page": "cafevolan"},
+    {"title": "Cibo e Vino", "page": "ciboevinoap"},
+    {"title": "Cross & Orange", "page": "crossandorange"},
+    {"title": "Cubacan", "page": "CubacanAP"},
+    {"title": "Dark City Brewing Company", "page": "DarkCityBrewingCo"},
+    {"title": "FISH", "page": "FISHAsburyPark"},
+    {"title": "Frank's Deli", "page": "pages/Franks-Deli-Restaurant/116456965045235"},
+    {"title": "Happiness Bar & Grill", "page": "happinessbargrill"},
+    {"title": "Historical Society of Ocean Grove", "page": "pages/Historical-Society-of-Ocean-Grove/174017379308029"},
+    {"title": "Hotel Tides", "page": "pages/Hotel-Tides-Restaurant-Spa/169751627077"},
+    {"title": "House of Independents", "page": "houseofindependents"},
+    {"title": "IN! Asbury Park", "page": "inAsburyPark"},
+    {"title": "Johnny Mac House of Spirits", "page": "Johnnymachouseofspirits"},
+    {"title": "Johnny's Pork-Roll and Coffee Truck", "page": "porkrolltruck"},
+    {"title": "Kim Marie's Eat n Drink Away", "page": "kimmarieseatndrinkaway"},
+    {"title": "Langosta Lounge", "page": "LangostaLounge"},
+    {"title": "Lentil Tree", "page": "LentilTree"},
+    {"title": "Lola's European Cafe", "page": "pages/Lolas-European-Cafe/212096058815710"},
+    {"title": "Market at Fifth Avenue", "page": "marketatfifthavenue"},
+    {"title": "McGillicuddy's Tap House", "page": "mcgillicuddyslakeside.taphouse"},
+    {"title": "MOGO", "page": "eatmogo"},
+    {"title": "Moonstruck Restaurant", "page": "pages/Moonstruck-Restaurant-Cocktail-Lounge/207630600679"},
+    {"title": "Ocean Grove Chamber of Commerce", "page": "oceangrovechamber"},
+    {"title": "Paradise", "page": "ParadiseNightclubAP"},
+    {"title": "Paramount Theatre", "page": "ParamountTheatreAP"},
+    {"title": "Paranormal Books & Curiosities", "page": "ParanormalNJ"},
+    {"title": "Pascal & Sabine", "page": "pascalandsabine"},
+    {"title": "Pop's Garage Mexican Cantina", "page": "PopsGarage"},
+    {"title": "Porta Asbury Park", "page": "pizzaportaculture"},
+    {"title": "Prohibition", "page": "prohibitionnj"},
+    {"title": "Redemption", "page": "Redemption-832774426830599"},
+    {"title": "The ShowRoom", "page": "TheShowRoomAP"},
+    {"title": "Silverball Museum Arcade", "page": "SilverballMuseumArcade"},
+    {"title": "The Speakeatery", "page": "TheSpeakeatery"},
+    {"title": "The Stephen Crane House", "page": "The-Stephen-Crane-House-92768250949"},
+    {"title": "The Stone Pony", "page": "stonepony"},
+    {"title": "Taka Restaurant", "page": "takaasbury"},
+    {"title": "Tim McCloone's Supper Club", "page": "timmcloonessupperclub"},
+    {"title": "Talula's", "page": "talulasap"},
+    {"title": "Toast Asbury Park", "page": "pages/Toast-Asbury-Park-NJ/279714352041812"},
+    {"title": "Toxic Tins Gallery", "page": "toxictinsgallery"},
+    {"title": "Watermark", "page": "watermarkap"},
+    {"title": "Wonder Bar", "page": "TheWonderBarNJ"}
 ];
 for (var i = 0; i < pages.length; i++) {
-    var anchor = document.createElement("a");
-    anchor.id = pages[i];
-    anchor.style.display = "block";
-    anchor.style.height = "30px";
-    anchor.style.background = "#ddd";
-    if (i < pages.length - 1) {
-        anchor.appendChild(document.createTextNode("Next"));
-        anchor.href = '#' + pages[i + 1];
-    }
-    else {
-        anchor.appendChild(document.createTextNode("Top"));
-        anchor.href = '#fb-root';
-    }
-    document.body.appendChild(anchor);
-
-    var div = document.createElement("div");
-    div.className = "fb-page";
-    div.setAttribute("data-href", "http://www.facebook.com/" + pages[i]);
-    div.setAttribute("data-width", "500");
-    div.setAttribute("data-height", "100%");
-    div.setAttribute("data-small-header", "true");
-    div.setAttribute("data-adapt-container-width", "true");
-    div.setAttribute("data-hide-cover", "false");
-    div.setAttribute("data-show-facepile", "false");
-    div.setAttribute("data-show-posts", "true");
-    document.body.appendChild(div);
+    var option = document.createElement('option');
+    option.appendChild(document.createTextNode(pages[i].title));
+    option.value = pages[i].page;
+    picker.appendChild(option);
 }
-var div = document.createElement("div");
-div.style.clear = "both";
-document.body.appendChild(div);
+picker.onchange();
 </script>
 
 <!--
