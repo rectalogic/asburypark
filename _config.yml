@@ -21,8 +21,8 @@
 title: Asbury Park Happy Hours
 description: >-
   List of restaurants in Asbury Park and their Happy Hour information
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/asburypark/"
+url: "https://rectalogic.github.io"
 
 # Build settings
 theme: minima
