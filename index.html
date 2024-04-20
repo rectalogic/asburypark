@@ -1,136 +1,80 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Asbury Park Happenings</title>
-<style type="text/css">
-.fb-like-box, .fb-like-box span, .fb-like-box.fb_iframe_widget span iframe {
-    width: 100% !important;
-}
-</style>
-</head>
-<body>
+---
+layout: default
+title: Asbury Park Happy Hours
+---
 
-<!--
-<a href="#fb-root">Facebook Pages</a>
-<div>
-<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/inAsburyParkNJ" data-widget-id="616715813085671424">Tweets by @inAsburyParkNJ</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</div>
--->
+<h2>Happy Hours</h2>
 
-<div>
-    <select id="picker" onchange="selectPage(this.value)"></select>
-    <button onclick="nextPage()">Next</button>
-</div>
+<table>
+    <thead>
+        <tr>
+            <th>Restaurant</th>
+            <th>Insta</th>
+            <th>Happy Hours</th>
+            <th>HH Menu</th>
+            <th>Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for restaurant in site.data.happy_hours %}
+            <tr>
+                <td>
+                    <a href="{{ restaurant.url }}">
+                        {{ restaurant.name }}
+                    </a>
+                </td>
+                <td>
+                    {% if restaurant.instagram %}
+                        <a href="https://www.instagram.com/{{ restaurant.instagram }}">
+                            <img width="25" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" />
+                        </a>
+                    {% endif %}
+                </td>
+                <td>
+                    <ul>
+                        {% for hh in restaurant.hh %}
+                            <li>{{ hh }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    {% if restaurant.hh_menu_url %}
+                        <a href="{{ restaurant.hh_menu_url }}">Menu</a>
+                    {% endif %}
+                </td>
+                <td>{{ restaurant.updated }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
-<div style="width:100%;">
-<div id="fb-page" class="fb-page" data-width="500px" data-height="100%" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"></div>
-</div>
+<h2>Unknown</h2>
 
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=646725368682467";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<script type="text/javascript">
-var fbPage = document.getElementById("fb-page");
-var picker = document.getElementById("picker");
-
-function selectPage(page) {
-    fbPage.setAttribute("data-href", "http://www.facebook.com/" + page);
-    if (typeof FB != 'undefined')
-        FB.XFBML.parse();
-}
-
-function nextPage() {
-    picker.selectedIndex = (picker.selectedIndex + 1) % picker.length;
-    picker.onchange();
-}
-
-var pages = [
-    {"title": "America's Cup Coffee Company", "page": "AmericasCupCoffeeCompany"},
-    {"title": "The Anchor's Bend", "page": "theanchorsbend"},
-    {"title": "APVibe Downton", "page": "ApvibeDowntownAsburyPark"},
-    {"title": "Asbury Ale House", "page": "Asburyalehouse"},
-    {"title": "Asbury Festhalle & Biergarten", "page": "Asburybiergarten"},
-    {"title": "Asbury Fresh", "page": "asburyfresh"},
-    {"title": "Asbury Lanes", "page": "asbury.lanes"},
-    {"title": "Asbury Oyster Bar", "page": "asburyoysterbar"},
-    {"title": "Asbury Park Boardwalk", "page": "TheAsburyParkBoardwalk"},
-    {"title": "Asbury Park Brewery", "page": "asburyparkbrewery"},
-    {"title": "Asbury Park Distilling", "page": "asburyparkdistilling"},
-    {"title": "Asbury Park Events", "page": "AsburyParkEvents"},
-    {"title": "Asbury Park Film Initiative", "page": "pages/Asbury-Park-Film-Initiative/185476197517"},
-    {"title": "Asbury Park Homeowners's Association", "page": "APHomeowners"},
-    {"title": "Asbury Park Sun", "page": "AsburyParkSun"},
-    {"title": "Asbury Park Yacht Club", "page": "AsburyParkYachtClub"},
-    {"title": "Asbury Park Waterfront", "page": "AsburyParkWaterfront"},
-    {"title": "The Beach Bar", "page": "pages/The-Beach-Bar/118218961550042"},
-    {"title": "Beach Haus Brewery", "page": "pages/Beach-Haus-Beer/128713067173452"},
-    {"title": "The Berkeley Oceanfront Hotel", "page": "The-Berkeley-Oceanfront-Hotel-403968719632014"},
-    {"title": "Bond Street Bar", "page": "Bond-Street-Bar-105889419454234"},
-    {"title": "The Bonney Read", "page": "The-Bonney-Read-1496114797304037"},
-    {"title": "Brickwall Tavern", "page": "BrickwallTavernAsburyPark"},
-    {"title": "Cafe Volan", "page": "cafevolan"},
-    {"title": "Cibo e Vino", "page": "ciboevinoap"},
-    {"title": "Cross & Orange", "page": "crossandorange"},
-    {"title": "Cubacan", "page": "CubacanAP"},
-    {"title": "Dark City Brewing Company", "page": "DarkCityBrewingCo"},
-    {"title": "FISH", "page": "FISHAsburyPark"},
-    {"title": "Frank's Deli", "page": "pages/Franks-Deli-Restaurant/116456965045235"},
-    {"title": "Happiness Bar & Grill", "page": "happinessbargrill"},
-    {"title": "Historical Society of Ocean Grove", "page": "pages/Historical-Society-of-Ocean-Grove/174017379308029"},
-    {"title": "Hotel Tides", "page": "pages/Hotel-Tides-Restaurant-Spa/169751627077"},
-    {"title": "House of Independents", "page": "houseofindependents"},
-    {"title": "IN! Asbury Park", "page": "inAsburyPark"},
-    {"title": "Johnny Mac House of Spirits", "page": "Johnnymachouseofspirits"},
-    {"title": "Johnny's Pork-Roll and Coffee Truck", "page": "porkrolltruck"},
-    {"title": "Kim Marie's Eat n Drink Away", "page": "kimmarieseatndrinkaway"},
-    {"title": "Langosta Lounge", "page": "LangostaLounge"},
-    {"title": "Lentil Tree", "page": "LentilTree"},
-    {"title": "Lola's European Cafe", "page": "pages/Lolas-European-Cafe/212096058815710"},
-    {"title": "Market at Fifth Avenue", "page": "marketatfifthavenue"},
-    {"title": "McGillicuddy's Tap House", "page": "mcgillicuddyslakeside.taphouse"},
-    {"title": "MOGO", "page": "eatmogo"},
-    {"title": "Moonstruck Restaurant", "page": "pages/Moonstruck-Restaurant-Cocktail-Lounge/207630600679"},
-    {"title": "Ocean Grove Chamber of Commerce", "page": "oceangrovechamber"},
-    {"title": "Paradise", "page": "ParadiseNightclubAP"},
-    {"title": "Paramount Theatre", "page": "ParamountTheatreAP"},
-    {"title": "Paranormal Books & Curiosities", "page": "ParanormalNJ"},
-    {"title": "Pascal & Sabine", "page": "pascalandsabine"},
-    {"title": "Pop's Garage Mexican Cantina", "page": "PopsGarage"},
-    {"title": "Porta Asbury Park", "page": "pizzaportaculture"},
-    {"title": "Prohibition", "page": "prohibitionnj"},
-    {"title": "Redemption", "page": "Redemption-832774426830599"},
-    {"title": "The ShowRoom", "page": "TheShowRoomAP"},
-    {"title": "Silverball Museum Arcade", "page": "SilverballMuseumArcade"},
-    {"title": "The Speakeatery", "page": "TheSpeakeatery"},
-    {"title": "The Stephen Crane House", "page": "The-Stephen-Crane-House-92768250949"},
-    {"title": "The Stone Pony", "page": "stonepony"},
-    {"title": "Taka Restaurant", "page": "takaasbury"},
-    {"title": "Tim McCloone's Supper Club", "page": "timmcloonessupperclub"},
-    {"title": "Talula's", "page": "talulasap"},
-    {"title": "Toast Asbury Park", "page": "pages/Toast-Asbury-Park-NJ/279714352041812"},
-    {"title": "Toxic Tins Gallery", "page": "toxictinsgallery"},
-    {"title": "Watermark", "page": "watermarkap"},
-    {"title": "Wonder Bar", "page": "TheWonderBarNJ"}
-];
-for (var i = 0; i < pages.length; i++) {
-    var option = document.createElement('option');
-    option.appendChild(document.createTextNode(pages[i].title));
-    option.value = pages[i].page;
-    picker.appendChild(option);
-}
-picker.onchange();
-</script>
-
-<!--
-http://www.asburyparkchamber.com/calendar.asp
-http://www.artscap.org/events/
--->
-</body>
-</html>
+<table>
+    <thead>
+        <tr>
+            <th>Restaurant</th>
+            <th>Insta</th>
+            <th>Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for restaurant in site.data.unknowns %}
+            <tr>
+                <td>
+                    <a href="{{ restaurant.url }}">
+                        {{ restaurant.name }}
+                    </a>
+                </td>
+                <td>
+                    {% if restaurant.instagram %}
+                        <a href="https://www.instagram.com/{{ restaurant.instagram }}">
+                            <img width="25" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" />
+                        </a>
+                    {% endif %}
+                </td>
+                <td>{{ restaurant.updated }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
