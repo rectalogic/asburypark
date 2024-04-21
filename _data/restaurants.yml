@@ -1,0 +1,205 @@
+# Keep sorted by restaurant name
+
+- name: AP Rooftop
+  url: https://www.timmcloonessupperclub.com/locations.php
+  instagram: ap.rooftop
+  updated: closed as of 04/16/24
+- name: Asbury Ale House
+  url: https://asburyalehouse.com/
+  instagram: asburyalehouse
+- name: Asbury Festhalle & Biergarten
+  url: https://www.asburybiergarten.com/
+  instagram: apbiergarten
+  updated: closed as of 04/16/24
+- name: Asbury Lanes Diner
+  url: https://www.asburylanes.com/diner/
+  instagram: asburylanesdiner
+- name: Asbury Oyster Bar
+  url: https://www.facebook.com/asburyoysterbar/
+  instagram: asburyoysterbar
+- name: Barrio Costero
+  url: "https://www.barriocostero.com/"
+  instagram: barriocosteroap
+  happy_hours:
+    - "Taco Tuesday: 2 Tacos + 1 margy for $17"
+    - "Thursday: All-Night Happy Hour"
+  updated: 04/16/24
+- name: The Berkeley Bar
+  url: https://www.berkeleyhotelnj.com/dining/berkeley-bar
+- name: The Black Swan
+  url: "https://www.theblackswanap.com/"
+  instagram: theblackswanap
+  happy_hours:
+    - "M,W-F 4-6pm, T 4-10pm, Sun 3-6pm"
+    - "50% off all alcohol, HH food menu"
+    - "Wed 2 for 1 burger night"
+  happy_hour_menu_url: "https://www.theblackswanap.com/happy-hour"
+  updated: 04/16/24
+- name: Bond Street Bar
+  url: https://bondstreetap.com/
+  instagram: bondstreetbar_ap
+- name: Brando's Citi Cucina
+  url: https://brandosnj.com/
+  instagram: brandosnj
+- name: The Break
+  url: https://www.thebreakap.com/
+  instagram: thebreakap
+- name: Capitoline
+  url: https://capitolineap.com/
+  instagram: capitoline_ap
+- name: Cross & Orange
+  url: https://crossandorangeap.com/
+  instagram: crossandorange
+- name: Deal Lake Bar + Co
+  url: "https://www.deallakebarco.com/"
+  instagram: deallakebarco
+  happy_hours:
+    - "M-F 3-6pm"
+    - "$4/6 select draft, $5 wine, $6 snacks"
+  happy_hour_menu_url: "https://static1.squarespace.com/static/600b85e76c455e4aedf86f82/t/6610508ad1800e6350e26fdf/1712345226801/Happy+Hour+Menu+Winter+2024.pdf"
+  updated: 04/16/24
+- name: Georgies Bar
+  url: https://georgiesbarap.com/
+  instagram: georgiesbarap
+- name: Homesick
+  url: "https://www.lovehomesick.com"
+  instagram: lovehomesick/
+  happy_hours:
+    - "M-F: 4pm–6pm & 9pm-close"
+  happy_hour_menu_url: "https://www.lovehomesick.com/menu"
+  updated: 04/16/24
+- name: Iron Whale
+  url: "https://www.ironwhalenj.com/"
+  instagram: ironwhale_asburypark
+  happy_hours:
+    - "M-F 3-6pm"
+    - "half price tacos & small plates, $3 off beer, $6 marg, $4 off wine, $5 off cocktails"
+  happy_hour_menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2023/IW_HappyHour_092323.pdf"
+  updated: 04/16/24
+- name: Jimmy's Italian
+  url: https://www.jimmysitalianrestaurant.com/
+  instagram: jimmys_asbury
+- name: Johnny Mac
+  url: "https://www.johnnymacbar.com/"
+  instagram: johnnymacs_nj
+  happy_hours:
+    - "free pizza every day"
+    - "free omelettes Sun 10-3pm"
+  updated: 04/16/24
+- name: Kim Maries
+  url: "https://www.kimmarieseatndrinkaway.com/"
+  instagram: kimmaries_nj
+  happy_hours:
+    - "M-F 4-6pm"
+    - "$5 local drafts, $6 wine/sangria, $7 mixed drinks, HH food menu"
+  happy_hour_menu_url: h"ttps://www.kimmarieseatndrinkaway.com/menus/#happy"
+  updated: 04/16/24
+- name: Laylow
+  url: "https://www.laylowap.com/"
+  instagram: laylowap
+  happy_hours:
+    - "Sun 3-5pm"
+    - "$8 Classic Cocktails"
+  updated: 04/16/24
+- name: Lola's European Cafe
+  url: https://lolaseuropeancafe.com/
+  instagram: lolascafeasbury
+- name: Loteria
+  url: https://loteriaap.com/
+  instagram: loteria_ap
+- name: Low Dive
+  url: https://www.lowdiveap.com/
+  instagram: lowdiveap
+- name: The Mainstay
+  url: "https://www.itsthemainstay.com/"
+  instagram: itsthemainstay
+  happy_hours:
+    - "50% off drinks and shareables"
+    - "Mon all night"
+  happy_hour_menu_url: "https://www.instagram.com/p/C48koy2gffJ"
+  updated: 04/16/24
+- name: Moonstruck
+  url: http://moonstrucknj.com/
+  instagram: moonstrucknj
+- name: Pascal & Sabine
+  url: "https://pascalandsabine.com/"
+  instagram: pascalandsabine
+  happy_hours:
+    - "M-F 4-6pm"
+    - "$6 select beer, $12 cocktails, $10 martini, $8 wine, HH food menu"
+  updated: 04/16/24
+- name: Plaza Tapatia
+  url: https://tapatiarestaurant.com/
+  instagram: plazatapatia
+- name: Porta
+  url: "https://pizzaporta.com/asbury-park/"
+  instagram: portaasburypark
+  happy_hours:
+    - "M-F 4-6pm"
+    - "$5 select draft, $6 wine, $7 cocktails, HH food menu"
+  happy_hour_menu_url: "https://pizzaporta.com/menus"
+  updated: 04/16/24
+- name: R Bar
+  url: https://www.itsrbar.com/
+  instagram: rbar_asburypark
+- name: Reyla
+  url: "https://www.heyreyla.com/"
+  instagram: heyreyla
+  happy_hours:
+    - "Wed all night"
+    - "Th,F 4-6pm"
+    - "Th Date Night Menu"
+  happy_hour_menu_url: "https://www.heyreyla.com/eat"
+  updated: 04/16/24
+- name: Robinson Ale House
+  url: "https://www.therobinsonalehouseasburypark.com/"
+  instagram: robinsonalehouse
+  happy_hours:
+    - "M-F 2-6pm"
+    - "$4 draft, $7 marg,sangria,wine, $8 cocktails, HH food menu"
+  happy_hour_menu_url: "https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2023/R_AP_HappyHour_102023.pdf"
+  updated: 04/16/24
+- name: St. Laurent
+  url: https://thestlaurent.com
+  instagram: thestlaurentsocialclub
+- name: Salvation
+  url: https://www.theasburyhotel.com/eat-and-drink/salvation
+- name: Seahorse
+  url: https://seahorseasburypark.com/
+  instagram: seahorseasburypark
+- name: Soundbooth
+  url: https://www.theasburyhotel.com/eat-and-drink/soundbooth
+- name: Stella Marina
+  url: "https://stellamarinarestaurant.com"
+  instagram: stellamarinaasbury
+  happy_hours:
+    - "M-F 3-6pm"
+    - "Sat 12-3pm"
+    - "Sun 12-9pm"
+  updated: 04/16/24
+- name: Swimcrush AP
+  url: "https://www.swimcrushap.com"
+  instagram: swimcrushap
+  happy_hours:
+    - "M-Th 3-7pm"
+  happy_hour_menu_url: "https://www.swimcrushap.com/specials-2"
+  updated: closed as of 04/16/24
+- name: Taka
+  url: https://www.takaasbury.com/
+  instagram: takarestaurant
+- name: Talula's
+  url: https://talulaspizza.com/
+  instagram: talulaspizza
+- name: Tim McCloone's Supper Club
+  url: https://www.timmcloonessupperclub.com/
+  instagram: timmcloonessupperclub
+- name: Watermark
+  url: "https://watermarkap.com/"
+  instagram: watermark_asbury_park
+  happy_hours:
+    - "Th all night, cocktails"
+  happy_hour_menu_url: "https://menu.thesafemenu.com/watermark/menus/happy-hour/"
+  updated: 04/16/24
+- name: Wonder Bar
+  url: https://wonderbarasburypark.com/
+  instagram: thewonderbarofficial

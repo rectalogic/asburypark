@@ -2,6 +2,9 @@
 layout: home
 ---
 
+{% assign hh_restaurants = site.data.restaurants | where_exp: "restaurant", "restaurant.happy_hours != nil" %}
+{% assign unknown_restaurants = site.data.restaurants | where: "happy_hours", nil %}
+
 <h2>Happy Hours</h2>
 
 <table>
@@ -15,7 +18,7 @@ layout: home
         </tr>
     </thead>
     <tbody>
-        {% for restaurant in site.data.happy_hours %}
+        {% for restaurant in hh_restaurants %}
             <tr>
                 <td>
                     <a href="{{ restaurant.url }}">
@@ -31,14 +34,14 @@ layout: home
                 </td>
                 <td>
                     <ul>
-                        {% for hh in restaurant.hh %}
+                        {% for hh in restaurant.happy_hours %}
                             <li>{{ hh }}</li>
                         {% endfor %}
                     </ul>
                 </td>
                 <td>
-                    {% if restaurant.hh_menu_url %}
-                        <a href="{{ restaurant.hh_menu_url }}">Menu</a>
+                    {% if restaurant.happy_hour_menu_url %}
+                        <a href="{{ restaurant.happy_hour_menu_url }}">Menu</a>
                     {% endif %}
                 </td>
                 <td>{{ restaurant.updated }}</td>
@@ -58,7 +61,7 @@ layout: home
         </tr>
     </thead>
     <tbody>
-        {% for restaurant in site.data.unknowns %}
+        {% for restaurant in unknown_restaurants %}
             <tr>
                 <td>
                     <a href="{{ restaurant.url }}">
