@@ -2,8 +2,9 @@
 layout: home
 ---
 
-{% assign hh_restaurants = site.data.restaurants | where_exp: "restaurant", "restaurant.happy_hours != nil" %}
-{% assign unknown_restaurants = site.data.restaurants | where: "happy_hours", nil %}
+{% assign hh_restaurants = site.data.restaurants | where: "type", "happy_hour" %}
+{% assign unknown_restaurants = site.data.restaurants | where: "type", "unknown" %}
+{% assign byob_restaurants = site.data.restaurants | where: "type", "byob" %}
 
 <h2>Happy Hours</h2>
 
@@ -42,6 +43,38 @@ layout: home
                 <td>
                     {% if restaurant.happy_hour_menu_url %}
                         <a href="{{ restaurant.happy_hour_menu_url }}">Menu</a>
+                    {% endif %}
+                </td>
+                <td>{{ restaurant.updated }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<h2>BYOB</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Restaurant</th>
+            <th>Insta</th>
+            <th>Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for restaurant in byob_restaurants %}
+            <tr>
+                <td>
+                    <a href="{{ restaurant.url }}">
+                        {{ restaurant.name }}
+                    </a>
+                </td>
+                <td>
+                    {% if restaurant.instagram %}
+                        <a href="https://www.instagram.com/{{ restaurant.instagram }}">
+                            <img width="25" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" />
+                        </a>
                     {% endif %}
                 </td>
                 <td>{{ restaurant.updated }}</td>

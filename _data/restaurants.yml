@@ -4,19 +4,32 @@
   url: https://www.timmcloonessupperclub.com/locations.php
   instagram: ap.rooftop
   updated: closed as of 04/16/24
+  type: unknown
+- name: Ada's Gojjo
+  url: "https://adagojjo.com/"
+  instagram: adagojjo
+  updated: 04/16/24
+  type: byob
 - name: Asbury Ale House
   url: https://asburyalehouse.com/
   instagram: asburyalehouse
+  updated: 04/16/24
+  type: unknown
 - name: Asbury Festhalle & Biergarten
   url: https://www.asburybiergarten.com/
   instagram: apbiergarten
   updated: closed as of 04/16/24
+  type: unknown
 - name: Asbury Lanes Diner
   url: https://www.asburylanes.com/diner/
   instagram: asburylanesdiner
+  updated: 04/16/24
+  type: unknown
 - name: Asbury Oyster Bar
   url: https://www.facebook.com/asburyoysterbar/
   instagram: asburyoysterbar
+  updated: 04/16/24
+  type: unknown
 - name: Barrio Costero
   url: "https://www.barriocostero.com/"
   instagram: barriocosteroap
@@ -24,8 +37,16 @@
     - "Taco Tuesday: 2 Tacos + 1 margy for $17"
     - "Thursday: All-Night Happy Hour"
   updated: 04/16/24
+  type: happy_hour
+- name: Belmontes Ristorante
+  url: "http://belmontesap.com/"
+  instagram: belmontesap
+  updated: 04/16/24
+  type: byob
 - name: The Berkeley Bar
   url: https://www.berkeleyhotelnj.com/dining/berkeley-bar
+  updated: 04/16/24
+  type: unknown
 - name: The Black Swan
   url: "https://www.theblackswanap.com/"
   instagram: theblackswanap
@@ -35,21 +56,41 @@
     - "Wed 2 for 1 burger night"
   happy_hour_menu_url: "https://www.theblackswanap.com/happy-hour"
   updated: 04/16/24
+  type: happy_hour
 - name: Bond Street Bar
   url: https://bondstreetap.com/
   instagram: bondstreetbar_ap
+  updated: 04/16/24
+  type: unknown
 - name: Brando's Citi Cucina
   url: https://brandosnj.com/
   instagram: brandosnj
+  updated: 04/16/24
+  type: unknown
 - name: The Break
   url: https://www.thebreakap.com/
   instagram: thebreakap
+  updated: 04/16/24
+  type: unknown
 - name: Capitoline
   url: https://capitolineap.com/
   instagram: capitoline_ap
+  updated: 04/16/24
+  type: unknown
+- name: "The Chat & Nibble"
+  url: "https://www.thechatandnibble.com/"
+  instagram: chatnnibble
+  updated: 04/16/24
+  type: byob
 - name: Cross & Orange
   url: https://crossandorangeap.com/
   instagram: crossandorange
+  updated: 04/16/24
+  type: unknown
+- name: Crust & Crumble Pizzeria
+  url: "https://crustandcrumble.com/"
+  updated: 04/16/24
+  type: byob
 - name: Deal Lake Bar + Co
   url: "https://www.deallakebarco.com/"
   instagram: deallakebarco
@@ -58,9 +99,27 @@
     - "$4/6 select draft, $5 wine, $6 snacks"
   happy_hour_menu_url: "https://static1.squarespace.com/static/600b85e76c455e4aedf86f82/t/6610508ad1800e6350e26fdf/1712345226801/Happy+Hour+Menu+Winter+2024.pdf"
   updated: 04/16/24
+  type: happy_hour
+- name: Dolce Fantasia
+  url: "http://www.dolcefantasia.us/"
+  instagram: dolce_fantasia_asbury_park
+  updated: 04/16/24
+  type: byob
+- name: El Rey
+  url: "https://www.elreyasburypark.com/"
+  instagram: elreyasbury
+  updated: 04/16/24
+  type: byob
+- name: "Flavia's Cucina Romana"
+  url: "https://www.flaviascucina.com/"
+  instagram: flaviascucina
+  updated: 04/16/24
+  type: unknown
 - name: Georgies Bar
   url: https://georgiesbarap.com/
   instagram: georgiesbarap
+  updated: 04/16/24
+  type: unknown
 - name: Homesick
   url: "https://www.lovehomesick.com"
   instagram: lovehomesick/
@@ -68,6 +127,7 @@
     - "M-F: 4pm–6pm & 9pm-close"
   happy_hour_menu_url: "https://www.lovehomesick.com/menu"
   updated: 04/16/24
+  type: happy_hour
 - name: Iron Whale
   url: "https://www.ironwhalenj.com/"
   instagram: ironwhale_asburypark
@@ -76,9 +136,12 @@
     - "half price tacos & small plates, $3 off beer, $6 marg, $4 off wine, $5 off cocktails"
   happy_hour_menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2023/IW_HappyHour_092323.pdf"
   updated: 04/16/24
+  type: happy_hour
 - name: Jimmy's Italian
   url: https://www.jimmysitalianrestaurant.com/
   instagram: jimmys_asbury
+  updated: 04/16/24
+  type: unknown
 - name: Johnny Mac
   url: "https://www.johnnymacbar.com/"
   instagram: johnnymacs_nj
@@ -86,6 +149,7 @@
     - "free pizza every day"
     - "free omelettes Sun 10-3pm"
   updated: 04/16/24
+  type: happy_hour
 - name: Kim Maries
   url: "https://www.kimmarieseatndrinkaway.com/"
   instagram: kimmaries_nj
@@ -94,6 +158,12 @@
     - "$5 local drafts, $6 wine/sangria, $7 mixed drinks, HH food menu"
   happy_hour_menu_url: h"ttps://www.kimmarieseatndrinkaway.com/menus/#happy"
   updated: 04/16/24
+  type: happy_hour
+- name: Kimchee Mama
+  url: "https://kimchimama.net/"
+  instagram: kimchimama_dalgona
+  updated: 04/16/24
+  type: byob
 - name: Laylow
   url: "https://www.laylowap.com/"
   instagram: laylowap
@@ -101,15 +171,22 @@
     - "Sun 3-5pm"
     - "$8 Classic Cocktails"
   updated: 04/16/24
+  type: happy_hour
 - name: Lola's European Cafe
   url: https://lolaseuropeancafe.com/
   instagram: lolascafeasbury
+  updated: 04/16/24
+  type: unknown
 - name: Loteria
   url: https://loteriaap.com/
   instagram: loteria_ap
+  updated: 04/16/24
+  type: unknown
 - name: Low Dive
   url: https://www.lowdiveap.com/
   instagram: lowdiveap
+  updated: 04/16/24
+  type: unknown
 - name: The Mainstay
   url: "https://www.itsthemainstay.com/"
   instagram: itsthemainstay
@@ -118,9 +195,27 @@
     - "Mon all night"
   happy_hour_menu_url: "https://www.instagram.com/p/C48koy2gffJ"
   updated: 04/16/24
+  type: happy_hour
+- name: Mayan Restaurant
+  url: "https://mayanrestaurantnj.com/"
+  instagram: "mayan._.restaurant"
+  updated: 04/16/24
+  type: byob
+- name: Mogo
+  url: "https://eatmogo.com/"
+  instagram: eatmogo
+  updated: 04/16/24
+  type: byob
 - name: Moonstruck
   url: http://moonstrucknj.com/
   instagram: moonstrucknj
+  updated: 04/16/24
+  type: unknown
+- name: Mutiny BBQ Co
+  url: "https://www.mutinybbq.com/"
+  instagram: mutinybbq
+  updated: 04/16/24
+  type: byob
 - name: Pascal & Sabine
   url: "https://pascalandsabine.com/"
   instagram: pascalandsabine
@@ -128,9 +223,12 @@
     - "M-F 4-6pm"
     - "$6 select beer, $12 cocktails, $10 martini, $8 wine, HH food menu"
   updated: 04/16/24
+  type: happy_hour
 - name: Plaza Tapatia
   url: https://tapatiarestaurant.com/
   instagram: plazatapatia
+  updated: 04/16/24
+  type: unknown
 - name: Porta
   url: "https://pizzaporta.com/asbury-park/"
   instagram: portaasburypark
@@ -139,9 +237,12 @@
     - "$5 select draft, $6 wine, $7 cocktails, HH food menu"
   happy_hour_menu_url: "https://pizzaporta.com/menus"
   updated: 04/16/24
+  type: happy_hour
 - name: R Bar
   url: https://www.itsrbar.com/
   instagram: rbar_asburypark
+  updated: 04/16/24
+  type: unknown
 - name: Reyla
   url: "https://www.heyreyla.com/"
   instagram: heyreyla
@@ -151,6 +252,7 @@
     - "Th Date Night Menu"
   happy_hour_menu_url: "https://www.heyreyla.com/eat"
   updated: 04/16/24
+  type: happy_hour
 - name: Robinson Ale House
   url: "https://www.therobinsonalehouseasburypark.com/"
   instagram: robinsonalehouse
@@ -159,16 +261,30 @@
     - "$4 draft, $7 marg,sangria,wine, $8 cocktails, HH food menu"
   happy_hour_menu_url: "https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2023/R_AP_HappyHour_102023.pdf"
   updated: 04/16/24
+  type: happy_hour
 - name: St. Laurent
   url: https://thestlaurent.com
   instagram: thestlaurentsocialclub
+  updated: 04/16/24
+  type: unknown
 - name: Salvation
   url: https://www.theasburyhotel.com/eat-and-drink/salvation
+  updated: 04/16/24
+  type: unknown
 - name: Seahorse
   url: https://seahorseasburypark.com/
   instagram: seahorseasburypark
+  updated: 04/16/24
+  type: unknown
 - name: Soundbooth
   url: https://www.theasburyhotel.com/eat-and-drink/soundbooth
+  updated: 04/16/24
+  type: unknown
+- name: Speakeatery
+  url: "https://www.thespeakeatery.com/"
+  instagram: speakeatery
+  updated: 04/16/24
+  type: byob
 - name: Stella Marina
   url: "https://stellamarinarestaurant.com"
   instagram: stellamarinaasbury
@@ -177,6 +293,7 @@
     - "Sat 12-3pm"
     - "Sun 12-9pm"
   updated: 04/16/24
+  type: happy_hour
 - name: Swimcrush AP
   url: "https://www.swimcrushap.com"
   instagram: swimcrushap
@@ -184,15 +301,27 @@
     - "M-Th 3-7pm"
   happy_hour_menu_url: "https://www.swimcrushap.com/specials-2"
   updated: closed as of 04/16/24
+  type: happy_hour
 - name: Taka
   url: https://www.takaasbury.com/
   instagram: takarestaurant
+  updated: 04/16/24
+  type: unknown
 - name: Talula's
   url: https://talulaspizza.com/
   instagram: talulaspizza
+  updated: 04/16/24
+  type: unknown
+- name: Tic Taco Taqueria
+  url: "https://tictacotaquerianj.com/"
+  instagram: tictacotaquerianj
+  updated: 04/16/24
+  type: byob
 - name: Tim McCloone's Supper Club
   url: https://www.timmcloonessupperclub.com/
   instagram: timmcloonessupperclub
+  updated: 04/16/24
+  type: unknown
 - name: Watermark
   url: "https://watermarkap.com/"
   instagram: watermark_asbury_park
@@ -200,6 +329,9 @@
     - "Th all night, cocktails"
   happy_hour_menu_url: "https://menu.thesafemenu.com/watermark/menus/happy-hour/"
   updated: 04/16/24
+  type: happy_hour
 - name: Wonder Bar
-  url: https://wonderbarasburypark.com/
+  url: "https://wonderbarasburypark.com/"
   instagram: thewonderbarofficial
+  updated: 04/16/24
+  type: unknown
