@@ -253,6 +253,11 @@
   happy_hour_menu_url: "https://www.heyreyla.com/eat"
   updated: 04/16/24
   type: happy_hour
+- name: Rice Asian Cuisine
+  url: "https://www.riceasiancuisinenj.com"
+  instagram: riceasiancuisine
+  updated: 04/16/24
+  type: byob
 - name: Robinson Ale House
   url: "https://www.therobinsonalehouseasburypark.com/"
   instagram: robinsonalehouse
