@@ -13,8 +13,8 @@ layout: home
         <tr>
             <th>Restaurant</th>
             <th>Insta</th>
-            <th>Happy Hours</th>
             <th>HH Menu</th>
+            <th>Happy Hours</th>
             <th>Updated</th>
         </tr>
     </thead>
@@ -34,16 +34,16 @@ layout: home
                     {% endif %}
                 </td>
                 <td>
+                    {% if restaurant.happy_hour_menu_url %}
+                        <a href="{{ restaurant.happy_hour_menu_url }}">Menu</a>
+                    {% endif %}
+                </td>
+                <td>
                     <ul>
                         {% for hh in restaurant.happy_hours %}
                             <li>{{ hh }}</li>
                         {% endfor %}
                     </ul>
-                </td>
-                <td>
-                    {% if restaurant.happy_hour_menu_url %}
-                        <a href="{{ restaurant.happy_hour_menu_url }}">Menu</a>
-                    {% endif %}
                 </td>
                 <td>{{ restaurant.updated }}</td>
             </tr>
