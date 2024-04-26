@@ -278,9 +278,10 @@
   instagram: robinsonalehouse
   happy_hours:
     - "M-F 2-6pm"
+    - All night Mon
     - "$4 draft, $7 marg,sangria,wine, $8 cocktails, HH food menu"
   happy_hour_menu_url: "https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2023/R_AP_HappyHour_102023.pdf"
-  updated: 04/16/24
+  updated: 04/26/24
   type: happy_hour
 - name: St. Laurent
   url: https://thestlaurent.com
