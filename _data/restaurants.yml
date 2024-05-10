@@ -221,6 +221,11 @@
   happy_hour_menu_url: "https://www.instagram.com/p/C48koy2gffJ"
   updated: 04/16/24
   type: happy_hour
+- name: "Mark's Place"
+  url: "http://places.singleplatform.com/marks-place--restaurant/menu"
+  instagram: marksplace_
+  updated: 05/10/24
+  type: byob
 - name: Mayan Restaurant
   url: "https://mayanrestaurantnj.com/"
   instagram: "mayan._.restaurant"
@@ -249,6 +254,10 @@
     - "$6 select beer, $12 cocktails, $10 martini, $8 wine, HH food menu"
   updated: 04/16/24
   type: happy_hour
+- name: Plaza Garibaldi
+  url: "https://garibaldimexicanfood.com/"
+  updated: 05/10/24
+  type: byob
 - name: Plaza Tapatia
   url: https://tapatiarestaurant.com/
   instagram: plazatapatia
@@ -333,6 +342,11 @@
   happy_hour_menu_url: "https://www.swimcrushap.com/specials-2"
   updated: closed as of 04/16/24
   type: happy_hour
+- name: "TJ's Pizza"
+  url: "https://ordertjspizzanj.com/"
+  instagram: t.j.spizzeria
+  updated: 05/10/24
+  type: byob
 - name: Taka
   url: https://www.takaasbury.com/
   instagram: takarestaurant
