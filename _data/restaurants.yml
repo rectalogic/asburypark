@@ -340,7 +340,7 @@
   happy_hours:
     - "M-Th 3-7pm"
   happy_hour_menu_url: "https://www.swimcrushap.com/specials-2"
-  updated: closed as of 04/16/24
+  updated: 05/11/24
   type: happy_hour
 - name: "TJ's Pizza"
   url: "https://ordertjspizzanj.com/"
