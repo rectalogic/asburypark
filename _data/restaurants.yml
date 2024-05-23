@@ -221,6 +221,11 @@
   happy_hour_menu_url: "https://www.instagram.com/p/C48koy2gffJ"
   updated: 04/16/24
   type: happy_hour
+- name: Makanas
+  url: "https://makanasnj.com/"
+  instagram: makanasnj
+  updated: 05/23/24
+  type: byob
 - name: "Mark's Place"
   url: "http://places.singleplatform.com/marks-place--restaurant/menu"
   instagram: marksplace_
