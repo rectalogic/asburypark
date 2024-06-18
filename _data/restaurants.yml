@@ -152,10 +152,10 @@
   url: "https://www.ironwhalenj.com/"
   instagram: ironwhale_asburypark
   happy_hours:
-    - "M-F 3-6pm"
+    - "M-F 1-4pm"
     - "half price tacos & small plates, $3 off beer, $6 marg, $4 off wine, $5 off cocktails"
-  happy_hour_menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2023/IW_HappyHour_092323.pdf"
-  updated: 04/16/24
+  happy_hour_menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2024/IW_HappyHour_060324.pdf"
+  updated: 06/18/24
   type: happy_hour
 - name: Jimmy's Italian
   url: https://www.jimmysitalianrestaurant.com/
