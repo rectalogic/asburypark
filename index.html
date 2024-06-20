@@ -22,16 +22,10 @@ layout: home
         {% for restaurant in hh_restaurants %}
             <tr>
                 <td>
-                    <a href="{{ restaurant.url }}">
-                        {{ restaurant.name }}
-                    </a>
+                    {% include restaurant.html restaurant=restaurant %}
                 </td>
                 <td>
-                    {% if restaurant.instagram %}
-                        <a href="https://www.instagram.com/{{ restaurant.instagram }}">
-                            <img width="25" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" />
-                        </a>
-                    {% endif %}
+                    {% include instagram.html restaurant=restaurant %}
                 </td>
                 <td>
                     {% if restaurant.happy_hour_menu_url %}
@@ -66,16 +60,10 @@ layout: home
         {% for restaurant in byob_restaurants %}
             <tr>
                 <td>
-                    <a href="{{ restaurant.url }}">
-                        {{ restaurant.name }}
-                    </a>
+                    {% include restaurant.html restaurant=restaurant %}
                 </td>
                 <td>
-                    {% if restaurant.instagram %}
-                        <a href="https://www.instagram.com/{{ restaurant.instagram }}">
-                            <img width="25" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" />
-                        </a>
-                    {% endif %}
+                    {% include instagram.html restaurant=restaurant %}
                 </td>
                 <td>{{ restaurant.updated }}</td>
             </tr>
@@ -97,16 +85,10 @@ layout: home
         {% for restaurant in unknown_restaurants %}
             <tr>
                 <td>
-                    <a href="{{ restaurant.url }}">
-                        {{ restaurant.name }}
-                    </a>
+                    {% include restaurant.html restaurant=restaurant %}
                 </td>
                 <td>
-                    {% if restaurant.instagram %}
-                        <a href="https://www.instagram.com/{{ restaurant.instagram }}">
-                            <img width="25" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" />
-                        </a>
-                    {% endif %}
+                    {% include instagram.html restaurant=restaurant %}
                 </td>
                 <td>{{ restaurant.updated }}</td>
             </tr>

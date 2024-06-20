@@ -2,41 +2,49 @@
 
 - name: AP Rooftop
   url: https://www.timmcloonessupperclub.com/locations.php
+  map: https://maps.app.goo.gl/f6RFthcQQrifNNwn8
   instagram: ap.rooftop
-  updated: closed as of 04/16/24
+  updated: 06/20/24
   type: unknown
 - name: Ada's Gojjo
   url: "https://adagojjo.com/"
+  map: https://maps.app.goo.gl/nJi3bs3Sy1EGjbgX7
   instagram: adagojjo
   updated: 04/16/24
   type: byob
 - name: Asbury Ale House
   url: https://asburyalehouse.com/
+  map: https://maps.app.goo.gl/iJx2hGS5UWZpFTgr9
   instagram: asburyalehouse
   updated: 04/16/24
   type: unknown
 - name: Asbury Festhalle & Biergarten
   url: https://www.asburybiergarten.com/
+  map: https://maps.app.goo.gl/pCUcJKrohgecvbse8
   instagram: apbiergarten
-  updated: closed as of 04/16/24
+  updated: closed as of 06/20/24
   type: unknown
 - name: Asbury Lanes Diner
   url: https://www.asburylanes.com/diner/
+  map: https://maps.app.goo.gl/SbJ9RtgSfWNwAjED7
   instagram: asburylanesdiner
   updated: 04/16/24
   type: unknown
 - name: Asbury Oyster Bar
   url: https://www.facebook.com/asburyoysterbar/
+  map: https://maps.app.goo.gl/Rj1pA4hr4oYHChWd9
   instagram: asburyoysterbar
   updated: 04/16/24
   type: unknown
 - name: Los Barbaros Birria
   url: https://www.losbarbarosbirriabelmar.com/
+  map: https://maps.app.goo.gl/KrCGgovXgu4D73ea9
   instagram: losbarbaros_birria
   updated: 04/16/24
   type: byob
 - name: Barrio Costero
   url: "https://www.barriocostero.com/"
+  map: https://maps.app.goo.gl/5sL6b3uXFjzcmY3U6
   instagram: barriocosteroap
   happy_hours:
     - "Taco Tuesday: 2 Tacos + 1 margy for $17"
@@ -45,64 +53,76 @@
   type: happy_hour
 - name: Belmontes Ristorante
   url: "http://belmontesap.com/"
+  map: https://maps.app.goo.gl/uZy6Ctyafocmjp859
   instagram: belmontesap
   updated: 04/16/24
   type: byob
 - name: The Berkeley Bar
   url: https://www.berkeleyhotelnj.com/dining/berkeley-bar
+  map: https://maps.app.goo.gl/Gf2YqmmdMf7AC5tm9
   updated: 04/16/24
   type: unknown
 - name: The Black Swan
   url: "https://www.theblackswanap.com/"
+  map: https://maps.app.goo.gl/JiKYhYvKsK2ysBZs9
   instagram: theblackswanap
   happy_hours:
     - "M,W-F 3-6pm, Tue 3-10pm, Sun 3-6pm"
     - "50% off all alcohol, HH food menu"
     - "Wed 2 for 1 burger night"
   happy_hour_menu_url: "https://www.theblackswanap.com/happy-hour"
-  updated: 05/08/24
+  updated: 06/20/24
   type: happy_hour
 - name: Bond Street Bar
   url: https://bondstreetap.com/
+  map: https://maps.app.goo.gl/Gz3BEW7RpHn7iBpd6
   instagram: bondstreetbar_ap
   updated: 04/16/24
   type: unknown
 - name: Brando's Citi Cucina
   url: https://brandosnj.com/
+  map: https://maps.app.goo.gl/QB8LVem8uGnJD9gXA
   instagram: brandosnj
   updated: 04/16/24
   type: unknown
 - name: The Break
   url: https://www.thebreakap.com/
+  map: https://maps.app.goo.gl/R5wBhSFWS6jktdxF7
   instagram: thebreakap
   updated: 04/16/24
   type: unknown
 - name: Capitoline
   url: https://capitolineap.com/
+  map: https://maps.app.goo.gl/HYVrZQRjA4NaWxpS9
   instagram: capitoline_ap
   updated: 04/16/24
   type: unknown
-- name: Catbird
+- name: Catbird Asbury Park
   url: "https://www.catbirdap.com/"
+  map: https://maps.app.goo.gl/BciWyaJFGhoMhtPaA
   instagram: catbird_ap
   updated: 05/09/24
   type: byob
 - name: "The Chat & Nibble"
   url: "https://www.thechatandnibble.com/"
+  map: https://maps.app.goo.gl/az1YzgUhcHuLcZCU9
   instagram: chatnnibble
   updated: 04/16/24
   type: byob
 - name: Cross & Orange
   url: https://crossandorangeap.com/
+  map: https://maps.app.goo.gl/7DnUL7wWoUacvad88
   instagram: crossandorange
   updated: 04/16/24
   type: unknown
 - name: Crust & Crumble Pizzeria
   url: "https://crustandcrumble.com/"
+  map: https://maps.app.goo.gl/kzehCAuoz21Ls8bM8
   updated: 04/16/24
   type: byob
 - name: Deal Lake Bar + Co
   url: "https://www.deallakebarco.com/"
+  map: https://maps.app.goo.gl/SoejiCRDyHyMpaNc7
   instagram: deallakebarco
   happy_hours:
     - "M-F 3-6pm"
@@ -112,36 +132,43 @@
   type: happy_hour
 - name: Dolce Fantasia
   url: "http://www.dolcefantasia.us/"
+  map: https://maps.app.goo.gl/J13Qdy8hNtmdkv3u6
   instagram: dolce_fantasia_asbury_park
   updated: 04/16/24
   type: byob
 - name: El Rey
   url: "https://www.elreyasburypark.com/"
+  map: https://maps.app.goo.gl/zHPGBUj4HRDzZYvY7
   instagram: elreyasbury
   updated: 04/16/24
   type: byob
 - name: "Flavia's Cucina Romana"
   url: "https://www.flaviascucina.com/"
+  map: https://maps.app.goo.gl/XuU2Kvk8XJZhfDEK6
   instagram: flaviascucina
   updated: 04/16/24
   type: unknown
 - name: Georgies Bar
   url: https://georgiesbarap.com/
+  map: https://maps.app.goo.gl/wf4CE24A9YpvtMEn6
   instagram: georgiesbarap
   updated: 04/16/24
   type: unknown
 - name: El Guacamole
   url: https://www.facebook.com/ELGUACAMOLEPOINTPLEASANT
+  map: https://maps.app.goo.gl/8aM3229uuRQ5BNYz8
   instagram: guacamoleap
   updated: 04/16/24
   type: byob
 - name: Hadaka
-  # url: https://hadakaasbury.com
+  url: https://hadakanj.com/
+  map: https://maps.app.goo.gl/manwyZKgebzGTf3u7
   instagram: hadakaasbury
-  updated: 05/08/24
+  updated: 06/20/24
   type: byob
 - name: Homesick
   url: "https://www.lovehomesick.com"
+  map: https://maps.app.goo.gl/ec8WZbz7MxZEA7j99
   instagram: lovehomesick/
   happy_hours:
     - "M-F: 4pm–6pm & 9pm-close"
@@ -150,6 +177,7 @@
   type: happy_hour
 - name: Iron Whale
   url: "https://www.ironwhalenj.com/"
+  map: https://maps.app.goo.gl/XTH1TCX3uhLAhEnA7
   instagram: ironwhale_asburypark
   happy_hours:
     - "M-F 1-4pm"
@@ -159,11 +187,13 @@
   type: happy_hour
 - name: Jimmy's Italian
   url: https://www.jimmysitalianrestaurant.com/
+  map: https://maps.app.goo.gl/rMbtjApqgxraj5ap8
   instagram: jimmys_asbury
   updated: 04/16/24
   type: unknown
 - name: Johnny Mac
   url: "https://www.johnnymacbar.com/"
+  map: https://maps.app.goo.gl/syPQ7ghpEdEWFyoN8
   instagram: johnnymacs_nj
   happy_hours:
     - "free pizza every day"
@@ -172,11 +202,13 @@
   type: happy_hour
 - name: Killer Pies
   url: "https://killerpies.com/"
+  map: https://maps.app.goo.gl/ZifwDfKhqGLhPNEr7
   instagram: killerpiesap
-  updated: 04/16/24
+  updated: closed as of 06/20/24
   type: byob
 - name: Kim Maries
   url: "https://www.kimmarieseatndrinkaway.com/"
+  map: https://maps.app.goo.gl/gfUG4XZcvStqBq8v9
   instagram: kimmaries_nj
   happy_hours:
     - "M-F 4-6pm"
@@ -186,11 +218,13 @@
   type: happy_hour
 - name: Kimchee Mama
   url: "https://kimchimama.net/"
+  map: https://maps.app.goo.gl/4YV4PneHARUzeh9V8
   instagram: kimchimama_dalgona
   updated: 04/16/24
   type: byob
 - name: Laylow
   url: "https://www.laylowap.com/"
+  map: https://maps.app.goo.gl/25nt6Rkk8iBUR47n9
   instagram: laylowap
   happy_hours:
     - "Sun 3-5pm"
@@ -199,21 +233,25 @@
   type: happy_hour
 - name: Lola's European Cafe
   url: https://lolaseuropeancafe.com/
+  map: https://maps.app.goo.gl/nvSvi1HHxoQ6Cw6k6
   instagram: lolascafeasbury
   updated: 04/16/24
   type: unknown
 - name: Loteria
   url: https://loteriaap.com/
+  map: https://maps.app.goo.gl/kYgmLGxAsaK3uoRv6
   instagram: loteria_ap
   updated: 04/16/24
   type: unknown
 - name: Low Dive
   url: https://www.lowdiveap.com/
+  map: https://maps.app.goo.gl/6NRfiYxD1AJGhDi28
   instagram: lowdiveap
   updated: 04/16/24
   type: unknown
 - name: The Mainstay
   url: "https://www.itsthemainstay.com/"
+  map: https://maps.app.goo.gl/ZcPmdeQLnGnQWXRt8
   instagram: itsthemainstay
   happy_hours:
     - "50% off drinks and shareables"
@@ -223,36 +261,43 @@
   type: happy_hour
 - name: Makanas
   url: "https://makanasnj.com/"
+  map: https://maps.app.goo.gl/wRPocr4voWtbPVYg7
   instagram: makanasnj
   updated: 05/23/24
   type: byob
 - name: "Mark's Place"
   url: "http://places.singleplatform.com/marks-place--restaurant/menu"
+  map: https://maps.app.goo.gl/3pexMCp7gf1ASqJQ8
   instagram: marksplace_
   updated: 05/10/24
   type: byob
 - name: Mayan Restaurant
   url: "https://mayanrestaurantnj.com/"
+  map: https://maps.app.goo.gl/JioSZjzq6bhphvmq5
   instagram: "mayan._.restaurant"
   updated: 04/16/24
   type: byob
 - name: Mogo
   url: "https://eatmogo.com/"
+  map: https://maps.app.goo.gl/tnb9hdof5Dksa4En6
   instagram: eatmogo
   updated: 04/16/24
   type: byob
 - name: Moonstruck
   url: http://moonstrucknj.com/
+  map: https://maps.app.goo.gl/tp8aof7cfVMNs6nB7
   instagram: moonstrucknj
   updated: 04/16/24
   type: unknown
 - name: Mutiny BBQ Co
   url: "https://www.mutinybbq.com/"
+  map: https://maps.app.goo.gl/he93Auh5UBhJt9FU8
   instagram: mutinybbq
   updated: 04/16/24
   type: byob
 - name: Pascal & Sabine
   url: "https://pascalandsabine.com/"
+  map: https://maps.app.goo.gl/gygCnArxk4vf6X9U9
   instagram: pascalandsabine
   happy_hours:
     - "M-F 4-6pm"
@@ -261,29 +306,34 @@
   type: happy_hour
 - name: Plaza Garibaldi
   url: "https://garibaldimexicanfood.com/"
+  map: https://maps.app.goo.gl/nzCxBiSRdJ3X3Qvj7
   updated: 05/10/24
   type: byob
 - name: Plaza Tapatia
   url: https://tapatiarestaurant.com/
+  map: https://maps.app.goo.gl/RFU8QwfbpqvaMiXR7
   instagram: plazatapatia
   updated: 04/16/24
   type: unknown
 - name: Porta
   url: "https://pizzaporta.com/asbury-park/"
+  map: https://maps.app.goo.gl/EwjBKgVGcwUNQF6V8
   instagram: portaasburypark
   happy_hours:
     - "M-F 4-6pm"
     - "$5 select draft, $6 wine, $7 cocktails, HH food menu"
   happy_hour_menu_url: "https://pizzaporta.com/menus"
-  updated: 04/16/24
+  updated: 06/20/24
   type: happy_hour
 - name: R Bar
   url: https://www.itsrbar.com/
+  map: https://maps.app.goo.gl/t4XRRU3E1MvC32hF8
   instagram: rbar_asburypark
   updated: 04/16/24
   type: unknown
 - name: Reyla
   url: "https://www.heyreyla.com/"
+  map: https://maps.app.goo.gl/mkGxdhbCtuL2to288
   instagram: heyreyla
   happy_hours:
     - "Wed all night"
@@ -294,11 +344,13 @@
   type: happy_hour
 - name: Rice Asian Cuisine
   url: "https://www.riceasiancuisinenj.com"
+  map: https://maps.app.goo.gl/Kpj22wFYzDHWLaCn7
   instagram: riceasiancuisine
   updated: 04/16/24
   type: byob
 - name: Robinson Ale House
   url: "https://www.therobinsonalehouseasburypark.com/"
+  map: https://maps.app.goo.gl/8uA51tyubw2hYxZB9
   instagram: robinsonalehouse
   happy_hours:
     - "M-F 2-6pm"
@@ -309,29 +361,35 @@
   type: happy_hour
 - name: St. Laurent
   url: https://thestlaurent.com
+  map: https://maps.app.goo.gl/gBoiFGXMjrkT4E419
   instagram: thestlaurentsocialclub
   updated: 04/16/24
   type: unknown
 - name: Salvation
   url: https://www.theasburyhotel.com/eat-and-drink/salvation
+  map: https://maps.app.goo.gl/wsNi3pFngY3SzyGp8
   updated: 04/16/24
   type: unknown
 - name: Seahorse
   url: https://seahorseasburypark.com/
+  map: https://maps.app.goo.gl/WBuLChyJkNuBWQkTA
   instagram: seahorseasburypark
   updated: 04/16/24
   type: unknown
 - name: Soundbooth
   url: https://www.theasburyhotel.com/eat-and-drink/soundbooth
+  map: https://maps.app.goo.gl/wsNi3pFngY3SzyGp8
   updated: 04/16/24
   type: unknown
 - name: Speakeatery
   url: "https://www.thespeakeatery.com/"
+  map: https://maps.app.goo.gl/6wmP8jSWp2yAKhvj6
   instagram: speakeatery
   updated: 04/16/24
   type: byob
 - name: Stella Marina
   url: "https://stellamarinarestaurant.com"
+  map: https://maps.app.goo.gl/hRnXVr3yCqFiSbCF9
   instagram: stellamarinaasbury
   happy_hours:
     - "M-F 3-6pm"
@@ -341,6 +399,7 @@
   type: happy_hour
 - name: Swimcrush AP
   url: "https://www.swimcrushap.com"
+  map: https://maps.app.goo.gl/it6W5GhgwGuwSPLeA
   instagram: swimcrushap
   happy_hours:
     - "M-Th 3-7pm"
@@ -349,31 +408,37 @@
   type: happy_hour
 - name: "TJ's Pizza"
   url: "https://ordertjspizzanj.com/"
+  map: https://maps.app.goo.gl/ADnVDz4vzMVZS9oC6
   instagram: t.j.spizzeria
   updated: 05/10/24
   type: byob
 - name: Taka
   url: https://www.takaasbury.com/
+  map: https://maps.app.goo.gl/kJDQbZV4uT9qDXKV8
   instagram: takarestaurant
   updated: 04/16/24
   type: unknown
 - name: Talula's
   url: https://talulaspizza.com/
+  map: https://maps.app.goo.gl/NTV7Dkwq2BadhE7MA
   instagram: talulaspizza
   updated: 04/16/24
   type: unknown
 - name: Tic Taco Taqueria
   url: "https://tictacotaquerianj.com/"
+  map: https://maps.app.goo.gl/jxmmiVdsJTBH4mcb7
   instagram: tictacotaquerianj
   updated: 04/16/24
   type: byob
 - name: Tim McCloone's Supper Club
   url: https://www.timmcloonessupperclub.com/
+  map: https://maps.app.goo.gl/HNmHHXMfccyHuyVQ7
   instagram: timmcloonessupperclub
   updated: 04/16/24
   type: unknown
 - name: Watermark
   url: "https://watermarkap.com/"
+  map: https://maps.app.goo.gl/vzuUmqZoxs7Z5Ly89
   instagram: watermark_asbury_park
   happy_hours:
     - "Th all night, cocktails"
@@ -382,6 +447,7 @@
   type: happy_hour
 - name: Wonder Bar
   url: "https://wonderbarasburypark.com/"
+  map: https://maps.app.goo.gl/zgrzscpJsi14gpDeA
   instagram: thewonderbarofficial
   updated: 04/16/24
   type: unknown
