@@ -1,3 +1,3 @@
-Local testing: `docker run --rm -it --volume="$PWD:/srv/jekyll:Z" --publish 4000:4000 jekyll/jekyll jekyll serve`
+Local testing: `bin/jekyll.sh`
 
-Then visit http://0.0.0.0:4000/asburypark/
+Then visit http://localhost:4000/asburypark/

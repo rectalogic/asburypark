@@ -22,12 +22,11 @@ title: Asbury Park Happy Hours
 description: >-
   List of restaurants in Asbury Park and their Happy Hour information
 baseurl: "/asburypark"
-url: "https://rectalogic.github.io"
 
 # Build settings
 theme: minima
-plugins:
-  - jekyll-feed
+# plugins:
+#   - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -39,6 +38,7 @@ plugins:
 #
 exclude:
   - bin/
+  - README.md
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
