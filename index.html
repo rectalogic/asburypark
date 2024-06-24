@@ -6,6 +6,11 @@ layout: home
 {% assign unknown_restaurants = site.data.restaurants | where: "type", "unknown" %}
 {% assign byob_restaurants = site.data.restaurants | where: "type", "byob" %}
 
+<p>
+    Check restaurant website/Instagram for updates.
+    Report any innaccuracies/updates via the <a href="https://forms.gle/F3xaERaDYpjN1Brz6">feedback form</a>.
+</p>
+
 <h2>Happy Hours</h2>
 
 <table>
@@ -15,7 +20,7 @@ layout: home
             <th>Insta</th>
             <th>HH Menu</th>
             <th>Happy Hours</th>
-            <th>Updated</th>
+            <th>Verified</th>
         </tr>
     </thead>
     <tbody>
@@ -39,7 +44,7 @@ layout: home
                         {% endfor %}
                     </ul>
                 </td>
-                <td>{{ restaurant.updated }}</td>
+                <td>{{ restaurant.verified }}</td>
             </tr>
         {% endfor %}
     </tbody>
@@ -53,7 +58,7 @@ layout: home
         <tr>
             <th>Restaurant</th>
             <th>Insta</th>
-            <th>Updated</th>
+            <th>Verified</th>
         </tr>
     </thead>
     <tbody>
@@ -65,7 +70,7 @@ layout: home
                 <td>
                     {% include instagram.html restaurant=restaurant %}
                 </td>
-                <td>{{ restaurant.updated }}</td>
+                <td>{{ restaurant.verified }}</td>
             </tr>
         {% endfor %}
     </tbody>
@@ -78,7 +83,7 @@ layout: home
         <tr>
             <th>Restaurant</th>
             <th>Insta</th>
-            <th>Updated</th>
+            <th>Verified</th>
         </tr>
     </thead>
     <tbody>
@@ -90,12 +95,8 @@ layout: home
                 <td>
                     {% include instagram.html restaurant=restaurant %}
                 </td>
-                <td>{{ restaurant.updated }}</td>
+                <td>{{ restaurant.verified }}</td>
             </tr>
         {% endfor %}
     </tbody>
 </table>
-
-<p>
-Notice anything incorrect or have updates to provide? <a href="https://forms.gle/F3xaERaDYpjN1Brz6">Send feedback</a>
-</p>
