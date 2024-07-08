@@ -19,8 +19,9 @@
   happy_hours:
     - "M-F 3-6pm"
     - "$6 draft/sangria, $7 marg, $8 espresso martini"
+  happy_hour_menu_url: assets/images/asbury-ale-house.jpg
   verified: 07/06/24
-  type: happyhour
+  type: happy_hour
 - name: Asbury Festhalle & Biergarten
   url: https://www.asburybiergarten.com/
   map: https://maps.app.goo.gl/pCUcJKrohgecvbse8
@@ -263,11 +264,10 @@
   map: https://maps.app.goo.gl/ZcPmdeQLnGnQWXRt8
   instagram: itsthemainstay
   happy_hours:
-    - "50% off drinks and shareables"
     - "Tue-Fri 4-6pm"
     - "Mon all night"
-  happy_hour_menu_url: "https://www.instagram.com/p/C8XcLN4AnEt/"
-  verified: 06/24/24
+  happy_hour_menu_url: "assets/images/mainstay.jpg"
+  verified: 07/08/24
   type: happy_hour
 - name: Makanas
   url: "https://makanasnj.com/"
