@@ -390,8 +390,12 @@
   url: https://seahorseasburypark.com/
   map: https://maps.app.goo.gl/WBuLChyJkNuBWQkTA
   instagram: seahorseasburypark
-  verified: 04/16/24
-  type: unknown
+  happy_hours:
+    - "M-Th 1-4pm"
+    - "$5 food and drinks"
+  happy_hour_menu_url: "https://www.instagram.com/p/C9KQW11Arv6/?igsh=anRhY2I0OXBtOTBn"
+  verified: 08/0124
+  type: happy_hour
 - name: Soundbooth
   url: https://www.theasburyhotel.com/eat-and-drink/soundbooth
   map: https://maps.app.goo.gl/wsNi3pFngY3SzyGp8
