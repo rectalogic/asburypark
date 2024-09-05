@@ -100,8 +100,12 @@
   url: https://www.thebreakap.com/
   map: https://maps.app.goo.gl/R5wBhSFWS6jktdxF7
   instagram: thebreakap
-  verified: 04/16/24
-  type: unknown
+  happy_hours:
+    - "M-F until 5pm"
+    - "$5 chips/salsa, $5 marg, $2 off beer/wine/cocktails"
+  happy_hour_menu_url: "https://www.instagram.com/reel/C-skmwzALTt/?igsh=MWFvZTdvODVjaHlweg%3D%3D"
+  verified: 09/05/24
+  type: happy_hour
 - name: Capitoline
   url: https://capitolineap.com/
   map: https://maps.app.goo.gl/HYVrZQRjA4NaWxpS9
