@@ -1,4 +1,7 @@
 # Keep sorted by restaurant name
+# happy_hour_times is a list of tuples pairs, where the first tupe is a day range (0 indexed day number) and the second an hour range (24 hour clock)
+# [ [ [DAYSTART, DAYEND], [HOURSTART, HOUREND] ], [ [DAYSTART, DAYEND], [HOURSTART, HOUREND] ], ...]
+# The day tuple can be singular
 
 - name: AP Rooftop
   url: https://www.timmcloonessupperclub.com/locations.php
@@ -17,8 +20,8 @@
   map: https://maps.app.goo.gl/iJx2hGS5UWZpFTgr9
   instagram: asburyalehouse
   happy_hours:
-    - "M-F 3-6pm"
     - "$6 draft/sangria, $7 marg, $8 espresso martini"
+  happy_hour_times: [[[1, 5], [1500, 1800]]]
   happy_hour_menu_url: assets/images/asbury-ale-house.jpg
   verified: 07/06/24
   type: happy_hour
@@ -59,7 +62,8 @@
   happy_hours:
     - "Taco Tuesday: 2 Tacos + 1 margy for $17"
     - "Thursday: All-Night Happy Hour"
-  verified: 04/16/24
+  happy_hour_times: [[[2], [1600, 2200]], [[4], [1600, 2200]]]
+  verified: 09/06/24
   type: happy_hour
 - name: Belmontes Ristorante
   url: "http://belmontesap.com/"
@@ -78,11 +82,11 @@
   map: https://maps.app.goo.gl/JiKYhYvKsK2ysBZs9
   instagram: theblackswanap
   happy_hours:
-    - "M,W-F 3-6pm, Tue 3-10pm, Sun 3-6pm"
     - "50% off all alcohol, HH food menu"
     - "Wed 2 for 1 burger night"
+  happy_hour_times: [[[1], [1500, 1800]], [[2], [1500, 2200]], [[3], [1500, 1800]], [[5], [1500, 1800]], [[0], [1500, 1800]]]
   happy_hour_menu_url: "https://www.theblackswanap.com/happy-hour"
-  verified: 06/20/24
+  verified: 09/06/24
   type: happy_hour
 - name: Bond Street Bar
   url: https://bondstreetap.com/
@@ -101,10 +105,10 @@
   map: https://maps.app.goo.gl/R5wBhSFWS6jktdxF7
   instagram: thebreakap
   happy_hours:
-    - "M-F until 5pm"
     - "$5 chips/salsa, $5 marg, $2 off beer/wine/cocktails"
+  happy_hour_times: [[[1, 5], [1100, 1700]]]
   happy_hour_menu_url: "https://www.instagram.com/reel/C-skmwzALTt/?igsh=MWFvZTdvODVjaHlweg%3D%3D"
-  verified: 09/05/24
+  verified: 09/06/24
   type: happy_hour
 - name: Capitoline
   url: https://capitolineap.com/
@@ -140,10 +144,10 @@
   map: https://maps.app.goo.gl/SoejiCRDyHyMpaNc7
   instagram: deallakebarco
   happy_hours:
-    - "M-F 3-6pm"
     - "$4/6 select draft, $5 wine, $6 snacks"
+  happy_hour_times: [[[1, 5], [1500, 1800]]]
   happy_hour_menu_url: "https://www.deallakebarco.com/s/WebHappy-Hour.pdf"
-  verified: 04/16/24
+  verified: 09/06/24
   type: happy_hour
 - name: Dolce Fantasia
   url: "http://www.dolcefantasia.us/"
@@ -186,20 +190,20 @@
   map: https://maps.app.goo.gl/ec8WZbz7MxZEA7j99
   instagram: lovehomesick
   happy_hours:
-    - "M-F: 4pm–6pm & 9pm-close"
     - "$6 wine/beer, cocktail/food specials"
+  happy_hour_times: [[[1, 5], [1600, 1800]], [[1, 5], [2100, 2300]]]
   happy_hour_menu_url: "https://www.lovehomesick.com/menu"
-  verified: 04/16/24
+  verified: 09/06/24
   type: happy_hour
 - name: Iron Whale
   url: "https://www.ironwhalenj.com/"
   map: https://maps.app.goo.gl/XTH1TCX3uhLAhEnA7
   instagram: ironwhale_asburypark
   happy_hours:
-    - "M-F 1-4pm"
     - "half price tacos & small plates, $3 off beer, $6 marg, $4 off wine, $5 off cocktails"
+  happy_hour_times: [[[1, 5], [1300, 1600]]]
   happy_hour_menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2024/IW_HappyHour_060324.pdf"
-  verified: 06/18/24
+  verified: 09/06/24
   type: happy_hour
 - name: Jimmy's Italian
   url: https://www.jimmysitalianrestaurant.com/
@@ -213,8 +217,9 @@
   instagram: johnnymacs_nj
   happy_hours:
     - "free pizza every day"
-    - "free omelettes Sun 10-3pm"
-  verified: 04/16/24
+    - "free omelettes Sun"
+  happy_hour_times: [[[0], [1000, 1500]]]
+  verified: 09/06/24
   type: happy_hour
 - name: Killer Pies
   url: "https://killerpies.com/"
@@ -227,10 +232,10 @@
   map: https://maps.app.goo.gl/gfUG4XZcvStqBq8v9
   instagram: kimmaries_nj
   happy_hours:
-    - "M-F 4-6pm"
     - "$5 local drafts, $6 wine/sangria, $7 mixed drinks, HH food menu"
+  happy_hour_times: [[[1, 5], [1600, 1800]]]
   happy_hour_menu_url: "https://www.kimmarieseatndrinkaway.com/menus/#happy"
-  verified: 04/16/24
+  verified: 09/06/24
   type: happy_hour
 - name: Kimchee Mama
   url: "https://kimchimama.net/"
@@ -243,9 +248,9 @@
   map: https://maps.app.goo.gl/25nt6Rkk8iBUR47n9
   instagram: laylowap
   happy_hours:
-    - "Sun 3-5pm"
     - "$8 Classic Cocktails"
-  verified: 04/16/24
+  happy_hour_times: [[[0], [1700, 1900]]]
+  verified: 09/06/24
   type: happy_hour
 - name: Lola's European Cafe
   url: https://lolaseuropeancafe.com/
@@ -258,10 +263,10 @@
   map: https://maps.app.goo.gl/kYgmLGxAsaK3uoRv6
   instagram: loteria_ap
   happy_hours:
-    - "Taco Tuesday"
-    - "3 tacos $18"
+    - "Taco Tuesday $3 tacos"
+  happy_hour_times: [[[2], [1600, 2200]]]
   happy_hour_menu_url: "https://www.instagram.com/p/C8FnZgnvlf9/"
-  verified: 06/24/24
+  verified: 09/06/24
   type: happy_hour
 - name: Low Dive
   url: https://www.lowdiveap.com/
@@ -274,10 +279,10 @@
   map: https://maps.app.goo.gl/ZcPmdeQLnGnQWXRt8
   instagram: itsthemainstay
   happy_hours:
-    - "Tue-Fri 4-6pm"
-    - "Mon all night"
-  happy_hour_menu_url: "assets/images/mainstay.jpg"
-  verified: 07/08/24
+    - "appetizer specials"
+  happy_hour_times: [[[2, 5], [1600, 1800]]]
+  happy_hour_menu_url: "https://www.instagram.com/p/C-qFwLAPeXi/?igsh=MXFubjgwdzVpcmtidQ=="
+  verified: 09/06/24
   type: happy_hour
 - name: Makanas
   url: "https://makanasnj.com/"
@@ -320,9 +325,10 @@
   map: https://maps.app.goo.gl/gygCnArxk4vf6X9U9
   instagram: pascalandsabine
   happy_hours:
-    - "M-F 4-6pm"
     - "$6 select beer, $12 cocktails, $10 martini, $8 wine, HH food menu"
-  verified: 04/16/24
+  happy_hour_times: [[[0, 6], [1600, 1800]]]
+  happy_hour_menu_url: "https://pascalandsabine.com/"
+  verified: 09/06/24
   type: happy_hour
 - name: Plaza Garibaldi
   url: "https://garibaldimexicanfood.com/"
@@ -340,10 +346,10 @@
   map: https://maps.app.goo.gl/EwjBKgVGcwUNQF6V8
   instagram: portaasburypark
   happy_hours:
-    - "M-F 4-6pm"
     - "$5 select draft, $6 wine, $7 cocktails, HH food menu"
+  happy_hour_times: [[[1, 5], [1600, 1800]]]
   happy_hour_menu_url: "https://pizzaporta.com/menus"
-  verified: 06/24/24
+  verified: 09/06/24
   type: happy_hour
 - name: R Bar
   url: https://www.itsrbar.com/
@@ -357,10 +363,10 @@
   instagram: heyreyla
   happy_hours:
     - "Wed all night"
-    - "Th,F 4-6pm"
-    - "Th Date Night Menu"
+    - "Th Wine on Us"
+  happy_hour_times: [[[3], [1600, 2200]]]
   happy_hour_menu_url: "https://www.heyreyla.com/eat"
-  verified: 04/16/24
+  verified: 09/06/24
   type: happy_hour
 - name: Rice Asian Cuisine
   url: "https://www.riceasiancuisinenj.com"
@@ -373,11 +379,10 @@
   map: https://maps.app.goo.gl/8uA51tyubw2hYxZB9
   instagram: robinsonalehouse
   happy_hours:
-    - "M-F 2-6pm"
-    - All night Mon
     - "$4 draft, $7 marg,sangria,wine, $8 cocktails, HH food menu"
+  happy_hour_times: [[[1, 5], [1400, 1800]]]
   happy_hour_menu_url: "https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2023/R_AP_HappyHour_102023.pdf"
-  verified: 04/26/24
+  verified: 09/06/24
   type: happy_hour
 - name: St. Laurent
   url: https://thestlaurent.com
@@ -391,14 +396,14 @@
   verified: 04/16/24
   type: unknown
 - name: Seahorse
-  url: https://apboardwalk.com/portfolio/seahorse/
+  url: https://www.seahorseasburypark.com/
   map: https://maps.app.goo.gl/WBuLChyJkNuBWQkTA
   instagram: seahorseasburypark
   happy_hours:
-    - "M-Th 1-4pm"
     - "$5 food and drinks"
+  happy_hour_times: [[[1, 4], [1300, 1600]]]
   happy_hour_menu_url: "https://www.instagram.com/p/C9KQW11Arv6/?igsh=anRhY2I0OXBtOTBn"
-  verified: 08/0124
+  verified: 09/06/24
   type: happy_hour
 - name: Soundbooth
   url: https://www.theasburyhotel.com/eat-and-drink/soundbooth
@@ -416,19 +421,19 @@
   map: https://maps.app.goo.gl/hRnXVr3yCqFiSbCF9
   instagram: stellamarinaasbury
   happy_hours:
-    - "M-F 3-6pm"
-    - "Sat 12-3pm"
-    - "Sun 12-9pm"
-  verified: 04/16/24
+    - "specials"
+  happy_hour_times: [[[1, 5], [1500, 1800]], [[6], [1200, 1500]], [[0], [1200, 1500]]]
+  verified: 09/06/24
   type: happy_hour
 - name: Swimcrush AP
   url: "https://www.swimcrushap.com"
   map: https://maps.app.goo.gl/it6W5GhgwGuwSPLeA
   instagram: swimcrushap
   happy_hours:
-    - "M-Th 3-7pm"
+    - "specials menu"
+  happy_hour_times: [[[0, 4], [1200, 2100]], [[5, 6], [1200, 2400]]]
   happy_hour_menu_url: "https://www.swimcrushap.com/specials"
-  verified: 06/24/24
+  verified: 09/06/24
   type: happy_hour
 - name: "TJ's Pizza"
   url: "https://ordertjspizzanj.com/"
@@ -447,12 +452,11 @@
   map: https://maps.app.goo.gl/NTV7Dkwq2BadhE7MA
   instagram: talulaspizza
   happy_hours:
-    - "M-F 4:30-6:30pm"
-    - "Sat, Sun 10am-2pm"
     - "$5 rotating draft, $6 house wine, $10 gin&jams, $8 lambrusco"
     - "Discounted pizza/snacks"
+  happy_hour_times: [[[1, 5], [1630, 1830]], [[0], [1000, 1400]], [[6], [1000, 1400]]]
   happy_hour_menu_url: "https://talulaspizza.com/blogs/events/happy-hour-at-the-bar"
-  verified: 06/24/24
+  verified: 09/06/24
   type: happy_hour
 - name: Tic Taco Taqueria
   url: "https://tictacotaquerianj.com/"
@@ -471,9 +475,10 @@
   map: https://maps.app.goo.gl/vzuUmqZoxs7Z5Ly89
   instagram: watermark_asbury_park
   happy_hours:
-    - "Th all night, cocktails"
+    - "cocktails"
+  happy_hour_times: [[[4], [1600, 2400]]]
   happy_hour_menu_url: "https://menu.thesafemenu.com/watermark/menus/happy-hour/"
-  verified: 04/16/24
+  verified: 09/06/24
   type: happy_hour
 - name: Wonder Bar
   url: "https://wonderbarasburypark.com/"

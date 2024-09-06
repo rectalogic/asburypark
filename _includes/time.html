@@ -1,0 +1,16 @@
+{%- assign is_hour = include.time | modulo: 100 -%}
+{%- if is_hour == 0 -%}
+    {%- assign divisor = 100 -%}
+{%- else -%}
+    {%- assign divisor = 1 -%}
+{%- endif -%}
+
+{% if include.time == 2400 -%}
+    {{- include.time | minus: 1200 | divided_by: divisor }}am
+{%- elsif include.time > 1200 -%}
+    {{- include.time | minus: 1200 | divided_by: divisor }}pm
+{%- elsif include.time == 1200 -%}
+    {{- include.time | divided_by: divisor }}pm
+{%- else -%}
+    {{- include.time | divided_by: divisor }}am
+{%- endif -%}

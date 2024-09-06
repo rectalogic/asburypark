@@ -2,9 +2,46 @@
 layout: home
 ---
 
-{% assign hh_restaurants = site.data.restaurants | where: "type", "happy_hour" %}
-{% assign unknown_restaurants = site.data.restaurants | where: "type", "unknown" %}
-{% assign byob_restaurants = site.data.restaurants | where: "type", "byob" %}
+{% assign hh_restaurants = site.data.restaurants | where: "type", "happy_hour" -%}
+{% assign unknown_restaurants = site.data.restaurants | where: "type", "unknown" -%}
+{% assign byob_restaurants = site.data.restaurants | where: "type", "byob" -%}
+{% assign days = site.data.days -%}
+{% assign days = "Sun,Mon,Tue,Wed,Thu,Fri,Sat" | split: "," -%}
+
+<script>
+    const times = {{ hh_restaurants | map: "happy_hour_times" | jsonify }};
+    const filterHappyHours = (day, hour) => {
+        const table = document.getElementById("happyHours");
+        const tr = table.tBodies[0].getElementsByTagName("tr");
+
+        if (day === undefined && hour === undefined) {
+            for (const row of tr) {
+                row.style.display = "";
+            }
+            return;
+        }
+
+        for (let i = 0; i < tr.length; i++) {
+            let display = "none";
+            for (const timerange of times[i]) {
+                const [daystart, dayend] = timerange[0];
+                if (day === undefined || daystart === day || (dayend !== undefined && day >= daystart && day <= dayend)) {
+                    const [timestart, timeend] = timerange[1];
+                    if (hour === undefined || (hour >= timestart && hour < timeend)) {
+                        display = "";
+                        break;
+                    }
+                }
+            }
+            tr[i].style.display = display;
+        }
+    };
+    window.addEventListener("change", () => {
+        const day = document.getElementById("day").value;
+        const hour = document.getElementById("hour").value;
+        filterHappyHours(day === "" ? undefined : parseInt(day), hour === "" ? undefined : parseInt(hour));
+    });
+</script>
 
 <p>
     Check restaurant website/Instagram for updates.
@@ -13,7 +50,39 @@ layout: home
 
 <h2>Happy Hours</h2>
 
-<table>
+<p>
+<select name="day" id="day">
+    <option value="" selected>All Days</option>
+    <option value="0">Sun</option>
+    <option value="1">Mon</option>
+    <option value="2">Tue</option>
+    <option value="3">Wed</option>
+    <option value="4">Thu</option>
+    <option value="5">Fri</option>
+    <option value="6">Sat</option>
+</select>
+
+<select name="hour" id="hour">
+    <option value="" selected>All Hours</option>
+    <option value="900">9am</option>
+    <option value="1000">10am</option>
+    <option value="1100">11am</option>
+    <option value="1200">12pm</option>
+    <option value="1300">1pm</option>
+    <option value="1400">2pm</option>
+    <option value="1500">3pm</option>
+    <option value="1600">4pm</option>
+    <option value="1700">5pm</option>
+    <option value="1800">6pm</option>
+    <option value="1900">7pm</option>
+    <option value="2000">8pm</option>
+    <option value="2100">9pm</option>
+    <option value="2200">10pm</option>
+    <option value="2300">11pm</option>
+</select>
+</p>
+
+<table id="happyHours">
     <thead>
         <tr>
             <th>Restaurant</th>
@@ -43,6 +112,27 @@ layout: home
                 </td>
                 <td>
                     <ul>
+                        <li>
+                            {% for hhtime in restaurant.happy_hour_times %}
+                                {% assign dayrange = hhtime[0] -%}
+                                {% assign startday = dayrange[0] | abs -%}
+                                {% assign timerange = hhtime[1] -%}
+                                {% assign starttime = timerange[0] | abs -%}
+                                {% assign endtime = timerange[1] | abs -%}
+
+                                {{ days[startday] -}}
+                                {%- if dayrange.size == 2 -%}
+                                    {% assign endday = dayrange[1] | abs -%}
+                                    -{{ days[endday] }}
+                                {% endif %}
+
+                                {% include time.html time=starttime -%}-{%- include time.html time=endtime -%}
+
+                                {%- unless forloop.last -%}
+                                ,
+                                {%- endunless %}
+                            {% endfor %}
+                        </li>
                         {% for hh in restaurant.happy_hours %}
                             <li>{{ hh }}</li>
                         {% endfor %}
