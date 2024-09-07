@@ -339,8 +339,12 @@
   url: https://tapatiarestaurant.com/
   map: https://maps.app.goo.gl/RFU8QwfbpqvaMiXR7
   instagram: plazatapatia
-  verified: 04/16/24
-  type: unknown
+  happy_hours:
+    - "Fajita & Sangria specials"
+  happy_hour_times: [[[3], [1600, 2200]]]
+  happy_hour_menu_url: "https://www.instagram.com/p/C_gu0WyvaCA/"
+  verified: 09/07/24
+  type: happy_hour
 - name: Porta
   url: "https://pizzaporta.com/asbury-park/"
   map: https://maps.app.goo.gl/EwjBKgVGcwUNQF6V8
