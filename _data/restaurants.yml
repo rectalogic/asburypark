@@ -47,8 +47,12 @@
   url: https://www.azure-restaurant.com
   map: https://maps.app.goo.gl/gXhzywxgErXyVtis8
   instagram: azureasburypark
-  verified: 07/09/24
-  type: unknown
+  happy_hours:
+    - "50% off drink specials"
+  happy_hour_times: [[[1, 5], [1600, 1900]]]
+  happy_hour_menu_url: "https://www.berkeleyhotelnj.com/calendar-of-events/happy-hour-at-azure"
+  verified: 09/07/24
+  type: happy_hour
 - name: Los Barbaros Birria
   url: https://www.losbarbarosbirriabelmar.com/
   map: https://maps.app.goo.gl/KrCGgovXgu4D73ea9
