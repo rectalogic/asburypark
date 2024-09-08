@@ -48,7 +48,7 @@
   map: https://maps.app.goo.gl/gXhzywxgErXyVtis8
   instagram: azureasburypark
   happy_hours:
-    - "50% off drink specials"
+    - "50% off food/drink specials"
   happy_hour_times: [[[1, 5], [1600, 1900]]]
   happy_hour_menu_url: "https://www.berkeleyhotelnj.com/calendar-of-events/happy-hour-at-azure"
   verified: 09/07/24
@@ -225,12 +225,6 @@
   happy_hour_times: [[[0], [1000, 1500]]]
   verified: 09/06/24
   type: happy_hour
-- name: Killer Pies
-  url: "https://killerpies.com/"
-  map: https://maps.app.goo.gl/ZifwDfKhqGLhPNEr7
-  instagram: killerpiesap
-  verified: closed as of 06/20/24
-  type: byob
 - name: Kim Maries
   url: "https://www.kimmarieseatndrinkaway.com/"
   map: https://maps.app.goo.gl/gfUG4XZcvStqBq8v9
@@ -478,6 +472,12 @@
   instagram: timmcloonessupperclub
   verified: 04/16/24
   type: unknown
+- name: Toast
+  url: https://toastcitydiner.com/
+  map: https://maps.app.goo.gl/JoWAhfz8SV5FcBrK9
+  instagram: toastcitydiner_
+  verified: 09/08/24
+  type: byob
 - name: Watermark
   url: "https://watermarkap.com/"
   map: https://maps.app.goo.gl/vzuUmqZoxs7Z5Ly89
