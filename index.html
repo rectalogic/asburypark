@@ -9,7 +9,7 @@ layout: home
 {% assign days = "Sun,Mon,Tue,Wed,Thu,Fri,Sat" | split: "," -%}
 
 <script>
-    const times = {{ hh_restaurants.happy_hours | map: "times" | jsonify }};
+    const times = {{ hh_restaurants | map: "happy_hours" | map: "times" | jsonify }};
     const filterHappyHours = (day, hour) => {
         const table = document.getElementById("happyHours");
         const tr = table.tBodies[0].getElementsByTagName("tr");
