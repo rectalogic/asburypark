@@ -9,7 +9,7 @@ layout: home
 {% assign days = "Sun,Mon,Tue,Wed,Thu,Fri,Sat" | split: "," -%}
 
 <script>
-    const times = {{ hh_restaurants | map: "happy_hour_times" | jsonify }};
+    const times = {{ hh_restaurants.happy_hours | map: "times" | jsonify }};
     const filterHappyHours = (day, hour) => {
         const table = document.getElementById("happyHours");
         const tr = table.tBodies[0].getElementsByTagName("tr");
@@ -112,14 +112,14 @@ Jump to:
                     {% include instagram.html restaurant=restaurant %}
                 </td>
                 <td>
-                    {% if restaurant.happy_hour_menu_url %}
-                        <a href="{{ restaurant.happy_hour_menu_url }}">Menu</a>
+                    {% if restaurant.happy_hours.menu_url %}
+                        <a href="{{ restaurant.happy_hours.menu_url }}">Menu</a>
                     {% endif %}
                 </td>
                 <td>
                     <ul>
                         <li>
-                            {% for hhtime in restaurant.happy_hour_times %}
+                            {% for hhtime in restaurant.happy_hours.times %}
                                 {% assign dayrange = hhtime[0] -%}
                                 {% assign startday = dayrange[0] | abs -%}
                                 {% assign timerange = hhtime[1] -%}
@@ -139,7 +139,7 @@ Jump to:
                                 {%- endunless %}
                             {% endfor %}
                         </li>
-                        {% for hh in restaurant.happy_hours %}
+                        {% for hh in restaurant.happy_hours.description %}
                             <li>{{ hh }}</li>
                         {% endfor %}
                     </ul>
