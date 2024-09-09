@@ -72,6 +72,17 @@
     times: [[[2], [1600, 2200]], [[4], [1600, 2200]]]
   verified: 09/06/24
   type: happy_hour
+- name: Beach Bar
+  url: "https://apboardwalk.com/portfolio/the-beach-bar/"
+  map: https://maps.app.goo.gl/2gsC5P3KwnT5ZLhCA
+  instagram: beachbarasbury
+  happy_hours:
+    description:
+      - "$15 rum bucket"
+    times: [[[5, 6], [1200, 1800]], [[0], [1200, 1800]]]
+    menu_url: "https://www.instagram.com/p/C_s04u7RAtR/"
+  verified: 09/09/24
+  type: happy_hour
 - name: Belmontes Ristorante
   url: "http://belmontesap.com/"
   map: https://maps.app.goo.gl/uZy6Ctyafocmjp859
@@ -454,7 +465,7 @@
   happy_hours:
     description:
       - "specials menu"
-    times: [[[0, 4], [1200, 2100]], [[5, 6], [1200, 2400]]]
+    times: [[[0, 4], [1200, 2100]], [[5, 6], [1200, 2500]]]
     menu_url: "https://www.swimcrushap.com/specials"
   verified: 09/06/24
   type: happy_hour
@@ -507,7 +518,7 @@
   happy_hours:
     description:
       - "cocktails"
-    times: [[[4], [1600, 2400]]]
+    times: [[[4], [1700, 2300]]]
     menu_url: "https://menu.thesafemenu.com/watermark/menus/happy-hour/"
   verified: 09/06/24
   type: happy_hour

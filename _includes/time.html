@@ -7,6 +7,8 @@
 
 {% if include.time == 2400 -%}
     {{- include.time | minus: 1200 | divided_by: divisor }}am
+{%- elsif include.time > 2400 -%}
+    {{- include.time | minus: 2400 | divided_by: divisor }}am
 {%- elsif include.time > 1200 -%}
     {{- include.time | minus: 1200 | divided_by: divisor }}pm
 {%- elsif include.time == 1200 -%}
