@@ -224,8 +224,8 @@
   happy_hours:
     description:
       - "half price tacos & small plates, $3 off beer, $6 marg, $4 off wine, $5 off cocktails"
-    times: [[[1, 5], [1300, 1600]]]
-    menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2024/IW_HappyHour_060324.pdf"
+    times: [[[1, 5], [1400, 1800]]]
+    menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2024/IW_HappyHour_091824.pdf"
   verified: 09/06/24
   type: happy_hour
 - name: Jimmy's Italian
