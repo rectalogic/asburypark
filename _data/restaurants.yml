@@ -289,6 +289,17 @@
     menu_url: "https://www.instagram.com/p/C8FnZgnvlf9/"
   verified: 09/06/24
   type: happy_hour
+- name: Lovesick
+  url: "https://www.dearlovesick.com/"
+  map: https://maps.app.goo.gl/ec8WZbz7MxZEA7j99
+  instagram: dear_lovesick
+  happy_hours:
+    description:
+      - "$20/3 wine pours"
+    times: [[[0, 6], [1600, 1800]]]
+    menu_url: "https://maps.app.goo.gl/3THCmFK3KUB72wn16"
+  verified: 09/27/24
+  type: happy_hour
 - name: Low Dive
   url: https://www.lowdiveap.com/
   map: https://maps.app.goo.gl/6NRfiYxD1AJGhDi28
