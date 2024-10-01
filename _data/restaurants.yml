@@ -51,7 +51,7 @@
   happy_hours:
     description:
       - "50% off food/drink specials"
-    times: [[[1], [1600, 1900]]], [[3,5], [1600, 1900]]
+    times: [[[1], [1600, 1900]], [[3,5], [1600, 1900]]]
     menu_url: "https://www.berkeleyhotelnj.com/calendar-of-events/happy-hour-at-azure"
   verified: 10/01/24
   type: happy_hour
