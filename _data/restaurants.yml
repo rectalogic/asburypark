@@ -51,9 +51,9 @@
   happy_hours:
     description:
       - "50% off food/drink specials"
-    times: [[[1, 5], [1600, 1900]]]
+    times: [[[1], [1600, 1900]]], [[3,5], [1600, 1900]]
     menu_url: "https://www.berkeleyhotelnj.com/calendar-of-events/happy-hour-at-azure"
-  verified: 09/07/24
+  verified: 10/01/24
   type: happy_hour
 - name: Los Barbaros Birria
   url: https://www.losbarbarosbirriabelmar.com/
@@ -70,7 +70,7 @@
       - "Taco Tuesday: 2 Tacos + 1 margy for $17"
       - "Thursday: All-Night Happy Hour"
     times: [[[2], [1600, 2200]], [[4], [1600, 2200]]]
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: Beach Bar
   url: "https://apboardwalk.com/portfolio/the-beach-bar/"
@@ -81,7 +81,7 @@
       - "$15 rum bucket"
     times: [[[5, 6], [1200, 1800]], [[0], [1200, 1800]]]
     menu_url: "https://www.instagram.com/p/C_s04u7RAtR/"
-  verified: 09/09/24
+  verified: 10/01/24
   type: happy_hour
 - name: Belmontes Ristorante
   url: "http://belmontesap.com/"
@@ -103,9 +103,9 @@
     description:
       - "50% off all alcohol, HH food menu"
       - "Wed 2 for 1 burger night"
-    times: [[[1], [1500, 1800]], [[2], [1500, 2200]], [[3], [1500, 1800]], [[5], [1500, 1800]], [[0], [1500, 1800]]]
+    times: [[[0], [1500, 1800]], [[1], [1500, 1800]], [[2], [1500, 2200]], [[3, 5], [1500, 1800]]]
     menu_url: "https://www.theblackswanap.com/happy-hour"
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: Bond Street Bar
   url: https://bondstreetap.com/
@@ -167,8 +167,8 @@
     description:
       - "$4/6 select draft, $5 wine, $6 snacks"
     times: [[[1, 5], [1500, 1800]]]
-    menu_url: "https://www.deallakebarco.com/s/WebHappy-Hour.pdf"
-  verified: 09/06/24
+    menu_url: "https://www.deallakebarco.com/s/WebHappy-Hour-tpel.pdf"
+  verified: 10/01/24
   type: happy_hour
 - name: Dolce Fantasia
   url: "http://www.dolcefantasia.us/"
@@ -215,7 +215,7 @@
       - "$6 wine/beer, cocktail/food specials"
     times: [[[1, 5], [1600, 1800]], [[1, 5], [2100, 2300]]]
     menu_url: "https://www.lovehomesick.com/menu"
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: Iron Whale
   url: "https://www.ironwhalenj.com/"
@@ -226,7 +226,7 @@
       - "half price tacos & small plates, $3 off beer, $6 marg, $4 off wine, $5 off cocktails"
     times: [[[1, 5], [1400, 1800]]]
     menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2024/IW_HappyHour_091824.pdf"
-  verified: 09/19/24
+  verified: 10/01/24
   type: happy_hour
 - name: Jimmy's Italian
   url: https://www.jimmysitalianrestaurant.com/
@@ -254,7 +254,7 @@
       - "$5 local drafts, $6 wine/sangria, $7 mixed drinks, HH food menu"
     times: [[[1, 5], [1600, 1800]]]
     menu_url: "https://www.kimmarieseatndrinkaway.com/menus/#happy"
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: Kimchee Mama
   url: "https://kimchimama.net/"
@@ -362,7 +362,7 @@
       - "$6 select beer, $12 cocktails, $10 martini, $8 wine, HH food menu"
     times: [[[0, 6], [1600, 1800]]]
     menu_url: "https://pascalandsabine.com/"
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: Plaza Garibaldi
   url: "https://garibaldimexicanfood.com/"
@@ -389,7 +389,7 @@
       - "$5 select draft, $6 wine, $7 cocktails, HH food menu"
     times: [[[1, 5], [1600, 1800]]]
     menu_url: "https://pizzaporta.com/menus"
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: R Bar
   url: https://www.itsrbar.com/
@@ -407,7 +407,7 @@
       - "Th Wine on Us"
     times: [[[3], [1600, 2200]]]
     menu_url: "https://www.heyreyla.com/eat"
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: Rice Asian Cuisine
   url: "https://www.riceasiancuisinenj.com"
@@ -424,7 +424,7 @@
       - "$4 draft, $7 marg,sangria,wine, $8 cocktails, HH food menu"
     times: [[[1, 5], [1400, 1800]]]
     menu_url: "https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2023/R_AP_HappyHour_102023.pdf"
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: St. Laurent
   url: https://thestlaurent.com
@@ -467,7 +467,8 @@
     description:
       - "specials"
     times: [[[1, 5], [1500, 1800]], [[6], [1200, 1500]], [[0], [1200, 1500]]]
-  verified: 09/06/24
+    menu_url: "https://www.instagram.com/p/C_oDpgZx9gK/"
+  verified: 10/01/24
   type: happy_hour
 - name: Swimcrush AP
   url: "https://www.swimcrushap.com"
@@ -478,7 +479,7 @@
       - "$8 food specials, $5 drafts, $8 wines, $10 crushes, $5 shot special"
     times: [[[1, 5], [1500, 1800]]]
     menu_url: "https://www.instagram.com/p/C_lrySwvD_b"
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: "TJ's Pizza"
   url: "https://ordertjspizzanj.com/"
@@ -502,7 +503,7 @@
       - "Discounted pizza/snacks"
     times: [[[1, 5], [1630, 1830]], [[0], [1000, 1400]], [[6], [1000, 1400]]]
     menu_url: "https://talulaspizza.com/blogs/events/happy-hour-at-the-bar"
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: Tic Taco Taqueria
   url: "https://tictacotaquerianj.com/"
@@ -531,7 +532,7 @@
       - "cocktails"
     times: [[[4], [1700, 2300]]]
     menu_url: "https://menu.thesafemenu.com/watermark/menus/happy-hour/"
-  verified: 09/06/24
+  verified: 10/01/24
   type: happy_hour
 - name: Wonder Bar
   url: "https://wonderbarasburypark.com/"
