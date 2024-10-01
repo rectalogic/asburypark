@@ -475,9 +475,9 @@
   instagram: swimcrushap
   happy_hours:
     description:
-      - "specials menu"
-    times: [[[0, 4], [1200, 2100]], [[5, 6], [1200, 2500]]]
-    menu_url: "https://www.swimcrushap.com/specials"
+      - "$8 food specials, $5 drafts, $8 wines, $10 crushes, $5 shot special"
+    times: [[[1, 5], [1500, 1800]]]
+    menu_url: "https://www.instagram.com/p/C_lrySwvD_b"
   verified: 09/06/24
   type: happy_hour
 - name: "TJ's Pizza"
