@@ -405,8 +405,8 @@
     description:
       - "Wed all night"
       - "Th Wine on Us"
-    times: [[[3], [1600, 2200]]]
-    menu_url: "https://www.heyreyla.com/eat"
+    times: [[[3], [1600, 2200]], [[4, 5], [1600, 1800]]]
+    menu_url: "https://www.instagram.com/stories/heyreyla/3470136709641853439/"
   verified: 10/01/24
   type: happy_hour
 - name: Rice Asian Cuisine
