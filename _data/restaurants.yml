@@ -311,17 +311,6 @@
   instagram: lowdiveap
   verified: 04/16/24
   type: unknown
-- name: The Mainstay
-  url: "https://www.itsthemainstay.com/"
-  map: https://maps.app.goo.gl/ZcPmdeQLnGnQWXRt8
-  instagram: itsthemainstay
-  happy_hours:
-    description:
-      - "appetizer specials"
-    times: [[[2, 5], [1600, 1800]]]
-    menu_url: "https://www.instagram.com/p/C-qFwLAPeXi/?igsh=MXFubjgwdzVpcmtidQ=="
-  verified: 09/06/24
-  type: happy_hour
 - name: Makanas
   url: "https://makanasnj.com/"
   map: https://maps.app.goo.gl/wRPocr4voWtbPVYg7
