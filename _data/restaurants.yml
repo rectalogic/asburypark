@@ -460,9 +460,9 @@
   happy_hours:
     description:
       - "specials"
-    times: [[[1, 5], [1500, 1800]], [[6], [1200, 1500]], [[0], [1200, 1500]]]
-    menu_url: "https://www.instagram.com/p/C_oDpgZx9gK/"
-  verified: 10/01/24
+    times: [[[1, 5], [1500, 1800]], [[6], [1200, 1500]], [[0], [1200, 2100]]]
+    menu_url: "https://www.instagram.com/p/DBOqsybxAmp/"
+  verified: 10/17/24
   type: happy_hour
 - name: Swimcrush AP
   url: "https://www.swimcrushap.com"
