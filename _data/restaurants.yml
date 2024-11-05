@@ -382,8 +382,8 @@
     description:
       - "$5 select draft, $6 wine, $7 cocktails, HH food menu"
     times: [[[1, 5], [1600, 1800]]]
-    menu_url: "https://pizzaporta.com/menus"
-  verified: 10/01/24
+    menu_url: "https://cdn.sanity.io/files/nnse9dt5/production/e4c37d2a64460a672cb9bde1fba70e5e7a3311bd.pdf"
+  verified: 11/05/24
   type: happy_hour
 - name: R Bar
   url: https://www.itsrbar.com/
