@@ -7,8 +7,14 @@
   url: https://www.timmcloonessupperclub.com/locations.php
   map: https://maps.app.goo.gl/f6RFthcQQrifNNwn8
   instagram: ap.rooftop
-  verified: 06/20/24
-  type: unknown
+  happy_hours:
+    description:
+      - "$5 drafts, $8 wine/cocktails"
+      - "food specials"
+    times: [[[1, 5], [1500, 1800]]]
+    menu_url: https://cdn.mcloones.com/pdf/ap-rooftop/Menus/2024/AP_RT_HappyHour_11124.pdf
+  verified: 11/07/24
+  type: happy_hour
 - name: Ada's Gojjo
   url: "https://adagojjo.com/"
   map: https://maps.app.goo.gl/nJi3bs3Sy1EGjbgX7
