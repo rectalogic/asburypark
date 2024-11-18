@@ -448,6 +448,17 @@
     menu_url: "https://www.instagram.com/p/C9KQW11Arv6/?igsh=anRhY2I0OXBtOTBn"
   verified: 09/06/24
   type: happy_hour
+- name: Shoreline Social Club & Grille
+  url: https://www.berkeleyhotelnj.com/dining/shoreline-social-club-grille
+  map: https://maps.app.goo.gl/ZKGEUCVnsKRUQsRy9
+  instagram: shorelinesocialasbury
+  happy_hours:
+    description:
+      - "50% off drinks & food specials"
+    times: [[[1], [1600, 1900]], [[3,5], [1600, 1900]]]
+    menu_url: "https://www.berkeleyhotelnj.com/calendar-of-events/happy-hour"
+  verified: 11/18/24
+  type: happy_hour
 - name: Soundbooth
   url: https://www.theasburyhotel.com/eat-and-drink/soundbooth
   map: https://maps.app.goo.gl/wsNi3pFngY3SzyGp8
