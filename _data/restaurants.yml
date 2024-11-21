@@ -75,7 +75,8 @@
     description:
       - "Taco Tuesday: 2 Tacos + 1 margy for $17"
       - "Thursday: All-Night Happy Hour"
-    times: [[[2], [1600, 2200]], [[4], [1600, 2200]]]
+    times: [[[0], [1500, 2100]], [[2], [1600, 1800]], [[4], [1600, 2200]], [[5], [1600, 1800]]]
+    menu_url: "https://www.facebook.com/photo?fbid=1172195911172380&set=pcb.1172195967839041"
   verified: 10/01/24
   type: happy_hour
 - name: Beach Bar
