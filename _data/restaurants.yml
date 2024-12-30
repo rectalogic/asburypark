@@ -36,8 +36,8 @@
   url: https://www.asburybiergarten.com/
   map: https://maps.app.goo.gl/pCUcJKrohgecvbse8
   instagram: apbiergarten
-  verified: closed as of 06/20/24
-  type: unknown
+  verified: 12/30/24
+  type: closed
 - name: Asbury Lanes Diner
   url: https://www.asburylanes.com/the-diner/
   map: https://maps.app.goo.gl/SbJ9RtgSfWNwAjED7
@@ -49,6 +49,12 @@
   map: https://maps.app.goo.gl/Rj1pA4hr4oYHChWd9
   instagram: asburyoysterbar
   verified: 04/16/24
+  type: unknown
+- name: Asbury Park Brewery
+  url: http://asburyparkbrewery.com/
+  map: https://maps.app.goo.gl/C69mQgAcAupAL1wu7
+  instagram: asburyparkbrewery
+  verified: 12/30/24
   type: unknown
 - name: Azure
   url: https://www.azure-restaurant.com
@@ -130,13 +136,13 @@
   url: https://www.thebreakap.com/
   map: https://maps.app.goo.gl/R5wBhSFWS6jktdxF7
   instagram: thebreakap
-  happy_hours:
-    description:
-      - "$5 chips/salsa, $5 marg, $2 off beer/wine/cocktails"
-    times: [[[1, 5], [1100, 1700]]]
-    menu_url: "https://www.instagram.com/p/DAla0dARK31/"
-  verified: 10/01/24
-  type: happy_hour
+  # happy_hours:
+  #   description:
+  #     - "$5 chips/salsa, $5 marg, $2 off beer/wine/cocktails"
+  #   times: [[[1, 5], [1100, 1700]]]
+  #   menu_url: "https://www.instagram.com/p/DAla0dARK31/"
+  verified: 12/30/24
+  type: closed
 - name: Capitoline
   url: https://capitolineap.com/
   map: https://maps.app.goo.gl/HYVrZQRjA4NaWxpS9
@@ -316,8 +322,8 @@
   url: https://www.lowdiveap.com/
   map: https://maps.app.goo.gl/6NRfiYxD1AJGhDi28
   instagram: lowdiveap
-  verified: 04/16/24
-  type: unknown
+  verified: 12/30/24
+  type: closed
 - name: Makanas
   url: "https://makanasnj.com/"
   map: https://maps.app.goo.gl/wRPocr4voWtbPVYg7
@@ -491,8 +497,8 @@
   #    - "$8 food specials, $5 drafts, $8 wines, $10 crushes, $5 shot special"
   #  times: [[[1, 5], [1500, 1800]]]
   #  menu_url: "https://www.instagram.com/p/C_lrySwvD_b"
-  verified: 11/25/24
-  type: unknown
+  verified: 12/30/24
+  type: closed
 - name: "TJ's Pizza"
   url: "https://ordertjspizzanj.com/"
   map: https://maps.app.goo.gl/ADnVDz4vzMVZS9oC6
@@ -552,6 +558,12 @@
     menu_url: "https://menu.thesafemenu.com/watermark/menus/happy-hour/"
   verified: 10/01/24
   type: happy_hour
+- name: Wild Air Beerworks
+  url: https://www.wildairbeer.com/
+  map: https://maps.app.goo.gl/tWmEn3BdZ7WtWfaP6
+  instagram: wildairbeer
+  verified: 12/30/24
+  type: unknown
 - name: Wonder Bar
   url: "https://wonderbarasburypark.com/"
   map: https://maps.app.goo.gl/zgrzscpJsi14gpDeA
