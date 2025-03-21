@@ -63,7 +63,7 @@
   happy_hours:
     description:
       - "50% off food/drink specials"
-    times: [[[1], [1600, 1900]], [[3,5], [1600, 1900]]]
+    times: [[[1], [1600, 1900]], [[3, 5], [1600, 1900]]]
     menu_url: "https://www.berkeleyhotelnj.com/calendar-of-events/happy-hour-at-azure"
   verified: 10/01/24
   type: happy_hour
@@ -81,7 +81,13 @@
     description:
       - "Taco Tuesday: 2 Tacos + 1 margy for $17"
       - "Thursday: All-Night Happy Hour"
-    times: [[[0], [1500, 2100]], [[2], [1600, 1800]], [[4], [1600, 2200]], [[5], [1600, 1800]]]
+    times:
+      [
+        [[0], [1500, 2100]],
+        [[2], [1600, 1800]],
+        [[4], [1600, 2200]],
+        [[5], [1600, 1800]],
+      ]
     menu_url: "https://www.instagram.com/p/DCXdcm6vunR/?img_index=1"
   verified: 10/01/24
   type: happy_hour
@@ -439,11 +445,11 @@
     menu_url: "https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2023/R_AP_HappyHour_102023.pdf"
   verified: 10/01/24
   type: happy_hour
-- name: St. Laurent
-  url: https://thestlaurent.com
-  map: https://maps.app.goo.gl/gBoiFGXMjrkT4E419
-  instagram: thestlaurentsocialclub
-  verified: 04/16/24
+- name: "Judy & Harry's"
+  url: https://www.judyandharrys.com/
+  map: https://maps.app.goo.gl/eZceK9eaBrbwcjJbA
+  instagram: judyandharrys
+  verified: 03/21/25
   type: unknown
 - name: Salvation
   url: https://www.theasburyhotel.com/eat-and-drink/salvation
@@ -468,7 +474,7 @@
   happy_hours:
     description:
       - "50% off drinks & food specials"
-    times: [[[1], [1600, 1900]], [[3,5], [1600, 1900]]]
+    times: [[[1], [1600, 1900]], [[3, 5], [1600, 1900]]]
     menu_url: "https://www.berkeleyhotelnj.com/calendar-of-events/happy-hour"
   verified: 11/18/24
   type: happy_hour
