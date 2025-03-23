@@ -138,17 +138,6 @@
   instagram: brandosnj
   verified: 04/16/24
   type: unknown
-- name: The Break
-  url: https://www.thebreakap.com/
-  map: https://maps.app.goo.gl/R5wBhSFWS6jktdxF7
-  instagram: thebreakap
-  # happy_hours:
-  #   description:
-  #     - "$5 chips/salsa, $5 marg, $2 off beer/wine/cocktails"
-  #   times: [[[1, 5], [1100, 1700]]]
-  #   menu_url: "https://www.instagram.com/p/DAla0dARK31/"
-  verified: 12/30/24
-  type: closed
 - name: Capitoline
   url: https://capitolineap.com/
   map: https://maps.app.goo.gl/HYVrZQRjA4NaWxpS9
@@ -269,6 +258,12 @@
     times: [[[0], [1000, 1500]]]
   verified: 09/06/24
   type: happy_hour
+- name: "Judy & Harry's"
+  url: https://www.judyandharrys.com/
+  map: https://maps.app.goo.gl/eZceK9eaBrbwcjJbA
+  instagram: judyandharrys
+  verified: 03/21/25
+  type: unknown
 - name: Kim Maries
   url: "https://www.kimmarieseatndrinkaway.com/"
   map: https://maps.app.goo.gl/gfUG4XZcvStqBq8v9
@@ -366,6 +361,12 @@
   instagram: mutinybbq
   verified: 04/16/24
   type: byob
+- name: The Palmetto
+  url: https://www.palmettoasburypark.com/
+  map: https://maps.app.goo.gl/ZtPN9i7Caahubo4K7
+  instagram: palmettoasburypark
+  verified: 03/23/25
+  type: unknown
 - name: Paradise Nightclub
   url: https://www.paradisenj.com/
   map: https://maps.app.goo.gl/fr6nuVHmWi692GPJ7
@@ -445,12 +446,6 @@
     menu_url: "https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2023/R_AP_HappyHour_102023.pdf"
   verified: 10/01/24
   type: happy_hour
-- name: "Judy & Harry's"
-  url: https://www.judyandharrys.com/
-  map: https://maps.app.goo.gl/eZceK9eaBrbwcjJbA
-  instagram: judyandharrys
-  verified: 03/21/25
-  type: unknown
 - name: Salvation
   url: https://www.theasburyhotel.com/eat-and-drink/salvation
   map: https://maps.app.goo.gl/wsNi3pFngY3SzyGp8
