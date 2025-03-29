@@ -44,12 +44,6 @@
   instagram: asburylanesdiner
   verified: 06/24/24
   type: unknown
-- name: Asbury Oyster Bar
-  url: https://www.facebook.com/asburyoysterbar/
-  map: https://maps.app.goo.gl/Rj1pA4hr4oYHChWd9
-  instagram: asburyoysterbar
-  verified: 04/16/24
-  type: unknown
 - name: Asbury Park Brewery
   url: http://asburyparkbrewery.com/
   map: https://maps.app.goo.gl/C69mQgAcAupAL1wu7
@@ -121,10 +115,10 @@
   happy_hours:
     description:
       - "50% off all alcohol, HH food menu"
-      - "Wed 2 for 1 burger night"
+      - "Wed 2 for $30 burger night"
     times: [[[1], [1500, 1800]], [[2], [1500, 2200]], [[3, 5], [1500, 1800]]]
     menu_url: "https://www.theblackswanap.com/happy-hour"
-  verified: 10/01/24
+  verified: 03/29/25
   type: happy_hour
 - name: Bond Street Bar
   url: https://bondstreetap.com/
@@ -142,8 +136,14 @@
   url: https://capitolineap.com/
   map: https://maps.app.goo.gl/HYVrZQRjA4NaWxpS9
   instagram: capitoline_ap
-  verified: 06/24/24
-  type: unknown
+  happy_hours:
+    description:
+      - "HH food menu"
+      - "$5 beer, $7 wine, $10 martini, $8 mocktails"
+    times: [[[3, 4], [1700, 1900]], [[0], [1200, 2100]]]
+    menu_url: "https://www.instagram.com/p/DGisnGGOenT/"
+  verified: 03/29/25
+  type: happy_hour
 - name: Catbird Asbury Park
   url: "https://www.catbirdap.com/"
   map: https://maps.app.goo.gl/BciWyaJFGhoMhtPaA
@@ -415,8 +415,13 @@
   url: https://www.itsrbar.com/
   map: https://maps.app.goo.gl/t4XRRU3E1MvC32hF8
   instagram: rbar_asburypark
-  verified: 04/16/24
-  type: unknown
+  happy_hours:
+    description:
+      - "$15 sample platter, $3 Narragansett, $5 Guinness, cocktails"
+    times: [[[5], [1600, 1800]]]
+    menu_url: "https://www.instagram.com/p/DE5KI-RAKlN/"
+  verified: 03/29/25
+  type: happy_hour
 - name: Reyla
   url: "https://www.heyreyla.com/"
   map: https://maps.app.goo.gl/mkGxdhbCtuL2to288
@@ -473,6 +478,12 @@
     menu_url: "https://www.berkeleyhotelnj.com/calendar-of-events/happy-hour"
   verified: 11/18/24
   type: happy_hour
+- name: ShuckedByLocal130
+  url: https://www.facebook.com/asburyoysterbar/
+  map: https://maps.app.goo.gl/Rj1pA4hr4oYHChWd9
+  instagram: shuckedbylocal130
+  verified: 03/29/25
+  type: unknown
 - name: Soundbooth
   url: https://www.theasburyhotel.com/eat-and-drink/soundbooth
   map: https://maps.app.goo.gl/wsNi3pFngY3SzyGp8
