@@ -83,7 +83,7 @@
         [[5], [1600, 1800]],
       ]
     menu_url: "https://www.instagram.com/p/DCXdcm6vunR/?img_index=1"
-  verified: 10/01/24
+  verified: 03/30/25
   type: happy_hour
 - name: Beach Bar
   url: "https://apboardwalk.com/portfolio/the-beach-bar/"
@@ -365,8 +365,13 @@
   url: https://www.palmettoasburypark.com/
   map: https://maps.app.goo.gl/ZtPN9i7Caahubo4K7
   instagram: palmettoasburypark
-  verified: 03/23/25
-  type: unknown
+  happy_hours:
+    description:
+      - "Half off all drinks"
+    times: [[[1, 5], [1600, 1800]]]
+    menu_url: "https://www.instagram.com/p/DHq9TjyudAZ"
+  verified: 03/30/25
+  type: happy_hour
 - name: Paradise Nightclub
   url: https://www.paradisenj.com/
   map: https://maps.app.goo.gl/fr6nuVHmWi692GPJ7
