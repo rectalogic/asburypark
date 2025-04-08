@@ -178,10 +178,11 @@
   instagram: deallakebarco
   happy_hours:
     description:
-      - "$4/6 select draft, $5 wine, $6 snacks"
-    times: [[[1, 5], [1500, 1800]]]
-    menu_url: "https://www.deallakebarco.com/s/WebHappy-Hour-tpel.pdf"
-  verified: 10/01/24
+      - "Half off all alcohol"
+      - "Food specials"
+    times: [[[1, 5], [1600, 1800]]]
+    menu_url: "https://www.instagram.com/p/DHTn90PAI-F/"
+  verified: 04/08/25
   type: happy_hour
 - name: Dolce Fantasia
   url: "http://www.dolcefantasia.us/"
