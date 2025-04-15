@@ -13,7 +13,7 @@
       - "food specials"
     times: [[[1, 5], [1500, 1800]]]
     menu_url: https://cdn.mcloones.com/pdf/ap-rooftop/Menus/2024/AP_RT_HappyHour_11124.pdf
-  verified: 11/07/24
+  verified: 04/15/25
   type: happy_hour
 - name: Ada's Gojjo
   url: "https://adagojjo.com/"
@@ -50,17 +50,6 @@
   instagram: asburyparkbrewery
   verified: 12/30/24
   type: unknown
-- name: Azure
-  url: https://www.azure-restaurant.com
-  map: https://maps.app.goo.gl/gXhzywxgErXyVtis8
-  instagram: azureasburypark
-  happy_hours:
-    description:
-      - "50% off food/drink specials"
-    times: [[[1], [1600, 1900]], [[3, 5], [1600, 1900]]]
-    menu_url: "https://www.berkeleyhotelnj.com/calendar-of-events/happy-hour-at-azure"
-  verified: 10/01/24
-  type: happy_hour
 - name: Los Barbaros Birria
   url: https://www.losbarbarosbirriabelmar.com/
   map: https://maps.app.goo.gl/KrCGgovXgu4D73ea9
@@ -83,19 +72,14 @@
         [[5], [1600, 1800]],
       ]
     menu_url: "https://www.instagram.com/p/DCXdcm6vunR/?img_index=1"
-  verified: 03/30/25
+  verified: 04/15/25
   type: happy_hour
 - name: Beach Bar
   url: "https://apboardwalk.com/portfolio/the-beach-bar/"
   map: https://maps.app.goo.gl/2gsC5P3KwnT5ZLhCA
   instagram: beachbarasbury
-  happy_hours:
-    description:
-      - "$15 rum bucket"
-    times: [[[5, 6], [1200, 1800]], [[0], [1200, 1800]]]
-    menu_url: "https://www.instagram.com/p/C_s04u7RAtR/"
-  verified: 10/01/24
-  type: happy_hour
+  verified: 04/15/25
+  type: unknown
 - name: Belmontes Ristorante
   url: "http://belmontesap.com/"
   map: https://maps.app.goo.gl/uZy6Ctyafocmjp859
@@ -107,6 +91,12 @@
   map: https://maps.app.goo.gl/Gf2YqmmdMf7AC5tm9
   instagram: berkeleyhotelnj
   verified: 06/24/24
+  type: unknown
+- name: The Berkeley Backyard
+  url: https://www.berkeleyhotelnj.com/dining/berkeley-backyard
+  map: https://maps.app.goo.gl/GJxiy8KaxHSxXWgJ6
+  instagram: theberkeleybackyard
+  verified: 04/15/25
   type: unknown
 - name: The Black Swan
   url: "https://www.theblackswanap.com/"
@@ -227,9 +217,9 @@
   happy_hours:
     description:
       - "$6 wine/beer, cocktail/food specials"
-    times: [[[1, 5], [1600, 1800]], [[1, 5], [2100, 2300]]]
-    menu_url: "https://www.lovehomesick.com/menu"
-  verified: 10/01/24
+    times: [[[4, 6], [1600, 1800]]]
+    menu_url: "https://www.lovehomesick.com/menus"
+  verified: 04/15/25
   type: happy_hour
 - name: Iron Whale
   url: "https://www.ironwhalenj.com/"
@@ -240,7 +230,7 @@
       - "small plate specials, $3 off beer, $6 marg, $4 off wine, $5 off cocktails"
     times: [[[1, 5], [1400, 1800]]]
     menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2025/IW_HappyHour_2025.pdf"
-  verified: 02/25/25
+  verified: 04/15/25
   type: happy_hour
 - name: Jimmy's Italian
   url: https://www.jimmysitalianrestaurant.com/
@@ -288,9 +278,9 @@
   instagram: laylowap
   happy_hours:
     description:
-      - "$8 Classic Cocktails"
+      - "$9 Classic Cocktails"
     times: [[[0], [1700, 1900]]]
-  verified: 09/06/24
+  verified: 04/15/25
   type: happy_hour
 - name: Lola's European Cafe
   url: https://lolaseuropeancafe.com/
@@ -306,26 +296,31 @@
     description:
       - "Taco Tuesday $3 tacos"
     times: [[[2], [1600, 2200]]]
-    menu_url: "https://www.instagram.com/p/C8FnZgnvlf9/"
-  verified: 09/06/24
+    menu_url: "https://www.instagram.com/p/DIMF2QiMBJd/"
+  verified: 04/15/25
   type: happy_hour
+- name: "Lilly and Lu's Café"
+  url: "https://www.berkeleyhotelnj.com/dining/lilly-and-lus-cafe"
+  map: https://maps.app.goo.gl/CQ6CvYhExkAgfAjCA
+  instagram: lillyandluscafe
+  type: unknown
 - name: Lovesick
   url: "https://www.dearlovesick.com/"
   map: https://maps.app.goo.gl/ec8WZbz7MxZEA7j99
   instagram: dear_lovesick
   happy_hours:
     description:
-      - "$20/3 wine pours"
-    times: [[[0, 6], [1600, 1800]]]
-    menu_url: "https://maps.app.goo.gl/3THCmFK3KUB72wn16"
-  verified: 09/27/24
+      - "$5 beers, $8 sangria, $12 cocktails"
+    times: [[[4, 6], [1600, 1800]]]
+    menu_url: "https://www.dearlovesick.com/menus"
+  verified: 04/15/25
   type: happy_hour
 - name: Low Dive
   url: https://www.lowdiveap.com/
   map: https://maps.app.goo.gl/6NRfiYxD1AJGhDi28
   instagram: lowdiveap
-  verified: 12/30/24
-  type: closed
+  verified: 04/15/25
+  type: unknown
 - name: Makanas
   url: "https://makanasnj.com/"
   map: https://maps.app.goo.gl/wRPocr4voWtbPVYg7
@@ -362,6 +357,12 @@
   instagram: mutinybbq
   verified: 04/16/24
   type: byob
+- name: Mutiny Beach
+  url: "https://www.mutinybbq.com/"
+  map: https://maps.app.goo.gl/WBuLChyJkNuBWQkTA
+  instagram: mutinybeach
+  verified: 04/15/25
+  type: unknown
 - name: The Palmetto
   url: https://www.palmettoasburypark.com/
   map: https://maps.app.goo.gl/ZtPN9i7Caahubo4K7
@@ -371,7 +372,7 @@
       - "Half off all drinks"
     times: [[[1, 5], [1600, 1800]]]
     menu_url: "https://www.instagram.com/p/DHq9TjyudAZ"
-  verified: 03/30/25
+  verified: 04/15/25
   type: happy_hour
 - name: Paradise Nightclub
   url: https://www.paradisenj.com/
@@ -386,9 +387,15 @@
   happy_hours:
     description:
       - "$6 select beer, $12 cocktails, $10 martini, $8 wine, HH food menu"
-    times: [[[0, 6], [1600, 1800]]]
-    menu_url: "https://pascalandsabine.com/"
-  verified: 10/01/24
+    times:
+      [
+        [[1, 4], [1700, 1900]],
+        [[2], [1700, 2100]],
+        [[5, 6], [1600, 1800]],
+        [[0], [1600, 1800]],
+      ]
+    menu_url: "https://www.pascalandsabine.com/menus"
+  verified: 04/15/25
   type: happy_hour
 - name: Plaza Garibaldi
   url: "https://garibaldimexicanfood.com/"
@@ -412,10 +419,10 @@
   instagram: portaasburypark
   happy_hours:
     description:
-      - "$5 select draft, $6 wine, $7 cocktails, HH food menu"
+      - "$5 select draft, $7 wine, $10 cocktails, HH food menu"
     times: [[[1, 5], [1600, 1800]]]
-    menu_url: "https://cdn.sanity.io/files/nnse9dt5/production/e4c37d2a64460a672cb9bde1fba70e5e7a3311bd.pdf"
-  verified: 11/05/24
+    menu_url: "https://www.pizzaporta.com/menus"
+  verified: 04/15/25
   type: happy_hour
 - name: R Bar
   url: https://www.itsrbar.com/
@@ -426,7 +433,7 @@
       - "$15 sample platter, $3 Narragansett, $5 Guinness, cocktails"
     times: [[[5], [1600, 1800]]]
     menu_url: "https://www.instagram.com/p/DE5KI-RAKlN/"
-  verified: 03/29/25
+  verified: 04/15/25
   type: happy_hour
 - name: Reyla
   url: "https://www.heyreyla.com/"
@@ -434,11 +441,10 @@
   instagram: heyreyla
   happy_hours:
     description:
-      - "Wed all night"
-      - "Th Wine on Us"
+      - "$9 cocktails, $7 wine"
     times: [[[3], [1600, 2200]], [[4, 5], [1600, 1800]]]
-    menu_url: "https://www.instagram.com/stories/heyreyla/3470136709641853439/"
-  verified: 10/01/24
+    menu_url: "https://www.heyreyla.com/drink"
+  verified: 04/15/25
   type: happy_hour
 - name: Rice Asian Cuisine
   url: "https://www.riceasiancuisinenj.com"
@@ -455,35 +461,19 @@
       - "$4 draft, $7 marg,sangria,wine, $8 cocktails, HH food menu"
     times: [[[1, 5], [1400, 1800]]]
     menu_url: "https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2023/R_AP_HappyHour_102023.pdf"
-  verified: 10/01/24
+  verified: 04/15/25
   type: happy_hour
 - name: Salvation
   url: https://www.theasburyhotel.com/eat-and-drink/salvation
   map: https://maps.app.goo.gl/wsNi3pFngY3SzyGp8
   verified: 04/16/24
   type: unknown
-- name: Seahorse
-  url: https://www.seahorseasburypark.com/
-  map: https://maps.app.goo.gl/WBuLChyJkNuBWQkTA
-  instagram: seahorseasburypark
-  happy_hours:
-    description:
-      - "$5 food and drinks"
-    times: [[[1, 4], [1300, 1600]]]
-    menu_url: "https://www.instagram.com/p/C9KQW11Arv6/?igsh=anRhY2I0OXBtOTBn"
-  verified: 09/06/24
-  type: happy_hour
 - name: Shoreline Social Club & Grille
   url: https://www.berkeleyhotelnj.com/dining/shoreline-social-club-grille
   map: https://maps.app.goo.gl/ZKGEUCVnsKRUQsRy9
   instagram: shorelinesocialasbury
-  happy_hours:
-    description:
-      - "50% off drinks & food specials"
-    times: [[[1], [1600, 1900]], [[3, 5], [1600, 1900]]]
-    menu_url: "https://www.berkeleyhotelnj.com/calendar-of-events/happy-hour"
-  verified: 11/18/24
-  type: happy_hour
+  verified: 04/15/25
+  type: unknown
 - name: ShuckedByLocal130
   url: https://www.facebook.com/asburyoysterbar/
   map: https://maps.app.goo.gl/Rj1pA4hr4oYHChWd9
@@ -545,7 +535,7 @@
       - "Discounted pizza/snacks"
     times: [[[1, 5], [1630, 1830]], [[0], [1000, 1400]], [[6], [1000, 1400]]]
     menu_url: "https://talulaspizza.com/blogs/events/happy-hour-at-the-bar"
-  verified: 10/01/24
+  verified: 04/15/25
   type: happy_hour
 - name: Tic Taco Taqueria
   url: "https://tictacotaquerianj.com/"
@@ -580,7 +570,7 @@
       - "cocktails"
     times: [[[4], [1700, 2300]]]
     menu_url: "https://menu.thesafemenu.com/watermark/menus/happy-hour/"
-  verified: 10/01/24
+  verified: 04/15/25
   type: happy_hour
 - name: Wild Air Beerworks
   url: https://www.wildairbeer.com/
