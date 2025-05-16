@@ -294,10 +294,10 @@
   instagram: loteria_ap
   happy_hours:
     description:
-      - "Taco Tuesday $3 tacos"
-    times: [[[2], [1600, 2200]]]
-    menu_url: "https://www.instagram.com/p/DIMF2QiMBJd/"
-  verified: 04/15/25
+      - "Food and drink specials"
+    times: [[[4], [1600, 1800]]]
+    menu_url: "https://www.instagram.com/p/DJrS6dPx4Lb/"
+  verified: 05/16/25
   type: happy_hour
 - name: "Lilly and Lu's Café"
   url: "https://www.berkeleyhotelnj.com/dining/lilly-and-lus-cafe"
