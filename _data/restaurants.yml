@@ -458,10 +458,10 @@
   instagram: robinsonalehouse
   happy_hours:
     description:
-      - "$4 draft, $7 marg,sangria,wine, $8 cocktails, HH food menu"
-    times: [[[1, 5], [1400, 1800]]]
-    menu_url: "https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2023/R_AP_HappyHour_102023.pdf"
-  verified: 04/15/25
+      - "$4 draft, $7 marg,sangria,wine, $8 cocktails, half price appetizers"
+    times: [[[1, 5], [1600, 1800]]]
+    menu_url: "https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2025/R_AP_HappyHour_042525.pdf"
+  verified: 05/19/25
   type: happy_hour
 - name: Salvation
   url: https://www.theasburyhotel.com/eat-and-drink/salvation
@@ -511,8 +511,8 @@
   #    - "$8 food specials, $5 drafts, $8 wines, $10 crushes, $5 shot special"
   #  times: [[[1, 5], [1500, 1800]]]
   #  menu_url: "https://www.instagram.com/p/C_lrySwvD_b"
-  verified: 12/30/24
-  type: closed
+  verified: 05/19/25
+  type: unknown
 - name: "TJ's Pizza"
   url: "https://ordertjspizzanj.com/"
   map: https://maps.app.goo.gl/ADnVDz4vzMVZS9oC6
