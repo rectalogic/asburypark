@@ -506,13 +506,13 @@
   url: "https://www.swimcrushap.com"
   map: https://maps.app.goo.gl/it6W5GhgwGuwSPLeA
   instagram: swimcrushap
-  #happy_hours:
-  #  description:
-  #    - "$8 food specials, $5 drafts, $8 wines, $10 crushes, $5 shot special"
-  #  times: [[[1, 5], [1500, 1800]]]
-  #  menu_url: "https://www.instagram.com/p/C_lrySwvD_b"
-  verified: 05/19/25
-  type: unknown
+  happy_hours:
+    description:
+      - "happy hour"
+    times: [[[1, 5], [1500, 1700]]]
+    menu_url: "https://www.instagram.com/p/DK2seKsxTVd/"
+  verified: 06/13/25
+  type: happy_hour
 - name: "TJ's Pizza"
   url: "https://ordertjspizzanj.com/"
   map: https://maps.app.goo.gl/ADnVDz4vzMVZS9oC6
