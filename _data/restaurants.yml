@@ -9,11 +9,11 @@
   instagram: ap.rooftop
   happy_hours:
     description:
-      - "$5 drafts, $8 wine/cocktails"
+      - "$5 drafts, $9 wine, $10 cocktails"
       - "food specials"
     times: [[[1, 5], [1400, 1700]]]
-    menu_url: https://cdn.mcloones.com/pdf/ap-rooftop/Menus/2025/AP_RT_HappyHour_021025.pdf
-  verified: 06/03/25
+    menu_url: https://cdn.mcloones.com/pdf/ap-rooftop/menus/2025/Happy-Hour-at-AP-Rooftop.pdf?v=1
+  verified: 06/17/25
   type: happy_hour
 - name: Ada's Gojjo
   url: "https://adagojjo.com/"
