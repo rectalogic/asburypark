@@ -129,10 +129,10 @@
   happy_hours:
     description:
       - "HH food menu"
-      - "$5 beer, $7 wine, $10 martini, $8 mocktails"
-    times: [[[3, 4], [1700, 1900]], [[0], [1200, 2100]]]
-    menu_url: "https://www.instagram.com/p/DGisnGGOenT/"
-  verified: 03/29/25
+      - "$5 beer, $7 wine, $10 martini, $8 mocktails, food specials"
+    times: [[[3, 4], [1700, 1900]], [[5], [1400, 1700]], [[0], [1200, 2100]]]
+    menu_url: "https://www.instagram.com/p/DLr6HNXu-bp"
+  verified: 07/07/25
   type: happy_hour
 - name: Catbird Asbury Park
   url: "https://www.catbirdap.com/"
@@ -152,10 +152,11 @@
   instagram: crossandorange
   happy_hours:
     description:
-      - "$4/$5 drafts, $6 wine, $7 well, food specials"
+      - "$4/$5 drafts, $6 wine, $7 well"
+      - "new food specials every 2 weeks"
     times: [[[3, 4], [1600, 2100]]]
-    menu_url: "https://www.instagram.com/p/DKaWtFaPJBf/?img_index=2"
-  verified: 06/03/25
+    menu_url: "https://www.instagram.com/p/DLx3erbRrbX"
+  verified: 07/07/25
   type: happy_hour
 - name: Crust & Crumble Pizzeria
   url: "https://crustandcrumble.com/"
