@@ -567,9 +567,9 @@
   happy_hours:
     description:
       - "cocktails"
-    times: [[[4], [1700, 2300]]]
+    times: [[[1, 4], [1600, 1800]]]
     menu_url: "https://menu.thesafemenu.com/watermark/menus/happy-hour/"
-  verified: 04/15/25
+  verified: 07/18/25
   type: happy_hour
 - name: Wild Air Beerworks
   url: https://www.wildairbeer.com/
