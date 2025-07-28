@@ -155,7 +155,7 @@
       - "$4/$5 drafts, $6 wine, $7 well"
       - "new food specials every 2 weeks"
     times: [[[3, 4], [1600, 2100]]]
-    menu_url: "https://www.instagram.com/p/DLx3erbRrbX"
+    menu_url: "https://www.instagram.com/p/DKaWtFaPJBf/"
   verified: 07/07/25
   type: happy_hour
 - name: Crust & Crumble Pizzeria
@@ -532,7 +532,7 @@
     description:
       - "$5 rotating draft, $6 house wine, $10 gin&jams, $8 lambrusco"
       - "Discounted pizza/snacks"
-    times: [[[1, 5], [1630, 1830]], [[0], [1000, 1400]], [[6], [1000, 1400]]]
+    times: [[[1, 4], [1630, 1830]]]
     menu_url: "https://talulaspizza.com/blogs/events/happy-hour-at-the-bar"
   verified: 04/15/25
   type: happy_hour
