@@ -311,10 +311,10 @@
   instagram: dear_lovesick
   happy_hours:
     description:
-      - "$5 beers, $8 sangria, $12 cocktails"
-    times: [[[4, 6], [1600, 1800]]]
+      - "$5 beers, $12 cocktails"
+    times: [[[1, 5], [1700, 1900]]]
     menu_url: "https://www.dearlovesick.com/menus"
-  verified: 04/15/25
+  verified: 07/28/25
   type: happy_hour
 - name: Low Dive
   url: https://www.lowdiveap.com/
