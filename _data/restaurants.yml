@@ -105,10 +105,10 @@
   happy_hours:
     description:
       - "50% off all alcohol, HH food menu"
-      - "Wed 2 for $30 burger night"
-    times: [[[1], [1500, 1800]], [[2], [1500, 2200]], [[3, 5], [1500, 1800]]]
+      - "Wed 2nd burger $5"
+    times: [[[1], [1600, 1800]], [[2], [1600, 2200]], [[3, 5], [1600, 1800]]]
     menu_url: "https://www.theblackswanap.com/happy-hour"
-  verified: 03/29/25
+  verified: 07/28/25
   type: happy_hour
 - name: Bond Street Bar
   url: https://bondstreetap.com/
@@ -229,9 +229,9 @@
   happy_hours:
     description:
       - "small plate specials, $3 off beer, $6 marg, $4 off wine, $5 off cocktails"
-    times: [[[1, 5], [1400, 1800]]]
-    menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2025/IW_HappyHour_2025.pdf"
-  verified: 04/15/25
+    times: [[[1, 5], [1300, 1600]]]
+    menu_url: "https://cdn.mcloones.com/pdf/iron-whale/menus/2025/IW-Happy-Hour-2025.pdf"
+  verified: 07/28/25
   type: happy_hour
 - name: Jimmy's Italian
   url: https://www.jimmysitalianrestaurant.com/
@@ -265,7 +265,7 @@
       - "$5 local drafts, $6 wine/sangria, $7 mixed drinks, HH food menu"
     times: [[[1, 5], [1600, 1800]]]
     menu_url: "https://www.kimmarieseatndrinkaway.com/menus/#happy"
-  verified: 10/01/24
+  verified: 07/28/25
   type: happy_hour
 - name: Kimchee Mama
   url: "https://kimchimama.net/"
