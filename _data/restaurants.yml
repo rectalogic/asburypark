@@ -217,10 +217,10 @@
   instagram: lovehomesick
   happy_hours:
     description:
-      - "$6 wine/beer, cocktail/food specials"
-    times: [[[4, 6], [1600, 1800]]]
+      - "$4 beer, $6 wine, cocktail/food specials"
+    times: [[[1, 5], [1600, 1800]]]
     menu_url: "https://www.lovehomesick.com/menus"
-  verified: 04/15/25
+  verified: 07/28/25
   type: happy_hour
 - name: Iron Whale
   url: "https://www.ironwhalenj.com/"
