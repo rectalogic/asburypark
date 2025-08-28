@@ -25,13 +25,8 @@
   url: https://asburyalehouse.com/
   map: https://maps.app.goo.gl/iJx2hGS5UWZpFTgr9
   instagram: asburyalehouse
-  happy_hours:
-    description:
-      - "$6 draft/sangria, $7 marg, $8 espresso martini"
-    times: [[[1, 5], [1500, 1800]]]
-    menu_url: assets/images/asbury-ale-house.jpg
-  verified: 07/06/24
-  type: happy_hour
+  verified: 08/28/25
+  type: unknown
 - name: Asbury Festhalle & Biergarten
   url: https://www.asburybiergarten.com/
   map: https://maps.app.goo.gl/pCUcJKrohgecvbse8
