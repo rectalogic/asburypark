@@ -11,7 +11,7 @@
                 /*[1]*/ "Wed 2nd burger $5",
             ],
             menu_url: Some("https://www.theblackswanap.com/happy-hour"),
-            daytimes: [
+            dayhours: [
                 /*[0]*/ Single(Mon, (1600, 1800)),
                 /*[1]*/ Single(Tues, (1600, 2200)),
                 /*[2]*/ Range((Wed, Fri), (1600, 1800)),

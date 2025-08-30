@@ -44,7 +44,7 @@
                     </thead>
                     <tbody>
                     {% for restaurant in hh_restaurants -%}
-                        {% set daytimes = restaurant.kind.HappyHour.daytimes -%}
+                        {% set dayhours = restaurant.kind.HappyHour.dayhours -%}
                         <tr>
                             <td>{{ macros::restaurant(restaurant=restaurant) }}</td>
                             <td>

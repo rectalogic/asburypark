@@ -631,6 +631,7 @@ dependencies = [
  "chrono",
  "ron",
  "serde",
+ "serde_json",
  "tera",
 ]
 
