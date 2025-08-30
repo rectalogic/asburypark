@@ -1,0 +1,21 @@
+([
+    /*[0]*/ (
+        name: "The Black Swan",
+        url: "https://www.theblackswanap.com/",
+        map_id: "JiKYhYvKsK2ysBZs9",
+        instagram_id: "theblackswanap",
+        verified: "2025-07-28",
+        kind: HappyHour(
+            description: [
+                /*[0]*/ "50% off all alcohol, HH food menu",
+                /*[1]*/ "Wed 2nd burger $5",
+            ],
+            menu_url: Some("https://www.theblackswanap.com/happy-hour"),
+            daytimes: [
+                /*[0]*/ Single(Mon, (1600, 1800)),
+                /*[1]*/ Single(Tues, (1600, 2200)),
+                /*[2]*/ Range((Wed, Fri), (1600, 1800)),
+            ],
+        ),
+    ),
+])

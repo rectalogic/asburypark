@@ -1,0 +1,11 @@
+[package]
+name = "gensite"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.99"
+chrono = { version = "0.4.41", features = ["serde"] }
+ron = "0.11.0"
+serde = { version = "1.0.219", features = ["serde_derive"] }
+tera = "1.20.0"
