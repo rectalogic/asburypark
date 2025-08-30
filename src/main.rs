@@ -1,5 +1,5 @@
 use anyhow::Result;
-use gensite::site::SiteGenerator;
+use sitegen::SiteGenerator;
 use std::path::Path;
 
 fn main() -> Result<()> {

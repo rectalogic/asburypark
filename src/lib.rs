@@ -1,2 +1,3 @@
 mod model;
-pub mod site;
+mod site;
+pub use site::SiteGenerator;

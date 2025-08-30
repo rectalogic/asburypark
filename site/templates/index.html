@@ -1,2 +1,144 @@
-{% for restaurant in restaurants %} {{loop.index}}. {{restaurant.name}} {%
-endfor %}
+{% import "macros.html" as macros %}
+{% set hh_restaurants = restaurants | filter(attribute="kind.HappyHour") -%}
+{% set byob_restaurants = restaurants | filter(attribute="kind.Byob") -%}
+{% set unknown_restaurants = restaurants | filter(attribute="kind.Unknown") -%}
+{% set closed_restaurants = restaurants | filter(attribute="kind.Closed") -%}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light dark" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+        />
+        <title>Asbury Park Happy Hours</title>
+    </head>
+    <body>
+        <header>Asbury Park Happy Hours</header>
+        <main class="container">
+            <section>
+                <h2>Happy Hours</h2>
+                <table id="happy-hours">
+                    <thead>
+                        <tr>
+                            <th>Restaurant</th>
+                            <th>Map</th>
+                            <th>Insta</th>
+                            <th>HH Menu</th>
+                            <th>Happy Hours</th>
+                            <th>Verified</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for restaurant in hh_restaurants -%}
+                        <tr>
+                            <td>{{ macros::restaurant(restaurant=restaurant) }}</td>
+                            <td>{{ macros::map(restaurant=restaurant) }}</td>
+                            <td>{{ macros::instagram(restaurant=restaurant) }}</td>
+                            <td>
+                                {%- if restaurant.kind.HappyHour.menu_url -%}
+                                    <a href="{{ restaurant.kind.HappyHour.menu_url }}">Menu</a>
+                                {%- endif -%}
+                            </td>
+                            <td>times, descriptions</td>
+                            <td>{{ restaurant.verified }}</td>
+                        </tr>
+                    {% endfor -%}
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>BYOB</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Restaurant</th>
+                            <th>Map</th>
+                            <th>Insta</th>
+                            <th>Verified</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for restaurant in byob_restaurants %}
+                            <tr>
+                                <td>
+                                    {{ macros::restaurant(restaurant=restaurant) }}
+                                </td>
+                                <td>
+                                    {{ macros::map(restaurant=restaurant) }}
+                                </td>
+                                <td>
+                                    {{ macros::instagram(restaurant=restaurant) }}
+                                </td>
+                                <td>{{ restaurant.verified }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Closed</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Restaurant</th>
+                            <th>Map</th>
+                            <th>Insta</th>
+                            <th>Verified</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for restaurant in closed_restaurants %}
+                            <tr>
+                                <td>
+                                    {{ macros::restaurant(restaurant=restaurant) }}
+                                </td>
+                                <td>
+                                    {{ macros::map(restaurant=restaurant) }}
+                                </td>
+                                <td>
+                                    {{ macros::instagram(restaurant=restaurant) }}
+                                </td>
+                                <td>{{ restaurant.verified }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Other</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Restaurant</th>
+                            <th>Map</th>
+                            <th>Insta</th>
+                            <th>Verified</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for restaurant in unknown_restaurants %}
+                            <tr>
+                                <td>
+                                    {{ macros::restaurant(restaurant=restaurant) }}
+                                </td>
+                                <td>
+                                    {{ macros::map(restaurant=restaurant) }}
+                                </td>
+                                <td>
+                                    {{ macros::instagram(restaurant=restaurant) }}
+                                </td>
+                                <td>{{ restaurant.verified }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </body>
+</html>

@@ -18,6 +18,7 @@ pub struct Restaurant {
 pub enum Kind {
     Byob,
     Unknown,
+    Closed,
     HappyHour {
         description: Vec<String>,
         menu_url: Option<String>,
