@@ -24,9 +24,7 @@
                     <thead>
                         <tr>
                             <th>Restaurant</th>
-                            <th>Map</th>
-                            <th>Insta</th>
-                            <th>HH Menu</th>
+                            <th>Links</th>
                             <th>Happy Hours</th>
                             <th>Verified</th>
                         </tr>
@@ -35,14 +33,12 @@
                     {% for restaurant in hh_restaurants -%}
                         <tr>
                             <td>{{ macros::restaurant(restaurant=restaurant) }}</td>
-                            <td>{{ macros::map(restaurant=restaurant) }}</td>
-                            <td>{{ macros::instagram(restaurant=restaurant) }}</td>
                             <td>
-                                {%- if restaurant.kind.HappyHour.menu_url -%}
-                                    <a href="{{ restaurant.kind.HappyHour.menu_url }}">Menu</a>
-                                {%- endif -%}
+                                {{ macros::map(restaurant=restaurant) }}
+                                {{ macros::instagram(restaurant=restaurant) }}
+                                {{ macros::menu(restaurant=restaurant) }}
                             </td>
-                            <td>times, descriptions</td>
+                            <td>times</td>
                             <td>{{ restaurant.verified }}</td>
                         </tr>
                     {% endfor -%}
@@ -56,8 +52,7 @@
                     <thead>
                         <tr>
                             <th>Restaurant</th>
-                            <th>Map</th>
-                            <th>Insta</th>
+                            <th>Links</th>
                             <th>Verified</th>
                         </tr>
                     </thead>
@@ -69,8 +64,6 @@
                                 </td>
                                 <td>
                                     {{ macros::map(restaurant=restaurant) }}
-                                </td>
-                                <td>
                                     {{ macros::instagram(restaurant=restaurant) }}
                                 </td>
                                 <td>{{ restaurant.verified }}</td>
@@ -86,8 +79,7 @@
                     <thead>
                         <tr>
                             <th>Restaurant</th>
-                            <th>Map</th>
-                            <th>Insta</th>
+                            <th>Links</th>
                             <th>Verified</th>
                         </tr>
                     </thead>
@@ -99,8 +91,6 @@
                                 </td>
                                 <td>
                                     {{ macros::map(restaurant=restaurant) }}
-                                </td>
-                                <td>
                                     {{ macros::instagram(restaurant=restaurant) }}
                                 </td>
                                 <td>{{ restaurant.verified }}</td>
@@ -116,8 +106,7 @@
                     <thead>
                         <tr>
                             <th>Restaurant</th>
-                            <th>Map</th>
-                            <th>Insta</th>
+                            <th>Links</th>
                             <th>Verified</th>
                         </tr>
                     </thead>
@@ -129,8 +118,6 @@
                                 </td>
                                 <td>
                                     {{ macros::map(restaurant=restaurant) }}
-                                </td>
-                                <td>
                                     {{ macros::instagram(restaurant=restaurant) }}
                                 </td>
                                 <td>{{ restaurant.verified }}</td>

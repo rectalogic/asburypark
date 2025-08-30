@@ -3,13 +3,19 @@
 {%- endmacro restaurant -%}
 
 {%- macro map(restaurant) -%}
-    <a href="https://maps.app.goo.gl/{{ restaurant.map_id }}"><img src="assets/images/maps-icon.svg"/></a>
+    <a href="https://maps.app.goo.gl/{{ restaurant.map_id }}"><img alt="Map" src="assets/images/maps-icon.svg"/></a>
 {%- endmacro map -%}
 
 {%- macro instagram(restaurant) -%}
     {%- if restaurant.instagram_id -%}
         <a href="https://www.instagram.com/{{ restaurant.instagram_id }}">
-            <img width="25" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" />
+            <img width="25" alt="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" />
         </a>
     {%- endif -%}
 {%- endmacro instagram -%}
+
+{%- macro menu(restaurant) -%}
+    {%- if restaurant.kind.HappyHour.menu_url -%}
+        <a href="{{ restaurant.kind.HappyHour.menu_url }}"><img width="25" alt="Happy Hour Menu" src="assets/images/menu.svg"/></a>
+    {%- endif -%}
+{%- endmacro restaurant -%}
