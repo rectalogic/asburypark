@@ -17,7 +17,7 @@ pub struct Restaurant {
 #[derive(Serialize, Deserialize, Debug)]
 pub enum Kind {
     Byob,
-    Unknown,
+    Other,
     Closed,
     HappyHour {
         description: Vec<String>,

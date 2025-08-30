@@ -1,7 +1,7 @@
 {% import "macros.html" as macros %}
 {% set hh_restaurants = restaurants | filter(attribute="kind.HappyHour") -%}
 {% set byob_restaurants = restaurants | filter(attribute="kind.Byob") -%}
-{% set unknown_restaurants = restaurants | filter(attribute="kind.Unknown") -%}
+{% set other_restaurants = restaurants | filter(attribute="kind.Other") -%}
 {% set closed_restaurants = restaurants | filter(attribute="kind.Closed") -%}
 <!doctype html>
 <html lang="en">
@@ -16,21 +16,35 @@
         <title>Asbury Park Happy Hours</title>
     </head>
     <body>
-        <header>Asbury Park Happy Hours</header>
+        <header>
+            <nav>
+              <ul>
+                <li><strong>Asbury Park Happy Hours</strong></li>
+              </ul>
+              <ul>
+                <li><a href="#restaurant-happy-hours">Happy Hours</a></li>
+                <li><a href="#restaurant-byob">BYOB</a></li>
+                <li><a href="#restaurant-other">Other</a></li>
+                <li><a href="#restaurant-closed">Closed</a></li>
+              </ul>
+            </nav>
+        </header>
+
         <main class="container">
-            <section>
-                <h2>Happy Hours</h2>
-                <table id="happy-hours">
+            <section id="restaurant-happy-hours">
+                <table>
+                    <caption>Happy Hours</caption>
                     <thead>
                         <tr>
-                            <th>Restaurant</th>
-                            <th>Links</th>
-                            <th>Happy Hours</th>
-                            <th>Verified</th>
+                            <th scope="col">Restaurant</th>
+                            <th scope="col">Links</th>
+                            <th scope="col">Happy Hours</th>
+                            <th scope="col">Verified</th>
                         </tr>
                     </thead>
                     <tbody>
                     {% for restaurant in hh_restaurants -%}
+                        {% set daytimes = restaurant.kind.HappyHour.daytimes -%}
                         <tr>
                             <td>{{ macros::restaurant(restaurant=restaurant) }}</td>
                             <td>
@@ -38,7 +52,17 @@
                                 {{ macros::instagram(restaurant=restaurant) }}
                                 {{ macros::menu(restaurant=restaurant) }}
                             </td>
-                            <td>times</td>
+                            <td>
+                                times
+                                <details>
+                                  <summary>Description</summary>
+                                  <ul>
+                                      {% for desc in restaurant.kind.HappyHour.description %}
+                                          <li>{{ desc }}</li>
+                                      {% endfor %}
+                                  </ul>
+                                </details>
+                            </td>
                             <td>{{ restaurant.verified }}</td>
                         </tr>
                     {% endfor -%}
@@ -46,14 +70,14 @@
                 </table>
             </section>
 
-            <section>
-                <h2>BYOB</h2>
+            <section id="restaurant-byob">
                 <table>
+                    <caption>BYOB</caption>
                     <thead>
                         <tr>
-                            <th>Restaurant</th>
-                            <th>Links</th>
-                            <th>Verified</th>
+                            <th scope="col">Restaurant</th>
+                            <th scope="col">Links</th>
+                            <th scope="col">Verified</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,14 +97,14 @@
                 </table>
             </section>
 
-            <section>
-                <h2>Closed</h2>
+            <section id="restaurant-closed">
                 <table>
+                    <caption>Closed</caption>
                     <thead>
                         <tr>
-                            <th>Restaurant</th>
-                            <th>Links</th>
-                            <th>Verified</th>
+                            <th scope="col">Restaurant</th>
+                            <th scope="col">Links</th>
+                            <th scope="col">Verified</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -100,18 +124,18 @@
                 </table>
             </section>
 
-            <section>
-                <h2>Other</h2>
+            <section id="restaurant-other">
                 <table>
+                    <caption>Other</caption>
                     <thead>
                         <tr>
-                            <th>Restaurant</th>
-                            <th>Links</th>
-                            <th>Verified</th>
+                            <th scope="col">Restaurant</th>
+                            <th scope="col">Links</th>
+                            <th scope="col">Verified</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for restaurant in unknown_restaurants %}
+                        {% for restaurant in other_restaurants %}
                             <tr>
                                 <td>
                                     {{ macros::restaurant(restaurant=restaurant) }}
