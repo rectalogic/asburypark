@@ -1,4 +1,4 @@
-{% import "macros.html" as macros %}
+{% import "macros.macro" as macros %}
 {% set hh_restaurants = restaurants | filter(attribute="kind.HappyHour") -%}
 {% set byob_restaurants = restaurants | filter(attribute="kind.Byob") -%}
 {% set other_restaurants = restaurants | filter(attribute="kind.Other") -%}

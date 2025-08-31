@@ -1,11 +1,6 @@
 use anyhow::Result;
-use sitegen::SiteGenerator;
-use std::path::Path;
+use sitegen::cli;
 
 fn main() -> Result<()> {
-    let site = Path::new(env!("CARGO_MANIFEST_DIR")); //XXX use clap and get from option
-    let generator = SiteGenerator::new(site.join("site"))?;
-    let s = generator.render("index.html")?;
-    println!("{s}");
-    Ok(())
+    cli::build()
 }

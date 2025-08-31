@@ -1,11 +1,6 @@
 use chrono::NaiveDate;
 use serde::{Deserialize, Deserializer, Serialize};
-use std::{
-    collections::{BTreeSet, HashSet},
-    fmt::Display,
-    ops::Range,
-};
-use tera::Function;
+use std::{collections::BTreeSet, fmt::Display, ops::Range};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Restaurants(Vec<Restaurant>);
@@ -85,7 +80,7 @@ impl HappyTimes {
             .0
             .iter()
             .flat_map(|dh| match dh {
-                DayHours::Single(_, hours) | DayHours::Range(_, hours) => hours.to_range(),
+                DayHours::Single(_, hours) | DayHours::Range(_, hours) => hours.as_range(),
             })
             .collect::<BTreeSet<_>>()
             .into_iter()
@@ -95,7 +90,7 @@ impl HappyTimes {
 
         fn dayhours(day: &Day, hours: &Hours) -> impl Iterator<Item = (isize, u16)> {
             let day = *day as isize;
-            hours.to_range().map(move |h| (day, h))
+            hours.as_range().map(move |h| (day, h))
         }
 
         let data_daytimes = self
@@ -238,7 +233,7 @@ fn format_hour(mut t: u16) -> String {
 }
 
 impl Hours {
-    fn to_range(&self) -> Range<u16> {
+    fn as_range(&self) -> Range<u16> {
         // Truncate to nearest hour, e.g. 1630 -> 16
         let mut start = self.0 / 100;
         let mut end = self.1 / 100;
