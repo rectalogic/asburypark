@@ -22,6 +22,7 @@ impl SiteGenerator {
                 .to_str()
                 .ok_or(anyhow!("invalid template path"))?,
         )?;
+        tera.autoescape_on(vec![]);
         tera.register_function("restaurant_convert_happytimes", HappyTimesConverter);
         Ok(Self { tera, context })
     }

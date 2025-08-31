@@ -58,7 +58,7 @@
                                   <summary>Description</summary>
                                   <ul>
                                       {% for desc in restaurant.kind.HappyHour.description -%}
-                                          <li>{{ desc }}</li>
+                                          <li>{{ desc | escape }}</li>
                                       {% endfor %}
                                   </ul>
                                 </details>

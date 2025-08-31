@@ -1,5 +1,5 @@
 {% macro restaurant(restaurant) -%}
-    <a href="{{ restaurant.url }}">{{ restaurant.name }}</a>
+    <a href="{{ restaurant.url }}">{{ restaurant.name | escape }}</a>
 {%- endmacro restaurant %}
 
 {% macro map(restaurant) -%}
