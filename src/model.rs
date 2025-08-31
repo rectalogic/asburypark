@@ -68,7 +68,7 @@ impl Display for DayHours {
 }
 
 impl HappyTimes {
-    pub fn to_css_data_attributes(&self) -> String {
+    pub fn to_data_attributes(&self) -> String {
         let data_days = self
             .0
             .iter()
@@ -120,7 +120,7 @@ impl HappyTimes {
         )
     }
 
-    pub fn human_daytimes(&self) -> String {
+    pub fn to_human_readable(&self) -> String {
         self.0
             .iter()
             .map(|dh| format!("{}", dh))
@@ -271,8 +271,7 @@ mod tests {
     #[test]
     fn test_happytimes_css() {
         assert_eq!(
-            HappyTimes(vec![DayHours::Single(Day::Wed, Hours(1300, 1500))])
-                .to_css_data_attributes(),
+            HappyTimes(vec![DayHours::Single(Day::Wed, Hours(1300, 1500))]).to_data_attributes(),
             r#"data-days="3" data-hours="13 14" data-daytimes="3-13 3-14""#
         );
         assert_eq!(
@@ -280,12 +279,11 @@ mod tests {
                 DayHours::Single(Day::Wed, Hours(1300, 1500)),
                 DayHours::Range((Day::Wed, Day::Fri), Hours(1400, 1600)),
             ])
-            .to_css_data_attributes(),
+            .to_data_attributes(),
             r#"data-days="3 4 5" data-hours="13 14 15" data-daytimes="3-13 3-14 3-15 4-14 4-15 5-14 5-15""#
         );
         assert_eq!(
-            HappyTimes(vec![DayHours::Single(Day::Mon, Hours(1330, 1530)),])
-                .to_css_data_attributes(),
+            HappyTimes(vec![DayHours::Single(Day::Mon, Hours(1330, 1530)),]).to_data_attributes(),
             r#"data-days="1" data-hours="14 15" data-daytimes="1-14 1-15""#
         );
     }

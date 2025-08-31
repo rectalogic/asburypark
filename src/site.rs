@@ -22,7 +22,7 @@ impl SiteGenerator {
                 .to_str()
                 .ok_or(anyhow!("invalid template path"))?,
         )?;
-        tera.register_function("restaurant_data_attributes", HappyTimesDataAttributes);
+        tera.register_function("restaurant_convert_happytimes", HappyTimesConverter);
         Ok(Self { tera, context })
     }
 
@@ -31,14 +31,23 @@ impl SiteGenerator {
     }
 }
 
-struct HappyTimesDataAttributes;
+struct HappyTimesConverter;
 
-impl tera::Function for HappyTimesDataAttributes {
+impl tera::Function for HappyTimesConverter {
     fn call(&self, args: &HashMap<String, tera::Value>) -> tera::Result<tera::Value> {
         match args.get("happytimes") {
             Some(happytimes) => {
                 let happytimes = serde_json::from_value::<HappyTimes>(happytimes.clone())?;
-                Ok(happytimes.to_css_data_attributes().into())
+                let mut map = tera::Map::new();
+                map.insert(
+                    "data_attributes".into(),
+                    happytimes.to_data_attributes().into(),
+                );
+                map.insert(
+                    "human_readable".into(),
+                    happytimes.to_human_readable().into(),
+                );
+                Ok(tera::Value::Object(map))
             }
             None => Err("Missing argument 'happytimes'".into()),
         }

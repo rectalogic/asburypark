@@ -44,8 +44,8 @@
                     </thead>
                     <tbody>
                     {% for restaurant in hh_restaurants -%}
-                        {% set happytimes = restaurant.kind.HappyHour.happytimes -%}
-                        <tr {{ restaurant_data_attributes(happytimes=happytimes) }}>
+                        {%- set happytimes = restaurant_convert_happytimes(happytimes=restaurant.kind.HappyHour.happytimes) -%}
+                        <tr {{ happytimes.data_attributes }}>
                             <td>{{ macros::restaurant(restaurant=restaurant) }}</td>
                             <td>
                                 {{ macros::map(restaurant=restaurant) }}
@@ -53,19 +53,19 @@
                                 {{ macros::menu(restaurant=restaurant) }}
                             </td>
                             <td>
-                                times
+                                {{ happytimes.human_readable }}
                                 <details>
                                   <summary>Description</summary>
                                   <ul>
                                       {% for desc in restaurant.kind.HappyHour.description -%}
                                           <li>{{ desc }}</li>
-                                      {% endfor -%}
+                                      {% endfor %}
                                   </ul>
                                 </details>
                             </td>
                             <td>{{ restaurant.verified }}</td>
                         </tr>
-                    {% endfor -%}
+                    {%- endfor %}
                     </tbody>
                 </table>
             </section>
@@ -92,7 +92,7 @@
                                 </td>
                                 <td>{{ restaurant.verified }}</td>
                             </tr>
-                        {% endfor -%}
+                        {%- endfor %}
                     </tbody>
                 </table>
             </section>
@@ -119,7 +119,7 @@
                                 </td>
                                 <td>{{ restaurant.verified }}</td>
                             </tr>
-                        {% endfor -%}
+                        {%- endfor %}
                     </tbody>
                 </table>
             </section>
@@ -146,7 +146,7 @@
                                 </td>
                                 <td>{{ restaurant.verified }}</td>
                             </tr>
-                        {% endfor -%}
+                        {%- endfor %}
                     </tbody>
                 </table>
             </section>
