@@ -1,7 +1,6 @@
-use std::fmt::Display;
-
 use chrono::NaiveDate;
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Deserializer, Serialize};
+use std::fmt::Display;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Restaurants(Vec<Restaurant>);
@@ -45,15 +44,17 @@ pub enum Day {
     Sat = 6,
 }
 
-#[derive(Serialize, Deserialize, Copy, Clone, Debug)]
-pub struct Hours(u16, u16);
+#[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq)]
+pub struct Hours(
+    #[serde(deserialize_with = "deserialize_hour")] u16,
+    #[serde(deserialize_with = "deserialize_hour")] u16,
+);
 
 impl DayHours {
     pub fn css_data_days(&self) -> String {
         match self {
             Self::Single(day, _) => format!("{}", *day as i32),
-            Self::Range(days, _) => DayVec::try_from(days)
-                .expect("Invalid days {days:?}")
+            Self::Range(days, _) => DayVec::from(days)
                 .0
                 .iter()
                 .map(|d| (*d as i32).to_string())
@@ -87,37 +88,61 @@ impl DayHours {
 #[derive(Debug, PartialEq)]
 struct DayVec(Vec<Day>);
 
-impl TryFrom<&(Day, Day)> for DayVec {
-    type Error = &'static str;
-
-    fn try_from(days: &(Day, Day)) -> Result<Self, Self::Error> {
+impl From<&(Day, Day)> for DayVec {
+    fn from(days: &(Day, Day)) -> Self {
+        // Return days.0->Sun and Sat->days.1
         if days.0 > days.1 {
-            Err("Start day must be before end day")
+            DayVec(
+                Day::iter()
+                    .skip(days.0 as usize)
+                    .chain(Day::iter().take_while(|d| *d <= days.1))
+                    .collect(),
+            )
         } else if days.0 == days.1 {
-            Ok(DayVec(vec![days.0]))
+            DayVec(vec![days.0])
         } else {
-            let results: Result<Vec<_>, _> = ((days.0 as i32)..=(days.1 as i32))
-                .map(Day::try_from)
-                .collect();
-            Ok(DayVec(results?))
+            DayVec(
+                Day::iter()
+                    .skip(days.0 as usize)
+                    .take_while(|d| *d <= days.1)
+                    .collect(),
+            )
         }
     }
 }
 
-impl TryFrom<i32> for Day {
-    type Error = &'static str;
+fn deserialize_hour<'de, D>(deserializer: D) -> Result<u16, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    let h = u16::deserialize(deserializer)?;
+    let ch = convert_hour(h);
+    let hours = ch / 100;
+    let minutes = ch % 100;
 
-    fn try_from(num: i32) -> Result<Self, Self::Error> {
-        match num {
-            0 => Ok(Day::Sun),
-            1 => Ok(Day::Mon),
-            2 => Ok(Day::Tues),
-            3 => Ok(Day::Wed),
-            4 => Ok(Day::Thurs),
-            5 => Ok(Day::Fri),
-            6 => Ok(Day::Sat),
-            _ => Err("Invalid day number {num}"),
-        }
+    // Validate minutes and hours
+    if hours > 23 || minutes > 59 {
+        return Err(serde::de::Error::invalid_value(
+            serde::de::Unexpected::Unsigned(h as u64),
+            &"an hour between 0 and 23 and minute between 0 and 59",
+        ));
+    }
+    Ok(h)
+}
+
+impl Day {
+    pub fn iter() -> impl Iterator<Item = Day> {
+        [
+            Day::Sun,
+            Day::Mon,
+            Day::Tues,
+            Day::Wed,
+            Day::Thurs,
+            Day::Fri,
+            Day::Sat,
+        ]
+        .iter()
+        .copied()
     }
 }
 
@@ -135,23 +160,76 @@ impl Display for Day {
     }
 }
 
+fn convert_hour(t: u16) -> u16 {
+    // Allow 2400–2700 by wrapping into the 0–300 range
+    if (2400..=2700).contains(&t) {
+        t - 2400
+    } else {
+        t
+    }
+}
+fn format_hour(mut t: u16) -> String {
+    t = convert_hour(t);
+
+    let hours = t / 100;
+    let minutes = t % 100;
+
+    // AM/PM conversion
+    let (display_hour, suffix) = match hours {
+        0 => (12, "am"),
+        1..=11 => (hours, "am"),
+        12 => (12, "pm"),
+        13..=23 => (hours - 12, "pm"),
+        _ => unreachable!(),
+    };
+
+    format!("{display_hour}:{minutes:02}{suffix}")
+}
+
 impl Display for Hours {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!() //XXX convert e.g. 1300 to 1:30pm
+        write!(f, "{}-{}", format_hour(self.0), format_hour(self.1))
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    use ron::ser::{PrettyConfig, to_string_pretty};
+    use ron::{
+        de::from_str,
+        ser::{PrettyConfig, to_string_pretty},
+    };
 
     #[test]
     fn test_dayrange() {
         assert_eq!(
-            DayVec::try_from(&(Day::Mon, Day::Thurs)),
-            Ok(DayVec(vec![Day::Mon, Day::Tues, Day::Wed, Day::Thurs]))
+            DayVec::from(&(Day::Mon, Day::Thurs)),
+            DayVec(vec![Day::Mon, Day::Tues, Day::Wed, Day::Thurs])
         );
+        assert_eq!(
+            DayVec::from(&(Day::Sat, Day::Sun)),
+            DayVec(vec![Day::Sat, Day::Sun])
+        );
+        assert_eq!(
+            DayVec::from(&(Day::Fri, Day::Sun)),
+            DayVec(vec![Day::Fri, Day::Sat, Day::Sun])
+        );
+        assert_eq!(DayVec::from(&(Day::Mon, Day::Mon)), DayVec(vec![Day::Mon]));
+    }
+
+    #[test]
+    fn test_hours_display() {
+        assert_eq!("9:00am-2:00pm", format!("{}", Hours(900, 1400)));
+        assert_eq!("1:00am-3:00am", format!("{}", Hours(2500, 2700)));
+        assert_eq!("11:00pm-1:00am", format!("{}", Hours(2300, 2500)));
+    }
+
+    #[test]
+    fn test_hours_deserialize() {
+        assert_eq!(from_str("(2500, 2700)"), Ok(Hours(2500, 2700)));
+        assert_eq!(from_str("(2300, 2500)"), Ok(Hours(2300, 2500)));
+        assert!(from_str::<Hours>("(2399, 2500)").is_err());
+        assert!(from_str::<Hours>("(2300, 9900)").is_err());
     }
 
     #[test]
