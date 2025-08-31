@@ -1,6 +1,10 @@
 use chrono::NaiveDate;
 use serde::{Deserialize, Deserializer, Serialize};
-use std::fmt::Display;
+use std::{
+    collections::{BTreeSet, HashSet},
+    fmt::Display,
+    ops::Range,
+};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Restaurants(Vec<Restaurant>);
@@ -23,9 +27,12 @@ pub enum Kind {
     HappyHour {
         description: Vec<String>,
         menu_url: Option<String>,
-        dayhours: Vec<DayHours>,
+        times: HappyTimes,
     },
 }
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct HappyTimes(Vec<DayHours>);
 
 #[derive(Serialize, Deserialize, Debug)]
 pub enum DayHours {
@@ -33,7 +40,7 @@ pub enum DayHours {
     Range((Day, Day), Hours),
 }
 
-#[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Day {
     Sun = 0,
     Mon = 1,
@@ -50,58 +57,102 @@ pub struct Hours(
     #[serde(deserialize_with = "deserialize_hour")] u16,
 );
 
-impl DayHours {
-    pub fn css_data_days(&self) -> String {
+impl Display for DayHours {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::Single(day, _) => format!("{}", *day as i32),
-            Self::Range(days, _) => DayVec::from(days)
-                .0
-                .iter()
-                .map(|d| (*d as i32).to_string())
-                .collect::<Vec<_>>()
-                .join(" "),
+            Self::Single(day, hours) => write!(f, "{day} {hours}"),
+            Self::Range((startday, endday), hours) => write!(f, "{startday}-{endday} {hours}"),
         }
     }
+}
 
-    pub fn css_data_hours(&self) -> String {
-        match self {
-            Self::Single(_, hours) | Self::Range(_, hours) => {
-                // Truncate to nearest hour, e.g. 1630 -> 16
-                let start = hours.0 / 100;
-                let end = hours.1 / 100;
-                (start..end)
-                    .map(|t| t.to_string())
-                    .collect::<Vec<_>>()
-                    .join(" ")
-            }
+impl HappyTimes {
+    pub fn to_css_data(&self) -> String {
+        let data_days = self
+            .0
+            .iter()
+            .flat_map(|dh| match dh {
+                DayHours::Single(day, _) => vec![*day],
+                DayHours::Range(days, _) => DayVec::from(days).0.into_iter().collect::<Vec<_>>(),
+            })
+            .collect::<BTreeSet<_>>()
+            .into_iter()
+            .map(|d| (d as isize).to_string())
+            .collect::<Vec<_>>()
+            .join(" ");
+        let data_hours = self
+            .0
+            .iter()
+            .flat_map(|dh| match dh {
+                DayHours::Single(_, hours) | DayHours::Range(_, hours) => hours.to_range(),
+            })
+            .collect::<BTreeSet<_>>()
+            .into_iter()
+            .map(|t| t.to_string())
+            .collect::<Vec<_>>()
+            .join(" ");
+
+        fn dayhours(day: &Day, hours: &Hours) -> String {
+            let day = (*day as isize).to_string();
+            hours
+                .to_range()
+                .map(|h| format!("{day}-{h}"))
+                .collect::<Vec<_>>()
+                .join(" ")
         }
+
+        let data_daytimes = self
+            .0
+            .iter()
+            .map(|dh| match dh {
+                DayHours::Single(day, hours) => dayhours(day, hours),
+                DayHours::Range(days, hours) => DayVec::from(days)
+                    .0
+                    .iter()
+                    .map(|day| dayhours(day, hours))
+                    .collect::<Vec<_>>()
+                    .join(" "),
+            })
+            .collect::<Vec<_>>()
+            .join(" ");
+
+        format!(
+            r#"data-days="{data_days}" data-hours="{data_hours}" data-daytimes="{data_daytimes}""#
+        )
     }
 
     pub fn human_daytimes(&self) -> String {
-        match self {
-            Self::Single(day, hours) => format!("{day} {hours}"),
-            Self::Range((startday, endday), hours) => format!("{startday}-{endday} {hours}"),
-        }
+        self.0
+            .iter()
+            .map(|dh| format!("{}", dh))
+            .collect::<Vec<_>>()
+            .join(", ")
     }
 }
 
 #[derive(Debug, PartialEq)]
 struct DayVec(Vec<Day>);
 
+impl From<&Day> for DayVec {
+    fn from(day: &Day) -> Self {
+        Self(vec![*day])
+    }
+}
+
 impl From<&(Day, Day)> for DayVec {
     fn from(days: &(Day, Day)) -> Self {
         // Return days.0->Sun and Sat->days.1
         if days.0 > days.1 {
-            DayVec(
+            Self(
                 Day::iter()
                     .skip(days.0 as usize)
                     .chain(Day::iter().take_while(|d| *d <= days.1))
                     .collect(),
             )
         } else if days.0 == days.1 {
-            DayVec(vec![days.0])
+            Self(vec![days.0])
         } else {
-            DayVec(
+            Self(
                 Day::iter()
                     .skip(days.0 as usize)
                     .take_while(|d| *d <= days.1)
@@ -116,7 +167,7 @@ where
     D: Deserializer<'de>,
 {
     let h = u16::deserialize(deserializer)?;
-    let ch = convert_hour(h);
+    let ch = wraparound_hour(h);
     let hours = ch / 100;
     let minutes = ch % 100;
 
@@ -160,7 +211,7 @@ impl Display for Day {
     }
 }
 
-fn convert_hour(t: u16) -> u16 {
+fn wraparound_hour(t: u16) -> u16 {
     // Allow 2400–2700 by wrapping into the 0–300 range
     if (2400..=2700).contains(&t) {
         t - 2400
@@ -168,8 +219,9 @@ fn convert_hour(t: u16) -> u16 {
         t
     }
 }
+
 fn format_hour(mut t: u16) -> String {
-    t = convert_hour(t);
+    t = wraparound_hour(t);
 
     let hours = t / 100;
     let minutes = t % 100;
@@ -186,6 +238,20 @@ fn format_hour(mut t: u16) -> String {
     format!("{display_hour}:{minutes:02}{suffix}")
 }
 
+impl Hours {
+    fn to_range(&self) -> Range<u16> {
+        // Truncate to nearest hour, e.g. 1630 -> 16
+        let start = self.0 / 100;
+        let end = self.1 / 100;
+        // If we have minutes, bump to next end hour
+        if end % 100 > 0 {
+            start..end + 1
+        } else {
+            start..end
+        }
+    }
+}
+
 impl Display for Hours {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}-{}", format_hour(self.0), format_hour(self.1))
@@ -199,6 +265,22 @@ mod tests {
         de::from_str,
         ser::{PrettyConfig, to_string_pretty},
     };
+
+    #[test]
+    fn test_happytimes_css() {
+        assert_eq!(
+            HappyTimes(vec![DayHours::Single(Day::Wed, Hours(1300, 1500))]).to_css_data(),
+            r#"data-days="3" data-hours="13 14 15" data-daytimes="3-13 3-14 3-15""#
+        );
+        assert_eq!(
+            HappyTimes(vec![
+                DayHours::Single(Day::Wed, Hours(1300, 1500)),
+                DayHours::Range((Day::Wed, Day::Fri), Hours(1400, 1600))
+            ])
+            .to_css_data(),
+            r#"data-days="3 4 5" data-hours="13 14 15 16" data-daytimes="3-13 3-14 3-15 3-14 3-15 3-16 4-14 4-15 4-16 5-14 5-15 5-16""#
+        );
+    }
 
     #[test]
     fn test_dayrange() {
@@ -246,11 +328,11 @@ mod tests {
                     "Wed 2nd burger $5".into(),
                 ],
                 menu_url: Some("https://www.theblackswanap.com/happy-hour".into()),
-                dayhours: vec![
+                times: HappyTimes(vec![
                     DayHours::Single(Day::Mon, Hours(1600, 1800)),
                     DayHours::Single(Day::Tues, Hours(1600, 2200)),
                     DayHours::Range((Day::Wed, Day::Fri), Hours(1600, 1800)),
-                ],
+                ]),
             },
         }]);
         let pretty = PrettyConfig::new()
