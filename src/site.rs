@@ -48,7 +48,7 @@ impl SiteGenerator {
             fs::write(output_path, rendered)?;
         }
 
-        visit_files(&self.site, |path: &Path| -> Result<()> {
+        visit_files(&self.site, &|path: &Path| -> Result<()> {
             let filename = path.strip_prefix(&self.site)?;
             if filename.starts_with("_templates") || filename.starts_with("_data") {
                 return Ok(());
@@ -62,7 +62,7 @@ impl SiteGenerator {
     }
 }
 
-fn visit_files<F>(dir: &Path, cb: F) -> Result<()>
+fn visit_files<F>(dir: &Path, cb: &F) -> Result<()>
 where
     F: Fn(&Path) -> Result<()>,
 {
@@ -71,7 +71,7 @@ where
             let entry = entry?;
             let path = entry.path();
             if path.is_dir() {
-                visit_files(&path, &cb)?;
+                visit_files(&path, cb)?;
             } else {
                 cb(path.as_ref())?;
             }
