@@ -44,8 +44,8 @@
                     </thead>
                     <tbody>
                     {% for restaurant in hh_restaurants -%}
-                        {% set dayhours = restaurant.kind.HappyHour.dayhours -%}
-                        <tr>
+                        {% set happytimes = restaurant.kind.HappyHour.happytimes -%}
+                        <tr {{ restaurant_data_attributes(happytimes=happytimes) }}>
                             <td>{{ macros::restaurant(restaurant=restaurant) }}</td>
                             <td>
                                 {{ macros::map(restaurant=restaurant) }}
@@ -57,9 +57,9 @@
                                 <details>
                                   <summary>Description</summary>
                                   <ul>
-                                      {% for desc in restaurant.kind.HappyHour.description %}
+                                      {% for desc in restaurant.kind.HappyHour.description -%}
                                           <li>{{ desc }}</li>
-                                      {% endfor %}
+                                      {% endfor -%}
                                   </ul>
                                 </details>
                             </td>
@@ -81,7 +81,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for restaurant in byob_restaurants %}
+                        {% for restaurant in byob_restaurants -%}
                             <tr>
                                 <td>
                                     {{ macros::restaurant(restaurant=restaurant) }}
@@ -92,7 +92,7 @@
                                 </td>
                                 <td>{{ restaurant.verified }}</td>
                             </tr>
-                        {% endfor %}
+                        {% endfor -%}
                     </tbody>
                 </table>
             </section>
@@ -108,7 +108,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for restaurant in closed_restaurants %}
+                        {% for restaurant in closed_restaurants -%}
                             <tr>
                                 <td>
                                     {{ macros::restaurant(restaurant=restaurant) }}
@@ -119,7 +119,7 @@
                                 </td>
                                 <td>{{ restaurant.verified }}</td>
                             </tr>
-                        {% endfor %}
+                        {% endfor -%}
                     </tbody>
                 </table>
             </section>
@@ -135,7 +135,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for restaurant in other_restaurants %}
+                        {% for restaurant in other_restaurants -%}
                             <tr>
                                 <td>
                                     {{ macros::restaurant(restaurant=restaurant) }}
@@ -146,7 +146,7 @@
                                 </td>
                                 <td>{{ restaurant.verified }}</td>
                             </tr>
-                        {% endfor %}
+                        {% endfor -%}
                     </tbody>
                 </table>
             </section>

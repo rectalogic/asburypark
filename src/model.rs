@@ -5,6 +5,7 @@ use std::{
     fmt::Display,
     ops::Range,
 };
+use tera::Function;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Restaurants(Vec<Restaurant>);
@@ -27,7 +28,7 @@ pub enum Kind {
     HappyHour {
         description: Vec<String>,
         menu_url: Option<String>,
-        times: HappyTimes,
+        happytimes: HappyTimes,
     },
 }
 
@@ -335,7 +336,7 @@ mod tests {
                     "Wed 2nd burger $5".into(),
                 ],
                 menu_url: Some("https://www.theblackswanap.com/happy-hour".into()),
-                times: HappyTimes(vec![
+                happytimes: HappyTimes(vec![
                     DayHours::Single(Day::Mon, Hours(1600, 1800)),
                     DayHours::Single(Day::Tues, Hours(1600, 2200)),
                     DayHours::Range((Day::Wed, Day::Fri), Hours(1600, 1800)),
