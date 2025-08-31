@@ -67,7 +67,7 @@ impl Display for DayHours {
 }
 
 impl HappyTimes {
-    pub fn to_css_data(&self) -> String {
+    pub fn to_css_data_attributes(&self) -> String {
         let data_days = self
             .0
             .iter()
@@ -92,27 +92,25 @@ impl HappyTimes {
             .collect::<Vec<_>>()
             .join(" ");
 
-        fn dayhours(day: &Day, hours: &Hours) -> String {
-            let day = (*day as isize).to_string();
-            hours
-                .to_range()
-                .map(|h| format!("{day}-{h}"))
-                .collect::<Vec<_>>()
-                .join(" ")
+        fn dayhours(day: &Day, hours: &Hours) -> impl Iterator<Item = (isize, u16)> {
+            let day = *day as isize;
+            hours.to_range().map(move |h| (day, h))
         }
 
         let data_daytimes = self
             .0
             .iter()
-            .map(|dh| match dh {
-                DayHours::Single(day, hours) => dayhours(day, hours),
+            .flat_map(|dh| match dh {
+                DayHours::Single(day, hours) => dayhours(day, hours).collect::<Vec<_>>(),
                 DayHours::Range(days, hours) => DayVec::from(days)
                     .0
                     .iter()
-                    .map(|day| dayhours(day, hours))
-                    .collect::<Vec<_>>()
-                    .join(" "),
+                    .flat_map(|day| dayhours(day, hours))
+                    .collect::<Vec<_>>(),
             })
+            .collect::<BTreeSet<(isize, u16)>>()
+            .into_iter()
+            .map(|(d, h)| format!("{d}-{h}"))
             .collect::<Vec<_>>()
             .join(" ");
 
@@ -241,14 +239,17 @@ fn format_hour(mut t: u16) -> String {
 impl Hours {
     fn to_range(&self) -> Range<u16> {
         // Truncate to nearest hour, e.g. 1630 -> 16
-        let start = self.0 / 100;
-        let end = self.1 / 100;
-        // If we have minutes, bump to next end hour
-        if end % 100 > 0 {
-            start..end + 1
-        } else {
-            start..end
+        let mut start = self.0 / 100;
+        let mut end = self.1 / 100;
+        // If start has minutes, bump to next hour
+        if self.0 % 100 > 0 {
+            start += 1;
         }
+        // If end has minutes, bump to next hour
+        if self.1 % 100 > 0 {
+            end += 1;
+        }
+        start..end
     }
 }
 
@@ -269,16 +270,22 @@ mod tests {
     #[test]
     fn test_happytimes_css() {
         assert_eq!(
-            HappyTimes(vec![DayHours::Single(Day::Wed, Hours(1300, 1500))]).to_css_data(),
-            r#"data-days="3" data-hours="13 14 15" data-daytimes="3-13 3-14 3-15""#
+            HappyTimes(vec![DayHours::Single(Day::Wed, Hours(1300, 1500))])
+                .to_css_data_attributes(),
+            r#"data-days="3" data-hours="13 14" data-daytimes="3-13 3-14""#
         );
         assert_eq!(
             HappyTimes(vec![
                 DayHours::Single(Day::Wed, Hours(1300, 1500)),
-                DayHours::Range((Day::Wed, Day::Fri), Hours(1400, 1600))
+                DayHours::Range((Day::Wed, Day::Fri), Hours(1400, 1600)),
             ])
-            .to_css_data(),
-            r#"data-days="3 4 5" data-hours="13 14 15 16" data-daytimes="3-13 3-14 3-15 3-14 3-15 3-16 4-14 4-15 4-16 5-14 5-15 5-16""#
+            .to_css_data_attributes(),
+            r#"data-days="3 4 5" data-hours="13 14 15" data-daytimes="3-13 3-14 3-15 4-14 4-15 5-14 5-15""#
+        );
+        assert_eq!(
+            HappyTimes(vec![DayHours::Single(Day::Mon, Hours(1330, 1530)),])
+                .to_css_data_attributes(),
+            r#"data-days="1" data-hours="14 15" data-daytimes="1-14 1-15""#
         );
     }
 
