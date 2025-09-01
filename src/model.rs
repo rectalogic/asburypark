@@ -63,45 +63,57 @@ impl Display for DayHours {
 }
 
 impl HappyTimes {
-    pub fn to_data_attributes(&self) -> String {
+    pub fn as_data_attributes(&self) -> String {
         let dayhour_set = self
             .0
             .iter()
             .flat_map(|dh| dh.as_tuples())
             .collect::<BTreeSet<_>>();
-        let data_days = dayhour_set
+
+        format!(
+            r#"data-days="{}" data-hours="{}" data-daytimes="{}""#,
+            Self::data_days(&dayhour_set),
+            Self::data_hours(&dayhour_set),
+            Self::data_daytimes(&dayhour_set)
+        )
+    }
+
+    pub fn as_human_readable(&self) -> String {
+        self.0
+            .iter()
+            .map(|dh| format!("{}", dh))
+            .collect::<Vec<_>>()
+            .join(", ")
+    }
+
+    fn data_days(dayhour_set: &BTreeSet<(Day, u16)>) -> String {
+        dayhour_set
             .iter()
             .map(|(day, _)| *day)
             .collect::<BTreeSet<_>>()
             .into_iter()
             .map(|d| (d as isize).to_string())
             .collect::<Vec<_>>()
-            .join(" ");
-        let data_hours = dayhour_set
+            .join(" ")
+    }
+
+    fn data_hours(dayhour_set: &BTreeSet<(Day, u16)>) -> String {
+        dayhour_set
             .iter()
             .map(|(_, hour)| hour)
             .collect::<BTreeSet<_>>()
             .into_iter()
             .map(|h| h.to_string())
             .collect::<Vec<_>>()
-            .join(" ");
-        let data_daytimes = dayhour_set
+            .join(" ")
+    }
+
+    fn data_daytimes(dayhour_set: &BTreeSet<(Day, u16)>) -> String {
+        dayhour_set
             .iter()
             .map(|(d, h)| format!("{}-{h}", *d as isize))
             .collect::<Vec<_>>()
-            .join(" ");
-
-        format!(
-            r#"data-days="{data_days}" data-hours="{data_hours}" data-daytimes="{data_daytimes}""#
-        )
-    }
-
-    pub fn to_human_readable(&self) -> String {
-        self.0
-            .iter()
-            .map(|dh| format!("{}", dh))
-            .collect::<Vec<_>>()
-            .join(", ")
+            .join(" ")
     }
 }
 
@@ -234,7 +246,7 @@ mod tests {
     #[test]
     fn test_happytimes_css() {
         assert_eq!(
-            HappyTimes(vec![DayHours::Single(Day::Wed, Hours(1300, 1500))]).to_data_attributes(),
+            HappyTimes(vec![DayHours::Single(Day::Wed, Hours(1300, 1500))]).as_data_attributes(),
             r#"data-days="3" data-hours="13 14" data-daytimes="3-13 3-14""#
         );
         assert_eq!(
@@ -242,11 +254,11 @@ mod tests {
                 DayHours::Single(Day::Wed, Hours(1300, 1500)),
                 DayHours::Range((Day::Wed, Day::Fri), Hours(1400, 1600)),
             ])
-            .to_data_attributes(),
+            .as_data_attributes(),
             r#"data-days="3 4 5" data-hours="13 14 15" data-daytimes="3-13 3-14 3-15 4-14 4-15 5-14 5-15""#
         );
         assert_eq!(
-            HappyTimes(vec![DayHours::Single(Day::Mon, Hours(1330, 1530))]).to_data_attributes(),
+            HappyTimes(vec![DayHours::Single(Day::Mon, Hours(1330, 1530))]).as_data_attributes(),
             r#"data-days="1" data-hours="14 15" data-daytimes="1-14 1-15""#
         );
         assert_eq!(
@@ -254,7 +266,7 @@ mod tests {
                 (Day::Sat, Day::Sun),
                 Hours(1000, 1200)
             )])
-            .to_data_attributes(),
+            .as_data_attributes(),
             r#"data-days="0 6" data-hours="10 11" data-daytimes="0-10 0-11 6-10 6-11""#
         );
     }

@@ -105,11 +105,11 @@ impl tera::Function for HappyTimesConverter {
                 let mut map = tera::Map::new();
                 map.insert(
                     "data_attributes".into(),
-                    happytimes.to_data_attributes().into(),
+                    happytimes.as_data_attributes().into(),
                 );
                 map.insert(
                     "human_readable".into(),
-                    happytimes.to_human_readable().into(),
+                    happytimes.as_human_readable().into(),
                 );
                 Ok(tera::Value::Object(map))
             }
