@@ -64,47 +64,30 @@ impl Display for DayHours {
 
 impl HappyTimes {
     pub fn to_data_attributes(&self) -> String {
-        let data_days = self
+        let dayhour_set = self
             .0
             .iter()
-            .flat_map(|dh| match dh {
-                DayHours::Single(day, _) => vec![*day],
-                DayHours::Range(days, _) => iter_days(*days).collect::<Vec<_>>(),
-            })
+            .flat_map(|dh| dh.as_tuples())
+            .collect::<BTreeSet<_>>();
+        let data_days = dayhour_set
+            .iter()
+            .map(|(day, _)| *day)
             .collect::<BTreeSet<_>>()
             .into_iter()
             .map(|d| (d as isize).to_string())
             .collect::<Vec<_>>()
             .join(" ");
-        let data_hours = self
-            .0
+        let data_hours = dayhour_set
             .iter()
-            .flat_map(|dh| match dh {
-                DayHours::Single(_, hours) | DayHours::Range(_, hours) => hours.as_range(),
-            })
+            .map(|(_, hour)| hour)
             .collect::<BTreeSet<_>>()
             .into_iter()
-            .map(|t| t.to_string())
+            .map(|h| h.to_string())
             .collect::<Vec<_>>()
             .join(" ");
-
-        fn dayhours(day: Day, hours: Hours) -> impl Iterator<Item = (isize, u16)> {
-            let day = day as isize;
-            hours.as_range().map(move |h| (day, h))
-        }
-
-        let data_daytimes = self
-            .0
+        let data_daytimes = dayhour_set
             .iter()
-            .flat_map(|dh| match dh {
-                DayHours::Single(day, hours) => dayhours(*day, *hours).collect::<Vec<_>>(),
-                DayHours::Range(days, hours) => iter_days(*days)
-                    .flat_map(|day| dayhours(day, *hours))
-                    .collect::<Vec<_>>(),
-            })
-            .collect::<BTreeSet<(isize, u16)>>()
-            .into_iter()
-            .map(|(d, h)| format!("{d}-{h}"))
+            .map(|(d, h)| format!("{}-{h}", *d as isize))
             .collect::<Vec<_>>()
             .join(" ");
 
@@ -157,9 +140,7 @@ impl DayHours {
             DayHours::Single(day, hours) => ((*day, *day), hours),
             DayHours::Range(days, hours) => (*days, hours),
         };
-        iter_days(days)
-            .map(|day| hours.as_range().map(move |h| (day, h)))
-            .flatten()
+        iter_days(days).flat_map(|day| hours.as_range().map(move |h| (day, h)))
     }
 }
 
