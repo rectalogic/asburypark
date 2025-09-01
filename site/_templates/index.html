@@ -64,56 +64,53 @@
                 <li><a href="#restaurant-closed">Closed</a></li>
               </ul>
             </nav>
-            <article>
-              <h4>Happy Hours change frequently</h4>
-              <p>
-                  Check the restaurant website/Instagram for updates.
-                  Report any innaccuracies/updates via the
-                  <a href="https://forms.gle/F3xaERaDYpjN1Brz6">feedback form</a>.
-              </p>
-              <footer>
-                <small>Follow <a href="https://www.instagram.com/asburypark_happyhours"><img width="15" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" /> @asburypark_happyhours</a></small>
-              </footer>
-            </article>
+            <details class="notice">
+                <summary role="button">Happy Hours change frequently</summary>
+                Check restaurant website/Instagram for updates. Use the
+                <a href="https://forms.gle/F3xaERaDYpjN1Brz6">feedback form</a>
+                to report updates.
+                <footer>
+                    <small>Follow <a href="https://www.instagram.com/asburypark_happyhours"><img width="15" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" /> @asburypark_happyhours</a></small>
+                </footer>
+            </details>
         </header>
 
         <main class="container-fluid">
-            <div class="grid">
-                <select id="day" aria-label="Day" required>
-                  <option value="" selected>All Days</option>
-                  <option value="0">Sun</option>
-                  <option value="1">Mon</option>
-                  <option value="2">Tue</option>
-                  <option value="3">Wed</option>
-                  <option value="4">Thu</option>
-                  <option value="5">Fri</option>
-                  <option value="6">Sat</option>
-                </select>
-                <select id="hour" aria-label="Hour" required>
-                    <option value="" selected>All Hours</option>
-                    <option value="9">9am</option>
-                    <option value="10">10am</option>
-                    <option value="11">11am</option>
-                    <option value="12">12pm</option>
-                    <option value="13">1pm</option>
-                    <option value="14">2pm</option>
-                    <option value="15">3pm</option>
-                    <option value="16">4pm</option>
-                    <option value="17">5pm</option>
-                    <option value="18">6pm</option>
-                    <option value="19">7pm</option>
-                    <option value="20">8pm</option>
-                    <option value="21">9pm</option>
-                    <option value="22">10pm</option>
-                    <option value="23">11pm</option>
-                    <option value="24">12am</option>
-                    <option value="25">1am</option>
-                </select>
-            </div>
-
             <section id="restaurant-happy-hours">
+                <h4>Happy Hours</h4>
+                <div class="grid">
+                    <select id="day" aria-label="Day" required>
+                      <option value="" selected>All Days</option>
+                      <option value="0">Sun</option>
+                      <option value="1">Mon</option>
+                      <option value="2">Tue</option>
+                      <option value="3">Wed</option>
+                      <option value="4">Thu</option>
+                      <option value="5">Fri</option>
+                      <option value="6">Sat</option>
+                    </select>
+                    <select id="hour" aria-label="Hour" required>
+                        <option value="" selected>All Hours</option>
+                        <option value="9">9am</option>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                        <option value="18">6pm</option>
+                        <option value="19">7pm</option>
+                        <option value="20">8pm</option>
+                        <option value="21">9pm</option>
+                        <option value="22">10pm</option>
+                        <option value="23">11pm</option>
+                        <option value="24">12am</option>
+                        <option value="25">1am</option>
+                    </select>
+                </div>
                 <table>
-                    <caption>Happy Hours</caption>
                     <thead>
                         <tr>
                             <th scope="col">Restaurant</th>
@@ -137,7 +134,7 @@
                                     <time class="dayhour" {{ humantime.data_attributes }}>{{ humantime.description }}</time>
                                 {% endfor %}
                                 <details>
-                                  <summary>Description</summary>
+                                  <summary role="button" class="secondary">Description</summary>
                                   <ul>
                                       {% for desc in restaurant.kind.HappyHour.description -%}
                                           <li>{{ desc | escape }}</li>
@@ -153,8 +150,8 @@
             </section>
 
             <section id="restaurant-byob">
+                <h4>BYOB</h4>
                 <table>
-                    <caption>BYOB</caption>
                     <thead>
                         <tr>
                             <th scope="col">Restaurant</th>
@@ -180,8 +177,8 @@
             </section>
 
             <section id="restaurant-closed">
+                <h4>Closed</h4>
                 <table>
-                    <caption>Closed</caption>
                     <thead>
                         <tr>
                             <th scope="col">Restaurant</th>
@@ -207,8 +204,8 @@
             </section>
 
             <section id="restaurant-other">
+                <h4>Other</h4>
                 <table>
-                    <caption>Other</caption>
                     <thead>
                         <tr>
                             <th scope="col">Restaurant</th>

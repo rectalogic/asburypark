@@ -16,3 +16,7 @@ time.dayhour {
     padding: 0.375rem;
     margin-bottom: 0.3rem;
 }
+
+details.notice {
+    width: 50%;
+}
