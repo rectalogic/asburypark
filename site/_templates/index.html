@@ -14,6 +14,41 @@
             href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
         />
         <link rel="stylesheet" href="style.css"/>
+        <script>
+          const sheet = new CSSStyleSheet();
+          document.adoptedStyleSheets.push(sheet);
+          window.addEventListener("change", () => {
+              const day = document.getElementById("day").value;
+              const hour = document.getElementById("hour").value;
+              if (day === "" && hour === "") {
+                sheet.replaceSync("");
+              } else if (day !== "" && hour === "") {
+                sheet.replaceSync(`
+                  tr.restaurant:not([data-days~="${day}"]) { display: none; }
+                  time.dayhour:not([data-days~="${day}"]) {
+                    background: var(--pico-del-color);
+                    text-decoration: line-through;
+                  }
+                `);
+              } else if (day === "" && hour !== "") {
+                sheet.replaceSync(`
+                  tr.restaurant:not([data-hours~="${hour}"]) { display: none; }
+                  time.dayhour:not([data-hours~="${hour}"])  {
+                    background: var(--pico-del-color);
+                    text-decoration: line-through;
+                  }
+                `);
+              } else if (day !== "" && hour !== "") {
+                sheet.replaceSync(`
+                  tr.restaurant:not([data-daytimes~="${day}-${hour}"]) { display: none; }
+                  time.dayhour:not([data-daytimes~="${day}-${hour}"])  {
+                    background: var(--pico-del-color);
+                    text-decoration: line-through;
+                  }
+                `);
+              }
+          });
+        </script>
         <title>Asbury Park Happy Hours</title>
     </head>
     <body>
@@ -44,7 +79,7 @@
 
         <main class="container-fluid">
             <div class="grid">
-                <select name="day" aria-label="Day" required>
+                <select id="day" aria-label="Day" required>
                   <option value="" selected>All Days</option>
                   <option value="0">Sun</option>
                   <option value="1">Mon</option>
@@ -54,7 +89,7 @@
                   <option value="5">Fri</option>
                   <option value="6">Sat</option>
                 </select>
-                <select name="hour" aria-label="Hour" required>
+                <select id="hour" aria-label="Hour" required>
                     <option value="" selected>All Hours</option>
                     <option value="9">9am</option>
                     <option value="10">10am</option>
@@ -90,9 +125,9 @@
                     <tbody>
                     {% for restaurant in hh_restaurants -%}
                         {%- set happytimes = restaurant_convert_happytimes(happytimes=restaurant.kind.HappyHour.happytimes) -%}
-                        <tr {{ happytimes.restaurant_data_attributes }}>
+                        <tr class="restaurant" {{ happytimes.restaurant_data_attributes }}>
                             <td>{{ macros::restaurant(restaurant=restaurant) }}</td>
-                            <td class="nowrap">
+                            <td class="links">
                                 {{ macros::map(restaurant=restaurant) }}
                                 {{ macros::instagram(restaurant=restaurant) }}
                                 {{ macros::menu(restaurant=restaurant) }}
@@ -133,7 +168,7 @@
                                 <td>
                                     {{ macros::restaurant(restaurant=restaurant) }}
                                 </td>
-                                <td class="nowrap">
+                                <td class="links">
                                     {{ macros::map(restaurant=restaurant) }}
                                     {{ macros::instagram(restaurant=restaurant) }}
                                 </td>
@@ -160,7 +195,7 @@
                                 <td>
                                     {{ macros::restaurant(restaurant=restaurant) }}
                                 </td>
-                                <td class="nowrap">
+                                <td class="links">
                                     {{ macros::map(restaurant=restaurant) }}
                                     {{ macros::instagram(restaurant=restaurant) }}
                                 </td>
