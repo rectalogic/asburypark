@@ -1,6 +1,9 @@
 use anyhow::Result;
-use sitegen::cli;
+use clap::Parser;
+use sitegen::{Args, SiteGenerator};
 
 fn main() -> Result<()> {
-    cli::build()
+    let args = Args::parse();
+    let generator = SiteGenerator::new(args.site)?;
+    generator.build(args.output)
 }

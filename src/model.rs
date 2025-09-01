@@ -278,8 +278,16 @@ mod tests {
             r#"data-days="3 4 5" data-hours="13 14 15" data-daytimes="3-13 3-14 3-15 4-14 4-15 5-14 5-15""#
         );
         assert_eq!(
-            HappyTimes(vec![DayHours::Single(Day::Mon, Hours(1330, 1530)),]).to_data_attributes(),
+            HappyTimes(vec![DayHours::Single(Day::Mon, Hours(1330, 1530))]).to_data_attributes(),
             r#"data-days="1" data-hours="14 15" data-daytimes="1-14 1-15""#
+        );
+        assert_eq!(
+            HappyTimes(vec![DayHours::Range(
+                (Day::Sat, Day::Sun),
+                Hours(1000, 1200)
+            )])
+            .to_data_attributes(),
+            r#"data-days="0 6" data-hours="10 11" data-daytimes="0-10 0-11 6-10 6-11""#
         );
     }
 

@@ -1,0 +1,8 @@
+.nowrap {
+    white-space: nowrap;
+}
+
+time {
+    display: inline-block;
+    white-space: nowrap;
+}
