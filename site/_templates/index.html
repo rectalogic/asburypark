@@ -99,8 +99,8 @@
                             </td>
                             <td>
                                 {% for humantime in happytimes.human_readable_times -%}
-                                    <time {{ humantime.data_attributes }}>{{ humantime.description }}</time>
-                                {%- endfor %}
+                                    <time class="dayhour" {{ humantime.data_attributes }}>{{ humantime.description }}</time>
+                                {% endfor %}
                                 <details>
                                   <summary>Description</summary>
                                   <ul>
