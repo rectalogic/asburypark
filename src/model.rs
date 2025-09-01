@@ -1,6 +1,6 @@
 use chrono::NaiveDate;
 use serde::{Deserialize, Deserializer, Serialize};
-use std::{collections::BTreeSet, fmt::Display, ops::Range};
+use std::{collections::BTreeSet, fmt::Display, iter::Copied, ops::Range};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Restaurants(Vec<Restaurant>);
@@ -69,7 +69,7 @@ impl HappyTimes {
             .iter()
             .flat_map(|dh| match dh {
                 DayHours::Single(day, _) => vec![*day],
-                DayHours::Range(days, _) => DayVec::from(days).0.into_iter().collect::<Vec<_>>(),
+                DayHours::Range(days, _) => iter_days(days).collect::<Vec<_>>(),
             })
             .collect::<BTreeSet<_>>()
             .into_iter()
@@ -88,8 +88,8 @@ impl HappyTimes {
             .collect::<Vec<_>>()
             .join(" ");
 
-        fn dayhours(day: &Day, hours: &Hours) -> impl Iterator<Item = (isize, u16)> {
-            let day = *day as isize;
+        fn dayhours(day: Day, hours: Hours) -> impl Iterator<Item = (isize, u16)> {
+            let day = day as isize;
             hours.as_range().map(move |h| (day, h))
         }
 
@@ -97,11 +97,9 @@ impl HappyTimes {
             .0
             .iter()
             .flat_map(|dh| match dh {
-                DayHours::Single(day, hours) => dayhours(day, hours).collect::<Vec<_>>(),
-                DayHours::Range(days, hours) => DayVec::from(days)
-                    .0
-                    .iter()
-                    .flat_map(|day| dayhours(day, hours))
+                DayHours::Single(day, hours) => dayhours(*day, *hours).collect::<Vec<_>>(),
+                DayHours::Range(days, hours) => iter_days(days)
+                    .flat_map(|day| dayhours(day, *hours))
                     .collect::<Vec<_>>(),
             })
             .collect::<BTreeSet<(isize, u16)>>()
@@ -124,36 +122,14 @@ impl HappyTimes {
     }
 }
 
-#[derive(Debug, PartialEq)]
-struct DayVec(Vec<Day>);
+fn iter_days(days: &(Day, Day)) -> impl Iterator<Item = Day> {
+    let start = days.0 as usize;
+    let end = days.1 as usize;
 
-impl From<&Day> for DayVec {
-    fn from(day: &Day) -> Self {
-        Self(vec![*day])
-    }
-}
+    // length of inclusive span going forward, wrapping mod 7
+    let len = (end + 7 - start) % 7 + 1;
 
-impl From<&(Day, Day)> for DayVec {
-    fn from(days: &(Day, Day)) -> Self {
-        // Return days.0->Sun and Sat->days.1
-        if days.0 > days.1 {
-            Self(
-                Day::iter()
-                    .skip(days.0 as usize)
-                    .chain(Day::iter().take_while(|d| *d <= days.1))
-                    .collect(),
-            )
-        } else if days.0 == days.1 {
-            Self(vec![days.0])
-        } else {
-            Self(
-                Day::iter()
-                    .skip(days.0 as usize)
-                    .take_while(|d| *d <= days.1)
-                    .collect(),
-            )
-        }
-    }
+    Day::iter().cycle().skip(start).take(len)
 }
 
 fn deserialize_hour<'de, D>(deserializer: D) -> Result<u16, D::Error>
@@ -176,7 +152,7 @@ where
 }
 
 impl Day {
-    pub fn iter() -> impl Iterator<Item = Day> {
+    pub fn iter() -> std::array::IntoIter<Day, 7> {
         [
             Day::Sun,
             Day::Mon,
@@ -186,8 +162,7 @@ impl Day {
             Day::Fri,
             Day::Sat,
         ]
-        .iter()
-        .copied()
+        .into_iter()
     }
 }
 
@@ -294,18 +269,21 @@ mod tests {
     #[test]
     fn test_dayrange() {
         assert_eq!(
-            DayVec::from(&(Day::Mon, Day::Thurs)),
-            DayVec(vec![Day::Mon, Day::Tues, Day::Wed, Day::Thurs])
+            iter_days(&(Day::Mon, Day::Thurs)).collect::<Vec<_>>(),
+            vec![Day::Mon, Day::Tues, Day::Wed, Day::Thurs]
         );
         assert_eq!(
-            DayVec::from(&(Day::Sat, Day::Sun)),
-            DayVec(vec![Day::Sat, Day::Sun])
+            iter_days(&(Day::Sat, Day::Sun)).collect::<Vec<_>>(),
+            vec![Day::Sat, Day::Sun]
         );
         assert_eq!(
-            DayVec::from(&(Day::Fri, Day::Sun)),
-            DayVec(vec![Day::Fri, Day::Sat, Day::Sun])
+            iter_days(&(Day::Fri, Day::Sun)).collect::<Vec<_>>(),
+            vec![Day::Fri, Day::Sat, Day::Sun]
         );
-        assert_eq!(DayVec::from(&(Day::Mon, Day::Mon)), DayVec(vec![Day::Mon]));
+        assert_eq!(
+            iter_days(&(Day::Mon, Day::Mon)).collect::<Vec<_>>(),
+            vec![Day::Mon]
+        );
     }
 
     #[test]
