@@ -104,12 +104,22 @@ impl tera::Function for HappyTimesConverter {
                 let happytimes = serde_json::from_value::<HappyTimes>(happytimes.clone())?;
                 let mut map = tera::Map::new();
                 map.insert(
-                    "data_attributes".into(),
+                    "restaurant_data_attributes".into(),
                     happytimes.as_data_attributes().into(),
                 );
+                let human_times: Vec<_> = happytimes
+                    .as_human_readable()
+                    .into_iter()
+                    .map(|ht| {
+                        let mut item = tera::Map::new();
+                        item.insert("description".into(), ht.description.into());
+                        item.insert("data_attributes".into(), ht.data_attributes.into());
+                        tera::Value::Object(item)
+                    })
+                    .collect();
                 map.insert(
-                    "human_readable".into(),
-                    happytimes.as_human_readable().into(),
+                    "human_readable_times".into(),
+                    tera::Value::Array(human_times),
                 );
                 Ok(tera::Value::Object(map))
             }

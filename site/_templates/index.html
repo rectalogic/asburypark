@@ -90,7 +90,7 @@
                     <tbody>
                     {% for restaurant in hh_restaurants -%}
                         {%- set happytimes = restaurant_convert_happytimes(happytimes=restaurant.kind.HappyHour.happytimes) -%}
-                        <tr {{ happytimes.data_attributes }}>
+                        <tr {{ happytimes.restaurant_data_attributes }}>
                             <td>{{ macros::restaurant(restaurant=restaurant) }}</td>
                             <td class="nowrap">
                                 {{ macros::map(restaurant=restaurant) }}
@@ -98,7 +98,9 @@
                                 {{ macros::menu(restaurant=restaurant) }}
                             </td>
                             <td>
-                                {{ happytimes.human_readable }}
+                                {% for humantime in happytimes.human_readable_times -%}
+                                    <time {{ humantime.data_attributes }}>{{ humantime.description }}</time>
+                                {%- endfor %}
                                 <details>
                                   <summary>Description</summary>
                                   <ul>

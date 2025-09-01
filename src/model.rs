@@ -1,6 +1,6 @@
 use chrono::NaiveDate;
 use serde::{Deserialize, Deserializer, Serialize};
-use std::{collections::BTreeSet, fmt::Display, iter::Copied, ops::Range};
+use std::{collections::BTreeSet, fmt::Display, ops::Range};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Restaurants(Vec<Restaurant>);
@@ -53,13 +53,9 @@ pub struct Hours(
     #[serde(deserialize_with = "deserialize_hour")] u16,
 );
 
-impl Display for DayHours {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            Self::Single(day, hours) => write!(f, "{day} {hours}"),
-            Self::Range((startday, endday), hours) => write!(f, "{startday}-{endday} {hours}"),
-        }
-    }
+pub struct HumanTime {
+    pub description: String,
+    pub data_attributes: String,
 }
 
 impl HappyTimes {
@@ -72,24 +68,25 @@ impl HappyTimes {
 
         format!(
             r#"data-days="{}" data-hours="{}" data-daytimes="{}""#,
-            Self::data_days(&dayhour_set),
-            Self::data_hours(&dayhour_set),
-            Self::data_daytimes(&dayhour_set)
+            Self::data_days(dayhour_set.iter().copied()),
+            Self::data_hours(dayhour_set.iter().copied()),
+            Self::data_daytimes(dayhour_set.iter().copied())
         )
     }
 
-    pub fn as_human_readable(&self) -> String {
+    pub fn as_human_readable(&self) -> Vec<HumanTime> {
         self.0
             .iter()
-            .map(|dh| format!("{}", dh))
+            .map(|dh| HumanTime {
+                description: format!("{}", dh),
+                data_attributes: dh.as_data_attributes(),
+            })
             .collect::<Vec<_>>()
-            .join(", ")
     }
 
-    fn data_days(dayhour_set: &BTreeSet<(Day, u16)>) -> String {
-        dayhour_set
-            .iter()
-            .map(|(day, _)| *day)
+    fn data_days(dayhour_tuples: impl Iterator<Item = (Day, u16)>) -> String {
+        dayhour_tuples
+            .map(|(day, _)| day)
             .collect::<BTreeSet<_>>()
             .into_iter()
             .map(|d| (d as isize).to_string())
@@ -97,9 +94,8 @@ impl HappyTimes {
             .join(" ")
     }
 
-    fn data_hours(dayhour_set: &BTreeSet<(Day, u16)>) -> String {
-        dayhour_set
-            .iter()
+    fn data_hours(dayhour_tuples: impl Iterator<Item = (Day, u16)>) -> String {
+        dayhour_tuples
             .map(|(_, hour)| hour)
             .collect::<BTreeSet<_>>()
             .into_iter()
@@ -108,10 +104,9 @@ impl HappyTimes {
             .join(" ")
     }
 
-    fn data_daytimes(dayhour_set: &BTreeSet<(Day, u16)>) -> String {
-        dayhour_set
-            .iter()
-            .map(|(d, h)| format!("{}-{h}", *d as isize))
+    fn data_daytimes(dayhour_tuples: impl Iterator<Item = (Day, u16)>) -> String {
+        dayhour_tuples
+            .map(|(d, h)| format!("{}-{h}", d as isize))
             .collect::<Vec<_>>()
             .join(" ")
     }
@@ -153,6 +148,24 @@ impl DayHours {
             DayHours::Range(days, hours) => (*days, hours),
         };
         iter_days(days).flat_map(|day| hours.as_range().map(move |h| (day, h)))
+    }
+
+    pub fn as_data_attributes(&self) -> String {
+        format!(
+            r#"data-days="{}" data-hours="{}" data-daytimes="{}""#,
+            HappyTimes::data_days(self.as_tuples()),
+            HappyTimes::data_hours(self.as_tuples()),
+            HappyTimes::data_daytimes(self.as_tuples()),
+        )
+    }
+}
+
+impl Display for DayHours {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Single(day, hours) => write!(f, "{day} {hours}"),
+            Self::Range((startday, endday), hours) => write!(f, "{startday}-{endday} {hours}"),
+        }
     }
 }
 
@@ -244,7 +257,7 @@ mod tests {
     };
 
     #[test]
-    fn test_happytimes_css() {
+    fn test_happytimes_dataattr() {
         assert_eq!(
             HappyTimes(vec![DayHours::Single(Day::Wed, Hours(1300, 1500))]).as_data_attributes(),
             r#"data-days="3" data-hours="13 14" data-daytimes="3-13 3-14""#
@@ -268,6 +281,18 @@ mod tests {
             )])
             .as_data_attributes(),
             r#"data-days="0 6" data-hours="10 11" data-daytimes="0-10 0-11 6-10 6-11""#
+        );
+    }
+
+    #[test]
+    fn test_dayhours_dataattr() {
+        assert_eq!(
+            DayHours::Single(Day::Wed, Hours(1300, 1500)).as_data_attributes(),
+            r#"data-days="3" data-hours="13 14" data-daytimes="3-13 3-14""#
+        );
+        assert_eq!(
+            DayHours::Range((Day::Wed, Day::Fri), Hours(1300, 1700)).as_data_attributes(),
+            r#"data-days="3 4 5" data-hours="13 14 15 16" data-daytimes="3-13 3-14 3-15 3-16 4-13 4-14 4-15 4-16 5-13 5-14 5-15 5-16""#
         );
     }
 
