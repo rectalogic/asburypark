@@ -69,7 +69,7 @@ impl HappyTimes {
             .iter()
             .flat_map(|dh| match dh {
                 DayHours::Single(day, _) => vec![*day],
-                DayHours::Range(days, _) => iter_days(days).collect::<Vec<_>>(),
+                DayHours::Range(days, _) => iter_days(*days).collect::<Vec<_>>(),
             })
             .collect::<BTreeSet<_>>()
             .into_iter()
@@ -98,7 +98,7 @@ impl HappyTimes {
             .iter()
             .flat_map(|dh| match dh {
                 DayHours::Single(day, hours) => dayhours(*day, *hours).collect::<Vec<_>>(),
-                DayHours::Range(days, hours) => iter_days(days)
+                DayHours::Range(days, hours) => iter_days(*days)
                     .flat_map(|day| dayhours(day, *hours))
                     .collect::<Vec<_>>(),
             })
@@ -122,7 +122,7 @@ impl HappyTimes {
     }
 }
 
-fn iter_days(days: &(Day, Day)) -> impl Iterator<Item = Day> {
+fn iter_days(days: (Day, Day)) -> impl Iterator<Item = Day> {
     let start = days.0 as usize;
     let end = days.1 as usize;
 
@@ -149,6 +149,18 @@ where
         ));
     }
     Ok(h)
+}
+
+impl DayHours {
+    fn as_tuples(&self) -> impl Iterator<Item = (Day, u16)> {
+        let (days, hours) = match self {
+            DayHours::Single(day, hours) => ((*day, *day), hours),
+            DayHours::Range(days, hours) => (*days, hours),
+        };
+        iter_days(days)
+            .map(|day| hours.as_range().map(move |h| (day, h)))
+            .flatten()
+    }
 }
 
 impl Day {
@@ -269,19 +281,19 @@ mod tests {
     #[test]
     fn test_dayrange() {
         assert_eq!(
-            iter_days(&(Day::Mon, Day::Thurs)).collect::<Vec<_>>(),
+            iter_days((Day::Mon, Day::Thurs)).collect::<Vec<_>>(),
             vec![Day::Mon, Day::Tues, Day::Wed, Day::Thurs]
         );
         assert_eq!(
-            iter_days(&(Day::Sat, Day::Sun)).collect::<Vec<_>>(),
+            iter_days((Day::Sat, Day::Sun)).collect::<Vec<_>>(),
             vec![Day::Sat, Day::Sun]
         );
         assert_eq!(
-            iter_days(&(Day::Fri, Day::Sun)).collect::<Vec<_>>(),
+            iter_days((Day::Fri, Day::Sun)).collect::<Vec<_>>(),
             vec![Day::Fri, Day::Sat, Day::Sun]
         );
         assert_eq!(
-            iter_days(&(Day::Mon, Day::Mon)).collect::<Vec<_>>(),
+            iter_days((Day::Mon, Day::Mon)).collect::<Vec<_>>(),
             vec![Day::Mon]
         );
     }
