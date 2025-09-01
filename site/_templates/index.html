@@ -1,8 +1,8 @@
 {% import "macros.macro" as macros %}
 {% set hh_restaurants = restaurants | filter(attribute="kind.HappyHour") -%}
-{% set byob_restaurants = restaurants | filter(attribute="kind.Byob") -%}
-{% set other_restaurants = restaurants | filter(attribute="kind.Other") -%}
-{% set closed_restaurants = restaurants | filter(attribute="kind.Closed") -%}
+{% set byob_restaurants = restaurants | filter(attribute="kind", value="Byob") -%}
+{% set other_restaurants = restaurants | filter(attribute="kind", value="Other") -%}
+{% set closed_restaurants = restaurants | filter(attribute="kind", value="Closed") -%}
 <!doctype html>
 <html lang="en">
     <head>
