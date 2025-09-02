@@ -102,17 +102,17 @@
                                 {{ macros::menu(restaurant=restaurant) }}
                             </td>
                             <td>
-                                <p>
-                                    {% for humantime in happytimes.human_readable_times -%}
-                                        <time class="dayhour" {{ humantime.data_attributes }}>{{ humantime.description }}</time>
-                                    {% endfor %}
-                                </p>
                                 <article>
-                                  <ul>
-                                      {% for desc in restaurant.kind.HappyHour.description -%}
-                                          <li>{{ desc | escape }}</li>
-                                      {% endfor %}
-                                  </ul>
+                                    <header>
+                                        {% for humantime in happytimes.human_readable_times -%}
+                                            <time class="dayhour" {{ humantime.data_attributes }}>{{ humantime.description }}</time>
+                                        {% endfor %}
+                                    </header>
+                                    <ul>
+                                        {% for desc in restaurant.kind.HappyHour.description -%}
+                                            <li>{{ desc | escape }}</li>
+                                        {% endfor %}
+                                    </ul>
                                 </article>
                             </td>
                         </tr>
@@ -123,77 +123,44 @@
 
             <section id="restaurant-byob">
                 <h4>BYOB</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">Restaurant</th>
-                            <th scope="col">Links</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for restaurant in byob_restaurants -%}
-                            <tr>
-                                <td>
-                                    {{ macros::restaurant(restaurant=restaurant) }}
-                                </td>
-                                <td class="links">
-                                    {{ macros::map(restaurant=restaurant) }}
-                                    {{ macros::instagram(restaurant=restaurant) }}
-                                </td>
-                            </tr>
-                        {%- endfor %}
-                    </tbody>
-                </table>
+                {% for restaurant in byob_restaurants -%}
+                    <article>
+                        <header>BYOB</header>
+                        {{ macros::restaurant(restaurant=restaurant) }}
+                        <footer>
+                            {{ macros::map(restaurant=restaurant) }}
+                            {{ macros::instagram(restaurant=restaurant) }}
+                        </footer>
+                    </article>
+                {%- endfor %}
             </section>
 
             <section id="restaurant-closed">
                 <h4>Closed</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">Restaurant</th>
-                            <th scope="col">Links</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for restaurant in closed_restaurants -%}
-                            <tr>
-                                <td>
-                                    {{ macros::restaurant(restaurant=restaurant) }}
-                                </td>
-                                <td class="links">
-                                    {{ macros::map(restaurant=restaurant) }}
-                                    {{ macros::instagram(restaurant=restaurant) }}
-                                </td>
-                            </tr>
-                        {%- endfor %}
-                    </tbody>
-                </table>
+                {% for restaurant in closed_restaurants -%}
+                    <article>
+                        <header>Closed</header>
+                        {{ macros::restaurant(restaurant=restaurant) }}
+                        <footer>
+                            {{ macros::map(restaurant=restaurant) }}
+                            {{ macros::instagram(restaurant=restaurant) }}
+                        </footer>
+                    </article>
+                {%- endfor %}
             </section>
 
             <section id="restaurant-other">
                 <h4>Other</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">Restaurant</th>
-                            <th scope="col">Links</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for restaurant in other_restaurants -%}
-                            <tr>
-                                <td>
-                                    {{ macros::restaurant(restaurant=restaurant) }}
-                                </td>
-                                <td>
-                                    {{ macros::map(restaurant=restaurant) }}
-                                    {{ macros::instagram(restaurant=restaurant) }}
-                                </td>
-                            </tr>
-                        {%- endfor %}
-                    </tbody>
-                </table>
+                {% for restaurant in other_restaurants -%}
+                    <article>
+                        <header>Other</header>
+                        {{ macros::restaurant(restaurant=restaurant) }}
+                        <footer>
+                            {{ macros::map(restaurant=restaurant) }}
+                            {{ macros::instagram(restaurant=restaurant) }}
+                        </footer>
+                    </article>
+                {%- endfor %}
             </section>
         </main>
     </body>
