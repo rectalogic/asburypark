@@ -222,7 +222,11 @@ fn format_hour(mut t: u16) -> String {
         _ => unreachable!(),
     };
 
-    format!("{display_hour}:{minutes:02}{suffix}")
+    if minutes == 0 {
+        format!("{display_hour}{suffix}")
+    } else {
+        format!("{display_hour}:{minutes:02}{suffix}")
+    }
 }
 
 impl Hours {
