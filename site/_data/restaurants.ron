@@ -676,7 +676,7 @@
         url: "https://stellamarinarestaurant.com",
         map_id: "hRnXVr3yCqFiSbCF9",
         instagram_id: "stellamarinaasbury",
-        verified: "2025-06-18",
+        verified: "2025-09-02",
         kind: HappyHour(
             description: [
                 "specials",
@@ -684,8 +684,7 @@
             menu_url: Some("https://www.instagram.com/p/DLDAQVXxlGd/"),
             happytimes: ([
                 Range((Mon, Fri), (1200, 1800)),
-                Single(Sat, (1200, 1600)),
-                Single(Sun, (1200, 2130)),
+                Range((Sat, Sun), (1200, 1600)),
             ]),
         ),
     ),

@@ -1,5 +1,6 @@
 {% macro restaurant(restaurant) -%}
     <a href="{{ restaurant.url }}">{{ restaurant.name | escape }}</a>
+    <div class="verified"><small><em>Verified: <time>{{ restaurant.verified }}</time></em></small></div>
 {%- endmacro restaurant %}
 
 {% macro map(restaurant) -%}

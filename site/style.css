@@ -1,5 +1,6 @@
-.links {
-    white-space: nowrap;
+td.links > a {
+    display: block;
+    margin-bottom: 0.2rem;
 }
 
 time {
@@ -17,10 +18,17 @@ time.dayhour {
     margin-bottom: 0.3rem;
 }
 
-details.notice {
-    width: 50%;
+@media (min-width: 768px) {
+    details.notice {
+        width: 50%;
+    }
 }
 
 td {
     vertical-align: top;
+    margin: 0.3rem;
+}
+
+td > .verified {
+    margin-top: 2rem;
 }

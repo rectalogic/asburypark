@@ -46,7 +46,8 @@
 
             <section id="restaurant-happy-hours">
                 <h4>Happy Hours</h4>
-                <div class="grid">
+                <form>
+                  <fieldset class="grid">
                     <select id="day" aria-label="Day" required>
                       <option value="" selected>All Days</option>
                       <option value="0">Sun</option>
@@ -77,30 +78,35 @@
                         <option value="24">12am</option>
                         <option value="25">1am</option>
                     </select>
-                </div>
+                  </fieldset>
+                </form>
+
                 <table>
                     <thead>
                         <tr>
                             <th scope="col">Restaurant</th>
                             <th scope="col">Links</th>
                             <th scope="col">Happy Hours</th>
-                            <th scope="col">Verified</th>
                         </tr>
                     </thead>
                     <tbody>
                     {% for restaurant in hh_restaurants -%}
                         {%- set happytimes = restaurant_convert_happytimes(happytimes=restaurant.kind.HappyHour.happytimes) -%}
                         <tr class="restaurant" {{ happytimes.restaurant_data_attributes }}>
-                            <td>{{ macros::restaurant(restaurant=restaurant) }}</td>
+                            <td>
+                                {{ macros::restaurant(restaurant=restaurant) }}
+                            </td>
                             <td class="links">
                                 {{ macros::map(restaurant=restaurant) }}
                                 {{ macros::instagram(restaurant=restaurant) }}
                                 {{ macros::menu(restaurant=restaurant) }}
                             </td>
                             <td>
-                                {% for humantime in happytimes.human_readable_times -%}
-                                    <time class="dayhour" {{ humantime.data_attributes }}>{{ humantime.description }}</time>
-                                {% endfor %}
+                                <p>
+                                    {% for humantime in happytimes.human_readable_times -%}
+                                        <time class="dayhour" {{ humantime.data_attributes }}>{{ humantime.description }}</time>
+                                    {% endfor %}
+                                </p>
                                 <article>
                                   <ul>
                                       {% for desc in restaurant.kind.HappyHour.description -%}
@@ -109,7 +115,6 @@
                                   </ul>
                                 </article>
                             </td>
-                            <td><time>{{ restaurant.verified }}</time></td>
                         </tr>
                     {%- endfor %}
                     </tbody>
@@ -123,7 +128,6 @@
                         <tr>
                             <th scope="col">Restaurant</th>
                             <th scope="col">Links</th>
-                            <th scope="col">Verified</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -136,7 +140,6 @@
                                     {{ macros::map(restaurant=restaurant) }}
                                     {{ macros::instagram(restaurant=restaurant) }}
                                 </td>
-                                <td><time>{{ restaurant.verified }}</time></td>
                             </tr>
                         {%- endfor %}
                     </tbody>
@@ -150,7 +153,6 @@
                         <tr>
                             <th scope="col">Restaurant</th>
                             <th scope="col">Links</th>
-                            <th scope="col">Verified</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -163,7 +165,6 @@
                                     {{ macros::map(restaurant=restaurant) }}
                                     {{ macros::instagram(restaurant=restaurant) }}
                                 </td>
-                                <td><time>{{ restaurant.verified }}</time></td>
                             </tr>
                         {%- endfor %}
                     </tbody>
@@ -177,7 +178,6 @@
                         <tr>
                             <th scope="col">Restaurant</th>
                             <th scope="col">Links</th>
-                            <th scope="col">Verified</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -190,7 +190,6 @@
                                     {{ macros::map(restaurant=restaurant) }}
                                     {{ macros::instagram(restaurant=restaurant) }}
                                 </td>
-                                <td><time>{{ restaurant.verified }}</time></td>
                             </tr>
                         {%- endfor %}
                     </tbody>

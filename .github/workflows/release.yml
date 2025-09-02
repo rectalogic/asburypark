@@ -22,7 +22,7 @@ jobs:
         run: |
           echo crate=$(cargo metadata --format-version 1 --no-deps | jq --raw-output  '.packages | map(select(.name == "'sitegen'")) | .[0].version') >> "$GITHUB_OUTPUT"
       - name: Check version
-        if: github.ref_name != format('v{0}', steps.version.outputs.crate) }}
+        if: github.ref_name != format('v{0}', steps.version.outputs.crate)
         run: echo Crate version does not match tag && exit 1
       - name: Build
         run: |
