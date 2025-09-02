@@ -20,3 +20,7 @@ time.dayhour {
 details.notice {
     width: 50%;
 }
+
+td {
+    vertical-align: top;
+}

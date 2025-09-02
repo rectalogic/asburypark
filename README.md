@@ -1,3 +1,8 @@
-Local testing: `bin/jekyll.sh`
+Local testing:
 
-Then visit http://localhost:4000/asburypark/
+```sh-session
+$ cargo run --bin sitegen
+$ python3 -m http.server -d output
+```
+
+Then visit http://localhost:8000/

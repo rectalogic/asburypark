@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install
+        run: |
+          rustup update stable
+      - name: Get version
+        id: version
+        run: |
+          echo crate=$(cargo metadata --format-version 1 --no-deps | jq --raw-output  '.packages | map(select(.name == "'sitegen'")) | .[0].version') >> "$GITHUB_OUTPUT"
+      - name: Check version
+        if: github.ref_name != format('v{0}', steps.version.outputs.crate) }}
+        run: echo Crate version does not match tag && exit 1
+      - name: Build
+        run: |
+          cargo build --release --bin sitegen
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+        run: |
+          gh release create "$tag" \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${tag#v}"
+      - name: Upload
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+        run: |
+          gh release upload "$tag" target/release/sitegen

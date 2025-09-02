@@ -64,18 +64,20 @@
                 <li><a href="#restaurant-closed">Closed</a></li>
               </ul>
             </nav>
+        </header>
+
+        <main class="container-fluid">
             <details class="notice">
-                <summary role="button">Happy Hours change frequently</summary>
-                Check restaurant website/Instagram for updates. Use the
+                <summary role="button">Submit updates</summary>
+                Happy Hours change frequently,
+                check restaurant website/Instagram for updates. Use the
                 <a href="https://forms.gle/F3xaERaDYpjN1Brz6">feedback form</a>
                 to report updates.
                 <footer>
                     <small>Follow <a href="https://www.instagram.com/asburypark_happyhours"><img width="15" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" /> @asburypark_happyhours</a></small>
                 </footer>
             </details>
-        </header>
 
-        <main class="container-fluid">
             <section id="restaurant-happy-hours">
                 <h4>Happy Hours</h4>
                 <div class="grid">
@@ -133,14 +135,13 @@
                                 {% for humantime in happytimes.human_readable_times -%}
                                     <time class="dayhour" {{ humantime.data_attributes }}>{{ humantime.description }}</time>
                                 {% endfor %}
-                                <details>
-                                  <summary role="button" class="secondary">Description</summary>
+                                <article>
                                   <ul>
                                       {% for desc in restaurant.kind.HappyHour.description -%}
                                           <li>{{ desc | escape }}</li>
                                       {% endfor %}
                                   </ul>
-                                </details>
+                                </article>
                             </td>
                             <td><time>{{ restaurant.verified }}</time></td>
                         </tr>
