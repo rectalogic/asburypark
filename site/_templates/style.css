@@ -43,63 +43,32 @@ time.dayhour {
     }
 }
 
-{% for hour in rangehours -%}
-:root[data-selected-hour="{{ hour }}"] .restaurant.hh:not([data-hours~="{{ hour }}"])
-{%- if not loop.last -%},
-{%- endif %}
-{% endfor -%}
-{
-    display: none;
-}
+{% set alldays = rangedays | concat(with="all") %}
+{% set allhours = rangehours | concat(with="all") %}
+{%- set dayhours = [] -%}
+{%- for day in alldays -%}
+    {%- for hour in allhours -%}
+        {# skip "all-all" #}
+        {%- set skip = day == "all" and hour == "all" -%}
+        {%- if not skip %}
+            {%- set_global dayhours = dayhours | concat(with=day ~ "-" ~ hour) -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor %}
 
-{% for hour in rangehours -%}
-:root[data-selected-hour="{{ hour }}"] time.dayhour:not([data-hours~="{{ hour }}"])
-{%- if not loop.last -%},
-{%- endif %}
-{% endfor -%}
-{
-    background: var(--pico-del-color);
-    text-decoration: line-through;
-}
-
-{% for day in rangedays -%}
-:root[data-selected-day="{{ day }}"] .restaurant.hh:not([data-days~="{{ day }}"])
-{%- if not loop.last -%},
-{%- endif %}
-{% endfor -%}
-{
-    display: none;
-}
-
-{% for day in rangedays -%}
-:root[data-selected-day="{{ day }}"] time.dayhour:not([data-days~="{{ day }}"])
-{%- if not loop.last -%},
-{%- endif %}
-{% endfor -%}
-{
-  background: var(--pico-del-color);
-  text-decoration: line-through;
-}
-
-{% for day in rangedays -%}
-    {%- for hour in rangehours -%}
-        {%- set dayhour = day ~ "-" ~ hour -%}
+{% for dayhour in dayhours -%}
 :root[data-selected-dayhour="{{ dayhour }}"] .restaurant.hh:not([data-daytimes~="{{ dayhour }}"])
-        {%- if not loop.last -%},
-        {%- endif %}
-    {% endfor -%}
+    {%- if not loop.last -%},
+    {%- endif %}
 {% endfor %}
 {
     display: none;
 }
 
-{% for day in rangedays -%}
-    {%- for hour in rangehours -%}
-        {%- set dayhour = day ~ "-" ~ hour -%}
+{% for dayhour in dayhours -%}
 :root[data-selected-dayhour="{{ dayhour }}"] time.dayhour:not([data-daytimes~="{{ dayhour }}"])
-        {%- if not loop.last -%},
-        {%- endif %}
-    {% endfor -%}
+    {%- if not loop.last -%},
+    {%- endif %}
 {% endfor %}
 {
     background: var(--pico-del-color);

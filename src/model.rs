@@ -67,9 +67,7 @@ impl HappyTimes {
             .collect::<BTreeSet<_>>();
 
         format!(
-            r#"data-days="{}" data-hours="{}" data-daytimes="{}""#,
-            Self::data_days(dayhour_set.iter().copied()),
-            Self::data_hours(dayhour_set.iter().copied()),
+            r#"data-daytimes="{}""#,
             Self::data_daytimes(dayhour_set.iter().copied())
         )
     }
@@ -84,29 +82,21 @@ impl HappyTimes {
             .collect::<Vec<_>>()
     }
 
-    fn data_days(dayhour_tuples: impl Iterator<Item = (Day, u16)>) -> String {
-        dayhour_tuples
-            .map(|(day, _)| day)
-            .collect::<BTreeSet<_>>()
-            .into_iter()
-            .map(|d| (d as isize).to_string())
-            .collect::<Vec<_>>()
-            .join(" ")
-    }
-
-    fn data_hours(dayhour_tuples: impl Iterator<Item = (Day, u16)>) -> String {
-        dayhour_tuples
-            .map(|(_, hour)| hour)
-            .collect::<BTreeSet<_>>()
-            .into_iter()
-            .map(|h| h.to_string())
-            .collect::<Vec<_>>()
-            .join(" ")
-    }
-
     fn data_daytimes(dayhour_tuples: impl Iterator<Item = (Day, u16)>) -> String {
+        let dayhour_tuples: Vec<_> = dayhour_tuples.collect();
+        let days = dayhour_tuples
+            .iter()
+            .map(|(d, _)| d)
+            .collect::<BTreeSet<_>>();
+        let hours = dayhour_tuples
+            .iter()
+            .map(|(_, h)| h)
+            .collect::<BTreeSet<_>>();
         dayhour_tuples
-            .map(|(d, h)| format!("{}-{h}", d as isize))
+            .iter()
+            .map(|(d, h)| format!("{}-{h}", *d as isize))
+            .chain(days.into_iter().map(|d| format!("{}-all", *d as isize)))
+            .chain(hours.into_iter().map(|h| format!("all-{h}")))
             .collect::<Vec<_>>()
             .join(" ")
     }
@@ -152,9 +142,7 @@ impl DayHours {
 
     pub fn as_data_attributes(&self) -> String {
         format!(
-            r#"data-days="{}" data-hours="{}" data-daytimes="{}""#,
-            HappyTimes::data_days(self.as_tuples()),
-            HappyTimes::data_hours(self.as_tuples()),
+            r#"data-daytimes="{}""#,
             HappyTimes::data_daytimes(self.as_tuples()),
         )
     }

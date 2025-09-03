@@ -14,7 +14,7 @@
             href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
         />
         <link rel="stylesheet" href="style.css"/>
-        <script async src="filter.js"></script>
+        <script defer src="filter.js"></script>
         <title>Asbury Park Happy Hours</title>
     </head>
     <body>
@@ -49,7 +49,7 @@
                 <form>
                   <fieldset class="grid">
                     <select id="day" aria-label="Day" required>
-                      <option value="" selected>All Days</option>
+                      <option value="all" selected>All Days</option>
                       <option value="0">Sun</option>
                       <option value="1">Mon</option>
                       <option value="2">Tue</option>
@@ -59,7 +59,7 @@
                       <option value="6">Sat</option>
                     </select>
                     <select id="hour" aria-label="Hour" required>
-                        <option value="" selected>All Hours</option>
+                        <option value="all" selected>All Hours</option>
                         {% for hour in rangehours -%}
                             {% if hour == 12 %}
                                 {%- set hourdisplay = "12pm" -%}
