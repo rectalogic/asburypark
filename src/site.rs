@@ -22,6 +22,7 @@ impl SiteGenerator {
         let restaurants: Restaurants = from_reader(restaurants)?;
         let mut context = TeraContext::new();
         context.insert("restaurants", &restaurants);
+        context.insert("hours", &(9..=25).collect::<Vec<_>>());
         let mut tera = Tera::new(
             site.join("_templates/**/*")
                 .to_str()

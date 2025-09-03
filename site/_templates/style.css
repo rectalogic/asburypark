@@ -1,0 +1,52 @@
+.restaurants {
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 1rem;
+}
+
+article.restaurant {
+    flex: shrink;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+article.restaurant > content {
+    flex: auto;
+}
+
+article.restaurant > header,
+article.restaurant > footer {
+    flex: initial;
+}
+
+article.restaurant > footer > a {
+    margin-right: 0.3rem;
+}
+
+time {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+time.dayhour {
+    border-radius: var(--pico-border-radius);
+    background: var(--pico-code-kbd-background-color);
+    color: var(--pico-code-kbd-color);
+    font-weight: var(--pico-font-weight);
+    line-height: initial;
+    padding: 0.375rem;
+    margin-bottom: 0.3rem;
+}
+
+@media (min-width: 768px) {
+    details.notice {
+        width: 50%;
+    }
+}
+
+{%- for hour in hours -%}
+:root[data-selected="{{ hour }}"] time.dayhour:not([data-days~="{{ hour }}"]) {
+  background: var(--pico-del-color);
+  text-decoration: line-through;
+}
+{%- endfor %}
