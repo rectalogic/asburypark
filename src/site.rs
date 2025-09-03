@@ -1,4 +1,4 @@
-use crate::model::{HappyTimes, Restaurants};
+use crate::model::{HappyTimes, Hours, Restaurants};
 use anyhow::{Context, Result, anyhow};
 use ron::de::from_reader;
 use std::{
@@ -22,8 +22,11 @@ impl SiteGenerator {
         let restaurants: Restaurants = from_reader(restaurants)?;
         let mut context = TeraContext::new();
         context.insert("restaurants", &restaurants);
-        context.insert("hours", &(9..=25).collect::<Vec<_>>());
-        context.insert("days", &(0..=6).collect::<Vec<_>>());
+        context.insert(
+            "rangehours",
+            &(Hours::START_HOUR..=Hours::END_HOUR).collect::<Vec<_>>(),
+        );
+        context.insert("rangedays", &(0..=6).collect::<Vec<_>>());
         let mut tera = Tera::new(
             site.join("_templates/**/*")
                 .to_str()

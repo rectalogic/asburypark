@@ -132,7 +132,7 @@ where
     let minutes = ch % 100;
 
     // Validate minutes and hours
-    if hours > 23 || minutes > 59 {
+    if hours > Hours::END_HOUR || minutes > 59 {
         return Err(serde::de::Error::invalid_value(
             serde::de::Unexpected::Unsigned(h as u64),
             &"an hour between 0 and 23 and minute between 0 and 59",
@@ -199,8 +199,8 @@ impl Display for Day {
 }
 
 fn wraparound_hour(t: u16) -> u16 {
-    // Allow 2400–2700 by wrapping into the 0–300 range
-    if (2400..=2700).contains(&t) {
+    // Allow 2400–2500 by wrapping into the 0–300 range
+    if (2400..=Hours::END_HOUR * 100).contains(&t) {
         t - 2400
     } else {
         t
@@ -230,6 +230,9 @@ fn format_hour(mut t: u16) -> String {
 }
 
 impl Hours {
+    pub const START_HOUR: u16 = 9;
+    pub const END_HOUR: u16 = 25;
+
     fn as_range(&self) -> Range<u16> {
         // Truncate to nearest hour, e.g. 1630 -> 16
         let mut start = self.0 / 100;
@@ -322,15 +325,15 @@ mod tests {
 
     #[test]
     fn test_hours_display() {
-        assert_eq!("9:00am-2:00pm", format!("{}", Hours(900, 1400)));
-        assert_eq!("1:00am-3:00am", format!("{}", Hours(2500, 2700)));
-        assert_eq!("11:00pm-1:00am", format!("{}", Hours(2300, 2500)));
+        assert_eq!("9:30am-2pm", format!("{}", Hours(930, 1400)));
+        assert_eq!("11pm-1am", format!("{}", Hours(2300, 2500)));
     }
 
     #[test]
     fn test_hours_deserialize() {
-        assert_eq!(from_str("(2500, 2700)"), Ok(Hours(2500, 2700)));
-        assert_eq!(from_str("(2300, 2500)"), Ok(Hours(2300, 2500)));
+        assert_eq!(from_str("(2400, 2500)"), Ok(Hours(2400, 2500)));
+        assert_eq!(from_str("(2100, 2500)"), Ok(Hours(2100, 2500)));
+        assert!(from_str::<Hours>("(1300, 2900)").is_err());
         assert!(from_str::<Hours>("(2399, 2500)").is_err());
         assert!(from_str::<Hours>("(2300, 9900)").is_err());
     }

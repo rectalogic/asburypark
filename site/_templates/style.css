@@ -43,7 +43,7 @@ time.dayhour {
     }
 }
 
-{% for hour in hours -%}
+{% for hour in rangehours -%}
 :root[data-selected-hour="{{ hour }}"] .restaurant.hh:not([data-hours~="{{ hour }}"])
 {%- if not loop.last -%},
 {%- endif %}
@@ -52,7 +52,7 @@ time.dayhour {
     display: none;
 }
 
-{% for hour in hours -%}
+{% for hour in rangehours -%}
 :root[data-selected-hour="{{ hour }}"] time.dayhour:not([data-hours~="{{ hour }}"])
 {%- if not loop.last -%},
 {%- endif %}
@@ -62,7 +62,7 @@ time.dayhour {
     text-decoration: line-through;
 }
 
-{% for day in days -%}
+{% for day in rangedays -%}
 :root[data-selected-day="{{ day }}"] .restaurant.hh:not([data-days~="{{ day }}"])
 {%- if not loop.last -%},
 {%- endif %}
@@ -71,7 +71,7 @@ time.dayhour {
     display: none;
 }
 
-{% for day in days -%}
+{% for day in rangedays -%}
 :root[data-selected-day="{{ day }}"] time.dayhour:not([data-days~="{{ day }}"])
 {%- if not loop.last -%},
 {%- endif %}
@@ -81,8 +81,8 @@ time.dayhour {
   text-decoration: line-through;
 }
 
-{% for day in days -%}
-    {%- for hour in hours -%}
+{% for day in rangedays -%}
+    {%- for hour in rangehours -%}
         {%- set dayhour = day ~ "-" ~ hour -%}
 :root[data-selected-dayhour="{{ dayhour }}"] .restaurant.hh:not([data-daytimes~="{{ dayhour }}"])
         {%- if not loop.last -%},
@@ -93,8 +93,8 @@ time.dayhour {
     display: none;
 }
 
-{% for day in days -%}
-    {%- for hour in hours -%}
+{% for day in rangedays -%}
+    {%- for hour in rangehours -%}
         {%- set dayhour = day ~ "-" ~ hour -%}
 :root[data-selected-dayhour="{{ dayhour }}"] time.dayhour:not([data-daytimes~="{{ dayhour }}"])
         {%- if not loop.last -%},

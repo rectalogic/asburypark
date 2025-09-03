@@ -60,7 +60,7 @@
                     </select>
                     <select id="hour" aria-label="Hour" required>
                         <option value="" selected>All Hours</option>
-                        {% for hour in hours -%}
+                        {% for hour in rangehours -%}
                             {% if hour == 12 %}
                                 {%- set hourdisplay = "12pm" -%}
                             {%- elif hour < 12 -%}
