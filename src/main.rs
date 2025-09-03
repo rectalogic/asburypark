@@ -11,7 +11,7 @@ fn main() {
 }
 
 fn run(args: Args) -> Result<()> {
-    if !args.site.is_dir() {
+    if !std::env::current_dir().unwrap().join(&args.site).is_dir() {
         return Err(anyhow!(
             "Invalid site directory: {}",
             args.site.to_str().unwrap()
