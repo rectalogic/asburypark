@@ -44,9 +44,35 @@ time.dayhour {
     }
 }
 
-{%- for hour in hours -%}
-:root[data-selected="{{ hour }}"] time.dayhour:not([data-days~="{{ hour }}"]) {
+{% for hour in hours -%}
+:root[data-selected-hour="{{ hour }}"] article.restaurant.hh:not([data-hours~="{{ hour }}"]) {
+    display: none;
+}
+:root[data-selected-hour="{{ hour }}"] time.dayhour:not([data-hours~="{{ hour }}"]) {
   background: var(--pico-del-color);
   text-decoration: line-through;
 }
+{% endfor %}
+
+{% for day in days -%}
+:root[data-selected-day="{{ day }}"] article.restaurant.hh:not([data-days~="{{ day }}"]) {
+    display: none;
+}
+:root[data-selected-day="{{ day }}"] time.dayhour:not([data-days~="{{ day }}"]) {
+  background: var(--pico-del-color);
+  text-decoration: line-through;
+}
+{% endfor %}
+
+{% for day in days -%}
+    {%- for hour in hours -%}
+        {%- set dayhour = day ~ "-" ~ hour %}
+:root[data-selected-dayhour="{{ dayhour }}"] article.restaurant.hh:not([data-daytimes~="{{ dayhour }}"]) {
+    display: none;
+}
+:root[data-selected-dayhour="{{ dayhour }}"] time.dayhour:not([data-daytimes~="{{ dayhour }}"])  {
+    background: var(--pico-del-color);
+    text-decoration: line-through;
+}
+    {% endfor -%}
 {%- endfor %}

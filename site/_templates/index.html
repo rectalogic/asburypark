@@ -78,10 +78,10 @@
                   </fieldset>
                 </form>
 
-                <div class="restaurants happyhour-restaurants">
+                <div class="restaurants">
                     {% for restaurant in hh_restaurants -%}
                         {%- set happytimes = restaurant_convert_happytimes(happytimes=restaurant.kind.HappyHour.happytimes) -%}
-                        <article class="restaurant" {{ happytimes.restaurant_data_attributes }}>
+                        <article class="restaurant hh" {{ happytimes.restaurant_data_attributes }}>
                             <header>{{ macros::restaurant(restaurant=restaurant) }}</header>
                             <content>
                                 {% for humantime in happytimes.human_readable_times -%}
