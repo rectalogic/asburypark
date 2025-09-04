@@ -43,6 +43,16 @@ time.dayhour {
     }
 }
 
+.restaurant.hh[data-daytimes] {
+    transition:
+        opacity 300ms,
+        display 300ms allow-discrete;
+    opacity: 1;
+    @starting-style {
+        opacity: 1;
+    }
+}
+
 {% set alldays = rangedays | concat(with="all") %}
 {% set allhours = rangehours | concat(with="all") %}
 {%- set dayhours = [] -%}
@@ -63,6 +73,7 @@ time.dayhour {
 {% endfor %}
 {
     display: none;
+    opacity: 0;
 }
 
 {% for dayhour in dayhours -%}
