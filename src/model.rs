@@ -48,10 +48,10 @@ pub enum Day {
 }
 
 #[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq)]
-pub struct Hours(
-    #[serde(deserialize_with = "deserialize_hour")] u16,
-    #[serde(deserialize_with = "deserialize_hour")] u16,
-);
+pub struct Hours(Hour, Hour);
+
+#[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq)]
+pub struct Hour(#[serde(deserialize_with = "deserialize_hour")] u16);
 
 pub struct HumanTime {
     pub description: String,
@@ -116,19 +116,24 @@ fn deserialize_hour<'de, D>(deserializer: D) -> Result<u16, D::Error>
 where
     D: Deserializer<'de>,
 {
-    let h = u16::deserialize(deserializer)?;
-    let ch = wraparound_hour(h);
-    let hours = ch / 100;
-    let minutes = ch % 100;
+    let h = Hour(u16::deserialize(deserializer)?);
+    let ch = h.wraparound();
+    let hours = h.hours();
+    let minutes = ch.minutes();
 
     // Validate minutes and hours
     if hours > Hours::END_HOUR || minutes > 59 {
         return Err(serde::de::Error::invalid_value(
-            serde::de::Unexpected::Unsigned(h as u64),
-            &"an hour between 0 and 23 and minute between 0 and 59",
+            serde::de::Unexpected::Unsigned(h.0 as u64),
+            &format!(
+                "an hour/minutes between {} and {} with minutes between 0 and 59",
+                Hours::START_HOUR * 100,
+                Hours::END_HOUR * 100
+            )
+            .as_str(),
         ));
     }
-    Ok(h)
+    Ok(h.0)
 }
 
 impl DayHours {
@@ -186,34 +191,45 @@ impl Display for Day {
     }
 }
 
-fn wraparound_hour(t: u16) -> u16 {
-    // Allow 2400–2500 by wrapping into the 0–300 range
-    if (2400..=Hours::END_HOUR * 100).contains(&t) {
-        t - 2400
-    } else {
-        t
+impl Hour {
+    fn wraparound(&self) -> Self {
+        // Allow 2400–2700 by wrapping into the 0–300 range
+        if (2400..=Hours::END_HOUR * 100).contains(&self.0) {
+            Self(self.0 - 2400)
+        } else {
+            Self(self.0)
+        }
+    }
+
+    fn hours(&self) -> u16 {
+        self.0 / 100
+    }
+    fn minutes(&self) -> u16 {
+        self.0 % 100
     }
 }
 
-fn format_hour(mut t: u16) -> String {
-    t = wraparound_hour(t);
+impl Display for Hour {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let t = self.wraparound();
 
-    let hours = t / 100;
-    let minutes = t % 100;
+        let hours = t.0 / 100;
+        let minutes = t.0 % 100;
 
-    // AM/PM conversion
-    let (display_hour, suffix) = match hours {
-        0 => (12, "am"),
-        1..=11 => (hours, "am"),
-        12 => (12, "pm"),
-        13..=23 => (hours - 12, "pm"),
-        _ => unreachable!(),
-    };
+        // AM/PM conversion
+        let (display_hour, suffix) = match hours {
+            0 => (12, "am"),
+            1..=11 => (hours, "am"),
+            12 => (12, "pm"),
+            13..=23 => (hours - 12, "pm"),
+            _ => unreachable!(),
+        };
 
-    if minutes == 0 {
-        format!("{display_hour}{suffix}")
-    } else {
-        format!("{display_hour}:{minutes:02}{suffix}")
+        if minutes == 0 {
+            write!(f, "{display_hour}{suffix}")
+        } else {
+            write!(f, "{display_hour}:{minutes:02}{suffix}")
+        }
     }
 }
 
@@ -223,14 +239,14 @@ impl Hours {
 
     fn as_range(&self) -> Range<u16> {
         // Truncate to nearest hour, e.g. 1630 -> 16
-        let mut start = self.0 / 100;
-        let mut end = self.1 / 100;
+        let mut start = self.0.hours();
+        let mut end = self.1.hours();
         // If start has minutes, bump to next hour
-        if self.0 % 100 > 0 {
+        if self.0.minutes() > 0 {
             start += 1;
         }
         // If end has minutes, bump to next hour
-        if self.1 % 100 > 0 {
+        if self.1.minutes() > 0 {
             end += 1;
         }
         start..end
@@ -239,55 +255,63 @@ impl Hours {
 
 impl Display for Hours {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}-{}", format_hour(self.0), format_hour(self.1))
+        write!(f, "{}-{}", self.0, self.1)
     }
 }
 
 #[cfg(test)]
 mod tests {
+    use crate::ron_options;
+
     use super::*;
-    use ron::{
-        de::from_str,
-        ser::{PrettyConfig, to_string_pretty},
-    };
+    use ron::ser::PrettyConfig;
 
     #[test]
     fn test_happytimes_dataattr() {
         assert_eq!(
-            HappyTimes(vec![DayHours::Single(Day::Wed, Hours(1300, 1500))]).as_data_attributes(),
-            r#"data-days="3" data-hours="13 14" data-daytimes="3-13 3-14""#
+            HappyTimes(vec![DayHours::Single(
+                Day::Wed,
+                Hours(Hour(1300), Hour(1500))
+            )])
+            .as_data_attributes(),
+            r#"data-daytimes="3-13 3-14 3-all all-13 all-14""#
         );
         assert_eq!(
             HappyTimes(vec![
-                DayHours::Single(Day::Wed, Hours(1300, 1500)),
-                DayHours::Range((Day::Wed, Day::Fri), Hours(1400, 1600)),
+                DayHours::Single(Day::Wed, Hours(Hour(1300), Hour(1500))),
+                DayHours::Range((Day::Wed, Day::Fri), Hours(Hour(1400), Hour(1600))),
             ])
             .as_data_attributes(),
-            r#"data-days="3 4 5" data-hours="13 14 15" data-daytimes="3-13 3-14 3-15 4-14 4-15 5-14 5-15""#
+            r#"data-daytimes="3-13 3-14 3-15 4-14 4-15 5-14 5-15 3-all 4-all 5-all all-13 all-14 all-15""#
         );
         assert_eq!(
-            HappyTimes(vec![DayHours::Single(Day::Mon, Hours(1330, 1530))]).as_data_attributes(),
-            r#"data-days="1" data-hours="14 15" data-daytimes="1-14 1-15""#
+            HappyTimes(vec![DayHours::Single(
+                Day::Mon,
+                Hours(Hour(1330), Hour(1530))
+            )])
+            .as_data_attributes(),
+            r#"data-daytimes="1-14 1-15 1-all all-14 all-15""#
         );
         assert_eq!(
             HappyTimes(vec![DayHours::Range(
                 (Day::Sat, Day::Sun),
-                Hours(1000, 1200)
+                Hours(Hour(1000), Hour(1200))
             )])
             .as_data_attributes(),
-            r#"data-days="0 6" data-hours="10 11" data-daytimes="0-10 0-11 6-10 6-11""#
+            r#"data-daytimes="0-10 0-11 6-10 6-11 0-all 6-all all-10 all-11""#
         );
     }
 
     #[test]
     fn test_dayhours_dataattr() {
         assert_eq!(
-            DayHours::Single(Day::Wed, Hours(1300, 1500)).as_data_attributes(),
-            r#"data-days="3" data-hours="13 14" data-daytimes="3-13 3-14""#
+            DayHours::Single(Day::Wed, Hours(Hour(1300), Hour(1500))).as_data_attributes(),
+            r#"data-daytimes="3-13 3-14 3-all all-13 all-14""#
         );
         assert_eq!(
-            DayHours::Range((Day::Wed, Day::Fri), Hours(1300, 1700)).as_data_attributes(),
-            r#"data-days="3 4 5" data-hours="13 14 15 16" data-daytimes="3-13 3-14 3-15 3-16 4-13 4-14 4-15 4-16 5-13 5-14 5-15 5-16""#
+            DayHours::Range((Day::Wed, Day::Fri), Hours(Hour(1300), Hour(1700)))
+                .as_data_attributes(),
+            r#"data-daytimes="3-13 3-14 3-15 3-16 4-13 4-14 4-15 4-16 5-13 5-14 5-15 5-16 3-all 4-all 5-all all-13 all-14 all-15 all-16""#
         );
     }
 
@@ -313,17 +337,28 @@ mod tests {
 
     #[test]
     fn test_hours_display() {
-        assert_eq!("9:30am-2pm", format!("{}", Hours(930, 1400)));
-        assert_eq!("11pm-1am", format!("{}", Hours(2300, 2500)));
+        assert_eq!("9:30am-2pm", format!("{}", Hours(Hour(930), Hour(1400))));
+        assert_eq!("11pm-1am", format!("{}", Hours(Hour(2300), Hour(2500))));
     }
 
     #[test]
     fn test_hours_deserialize() {
-        assert_eq!(from_str("(2400, 2500)"), Ok(Hours(2400, 2500)));
-        assert_eq!(from_str("(2100, 2500)"), Ok(Hours(2100, 2500)));
-        assert!(from_str::<Hours>("(1300, 2900)").is_err());
-        assert!(from_str::<Hours>("(2399, 2500)").is_err());
-        assert!(from_str::<Hours>("(2300, 9900)").is_err());
+        let ro = ron_options();
+        assert_eq!(
+            ro.from_str("(2400, 2500)"),
+            Ok(Hours(Hour(2400), Hour(2500)))
+        );
+        assert_eq!(
+            ro.from_str("(2100, 2500)"),
+            Ok(Hours(Hour(2100), Hour(2500)))
+        );
+        assert_eq!(
+            ro.from_str("(2300, 2500)"),
+            Ok(Hours(Hour(2300), Hour(2500)))
+        );
+        assert!(ro.from_str::<Hours>("(1300, 2900)").is_err());
+        assert!(ro.from_str::<Hours>("(2399, 2500)").is_err());
+        assert!(ro.from_str::<Hours>("(2300, 9900)").is_err());
     }
 
     #[test]
@@ -341,9 +376,9 @@ mod tests {
                 ],
                 menu_url: Some("https://www.theblackswanap.com/happy-hour".into()),
                 happytimes: HappyTimes(vec![
-                    DayHours::Single(Day::Mon, Hours(1600, 1800)),
-                    DayHours::Single(Day::Tues, Hours(1600, 2200)),
-                    DayHours::Range((Day::Wed, Day::Fri), Hours(1600, 1800)),
+                    DayHours::Single(Day::Mon, Hours(Hour(1600), Hour(1800))),
+                    DayHours::Single(Day::Tues, Hours(Hour(1600), Hour(2200))),
+                    DayHours::Range((Day::Wed, Day::Fri), Hours(Hour(1600), Hour(1800))),
                 ]),
             },
         }]);
@@ -351,7 +386,9 @@ mod tests {
             .depth_limit(4)
             .separate_tuple_members(true)
             .enumerate_arrays(true);
-        let s = to_string_pretty(&restaurants, pretty).expect("Serialization failed");
+        let s = ron_options()
+            .to_string_pretty(&restaurants, pretty)
+            .expect("Serialization failed");
 
         println!("{}", s);
     }

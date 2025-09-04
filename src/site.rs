@@ -1,6 +1,8 @@
-use crate::model::{HappyTimes, Hours, Restaurants};
+use crate::{
+    model::{HappyTimes, Hours, Restaurants},
+    ron_options,
+};
 use anyhow::{Context, Result, anyhow};
-use ron::de::from_reader;
 use std::{
     collections::HashMap,
     fs,
@@ -19,7 +21,7 @@ impl SiteGenerator {
         let site = site.as_ref();
         let ronpath = site.join("_data/restaurants.ron");
         let restaurants = fs::File::open(&ronpath).context(format!("{ronpath:?}"))?;
-        let restaurants: Restaurants = from_reader(restaurants)?;
+        let restaurants: Restaurants = ron_options().from_reader(restaurants)?;
         let mut context = TeraContext::new();
         context.insert("restaurants", &restaurants);
         context.insert(

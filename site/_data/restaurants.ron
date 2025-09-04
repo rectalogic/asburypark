@@ -1,4 +1,4 @@
-([
+[
     (
         name: "AP Rooftop",
         url: "https://www.aprooftop.com",
@@ -11,9 +11,9 @@
                 "food specials",
             ],
             menu_url: Some("https://cdn.mcloones.com/pdf/ap-rooftop/menus/2025/Happy-Hour-at-AP-Rooftop.pdf?v=1"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1400, 1700)),
-            ]),
+            ],
         ),
     ),
     (
@@ -76,12 +76,12 @@
                 "Thursday: All-Night Happy Hour",
             ],
             menu_url: Some("https://www.instagram.com/p/DCXdcm6vunR/?img_index=1"),
-            happytimes: ([
+            happytimes: [
                 Single(Sun, (1500, 2100)),
                 Single(Tues, (1600, 1800)),
                 Single(Thurs, (1600, 2200)),
                 Single(Fri, (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -128,11 +128,11 @@
                 "Wed 2nd burger $5",
             ],
             menu_url: Some("https://www.theblackswanap.com/happy-hour"),
-            happytimes: ([
+            happytimes: [
                 Single(Mon, (1600, 1800)),
                 Single(Tues, (1600, 2200)),
                 Range((Wed, Fri), (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -163,11 +163,11 @@
                 "$5 beer, $7 wine, $10 martini, $8 mocktails, food specials",
             ],
             menu_url: Some("https://www.instagram.com/p/DLr6HNXu-bp"),
-            happytimes: ([
+            happytimes: [
                 Range((Wed, Thurs), (1700, 1900)),
                 Single(Fri, (1400, 1700)),
                 Single(Sun, (1200, 2100)),
-            ]),
+            ],
         ),
     ),
     (
@@ -198,9 +198,9 @@
                 "new food specials every 2 weeks",
             ],
             menu_url: Some("https://www.instagram.com/p/DKaWtFaPJBf/"),
-            happytimes: ([
+            happytimes: [
                 Range((Wed, Thurs), (1600, 2100)),
-            ]),
+            ],
         ),
     ),
     (
@@ -223,9 +223,9 @@
                 "Food specials",
             ],
             menu_url: Some("https://www.instagram.com/p/DHTn90PAI-F/"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -287,9 +287,9 @@
                 "$4 beer, $6 wine, cocktail/food specials",
             ],
             menu_url: Some("https://www.lovehomesick.com/menus"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -303,9 +303,9 @@
                 "small plate specials, $3 off beer, $6 marg, $4 off wine, $5 off cocktails",
             ],
             menu_url: Some("https://cdn.mcloones.com/pdf/iron-whale/menus/2025/IW-Happy-Hour-2025.pdf"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1300, 1600)),
-            ]),
+            ],
         ),
     ),
     (
@@ -328,9 +328,9 @@
                 "free omelettes Sun",
             ],
             menu_url: None,
-            happytimes: ([
+            happytimes: [
                 Single(Sun, (1000, 1500)),
-            ]),
+            ],
         ),
     ),
     (
@@ -352,9 +352,9 @@
                 "$5 local drafts, $6 wine/sangria, $7 mixed drinks, HH food menu",
             ],
             menu_url: Some("https://www.kimmarieseatndrinkaway.com/menus/#happy"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -376,9 +376,9 @@
                 "$9 Classic Cocktails",
             ],
             menu_url: None,
-            happytimes: ([
+            happytimes: [
                 Single(Sun, (1700, 1900)),
-            ]),
+            ],
         ),
     ),
     (
@@ -400,9 +400,9 @@
                 "Food and drink specials",
             ],
             menu_url: Some("https://www.instagram.com/p/DJrS6dPx4Lb/"),
-            happytimes: ([
+            happytimes: [
                 Single(Thurs, (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -424,9 +424,9 @@
                 "$5 beers, $12 cocktails",
             ],
             menu_url: Some("https://www.dearlovesick.com/menus"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1700, 1900)),
-            ]),
+            ],
         ),
     ),
     (
@@ -504,9 +504,9 @@
                 "Half off all drinks",
             ],
             menu_url: Some("https://www.instagram.com/p/DHq9TjyudAZ"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -528,10 +528,10 @@
                 "Happy Hour, Apero Hour Fri&Sat",
             ],
             menu_url: Some("https://www.pascalandsabine.com/menus"),
-            happytimes: ([
+            happytimes: [
                 Range((Sun, Thurs), (1600, 1800)),
                 Range((Fri, Sat), (1500, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -553,9 +553,9 @@
                 "Fajita & Sangria specials",
             ],
             menu_url: Some("https://www.instagram.com/p/C_gu0WyvaCA/"),
-            happytimes: ([
+            happytimes: [
                 Single(Wed, (1600, 2200)),
-            ]),
+            ],
         ),
     ),
     (
@@ -569,9 +569,9 @@
                 "$5 select draft, $7 wine, $10 cocktails, HH food menu",
             ],
             menu_url: Some("https://www.pizzaporta.com/menus"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -585,9 +585,9 @@
                 "$15 sample platter, $3 Narragansett, $5 Guinness, cocktails",
             ],
             menu_url: Some("https://www.instagram.com/p/DE5KI-RAKlN/"),
-            happytimes: ([
+            happytimes: [
                 Single(Fri, (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -601,10 +601,10 @@
                 "$9 cocktails, $7 wine",
             ],
             menu_url: Some("https://www.heyreyla.com/drink"),
-            happytimes: ([
+            happytimes: [
                 Single(Wed, (1600, 2200)),
                 Range((Thurs, Fri), (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -626,9 +626,9 @@
                 "$4 draft, $7 marg,sangria,wine, $8 cocktails, half price appetizers",
             ],
             menu_url: Some("https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2025/R_AP_HappyHour_042525.pdf"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -682,10 +682,10 @@
                 "specials",
             ],
             menu_url: Some("https://www.instagram.com/p/DLDAQVXxlGd/"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1200, 1800)),
                 Range((Sat, Sun), (1200, 1600)),
-            ]),
+            ],
         ),
     ),
     (
@@ -699,9 +699,9 @@
                 "happy hour",
             ],
             menu_url: Some("https://www.instagram.com/p/DK2seKsxTVd/"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Fri), (1500, 1700)),
-            ]),
+            ],
         ),
     ),
     (
@@ -732,9 +732,9 @@
                 "Discounted pizza/snacks",
             ],
             menu_url: Some("https://talulaspizza.com/blogs/events/happy-hour-at-the-bar"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Thurs), (1630, 1830)),
-            ]),
+            ],
         ),
     ),
     (
@@ -780,9 +780,9 @@
                 "cocktails",
             ],
             menu_url: Some("https://menu.thesafemenu.com/watermark/menus/happy-hour/"),
-            happytimes: ([
+            happytimes: [
                 Range((Mon, Thurs), (1600, 1800)),
-            ]),
+            ],
         ),
     ),
     (
@@ -801,4 +801,4 @@
         verified: "2024-04-16",
         kind: Other,
     ),
-])
+]
