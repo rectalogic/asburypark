@@ -3,59 +3,97 @@ use crate::{
     ron_options,
 };
 use anyhow::{Context, Result, anyhow};
+use minijinja::{AutoEscape, Environment, Value, context, value::ViaDeserialize};
 use std::{
-    collections::HashMap,
-    fs,
+    fs::{self, OpenOptions},
+    iter::once,
     path::{Path, PathBuf},
 };
-use tera::{Context as TeraContext, Tera};
 
-pub struct SiteGenerator {
-    tera: Tera,
-    context: TeraContext,
+pub struct SiteGenerator<'a> {
+    jinja: Environment<'a>,
+    context: Value,
     site: PathBuf,
 }
 
-impl SiteGenerator {
+impl<'a> SiteGenerator<'a> {
     pub fn new(site: impl AsRef<Path>) -> Result<Self> {
         let site = site.as_ref();
         let ronpath = site.join("_data/restaurants.ron");
         let restaurants = fs::File::open(&ronpath).context(format!("{ronpath:?}"))?;
         let restaurants: Restaurants = ron_options().from_reader(restaurants)?;
-        let mut context = TeraContext::new();
-        context.insert("restaurants", &restaurants);
-        context.insert(
+
+        let mut jinja = Environment::new();
+        jinja.set_auto_escape_callback(|_| AutoEscape::None);
+
+        let templates = &site.join("_templates");
+        visit_files(templates, &mut |path: &Path| -> Result<()> {
+            let filename = path.strip_prefix(templates)?;
+            jinja.add_template_owned(
+                filename
+                    .to_str()
+                    .ok_or(anyhow!("Invalid filename"))?
+                    .to_owned(),
+                fs::read_to_string(path)?,
+            )?;
+            Ok(())
+        })?;
+
+        jinja.add_global(
             "rangehours",
-            &(Hours::START_HOUR..=Hours::END_HOUR).collect::<Vec<_>>(),
+            Value::from_object((Hours::START_HOUR..=Hours::END_HOUR).collect::<Vec<_>>()),
         );
-        context.insert("rangedays", &(0..=6).collect::<Vec<_>>());
-        let mut tera = Tera::new(
-            site.join("_templates/**/*")
-                .to_str()
-                .ok_or(anyhow!("invalid template path"))?,
-        )?;
-        tera.autoescape_on(vec![]);
-        tera.register_function("restaurant_convert_happytimes", HappyTimesConverter);
+        jinja.add_global("rangedays", Value::from_object((0..=6).collect::<Vec<_>>()));
+        jinja.add_global(
+            "rangedayhours",
+            Value::from_object(
+                (0..=6)
+                    .map(|d| d.to_string())
+                    .chain(once("all".to_string()))
+                    .flat_map(|d| {
+                        (Hours::START_HOUR..=Hours::END_HOUR)
+                            .map(|h| h.to_string())
+                            .chain(once("all".to_string()))
+                            .filter_map(move |h| {
+                                if d == "all" && h == "all" {
+                                    None
+                                } else {
+                                    Some(format!("{d}-{h}"))
+                                }
+                            })
+                    })
+                    .collect::<Vec<_>>(),
+            ),
+        );
+        // XXX consider making HappyTimes a Value::Object
+        jinja.add_function("restaurant_convert_happytimes", happytime_converter);
+
         Ok(Self {
-            tera,
-            context,
+            jinja,
+            context: context!(restaurants => restaurants),
             site: site.to_owned(),
         })
     }
 
     pub fn build(&self, output: impl AsRef<Path>) -> Result<()> {
         let output = output.as_ref();
-        for template in self.tera.get_template_names() {
-            if template.ends_with(".macro") {
-                continue;
+        for (name, template) in self.jinja.templates() {
+            let output_path = output.join(name);
+            create_parent_dirs(&output_path)
+                .with_context(|| format!("create parents {}", output_path.display()))?;
+            let f = OpenOptions::new()
+                .write(true)
+                .create(true)
+                .truncate(true)
+                .open(&output_path)
+                .with_context(|| format!("open failed {}", output_path.display()))?;
+            if let Err(err) = template.render_to_write(&self.context, f) {
+                eprintln!("Render failed: {err:?}");
+                return Err(anyhow!("Render failed"));
             }
-            let rendered = self.tera.render(template, &self.context)?;
-            let output_path = output.join(template);
-            create_parent_dirs(&output_path)?;
-            fs::write(output_path, rendered)?;
         }
 
-        visit_files(&self.site, &|path: &Path| -> Result<()> {
+        visit_files(&self.site, &mut |path: &Path| -> Result<()> {
             let filename = path.strip_prefix(&self.site)?;
             if filename.starts_with("_templates") || filename.starts_with("_data") {
                 return Ok(());
@@ -69,9 +107,9 @@ impl SiteGenerator {
     }
 }
 
-fn visit_files<F>(dir: &Path, cb: &F) -> Result<()>
+fn visit_files<F>(dir: &Path, cb: &mut F) -> Result<()>
 where
-    F: Fn(&Path) -> Result<()>,
+    F: FnMut(&Path) -> Result<()>,
 {
     if dir.is_dir() {
         for entry in fs::read_dir(dir)? {
@@ -102,39 +140,19 @@ fn copy_path<P: AsRef<Path>, Q: AsRef<Path>>(from: P, to: Q) -> Result<()> {
     Ok(())
 }
 
-struct HappyTimesConverter;
-
-impl tera::Function for HappyTimesConverter {
-    fn call(&self, args: &HashMap<String, tera::Value>) -> tera::Result<tera::Value> {
-        match args.get("happytimes") {
-            Some(happytimes) => {
-                let happytimes = serde_json::from_value::<HappyTimes>(happytimes.clone())?;
-                let mut map = tera::Map::new();
-                map.insert(
-                    "restaurant_data_attributes".into(),
-                    happytimes.as_data_attributes().into(),
-                );
-                let human_times: Vec<_> = happytimes
-                    .as_human_readable()
-                    .into_iter()
-                    .map(|ht| {
-                        let mut item = tera::Map::new();
-                        item.insert("description".into(), ht.description.into());
-                        item.insert("data_attributes".into(), ht.data_attributes.into());
-                        tera::Value::Object(item)
-                    })
-                    .collect();
-                map.insert(
-                    "human_readable_times".into(),
-                    tera::Value::Array(human_times),
-                );
-                Ok(tera::Value::Object(map))
+fn happytime_converter(happytimes: ViaDeserialize<HappyTimes>) -> Value {
+    let human_times: Vec<_> = happytimes
+        .as_human_readable()
+        .into_iter()
+        .map(|ht| {
+            context! {
+                description => ht.description,
+                data_attributes => ht.data_attributes,
             }
-            None => Err("Missing argument 'happytimes'".into()),
-        }
-    }
-
-    fn is_safe(&self) -> bool {
-        true
+        })
+        .collect();
+    context! {
+        restaurant_data_attributes => happytimes.as_data_attributes(),
+        human_readable_times => human_times,
     }
 }

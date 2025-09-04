@@ -1,8 +1,28 @@
-{% import "macros.macro" as macros %}
-{% set hh_restaurants = restaurants | filter(attribute="kind.HappyHour") -%}
-{% set byob_restaurants = restaurants | filter(attribute="kind", value="Byob") -%}
-{% set other_restaurants = restaurants | filter(attribute="kind", value="Other") -%}
-{% set closed_restaurants = restaurants | filter(attribute="kind", value="Closed") -%}
+{%- macro restaurant_macro(restaurant) -%}
+    <a href="{{ restaurant.url }}">{{ restaurant.name | escape }}</a>
+    <div class="verified"><small><em>Verified: <time>{{ restaurant.verified }}</time></em></small></div>
+{%- endmacro -%}
+
+{%- macro map_macro(restaurant) -%}
+    <a href="https://maps.app.goo.gl/{{ restaurant.map_id }}"><img width="25" title="Map" src="images/maps-icon.svg"/></a>
+{%- endmacro -%}
+
+{%- macro instagram_macro(restaurant) -%}
+    {%- if restaurant.instagram_id -%}
+        <a href="https://www.instagram.com/{{ restaurant.instagram_id }}"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" /></a>
+    {%- endif %}
+{%- endmacro -%}
+
+{%- macro menu_macro(restaurant) -%}
+    {%- if restaurant.kind.HappyHour.menu_url -%}
+        <a href="{{ restaurant.kind.HappyHour.menu_url }}"><img width="25" title="Happy Hour Menu" src="images/menu.svg"/></a>
+    {%- endif -%}
+{%- endmacro -%}
+
+{% set hh_restaurants = restaurants | selectattr("kind.HappyHour", "mapping") -%}
+{% set byob_restaurants = restaurants | selectattr("kind", "==", "Byob") -%}
+{% set other_restaurants = restaurants | selectattr("kind", "==", "Other") -%}
+{% set closed_restaurants = restaurants | selectattr("kind", "==", "Closed") -%}
 <!doctype html>
 <html lang="en">
     <head>
@@ -80,9 +100,9 @@
 
                 <div class="restaurants">
                     {% for restaurant in hh_restaurants -%}
-                        {%- set happytimes = restaurant_convert_happytimes(happytimes=restaurant.kind.HappyHour.happytimes) -%}
+                        {%- set happytimes = restaurant_convert_happytimes(restaurant.kind.HappyHour.happytimes) -%}
                         <article class="restaurant hh" {{ happytimes.restaurant_data_attributes }}>
-                            <header>{{ macros::restaurant(restaurant=restaurant) }}</header>
+                            <header>{{ restaurant_macro(restaurant=restaurant) }}</header>
                             <content>
                                 {% for humantime in happytimes.human_readable_times -%}
                                     <time class="dayhour" {{ humantime.data_attributes }}>{{ humantime.description }}</time>
@@ -94,9 +114,9 @@
                                 </ul>
                             </content>
                             <footer>
-                                {{ macros::map(restaurant=restaurant) }}
-                                {{ macros::instagram(restaurant=restaurant) }}
-                                {{ macros::menu(restaurant=restaurant) }}
+                                {{ map_macro(restaurant=restaurant) }}
+                                {{ instagram_macro(restaurant=restaurant) }}
+                                {{ menu_macro(restaurant=restaurant) }}
                             </footer>
                         </article>
                     {%- endfor %}
@@ -108,11 +128,11 @@
                 <div class="restaurants">
                     {% for restaurant in byob_restaurants -%}
                         <article class="restaurant">
-                            <header>{{ macros::restaurant(restaurant=restaurant) }}</header>
+                            <header>{{ restaurant_macro(restaurant=restaurant) }}</header>
                             <content>BYOB</content>
                             <footer>
-                                {{ macros::map(restaurant=restaurant) }}
-                                {{ macros::instagram(restaurant=restaurant) }}
+                                {{ map_macro(restaurant=restaurant) }}
+                                {{ instagram_macro(restaurant=restaurant) }}
                             </footer>
                         </article>
                     {%- endfor %}
@@ -124,11 +144,11 @@
                 <div class="restaurants">
                     {% for restaurant in closed_restaurants -%}
                         <article class="restaurant">
-                            <header>{{ macros::restaurant(restaurant=restaurant) }}</header>
+                            <header>{{ restaurant_macro(restaurant=restaurant) }}</header>
                             <content>Closed</content>
                             <footer>
-                                {{ macros::map(restaurant=restaurant) }}
-                                {{ macros::instagram(restaurant=restaurant) }}
+                                {{ map_macro(restaurant=restaurant) }}
+                                {{ instagram_macro(restaurant=restaurant) }}
                             </footer>
                         </article>
                     {%- endfor %}
@@ -140,11 +160,11 @@
                 <div class="restaurants">
                     {% for restaurant in other_restaurants -%}
                         <article class="restaurant">
-                            <header>{{ macros::restaurant(restaurant=restaurant) }}</header>
+                            <header>{{ restaurant_macro(restaurant=restaurant) }}</header>
                             <content>Other</content>
                             <footer>
-                                {{ macros::map(restaurant=restaurant) }}
-                                {{ macros::instagram(restaurant=restaurant) }}
+                                {{ map_macro(restaurant=restaurant) }}
+                                {{ instagram_macro(restaurant=restaurant) }}
                             </footer>
                         </article>
                     {%- endfor %}
