@@ -4,18 +4,18 @@
 {%- endmacro -%}
 
 {%- macro map_macro(restaurant) -%}
-    <a href="https://maps.app.goo.gl/{{ restaurant.map_id }}"><img width="25" title="Map" src="images/maps-icon.svg"/></a>
+    <a href="https://maps.app.goo.gl/{{ restaurant.map_id }}"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
 {%- endmacro -%}
 
 {%- macro instagram_macro(restaurant) -%}
     {%- if restaurant.instagram_id -%}
-        <a href="https://www.instagram.com/{{ restaurant.instagram_id }}"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" /></a>
+        <a href="https://www.instagram.com/{{ restaurant.instagram_id }}"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
     {%- endif %}
 {%- endmacro -%}
 
 {%- macro menu_macro(restaurant) -%}
     {%- if restaurant.kind.HappyHour.menu_url -%}
-        <a href="{{ restaurant.kind.HappyHour.menu_url }}"><img width="25" title="Happy Hour Menu" src="images/menu.svg"/></a>
+        <a href="{{ restaurant.kind.HappyHour.menu_url }}"><img width="25" title="Happy Hour Menu" src="images/menu.svg"/><small>Menu</small></a>
     {%- endif -%}
 {%- endmacro -%}
 
