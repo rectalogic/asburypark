@@ -53,22 +53,22 @@ time.dayhour {
     }
 }
 
-{% for dayhour in restaurants.dayhours -%}
+{% for dayhour in restaurants.dayhours %}
 :root[data-selected-dayhour="{{ dayhour }}"] .restaurant.hh:not([data-daytimes~="{{ dayhour }}"])
-    {%- if not loop.last -%},
-    {%- endif %}
+    {%- if not loop.last %},
+    {% endif %}
 {% endfor %}
-{
+ {
     display: none;
     opacity: 0;
 }
 
-{% for dayhour in restaurants.dayhours -%}
+{% for dayhour in restaurants.dayhours %}
 :root[data-selected-dayhour="{{ dayhour }}"] time.dayhour:not([data-daytimes~="{{ dayhour }}"])
-    {%- if not loop.last -%},
-    {%- endif %}
+    {%- if not loop.last %},
+    {% endif %}
 {% endfor %}
-{
+ {
     background: var(--pico-del-color);
     text-decoration: line-through;
 }

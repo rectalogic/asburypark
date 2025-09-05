@@ -1,23 +1,23 @@
-{%- macro restaurant_macro(restaurant) -%}
-    <a href="{{ restaurant.url }}">{{ restaurant.name | escape }}</a>
-    <div class="verified"><small><em>Verified: <time>{{ restaurant.verified }}</time></em></small></div>
+{% macro restaurant_macro(restaurant) %}
+<a href="{{ restaurant.url }}">{{ restaurant.name | escape }}</a>
+<div class="verified"><small><em>Verified: <time>{{ restaurant.verified }}</time></em></small></div>
+{% endmacro -%}
+
+{% macro map_macro(restaurant) %}
+<a href="https://maps.app.goo.gl/{{ restaurant.map_id }}"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
 {%- endmacro -%}
 
-{%- macro map_macro(restaurant) -%}
-    <a href="https://maps.app.goo.gl/{{ restaurant.map_id }}"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
-{%- endmacro -%}
+{% macro instagram_macro(restaurant) %}
+{% if restaurant.instagram_id %}
+<a href="https://www.instagram.com/{{ restaurant.instagram_id }}"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+{%- endif %}
+{% endmacro -%}
 
-{%- macro instagram_macro(restaurant) -%}
-    {%- if restaurant.instagram_id -%}
-        <a href="https://www.instagram.com/{{ restaurant.instagram_id }}"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
-    {%- endif %}
-{%- endmacro -%}
-
-{%- macro menu_macro(restaurant) -%}
-    {%- if restaurant.menu_url -%}
-        <a href="{{ restaurant.menu_url }}"><img width="25" title="Happy Hour Menu" src="images/menu.svg"/><small>Menu</small></a>
-    {%- endif -%}
-{%- endmacro -%}
+{% macro menu_macro(restaurant) %}
+{% if restaurant.menu_url %}
+<a href="{{ restaurant.menu_url }}"><img width="25" title="Happy Hour Menu" src="images/menu.svg"/><small>Menu</small></a>
+{%- endif %}
+{% endmacro -%}
 
 <!doctype html>
 <html lang="en">
@@ -68,27 +68,29 @@
                       <option value="all" selected>All Days</option>
                       {% for day in restaurants.day_options %}
                       <option value="{{ day[0] }}">{{ day[1] }}</option>
-                      {%- endfor %}
+                      {% endfor %}
                     </select>
                     <select id="hour" aria-label="Hour" required>
                         <option value="all" selected>All Hours</option>
                         {% for hour in restaurants.hour_options %}
                         <option value="{{ hour[0] }}">{{ hour[1] }}</option>
-                        {%- endfor %}
+                        {% endfor %}
                     </select>
                   </fieldset>
                 </form>
 
                 <div class="restaurants">
-                    {% for restaurant in restaurants.happy_hour -%}
+                    {% for restaurant in restaurants.happy_hour %}
                         <article class="restaurant hh" {{ restaurant.happytimes.data_attributes }}>
-                            <header>{{ restaurant_macro(restaurant) }}</header>
+                            <header>
+                                {{ restaurant_macro(restaurant) }}
+                            </header>
                             <content>
-                                {% for time in restaurant.happytimes.times -%}
+                                {% for time in restaurant.happytimes.times %}
                                     <time class="dayhour" {{ time.data_attributes }}>{{ time.description }}</time>
                                 {% endfor %}
                                 <ul>
-                                    {% for desc in restaurant.description -%}
+                                    {% for desc in restaurant.description %}
                                         <li>{{ desc | escape }}</li>
                                     {% endfor %}
                                 </ul>
@@ -99,55 +101,61 @@
                                 {{ menu_macro(restaurant) }}
                             </footer>
                         </article>
-                    {%- endfor %}
+                    {% endfor %}
                 </div>
             </section>
 
             <section id="restaurant-byob">
                 <h4>BYOB</h4>
                 <div class="restaurants">
-                    {% for restaurant in restaurants.byob -%}
+                    {% for restaurant in restaurants.byob %}
                         <article class="restaurant">
-                            <header>{{ restaurant_macro(restaurant) }}</header>
+                            <header>
+                                {{ restaurant_macro(restaurant) }}
+                            </header>
                             <content>BYOB</content>
                             <footer>
                                 {{ map_macro(restaurant) }}
                                 {{ instagram_macro(restaurant) }}
                             </footer>
                         </article>
-                    {%- endfor %}
+                    {% endfor %}
                 </div>
             </section>
 
             <section id="restaurant-closed">
                 <h4>Closed</h4>
                 <div class="restaurants">
-                    {% for restaurant in restaurants.closed -%}
+                    {% for restaurant in restaurants.closed %}
                         <article class="restaurant">
-                            <header>{{ restaurant_macro(restaurant) }}</header>
+                            <header>
+                                {{ restaurant_macro(restaurant) }}
+                            </header>
                             <content>Closed</content>
                             <footer>
                                 {{ map_macro(restaurant) }}
                                 {{ instagram_macro(restaurant) }}
                             </footer>
                         </article>
-                    {%- endfor %}
+                    {% endfor %}
                 </div>
             </section>
 
             <section id="restaurant-other">
                 <h4>Other</h4>
                 <div class="restaurants">
-                    {% for restaurant in restaurants.other -%}
+                    {% for restaurant in restaurants.other %}
                         <article class="restaurant">
-                            <header>{{ restaurant_macro(restaurant) }}</header>
+                            <header>
+                                {{ restaurant_macro(restaurant) }}
+                            </header>
                             <content>Other</content>
                             <footer>
                                 {{ map_macro(restaurant) }}
                                 {{ instagram_macro(restaurant) }}
                             </footer>
                         </article>
-                    {%- endfor %}
+                    {% endfor %}
                 </div>
             </section>
         </main>

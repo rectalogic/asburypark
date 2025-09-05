@@ -24,6 +24,8 @@ impl<'a> SiteGenerator<'a> {
 
         let mut jinja = Environment::new();
         jinja.set_auto_escape_callback(|_| AutoEscape::None);
+        jinja.set_lstrip_blocks(true);
+        jinja.set_trim_blocks(true);
 
         let templates = &site.join("_templates");
         visit_files(templates, &mut |path: &Path| -> Result<()> {
