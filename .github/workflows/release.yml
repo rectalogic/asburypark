@@ -27,7 +27,7 @@ jobs:
       - name: Build
         run: |
           cargo test
-          cargo build --release --bin sitegen
+          cargo build --release --bin sitegen --bin ronfmt
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -41,4 +41,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
         run: |
-          gh release upload "$tag" target/release/sitegen
+          gh release upload "$tag" target/release/sitegen target/release/ronfmt
