@@ -1,18 +1,17 @@
 use crate::{
-    model::{HappyTimes, Hours, Restaurants},
+    model::{Restaurants, restaurants_value},
     ron_options,
 };
 use anyhow::{Context, Result, anyhow};
-use minijinja::{AutoEscape, Environment, Value, context, value::ViaDeserialize};
+use minijinja::{AutoEscape, Environment, context};
 use std::{
     fs::{self, OpenOptions},
-    iter::once,
     path::{Path, PathBuf},
 };
 
 pub struct SiteGenerator<'a> {
     jinja: Environment<'a>,
-    context: Value,
+    restaurants: Restaurants,
     site: PathBuf,
 }
 
@@ -39,44 +38,29 @@ impl<'a> SiteGenerator<'a> {
             Ok(())
         })?;
 
-        jinja.add_global(
-            "rangehours",
-            Value::from_object((Hours::START_HOUR..=Hours::END_HOUR).collect::<Vec<_>>()),
-        );
-        jinja.add_global("rangedays", Value::from_object((0..=6).collect::<Vec<_>>()));
-        jinja.add_global(
-            "rangedayhours",
-            Value::from_object(
-                (0..=6)
-                    .map(|d| d.to_string())
-                    .chain(once("all".to_string()))
-                    .flat_map(|d| {
-                        (Hours::START_HOUR..=Hours::END_HOUR)
-                            .map(|h| h.to_string())
-                            .chain(once("all".to_string()))
-                            .filter_map(move |h| {
-                                if d == "all" && h == "all" {
-                                    None
-                                } else {
-                                    Some(format!("{d}-{h}"))
-                                }
-                            })
-                    })
-                    .collect::<Vec<_>>(),
-            ),
-        );
-        // XXX consider making HappyTimes a Value::Object
-        jinja.add_function("restaurant_convert_happytimes", happytime_converter);
-
         Ok(Self {
             jinja,
-            context: context!(restaurants => restaurants),
+            restaurants,
             site: site.to_owned(),
         })
     }
 
-    pub fn build(&self, output: impl AsRef<Path>) -> Result<()> {
+    pub fn build(self, output: impl AsRef<Path>) -> Result<()> {
         let output = output.as_ref();
+
+        let json_path = output.join("restaurant.json");
+        create_parent_dirs(&json_path)
+            .with_context(|| format!("create parents {}", json_path.display()))?;
+        let json_file = OpenOptions::new()
+            .write(true)
+            .create(true)
+            .truncate(true)
+            .open(&json_path)
+            .with_context(|| format!("open failed {}", json_path.display()))?;
+        serde_json::to_writer_pretty(json_file, &self.restaurants)?;
+
+        let context = context! { restaurants => restaurants_value(self.restaurants) };
+
         for (name, template) in self.jinja.templates() {
             let output_path = output.join(name);
             create_parent_dirs(&output_path)
@@ -87,7 +71,7 @@ impl<'a> SiteGenerator<'a> {
                 .truncate(true)
                 .open(&output_path)
                 .with_context(|| format!("open failed {}", output_path.display()))?;
-            if let Err(err) = template.render_to_write(&self.context, f) {
+            if let Err(err) = template.render_to_write(&context, f) {
                 eprintln!("Render failed: {err:?}");
                 return Err(anyhow!("Render failed"));
             }
@@ -138,21 +122,4 @@ fn copy_path<P: AsRef<Path>, Q: AsRef<Path>>(from: P, to: Q) -> Result<()> {
     create_parent_dirs(to)?;
     fs::copy(from, to)?;
     Ok(())
-}
-
-fn happytime_converter(happytimes: ViaDeserialize<HappyTimes>) -> Value {
-    let human_times: Vec<_> = happytimes
-        .as_human_readable()
-        .into_iter()
-        .map(|ht| {
-            context! {
-                description => ht.description,
-                data_attributes => ht.data_attributes,
-            }
-        })
-        .collect();
-    context! {
-        restaurant_data_attributes => happytimes.as_data_attributes(),
-        human_readable_times => human_times,
-    }
 }

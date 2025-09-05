@@ -2,11 +2,14 @@ use chrono::NaiveDate;
 use serde::{Deserialize, Deserializer, Serialize};
 use std::{collections::BTreeSet, fmt::Display, ops::Range};
 
+mod object;
+pub use object::restaurants_value;
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Restaurants(Vec<Restaurant>);
 
-#[derive(Serialize, Deserialize, Debug)]
-pub struct Restaurant {
+#[derive(Serialize, Deserialize, Clone, Debug)]
+struct Restaurant {
     name: String,
     url: String,
     map_id: String, // Use with https://maps.app.goo.gl/{map_id}
@@ -15,8 +18,8 @@ pub struct Restaurant {
     kind: Kind,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
-pub enum Kind {
+#[derive(Serialize, Deserialize, Clone, Debug)]
+enum Kind {
     Byob,
     Other,
     Closed,
@@ -27,39 +30,39 @@ pub enum Kind {
     },
 }
 
-#[derive(Serialize, Deserialize, Debug)]
-pub struct HappyTimes(Vec<DayHours>);
+#[derive(Serialize, Deserialize, Clone, Debug)]
+struct HappyTimes(Vec<DayHours>);
 
-#[derive(Serialize, Deserialize, Debug)]
-pub enum DayHours {
+#[derive(Serialize, Deserialize, Clone, Debug)]
+enum DayHours {
     Single(Day, Hours),
     Range((Day, Day), Hours),
 }
 
 #[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub enum Day {
+enum Day {
     Sun = 0,
     Mon = 1,
-    Tues = 2,
+    Tue = 2,
     Wed = 3,
-    Thurs = 4,
+    Thu = 4,
     Fri = 5,
     Sat = 6,
 }
 
 #[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq)]
-pub struct Hours(Hour, Hour);
+struct Hours(Hour, Hour);
 
 #[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq)]
-pub struct Hour(#[serde(deserialize_with = "deserialize_hour")] u16);
+struct Hour(#[serde(deserialize_with = "deserialize_hour")] u16);
 
-pub struct HumanTime {
-    pub description: String,
-    pub data_attributes: String,
+struct HumanTime {
+    description: String,
+    data_attributes: String,
 }
 
 impl HappyTimes {
-    pub fn as_data_attributes(&self) -> String {
+    fn as_data_attributes(&self) -> String {
         let dayhour_set = self
             .0
             .iter()
@@ -72,7 +75,7 @@ impl HappyTimes {
         )
     }
 
-    pub fn as_human_readable(&self) -> Vec<HumanTime> {
+    fn as_human_readable(&self) -> Vec<HumanTime> {
         self.0
             .iter()
             .map(|dh| HumanTime {
@@ -145,7 +148,7 @@ impl DayHours {
         iter_days(days).flat_map(|day| hours.as_range().map(move |h| (day, h)))
     }
 
-    pub fn as_data_attributes(&self) -> String {
+    fn as_data_attributes(&self) -> String {
         format!(
             r#"data-daytimes="{}""#,
             HappyTimes::data_daytimes(self.as_tuples()),
@@ -163,13 +166,13 @@ impl Display for DayHours {
 }
 
 impl Day {
-    pub fn iter() -> std::array::IntoIter<Day, 7> {
+    fn iter() -> std::array::IntoIter<Day, 7> {
         [
             Day::Sun,
             Day::Mon,
-            Day::Tues,
+            Day::Tue,
             Day::Wed,
-            Day::Thurs,
+            Day::Thu,
             Day::Fri,
             Day::Sat,
         ]
@@ -182,9 +185,9 @@ impl Display for Day {
         match self {
             Self::Sun => write!(f, "Sun"),
             Self::Mon => write!(f, "Mon"),
-            Self::Tues => write!(f, "Tues"),
+            Self::Tue => write!(f, "Tue"),
             Self::Wed => write!(f, "Wed"),
-            Self::Thurs => write!(f, "Thurs"),
+            Self::Thu => write!(f, "Thu"),
             Self::Fri => write!(f, "Fri"),
             Self::Sat => write!(f, "Sat"),
         }
@@ -234,8 +237,8 @@ impl Display for Hour {
 }
 
 impl Hours {
-    pub const START_HOUR: u16 = 9;
-    pub const END_HOUR: u16 = 25;
+    const START_HOUR: u16 = 9;
+    const END_HOUR: u16 = 25;
 
     fn as_range(&self) -> Range<u16> {
         // Truncate to nearest hour, e.g. 1630 -> 16
@@ -318,8 +321,8 @@ mod tests {
     #[test]
     fn test_dayrange() {
         assert_eq!(
-            iter_days((Day::Mon, Day::Thurs)).collect::<Vec<_>>(),
-            vec![Day::Mon, Day::Tues, Day::Wed, Day::Thurs]
+            iter_days((Day::Mon, Day::Thu)).collect::<Vec<_>>(),
+            vec![Day::Mon, Day::Tue, Day::Wed, Day::Thu]
         );
         assert_eq!(
             iter_days((Day::Sat, Day::Sun)).collect::<Vec<_>>(),
@@ -377,7 +380,7 @@ mod tests {
                 menu_url: Some("https://www.theblackswanap.com/happy-hour".into()),
                 happytimes: HappyTimes(vec![
                     DayHours::Single(Day::Mon, Hours(Hour(1600), Hour(1800))),
-                    DayHours::Single(Day::Tues, Hours(Hour(1600), Hour(2200))),
+                    DayHours::Single(Day::Tue, Hours(Hour(1600), Hour(2200))),
                     DayHours::Range((Day::Wed, Day::Fri), Hours(Hour(1600), Hour(1800))),
                 ]),
             },

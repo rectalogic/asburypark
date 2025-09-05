@@ -3,7 +3,7 @@ mod model;
 mod site;
 
 pub use cli::Args;
-pub use model::{Hours, Restaurants};
+pub use model::Restaurants;
 use ron::{Options, extensions::Extensions};
 pub use site::SiteGenerator;
 

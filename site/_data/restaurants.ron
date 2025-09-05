@@ -78,8 +78,8 @@
             menu_url: Some("https://www.instagram.com/p/DCXdcm6vunR/?img_index=1"),
             happytimes: [
                 Single(Sun, (1500, 2100)),
-                Single(Tues, (1600, 1800)),
-                Single(Thurs, (1600, 2200)),
+                Single(Tue, (1600, 1800)),
+                Single(Thu, (1600, 2200)),
                 Single(Fri, (1600, 1800)),
             ],
         ),
@@ -130,7 +130,7 @@
             menu_url: Some("https://www.theblackswanap.com/happy-hour"),
             happytimes: [
                 Single(Mon, (1600, 1800)),
-                Single(Tues, (1600, 2200)),
+                Single(Tue, (1600, 2200)),
                 Range((Wed, Fri), (1600, 1800)),
             ],
         ),
@@ -164,7 +164,7 @@
             ],
             menu_url: Some("https://www.instagram.com/p/DLr6HNXu-bp"),
             happytimes: [
-                Range((Wed, Thurs), (1700, 1900)),
+                Range((Wed, Thu), (1700, 1900)),
                 Single(Fri, (1400, 1700)),
                 Single(Sun, (1200, 2100)),
             ],
@@ -199,7 +199,7 @@
             ],
             menu_url: Some("https://www.instagram.com/p/DKaWtFaPJBf/"),
             happytimes: [
-                Range((Wed, Thurs), (1600, 2100)),
+                Range((Wed, Thu), (1600, 2100)),
             ],
         ),
     ),
@@ -401,7 +401,7 @@
             ],
             menu_url: Some("https://www.instagram.com/p/DJrS6dPx4Lb/"),
             happytimes: [
-                Single(Thurs, (1600, 1800)),
+                Single(Thu, (1600, 1800)),
             ],
         ),
     ),
@@ -529,7 +529,7 @@
             ],
             menu_url: Some("https://www.pascalandsabine.com/menus"),
             happytimes: [
-                Range((Sun, Thurs), (1600, 1800)),
+                Range((Sun, Thu), (1600, 1800)),
                 Range((Fri, Sat), (1500, 1800)),
             ],
         ),
@@ -603,7 +603,7 @@
             menu_url: Some("https://www.heyreyla.com/drink"),
             happytimes: [
                 Single(Wed, (1600, 2200)),
-                Range((Thurs, Fri), (1600, 1800)),
+                Range((Thu, Fri), (1600, 1800)),
             ],
         ),
     ),
@@ -733,7 +733,7 @@
             ],
             menu_url: Some("https://talulaspizza.com/blogs/events/happy-hour-at-the-bar"),
             happytimes: [
-                Range((Mon, Thurs), (1630, 1830)),
+                Range((Mon, Thu), (1630, 1830)),
             ],
         ),
     ),
@@ -781,7 +781,7 @@
             ],
             menu_url: Some("https://menu.thesafemenu.com/watermark/menus/happy-hour/"),
             happytimes: [
-                Range((Mon, Thurs), (1600, 1800)),
+                Range((Mon, Thu), (1600, 1800)),
             ],
         ),
     ),
