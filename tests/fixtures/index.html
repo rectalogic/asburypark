@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light dark" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+        />
+        <link rel="stylesheet" href="style.css"/>
+        <script defer src="filter.js"></script>
+        <title>Asbury Park Happy Hours</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+              <ul>
+                <li><strong>Asbury Park Happy Hours</strong></li>
+              </ul>
+              <ul>
+                <li><a href="#restaurant-happy-hours">Happy Hours</a></li>
+                <li><a href="#restaurant-byob">BYOB</a></li>
+                <li><a href="#restaurant-other">Other</a></li>
+                <li><a href="#restaurant-closed">Closed</a></li>
+              </ul>
+            </nav>
+        </header>
+
+        <main class="container-fluid">
+            <details class="notice">
+                <summary role="button">Submit updates</summary>
+                Happy Hours change frequently,
+                check restaurant website/Instagram for updates. Use the
+                <a href="https://forms.gle/F3xaERaDYpjN1Brz6">feedback form</a>
+                to report updates.
+                <footer>
+                    <small>Follow <a href="https://www.instagram.com/asburypark_happyhours"><img width="15" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" /> @asburypark_happyhours</a></small>
+                </footer>
+            </details>
+
+            <section id="restaurant-happy-hours">
+                <h4>Happy Hours</h4>
+                <form>
+                  <fieldset class="grid">
+                    <select id="day" aria-label="Day" required>
+                      <option value="all" selected>All Days</option>
+                      <option value="0">Sun</option>
+                      <option value="1">Mon</option>
+                      <option value="2">Tue</option>
+                      <option value="3">Wed</option>
+                      <option value="4">Thu</option>
+                      <option value="5">Fri</option>
+                      <option value="6">Sat</option>
+                    </select>
+                    <select id="hour" aria-label="Hour" required>
+                        <option value="all" selected>All Hours</option>
+                        <option value="9">9am</option>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                        <option value="18">6pm</option>
+                        <option value="19">7pm</option>
+                        <option value="20">8pm</option>
+                        <option value="21">9pm</option>
+                        <option value="22">10pm</option>
+                        <option value="23">11pm</option>
+                        <option value="24">12pm</option>
+                        <option value="25">1am</option>
+                    </select>
+                  </fieldset>
+                </form>
+
+                <div class="restaurants">
+                        <article class="restaurant hh" data-daytimes="1-14 1-15 1-16 2-14 2-15 2-16 3-14 3-15 3-16 4-14 4-15 4-16 5-14 5-15 5-16 1-all 2-all 3-all 4-all 5-all all-14 all-15 all-16">
+                            <header>
+                                <a href="https://www.aprooftop.com">AP Rooftop</a>
+<div class="verified"><small><em>Verified: <time>2025-06-17</time></em></small></div>
+
+                            </header>
+                            <content>
+                                    <time class="dayhour" data-daytimes="1-14 1-15 1-16 2-14 2-15 2-16 3-14 3-15 3-16 4-14 4-15 4-16 5-14 5-15 5-16 1-all 2-all 3-all 4-all 5-all all-14 all-15 all-16">Mon-Fri 2pm-5pm</time>
+                                <ul>
+                                        <li>$5 drafts, $9 wine, $10 cocktails</li>
+                                        <li>food specials</li>
+                                </ul>
+                            </content>
+                            <footer>
+                                <a href="https://maps.app.goo.gl/f6RFthcQQrifNNwn8"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+                                <a href="https://www.instagram.com/ap.rooftop"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+                                <a href="https://cdn.mcloones.com/pdf/ap-rooftop/menus/2025/Happy-Hour-at-AP-Rooftop.pdf?v=1"><img width="25" title="Happy Hour Menu" src="images/menu.svg"/><small>Menu</small></a>
+                            </footer>
+                        </article>
+                        <article class="restaurant hh" data-daytimes="0-15 0-16 0-17 0-18 0-19 0-20 2-16 2-17 4-16 4-17 4-18 4-19 4-20 4-21 5-16 5-17 0-all 2-all 4-all 5-all all-15 all-16 all-17 all-18 all-19 all-20 all-21">
+                            <header>
+                                <a href="https://www.barriocostero.com/">Barrio Costero</a>
+<div class="verified"><small><em>Verified: <time>2025-04-15</time></em></small></div>
+
+                            </header>
+                            <content>
+                                    <time class="dayhour" data-daytimes="0-15 0-16 0-17 0-18 0-19 0-20 0-all all-15 all-16 all-17 all-18 all-19 all-20">Sun 3pm-9pm</time>
+                                    <time class="dayhour" data-daytimes="2-16 2-17 2-all all-16 all-17">Tue 4pm-6pm</time>
+                                    <time class="dayhour" data-daytimes="4-16 4-17 4-18 4-19 4-20 4-21 4-all all-16 all-17 all-18 all-19 all-20 all-21">Thu 4pm-10pm</time>
+                                    <time class="dayhour" data-daytimes="5-16 5-17 5-all all-16 all-17">Fri 4pm-6pm</time>
+                                <ul>
+                                        <li>Taco Tuesday: 2 Tacos + 1 margy for $17</li>
+                                        <li>Thursday: All-Night Happy Hour</li>
+                                </ul>
+                            </content>
+                            <footer>
+                                <a href="https://maps.app.goo.gl/5sL6b3uXFjzcmY3U6"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+                                <a href="https://www.instagram.com/barriocosteroap"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+                                <a href="https://www.instagram.com/p/DCXdcm6vunR/?img_index=1"><img width="25" title="Happy Hour Menu" src="images/menu.svg"/><small>Menu</small></a>
+                            </footer>
+                        </article>
+                        <article class="restaurant hh" data-daytimes="1-16 1-17 2-16 2-17 2-18 2-19 2-20 2-21 3-16 3-17 4-16 4-17 5-16 5-17 1-all 2-all 3-all 4-all 5-all all-16 all-17 all-18 all-19 all-20 all-21">
+                            <header>
+                                <a href="https://www.theblackswanap.com/">The Black Swan</a>
+<div class="verified"><small><em>Verified: <time>2025-07-28</time></em></small></div>
+
+                            </header>
+                            <content>
+                                    <time class="dayhour" data-daytimes="1-16 1-17 1-all all-16 all-17">Mon 4pm-6pm</time>
+                                    <time class="dayhour" data-daytimes="2-16 2-17 2-18 2-19 2-20 2-21 2-all all-16 all-17 all-18 all-19 all-20 all-21">Tue 4pm-10pm</time>
+                                    <time class="dayhour" data-daytimes="3-16 3-17 4-16 4-17 5-16 5-17 3-all 4-all 5-all all-16 all-17">Wed-Fri 4pm-6pm</time>
+                                <ul>
+                                        <li>50% off all alcohol, HH food menu</li>
+                                        <li>Wed 2nd burger $5</li>
+                                </ul>
+                            </content>
+                            <footer>
+                                <a href="https://maps.app.goo.gl/JiKYhYvKsK2ysBZs9"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+                                <a href="https://www.instagram.com/theblackswanap"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+                                <a href="https://www.theblackswanap.com/happy-hour"><img width="25" title="Happy Hour Menu" src="images/menu.svg"/><small>Menu</small></a>
+                            </footer>
+                        </article>
+                        <article class="restaurant hh" data-daytimes="1-16 1-17 2-16 2-17 3-16 3-17 4-16 4-17 5-16 5-17 1-all 2-all 3-all 4-all 5-all all-16 all-17">
+                            <header>
+                                <a href="https://www.deallakebarco.com/">Deal Lake Bar + Co</a>
+<div class="verified"><small><em>Verified: <time>2025-04-08</time></em></small></div>
+
+                            </header>
+                            <content>
+                                    <time class="dayhour" data-daytimes="1-16 1-17 2-16 2-17 3-16 3-17 4-16 4-17 5-16 5-17 1-all 2-all 3-all 4-all 5-all all-16 all-17">Mon-Fri 4pm-6pm</time>
+                                <ul>
+                                        <li>Half off all alcohol</li>
+                                        <li>Food specials</li>
+                                </ul>
+                            </content>
+                            <footer>
+                                <a href="https://maps.app.goo.gl/SoejiCRDyHyMpaNc7"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+                                <a href="https://www.instagram.com/deallakebarco"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+                                <a href="https://www.instagram.com/p/DHTn90PAI-F/"><img width="25" title="Happy Hour Menu" src="images/menu.svg"/><small>Menu</small></a>
+                            </footer>
+                        </article>
+                </div>
+            </section>
+
+            <section id="restaurant-byob">
+                <h4>BYOB</h4>
+                <div class="restaurants">
+                        <article class="restaurant">
+                            <header>
+                                <a href="https://adagojjo.com/">Ada&#x27;s Gojjo</a>
+<div class="verified"><small><em>Verified: <time>2024-04-16</time></em></small></div>
+
+                            </header>
+                            <content>BYOB</content>
+                            <footer>
+                                <a href="https://maps.app.goo.gl/nJi3bs3Sy1EGjbgX7"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+                                <a href="https://www.instagram.com/adagojjo"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+                            </footer>
+                        </article>
+                        <article class="restaurant">
+                            <header>
+                                <a href="https://www.catbirdap.com/">Catbird Asbury Park</a>
+<div class="verified"><small><em>Verified: <time>2024-05-09</time></em></small></div>
+
+                            </header>
+                            <content>BYOB</content>
+                            <footer>
+                                <a href="https://maps.app.goo.gl/BciWyaJFGhoMhtPaA"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+                                <a href="https://www.instagram.com/catbird_ap"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+                            </footer>
+                        </article>
+                        <article class="restaurant">
+                            <header>
+                                <a href="http://www.dolcefantasia.us/">Dolce Fantasia</a>
+<div class="verified"><small><em>Verified: <time>2024-04-16</time></em></small></div>
+
+                            </header>
+                            <content>BYOB</content>
+                            <footer>
+                                <a href="https://maps.app.goo.gl/J13Qdy8hNtmdkv3u6"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+                                <a href="https://www.instagram.com/dolce_fantasia_asbury_park"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+                            </footer>
+                        </article>
+                </div>
+            </section>
+
+            <section id="restaurant-closed">
+                <h4>Closed</h4>
+                <div class="restaurants">
+                        <article class="restaurant">
+                            <header>
+                                <a href="https://www.asburybiergarten.com/">Asbury Festhalle &amp; Biergarten</a>
+<div class="verified"><small><em>Verified: <time>2024-12-30</time></em></small></div>
+
+                            </header>
+                            <content>Closed</content>
+                            <footer>
+                                <a href="https://maps.app.goo.gl/pCUcJKrohgecvbse8"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+                                <a href="https://www.instagram.com/apbiergarten"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+                            </footer>
+                        </article>
+                </div>
+            </section>
+
+            <section id="restaurant-other">
+                <h4>Other</h4>
+                <div class="restaurants">
+                        <article class="restaurant">
+                            <header>
+                                <a href="https://asburyalehouse.com/">Asbury Ale House</a>
+<div class="verified"><small><em>Verified: <time>2025-08-28</time></em></small></div>
+
+                            </header>
+                            <content>Other</content>
+                            <footer>
+                                <a href="https://maps.app.goo.gl/iJx2hGS5UWZpFTgr9"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+                                <a href="https://www.instagram.com/asburyalehouse"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+                            </footer>
+                        </article>
+                        <article class="restaurant">
+                            <header>
+                                <a href="https://www.berkeleyhotelnj.com/dining/berkeley-backyard">The Berkeley Backyard</a>
+<div class="verified"><small><em>Verified: <time>2025-04-15</time></em></small></div>
+
+                            </header>
+                            <content>Other</content>
+                            <footer>
+                                <a href="https://maps.app.goo.gl/GJxiy8KaxHSxXWgJ6"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+                                <a href="https://www.instagram.com/theberkeleybackyard"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
+                            </footer>
+                        </article>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

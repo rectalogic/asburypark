@@ -26,6 +26,7 @@ jobs:
         run: echo Crate version does not match tag && exit 1
       - name: Build
         run: |
+          cargo test
           cargo build --release --bin sitegen
       - name: Release
         env:

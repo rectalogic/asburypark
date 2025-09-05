@@ -1,0 +1,124 @@
+[
+    (
+        name: "AP Rooftop",
+        url: "https://www.aprooftop.com",
+        map_id: "f6RFthcQQrifNNwn8",
+        instagram_id: "ap.rooftop",
+        verified: "2025-06-17",
+        kind: HappyHour(
+            description: [
+                "$5 drafts, $9 wine, $10 cocktails",
+                "food specials",
+            ],
+            menu_url: Some("https://cdn.mcloones.com/pdf/ap-rooftop/menus/2025/Happy-Hour-at-AP-Rooftop.pdf?v=1"),
+            happytimes: [
+                Range((Mon, Fri), (1400, 1700)),
+            ],
+        ),
+    ),
+    (
+        name: "Ada\'s Gojjo",
+        url: "https://adagojjo.com/",
+        map_id: "nJi3bs3Sy1EGjbgX7",
+        instagram_id: "adagojjo",
+        verified: "2024-04-16",
+        kind: Byob,
+    ),
+    (
+        name: "Asbury Ale House",
+        url: "https://asburyalehouse.com/",
+        map_id: "iJx2hGS5UWZpFTgr9",
+        instagram_id: "asburyalehouse",
+        verified: "2025-08-28",
+        kind: Other,
+    ),
+    (
+        name: "Asbury Festhalle & Biergarten",
+        url: "https://www.asburybiergarten.com/",
+        map_id: "pCUcJKrohgecvbse8",
+        instagram_id: "apbiergarten",
+        verified: "2024-12-30",
+        kind: Closed,
+    ),
+    (
+        name: "Barrio Costero",
+        url: "https://www.barriocostero.com/",
+        map_id: "5sL6b3uXFjzcmY3U6",
+        instagram_id: "barriocosteroap",
+        verified: "2025-04-15",
+        kind: HappyHour(
+            description: [
+                "Taco Tuesday: 2 Tacos + 1 margy for $17",
+                "Thursday: All-Night Happy Hour",
+            ],
+            menu_url: Some("https://www.instagram.com/p/DCXdcm6vunR/?img_index=1"),
+            happytimes: [
+                Single(Sun, (1500, 2100)),
+                Single(Tue, (1600, 1800)),
+                Single(Thu, (1600, 2200)),
+                Single(Fri, (1600, 1800)),
+            ],
+        ),
+    ),
+    (
+        name: "The Berkeley Backyard",
+        url: "https://www.berkeleyhotelnj.com/dining/berkeley-backyard",
+        map_id: "GJxiy8KaxHSxXWgJ6",
+        instagram_id: "theberkeleybackyard",
+        verified: "2025-04-15",
+        kind: Other,
+    ),
+    (
+        name: "The Black Swan",
+        url: "https://www.theblackswanap.com/",
+        map_id: "JiKYhYvKsK2ysBZs9",
+        instagram_id: "theblackswanap",
+        verified: "2025-07-28",
+        kind: HappyHour(
+            description: [
+                "50% off all alcohol, HH food menu",
+                "Wed 2nd burger $5",
+            ],
+            menu_url: Some("https://www.theblackswanap.com/happy-hour"),
+            happytimes: [
+                Single(Mon, (1600, 1800)),
+                Single(Tue, (1600, 2200)),
+                Range((Wed, Fri), (1600, 1800)),
+            ],
+        ),
+    ),
+
+    (
+        name: "Catbird Asbury Park",
+        url: "https://www.catbirdap.com/",
+        map_id: "BciWyaJFGhoMhtPaA",
+        instagram_id: "catbird_ap",
+        verified: "2024-05-09",
+        kind: Byob,
+    ),
+    (
+        name: "Deal Lake Bar + Co",
+        url: "https://www.deallakebarco.com/",
+        map_id: "SoejiCRDyHyMpaNc7",
+        instagram_id: "deallakebarco",
+        verified: "2025-04-08",
+        kind: HappyHour(
+            description: [
+                "Half off all alcohol",
+                "Food specials",
+            ],
+            menu_url: Some("https://www.instagram.com/p/DHTn90PAI-F/"),
+            happytimes: [
+                Range((Mon, Fri), (1600, 1800)),
+            ],
+        ),
+    ),
+    (
+        name: "Dolce Fantasia",
+        url: "http://www.dolcefantasia.us/",
+        map_id: "J13Qdy8hNtmdkv3u6",
+        instagram_id: "dolce_fantasia_asbury_park",
+        verified: "2024-04-16",
+        kind: Byob,
+    ),
+]
