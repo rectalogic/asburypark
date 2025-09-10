@@ -53,7 +53,7 @@ enum Day {
 #[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq)]
 struct Hours(Hour, Hour);
 
-#[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
 struct Hour(#[serde(deserialize_with = "deserialize_hour")] u16);
 
 struct HumanTime {

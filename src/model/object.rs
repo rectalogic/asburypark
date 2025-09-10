@@ -10,21 +10,42 @@ pub fn restaurants_value(mut restaurants: super::Restaurants) -> Value {
     let mut byob = Vec::new();
     let mut other = Vec::new();
     let mut closed = Vec::new();
+    let mut min_hour = super::Hour(2500);
+    let mut max_hour = super::Hour(0000);
     for restaurant in restaurants.0.drain(..) {
         match restaurant.kind {
-            super::Kind::HappyHour { .. } => happy_hour.push(restaurant),
+            super::Kind::HappyHour { ref happytimes, .. } => {
+                happytimes.0.iter().for_each(|dh| match dh {
+                    super::DayHours::Single(_, hours) | super::DayHours::Range(_, hours) => {
+                        if hours.0 < min_hour {
+                            min_hour = hours.0;
+                        }
+                        if hours.1 > max_hour {
+                            max_hour = hours.1;
+                        }
+                    }
+                });
+                happy_hour.push(restaurant);
+            }
             super::Kind::Byob => byob.push(restaurant),
             super::Kind::Other => other.push(restaurant),
             super::Kind::Closed => closed.push(restaurant),
         }
     }
+
+    let hour_range = if max_hour.minutes() > 0 {
+        min_hour.hours()..(max_hour.hours() + 1)
+    } else {
+        min_hour.hours()..max_hour.hours()
+    };
+
     context! {
         happy_hour => Value::make_iterable(move || happy_hour.clone().into_iter().map(Value::from_object)),
         byob => Value::make_iterable(move || byob.clone().into_iter().map(Value::from_object)),
         other => Value::make_iterable(move || other.clone().into_iter().map(Value::from_object)),
         closed => Value::make_iterable(move || closed.clone().into_iter().map(Value::from_object)),
         hour_options => Value::from_serialize(
-            (super::Hours::START_HOUR..=super::Hours::END_HOUR)
+            hour_range.clone()
                 .map(|h| {
                     let display = match h {
                         12 => "12pm".to_string(),
@@ -47,7 +68,7 @@ pub fn restaurants_value(mut restaurants: super::Restaurants) -> Value {
                 .map(|d| d.to_string())
                 .chain(once("all".to_string()))
                 .flat_map(|d| {
-                    (super::Hours::START_HOUR..=super::Hours::END_HOUR)
+                    hour_range.clone()
                         .map(|h| h.to_string())
                         .chain(once("all".to_string()))
                         .filter_map(move |h| {
