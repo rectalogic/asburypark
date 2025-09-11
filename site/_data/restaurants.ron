@@ -257,8 +257,18 @@
         url: "https://georgiesbarap.com/",
         map_id: "wf4CE24A9YpvtMEn6",
         instagram_id: "georgiesbarap",
-        verified: "2024-04-16",
-        kind: Other,
+        verified: "2025-09-11",
+        kind: HappyHour(
+            description: [
+                "$6 house drinks",
+                "Every Tue, every other Wed"
+            ],
+            menu_url: Some("https://www.instagram.com/p/DOZLPQ4kr7H/"),
+            happytimes: [
+                Single(Tue, (1500, 1900)),
+                Single(Wed, (1500, 1900)),
+            ],
+        ),
     ),
     (
         name: "El Guacamole",
