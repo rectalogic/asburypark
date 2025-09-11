@@ -1,10 +1,16 @@
 {% macro restaurant_macro(restaurant) %}
-<a href="{{ restaurant.url }}">{{ restaurant.name | escape }}</a>
+<a href="{{ restaurant.url }}">{{ restaurant.name | escape }}</a> {{ phone_macro(restaurant) }}
 <div class="verified"><small><em>Verified: <time>{{ restaurant.verified }}</time></em></small></div>
 {% endmacro -%}
 
 {% macro map_macro(restaurant) %}
 <a href="https://maps.app.goo.gl/{{ restaurant.map_id }}"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
+{%- endmacro -%}
+
+{% macro phone_macro(restaurant) %}
+{% if restaurant.phone %}
+<a href="{{ restaurant.phone.url }}">{{ restaurant.phone.display }}</a>
+{%- endif %}
 {%- endmacro -%}
 
 {% macro instagram_macro(restaurant) %}

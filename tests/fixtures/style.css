@@ -1,3 +1,14 @@
+a[href^="tel:"] {
+    --pico-color: var(--pico-secondary);
+    --pico-underline: var(--pico-secondary-underline);
+}
+
+a[href^="tel:"]:hover {
+    --pico-color: var(--pico-secondary-hover);
+    --pico-underline: var(--pico-secondary-hover-underline);
+}
+
+
 .restaurants {
     display: flex;
     flex-flow: row wrap;

@@ -2,6 +2,7 @@
     (
         name: "AP Rooftop",
         url: "https://www.aprooftop.com",
+        phone: Some("732-555-1234"),
         map_id: "f6RFthcQQrifNNwn8",
         instagram_id: "ap.rooftop",
         verified: "2025-06-17",
@@ -19,6 +20,7 @@
     (
         name: "Ada\'s Gojjo",
         url: "https://adagojjo.com/",
+        phone: None,
         map_id: "nJi3bs3Sy1EGjbgX7",
         instagram_id: "adagojjo",
         verified: "2024-04-16",
@@ -27,6 +29,7 @@
     (
         name: "Asbury Ale House",
         url: "https://asburyalehouse.com/",
+        phone: None,
         map_id: "iJx2hGS5UWZpFTgr9",
         instagram_id: "asburyalehouse",
         verified: "2025-08-28",
@@ -35,6 +38,7 @@
     (
         name: "Asbury Festhalle & Biergarten",
         url: "https://www.asburybiergarten.com/",
+        phone: None,
         map_id: "pCUcJKrohgecvbse8",
         instagram_id: "apbiergarten",
         verified: "2024-12-30",
@@ -43,6 +47,7 @@
     (
         name: "Barrio Costero",
         url: "https://www.barriocostero.com/",
+        phone: Some("732-555-6644"),
         map_id: "5sL6b3uXFjzcmY3U6",
         instagram_id: "barriocosteroap",
         verified: "2025-04-15",
@@ -63,6 +68,7 @@
     (
         name: "The Berkeley Backyard",
         url: "https://www.berkeleyhotelnj.com/dining/berkeley-backyard",
+        phone: None,
         map_id: "GJxiy8KaxHSxXWgJ6",
         instagram_id: "theberkeleybackyard",
         verified: "2025-04-15",
@@ -71,6 +77,7 @@
     (
         name: "The Black Swan",
         url: "https://www.theblackswanap.com/",
+        phone: Some("732-555-4433"),
         map_id: "JiKYhYvKsK2ysBZs9",
         instagram_id: "theblackswanap",
         verified: "2025-07-28",
@@ -91,6 +98,7 @@
     (
         name: "Catbird Asbury Park",
         url: "https://www.catbirdap.com/",
+        phone: None,
         map_id: "BciWyaJFGhoMhtPaA",
         instagram_id: "catbird_ap",
         verified: "2024-05-09",
@@ -99,6 +107,7 @@
     (
         name: "Deal Lake Bar + Co",
         url: "https://www.deallakebarco.com/",
+        phone: Some("732-555-7777"),
         map_id: "SoejiCRDyHyMpaNc7",
         instagram_id: "deallakebarco",
         verified: "2025-04-08",
@@ -116,6 +125,7 @@
     (
         name: "Dolce Fantasia",
         url: "http://www.dolcefantasia.us/",
+        phone: None,
         map_id: "J13Qdy8hNtmdkv3u6",
         instagram_id: "dolce_fantasia_asbury_park",
         verified: "2024-04-16",

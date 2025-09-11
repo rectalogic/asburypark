@@ -2,6 +2,7 @@
     (
         name: "AP Rooftop",
         url: "https://www.aprooftop.com",
+        phone: Some("732-444-2043"),
         map_id: "f6RFthcQQrifNNwn8",
         instagram_id: "ap.rooftop",
         verified: "2025-06-17",
@@ -19,6 +20,7 @@
     (
         name: "Ada\'s Gojjo",
         url: "https://adagojjo.com/",
+        phone: None,
         map_id: "nJi3bs3Sy1EGjbgX7",
         instagram_id: "adagojjo",
         verified: "2024-04-16",
@@ -27,6 +29,7 @@
     (
         name: "Asbury Ale House",
         url: "https://asburyalehouse.com/",
+        phone: None,
         map_id: "iJx2hGS5UWZpFTgr9",
         instagram_id: "asburyalehouse",
         verified: "2025-08-28",
@@ -35,6 +38,7 @@
     (
         name: "Asbury Festhalle & Biergarten",
         url: "https://www.asburybiergarten.com/",
+        phone: None,
         map_id: "pCUcJKrohgecvbse8",
         instagram_id: "apbiergarten",
         verified: "2024-12-30",
@@ -43,6 +47,7 @@
     (
         name: "Asbury Lanes Diner",
         url: "https://www.asburylanes.com/the-diner/",
+        phone: None,
         map_id: "SbJ9RtgSfWNwAjED7",
         instagram_id: "asburylanesdiner",
         verified: "2024-06-24",
@@ -51,6 +56,7 @@
     (
         name: "Asbury Park Brewery",
         url: "http://asburyparkbrewery.com/",
+        phone: None,
         map_id: "C69mQgAcAupAL1wu7",
         instagram_id: "asburyparkbrewery",
         verified: "2024-12-30",
@@ -59,6 +65,7 @@
     (
         name: "Los Barbaros Birria",
         url: "https://www.losbarbarosbirriabelmar.com/",
+        phone: None,
         map_id: "KrCGgovXgu4D73ea9",
         instagram_id: "losbarbaros_birria",
         verified: "2024-04-16",
@@ -67,6 +74,7 @@
     (
         name: "Barrio Costero",
         url: "https://www.barriocostero.com/",
+        phone: Some("732-455-5544"),
         map_id: "5sL6b3uXFjzcmY3U6",
         instagram_id: "barriocosteroap",
         verified: "2025-04-15",
@@ -87,6 +95,7 @@
     (
         name: "Beach Bar",
         url: "https://apboardwalk.com/portfolio/the-beach-bar/",
+        phone: None,
         map_id: "2gsC5P3KwnT5ZLhCA",
         instagram_id: "beachbarasbury",
         verified: "2025-04-15",
@@ -95,6 +104,7 @@
     (
         name: "Belmontes Ristorante",
         url: "http://belmontesap.com/",
+        phone: None,
         map_id: "uZy6Ctyafocmjp859",
         instagram_id: "belmontesap",
         verified: "2024-04-16",
@@ -103,6 +113,7 @@
     (
         name: "The Berkeley Bar",
         url: "https://www.berkeleyhotelnj.com/dining/berkeley-bar",
+        phone: None,
         map_id: "Gf2YqmmdMf7AC5tm9",
         instagram_id: "berkeleyhotelnj",
         verified: "2024-06-24",
@@ -111,6 +122,7 @@
     (
         name: "The Berkeley Backyard",
         url: "https://www.berkeleyhotelnj.com/dining/berkeley-backyard",
+        phone: None,
         map_id: "GJxiy8KaxHSxXWgJ6",
         instagram_id: "theberkeleybackyard",
         verified: "2025-04-15",
@@ -119,6 +131,7 @@
     (
         name: "The Black Swan",
         url: "https://www.theblackswanap.com/",
+        phone: Some("732-361-7159"),
         map_id: "JiKYhYvKsK2ysBZs9",
         instagram_id: "theblackswanap",
         verified: "2025-07-28",
@@ -138,6 +151,7 @@
     (
         name: "Bond Street Bar",
         url: "https://bondstreetap.com/",
+        phone: None,
         map_id: "Gz3BEW7RpHn7iBpd6",
         instagram_id: "bondstreetbar_ap",
         verified: "2024-04-16",
@@ -146,6 +160,7 @@
     (
         name: "Brando\'s Citi Cucina",
         url: "https://brandosnj.com/",
+        phone: None,
         map_id: "QB8LVem8uGnJD9gXA",
         instagram_id: "brandosnj",
         verified: "2024-04-16",
@@ -154,6 +169,7 @@
     (
         name: "Capitoline",
         url: "https://capitolineap.com/",
+        phone: Some("732-455-3609"),
         map_id: "HYVrZQRjA4NaWxpS9",
         instagram_id: "capitoline_ap",
         verified: "2025-07-07",
@@ -173,6 +189,7 @@
     (
         name: "Catbird Asbury Park",
         url: "https://www.catbirdap.com/",
+        phone: None,
         map_id: "BciWyaJFGhoMhtPaA",
         instagram_id: "catbird_ap",
         verified: "2024-05-09",
@@ -181,6 +198,7 @@
     (
         name: "The Chat & Nibble",
         url: "https://www.thechatandnibble.com/",
+        phone: None,
         map_id: "az1YzgUhcHuLcZCU9",
         instagram_id: "chatnnibble",
         verified: "2024-04-16",
@@ -189,15 +207,16 @@
     (
         name: "Cross & Orange",
         url: "https://crossandorangeap.com/",
+        phone: Some("732-361-5502"),
         map_id: "7DnUL7wWoUacvad88",
         instagram_id: "crossandorange",
-        verified: "2025-07-07",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "$4/$5 drafts, $6 wine, $7 well",
                 "new food specials every 2 weeks",
             ],
-            menu_url: Some("https://www.instagram.com/p/DKaWtFaPJBf/"),
+            menu_url: Some("https://crossandorangeap.com/happy-hour"),
             happytimes: [
                 Range((Wed, Thu), (1600, 2100)),
             ],
@@ -206,6 +225,7 @@
     (
         name: "Crust & Crumble Pizzeria",
         url: "https://crustandcrumble.com/",
+        phone: None,
         map_id: "kzehCAuoz21Ls8bM8",
         instagram_id: "crust_and_crumble",
         verified: "2024-04-16",
@@ -214,6 +234,7 @@
     (
         name: "Deal Lake Bar + Co",
         url: "https://www.deallakebarco.com/",
+        phone: Some("848-217-7049"),
         map_id: "SoejiCRDyHyMpaNc7",
         instagram_id: "deallakebarco",
         verified: "2025-04-08",
@@ -231,6 +252,7 @@
     (
         name: "Dolce Fantasia",
         url: "http://www.dolcefantasia.us/",
+        phone: None,
         map_id: "J13Qdy8hNtmdkv3u6",
         instagram_id: "dolce_fantasia_asbury_park",
         verified: "2024-04-16",
@@ -239,6 +261,7 @@
     (
         name: "El Rey",
         url: "https://www.elreyasburypark.com/",
+        phone: None,
         map_id: "zHPGBUj4HRDzZYvY7",
         instagram_id: "elreyasbury",
         verified: "2024-04-16",
@@ -247,6 +270,7 @@
     (
         name: "Flavia\'s Cucina Romana",
         url: "https://www.flaviascucina.com/",
+        phone: None,
         map_id: "XuU2Kvk8XJZhfDEK6",
         instagram_id: "flaviascucina",
         verified: "2024-04-16",
@@ -255,6 +279,7 @@
     (
         name: "Georgies Bar",
         url: "https://georgiesbarap.com/",
+        phone: Some("732-988-1220"),
         map_id: "wf4CE24A9YpvtMEn6",
         instagram_id: "georgiesbarap",
         verified: "2025-09-11",
@@ -273,6 +298,7 @@
     (
         name: "El Guacamole",
         url: "https://www.facebook.com/ELGUACAMOLEPOINTPLEASANT",
+        phone: None,
         map_id: "8aM3229uuRQ5BNYz8",
         instagram_id: "guacamoleap",
         verified: "2024-04-16",
@@ -281,6 +307,7 @@
     (
         name: "Hadaka",
         url: "https://hadakanj.com/",
+        phone: None,
         map_id: "manwyZKgebzGTf3u7",
         instagram_id: "hadakaasbury",
         verified: "2024-06-20",
@@ -289,6 +316,7 @@
     (
         name: "Homesick",
         url: "https://www.lovehomesick.com",
+        phone: Some("732-774-1264"),
         map_id: "ec8WZbz7MxZEA7j99",
         instagram_id: "lovehomesick",
         verified: "2025-07-28",
@@ -305,6 +333,7 @@
     (
         name: "Iron Whale",
         url: "https://www.ironwhalenj.com/",
+        phone: Some("732-361-5185"),
         map_id: "XTH1TCX3uhLAhEnA7",
         instagram_id: "ironwhale_asburypark",
         verified: "2025-07-28",
@@ -321,6 +350,7 @@
     (
         name: "Jimmy\'s Italian",
         url: "https://www.jimmysitalianrestaurant.com/",
+        phone: None,
         map_id: "rMbtjApqgxraj5ap8",
         instagram_id: "jimmys_asbury",
         verified: "2024-04-16",
@@ -329,6 +359,7 @@
     (
         name: "Johnny Mac",
         url: "https://www.johnnymacbar.com/",
+        phone: Some("732-776-6666"),
         map_id: "syPQ7ghpEdEWFyoN8",
         instagram_id: "johnnymacs_nj",
         verified: "2024-09-06",
@@ -346,6 +377,7 @@
     (
         name: "Judy & Harry\'s",
         url: "https://www.judyandharrys.com/",
+        phone: None,
         map_id: "eZceK9eaBrbwcjJbA",
         instagram_id: "judyandharrys",
         verified: "2025-03-21",
@@ -354,6 +386,7 @@
     (
         name: "Kim Maries",
         url: "https://www.kimmarieseatndrinkaway.com/",
+        phone: Some("732-774-6666"),
         map_id: "gfUG4XZcvStqBq8v9",
         instagram_id: "kimmaries_nj",
         verified: "2025-07-28",
@@ -370,6 +403,7 @@
     (
         name: "Kimchee Mama",
         url: "https://kimchimama.net/",
+        phone: None,
         map_id: "4YV4PneHARUzeh9V8",
         instagram_id: "kimchimama_dalgona",
         verified: "2024-04-16",
@@ -378,6 +412,7 @@
     (
         name: "Laylow",
         url: "https://www.laylowap.com/",
+        phone: Some("732-307-9640"),
         map_id: "25nt6Rkk8iBUR47n9",
         instagram_id: "laylowap",
         verified: "2025-04-15",
@@ -394,6 +429,7 @@
     (
         name: "Lola\'s European Cafe",
         url: "https://lolaseuropeancafe.com/",
+        phone: None,
         map_id: "nvSvi1HHxoQ6Cw6k6",
         instagram_id: "lolascafeasbury",
         verified: "2024-04-16",
@@ -402,6 +438,7 @@
     (
         name: "Loteria",
         url: "https://loteriaap.com/",
+        phone: Some("732-455-3610"),
         map_id: "kYgmLGxAsaK3uoRv6",
         instagram_id: "loteria_ap",
         verified: "2025-05-16",
@@ -418,6 +455,7 @@
     (
         name: "Lilly and Lu\'s Café",
         url: "https://www.berkeleyhotelnj.com/dining/lilly-and-lus-cafe",
+        phone: None,
         map_id: "CQ6CvYhExkAgfAjCA",
         instagram_id: "lillyandluscafe",
         verified: "2025-09-01",
@@ -426,6 +464,7 @@
     (
         name: "Lovesick",
         url: "https://www.dearlovesick.com/",
+        phone: Some("732-774-1264"),
         map_id: "ec8WZbz7MxZEA7j99",
         instagram_id: "dear_lovesick",
         verified: "2025-07-28",
@@ -442,6 +481,7 @@
     (
         name: "Low Dive",
         url: "https://www.lowdiveap.com/",
+        phone: None,
         map_id: "6NRfiYxD1AJGhDi28",
         instagram_id: "lowdiveap",
         verified: "2025-04-15",
@@ -450,6 +490,7 @@
     (
         name: "Makanas",
         url: "https://makanasnj.com/",
+        phone: None,
         map_id: "wRPocr4voWtbPVYg7",
         instagram_id: "makanasnj",
         verified: "2024-05-23",
@@ -458,6 +499,7 @@
     (
         name: "Mark\'s Place",
         url: "http://places.singleplatform.com/marks-place--restaurant/menu",
+        phone: None,
         map_id: "3pexMCp7gf1ASqJQ8",
         instagram_id: "marksplace_",
         verified: "2024-05-10",
@@ -466,6 +508,7 @@
     (
         name: "Mayan Restaurant",
         url: "https://mayanrestaurantnj.com/",
+        phone: None,
         map_id: "JioSZjzq6bhphvmq5",
         instagram_id: "mayan._.restaurant",
         verified: "2024-04-16",
@@ -474,6 +517,7 @@
     (
         name: "Mogo",
         url: "https://eatmogo.com/",
+        phone: None,
         map_id: "tnb9hdof5Dksa4En6",
         instagram_id: "eatmogo",
         verified: "2024-04-16",
@@ -482,6 +526,7 @@
     (
         name: "Moonstruck",
         url: "http://moonstrucknj.com/",
+        phone: None,
         map_id: "tp8aof7cfVMNs6nB7",
         instagram_id: "moonstrucknj",
         verified: "2024-04-16",
@@ -490,6 +535,7 @@
     (
         name: "Mutiny BBQ Co",
         url: "https://www.mutinybbq.com/",
+        phone: None,
         map_id: "he93Auh5UBhJt9FU8",
         instagram_id: "mutinybbq",
         verified: "2024-04-16",
@@ -498,6 +544,7 @@
     (
         name: "Mutiny Beach",
         url: "http://mutinybeach.com/",
+        phone: None,
         map_id: "MWMV9Gbqs16cmrvj8",
         instagram_id: "mutinybeach",
         verified: "2025-04-21",
@@ -506,6 +553,7 @@
     (
         name: "The Palmetto",
         url: "https://www.palmettoasburypark.com/",
+        phone: Some("732-361-3639"),
         map_id: "ZtPN9i7Caahubo4K7",
         instagram_id: "palmettoasburypark",
         verified: "2025-04-15",
@@ -522,6 +570,7 @@
     (
         name: "Paradise Nightclub",
         url: "https://www.paradisenj.com/",
+        phone: None,
         map_id: "fr6nuVHmWi692GPJ7",
         instagram_id: "paradisenj",
         verified: "2025-01-02",
@@ -530,6 +579,7 @@
     (
         name: "Pascal & Sabine",
         url: "https://pascalandsabine.com/",
+        phone: Some("732-774-3395"),
         map_id: "gygCnArxk4vf6X9U9",
         instagram_id: "pascalandsabine",
         verified: "2025-06-20",
@@ -547,6 +597,7 @@
     (
         name: "Plaza Garibaldi",
         url: "https://garibaldimexicanfood.com/",
+        phone: None,
         map_id: "nzCxBiSRdJ3X3Qvj7",
         instagram_id: "plazagaribaldinj",
         verified: "2024-05-10",
@@ -554,7 +605,8 @@
     ),
     (
         name: "Plaza Tapatia",
-        url: "https://tapatiarestaurant.com/",
+        url: "https://order.toasttab.com/online/plaza-tapatia-restaurant-707-main-st",
+        phone: Some("732-776-7826"),
         map_id: "RFU8QwfbpqvaMiXR7",
         instagram_id: "plazatapatia",
         verified: "2024-09-07",
@@ -571,6 +623,7 @@
     (
         name: "Porta",
         url: "https://pizzaporta.com/asbury-park/",
+        phone: Some("732-776-7661"),
         map_id: "EwjBKgVGcwUNQF6V8",
         instagram_id: "portaasburypark",
         verified: "2025-06-20",
@@ -587,6 +640,7 @@
     (
         name: "R Bar",
         url: "https://www.itsrbar.com/",
+        phone: Some("732-776–7463"),
         map_id: "t4XRRU3E1MvC32hF8",
         instagram_id: "rbar_asburypark",
         verified: "2025-04-15",
@@ -603,6 +657,7 @@
     (
         name: "Reyla",
         url: "https://www.heyreyla.com/",
+        phone: Some("732-455-8333"),
         map_id: "mkGxdhbCtuL2to288",
         instagram_id: "heyreyla",
         verified: "2025-04-15",
@@ -620,6 +675,7 @@
     (
         name: "Rice Asian Cuisine",
         url: "https://www.riceasiancuisinenj.com",
+        phone: None,
         map_id: "Kpj22wFYzDHWLaCn7",
         instagram_id: "riceasiancuisine",
         verified: "2024-04-16",
@@ -628,6 +684,7 @@
     (
         name: "Robinson Ale House",
         url: "https://www.therobinsonalehouseasburypark.com/",
+        phone: Some("732-774-1400"),
         map_id: "8uA51tyubw2hYxZB9",
         instagram_id: "robinsonalehouse",
         verified: "2025-05-19",
@@ -644,6 +701,7 @@
     (
         name: "Salvation",
         url: "https://www.theasburyhotel.com/eat-and-drink/salvation",
+        phone: None,
         map_id: "wsNi3pFngY3SzyGp8",
         instagram_id: "theasburyhotel",
         verified: "2024-04-16",
@@ -652,6 +710,7 @@
     (
         name: "Shoreline Social Club & Grille",
         url: "https://www.berkeleyhotelnj.com/dining/shoreline-social-club-grille",
+        phone: None,
         map_id: "ZKGEUCVnsKRUQsRy9",
         instagram_id: "shorelinesocialasbury",
         verified: "2025-04-15",
@@ -660,6 +719,7 @@
     (
         name: "Shucked by Local 130 Seafood",
         url: "https://www.facebook.com/ShuckedbyLocal130Seafood",
+        phone: None,
         map_id: "8Kz19Vu3cJwbSsxbA",
         instagram_id: "shuckedbylocal130",
         verified: "2025-09-02",
@@ -668,6 +728,7 @@
     (
         name: "Soundbooth",
         url: "https://www.theasburyhotel.com/eat-and-drink/soundbooth",
+        phone: None,
         map_id: "wsNi3pFngY3SzyGp8",
         instagram_id: "theasburyhotel",
         verified: "2024-04-16",
@@ -676,6 +737,7 @@
     (
         name: "Speakeatery",
         url: "https://www.thespeakeatery.com/",
+        phone: None,
         map_id: "6wmP8jSWp2yAKhvj6",
         instagram_id: "speakeatery",
         verified: "2024-04-16",
@@ -684,6 +746,7 @@
     (
         name: "Stella Marina",
         url: "https://stellamarinarestaurant.com",
+        phone: Some("732-775-7776"),
         map_id: "hRnXVr3yCqFiSbCF9",
         instagram_id: "stellamarinaasbury",
         verified: "2025-09-02",
@@ -701,6 +764,7 @@
     (
         name: "Swimcrush AP",
         url: "https://www.swimcrushap.com",
+        phone: Some("732-361-0577"),
         map_id: "it6W5GhgwGuwSPLeA",
         instagram_id: "swimcrushap",
         verified: "2025-06-13",
@@ -717,6 +781,7 @@
     (
         name: "TJ\'s Pizza",
         url: "https://ordertjspizzanj.com/",
+        phone: None,
         map_id: "ADnVDz4vzMVZS9oC6",
         instagram_id: "t.j.spizzeria",
         verified: "2024-05-10",
@@ -725,6 +790,7 @@
     (
         name: "Taka",
         url: "https://www.takaasbury.com/",
+        phone: None,
         map_id: "kJDQbZV4uT9qDXKV8",
         instagram_id: "takarestaurant",
         verified: "2024-04-16",
@@ -733,6 +799,7 @@
     (
         name: "Talula\'s",
         url: "https://talulaspizza.com/",
+        phone: Some("732-455-3003"),
         map_id: "NTV7Dkwq2BadhE7MA",
         instagram_id: "talulaspizza",
         verified: "2025-04-15",
@@ -750,6 +817,7 @@
     (
         name: "Tic Taco Taqueria",
         url: "https://tictacotaquerianj.com/",
+        phone: None,
         map_id: "jxmmiVdsJTBH4mcb7",
         instagram_id: "tictacotaquerianj",
         verified: "2024-04-16",
@@ -758,6 +826,7 @@
     (
         name: "Tillie\'s Palace",
         url: "https://www.tilliespalace.com/",
+        phone: None,
         map_id: "G9HG6w3j5HUZtN8M8",
         instagram_id: "tilliespalace",
         verified: "2024-10-29",
@@ -766,6 +835,7 @@
     (
         name: "Tim McCloone\'s Supper Club",
         url: "https://www.timmcloonessupperclub.com/",
+        phone: None,
         map_id: "HNmHHXMfccyHuyVQ7",
         instagram_id: "timmcloonessupperclub",
         verified: "2024-04-16",
@@ -774,6 +844,7 @@
     (
         name: "Toast",
         url: "https://toastcitydiner.com/",
+        phone: None,
         map_id: "JoWAhfz8SV5FcBrK9",
         instagram_id: "toastcitydiner_",
         verified: "2024-09-08",
@@ -782,6 +853,7 @@
     (
         name: "Watermark",
         url: "https://watermarkap.com/",
+        phone: Some("732-749-5786"),
         map_id: "vzuUmqZoxs7Z5Ly89",
         instagram_id: "watermark_asbury_park",
         verified: "2025-07-18",
@@ -798,6 +870,7 @@
     (
         name: "Wild Air Beerworks",
         url: "https://www.wildairbeer.com/",
+        phone: None,
         map_id: "tWmEn3BdZ7WtWfaP6",
         instagram_id: "wildairbeer",
         verified: "2024-12-30",
@@ -806,6 +879,7 @@
     (
         name: "Wonder Bar",
         url: "https://wonderbarasburypark.com/",
+        phone: None,
         map_id: "zgrzscpJsi14gpDeA",
         instagram_id: "thewonderbarofficial",
         verified: "2024-04-16",

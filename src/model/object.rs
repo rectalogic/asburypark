@@ -89,6 +89,24 @@ impl Object for super::Restaurant {
         match key.as_str()? {
             "name" => Some(Value::from(&self.name)),
             "url" => Some(Value::from(&self.url)),
+            "phone" => self.phone.as_ref().map(|phone| {
+                let phone = phonenumber::parse(Some(phonenumber::country::US), phone)
+                    .expect("phone number");
+                context! {
+                    display => Value::from(
+                        phone
+                            .format()
+                            .mode(phonenumber::Mode::National)
+                            .to_string(),
+                    ),
+                    url => Value::from(
+                        phone
+                            .format()
+                            .mode(phonenumber::Mode::Rfc3966)
+                            .to_string()
+                    ),
+                }
+            }),
             "map_id" => Some(Value::from(&self.map_id)),
             "instagram_id" => Some(Value::from(&self.instagram_id)),
             "verified" => Some(Value::from_serialize(self.verified)),

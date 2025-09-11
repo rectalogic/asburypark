@@ -12,6 +12,7 @@ pub struct Restaurants(Vec<Restaurant>);
 struct Restaurant {
     name: String,
     url: String,
+    phone: Option<String>,
     map_id: String, // Use with https://maps.app.goo.gl/{map_id}
     instagram_id: String,
     verified: NaiveDate,
@@ -369,6 +370,7 @@ mod tests {
         let restaurants = Restaurants(vec![Restaurant {
             name: "The Black Swan".into(),
             url: "https://www.theblackswanap.com/".into(),
+            phone: None,
             map_id: "JiKYhYvKsK2ysBZs9".into(),
             instagram_id: "theblackswanap".into(),
             verified: NaiveDate::from_ymd_opt(2025, 7, 28).unwrap(),
