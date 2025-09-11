@@ -5,7 +5,7 @@
         phone: Some("732-444-2043"),
         map_id: "f6RFthcQQrifNNwn8",
         instagram_id: "ap.rooftop",
-        verified: "2025-06-17",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "$5 drafts, $9 wine, $10 cocktails",
@@ -77,7 +77,7 @@
         phone: Some("732-455-5544"),
         map_id: "5sL6b3uXFjzcmY3U6",
         instagram_id: "barriocosteroap",
-        verified: "2025-04-15",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "Taco Tuesday: 2 Tacos + 1 margy for $17",
@@ -85,7 +85,7 @@
             ],
             menu_url: Some("https://www.instagram.com/p/DCXdcm6vunR/?img_index=1"),
             happytimes: [
-                Single(Sun, (1500, 2100)),
+                Single(Sun, (1600, 2100)),
                 Single(Tue, (1600, 1800)),
                 Single(Thu, (1600, 2200)),
                 Single(Fri, (1600, 1800)),
@@ -134,7 +134,7 @@
         phone: Some("732-361-7159"),
         map_id: "JiKYhYvKsK2ysBZs9",
         instagram_id: "theblackswanap",
-        verified: "2025-07-28",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "50% off all alcohol, HH food menu",
@@ -172,13 +172,13 @@
         phone: Some("732-455-3609"),
         map_id: "HYVrZQRjA4NaWxpS9",
         instagram_id: "capitoline_ap",
-        verified: "2025-07-07",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "HH food menu",
                 "$5 beer, $7 wine, $10 martini, $8 mocktails, food specials",
             ],
-            menu_url: Some("https://www.instagram.com/p/DLr6HNXu-bp"),
+            menu_url: Some("https://www.instagram.com/p/DOd5LHFDol-/"),
             happytimes: [
                 Range((Wed, Thu), (1700, 1900)),
                 Single(Fri, (1400, 1700)),
@@ -237,11 +237,11 @@
         phone: Some("848-217-7049"),
         map_id: "SoejiCRDyHyMpaNc7",
         instagram_id: "deallakebarco",
-        verified: "2025-04-08",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "Half off all alcohol",
-                "Food specials",
+                "$8 bar snacks",
             ],
             menu_url: Some("https://www.instagram.com/p/DHTn90PAI-F/"),
             happytimes: [
@@ -319,14 +319,14 @@
         phone: Some("732-774-1264"),
         map_id: "ec8WZbz7MxZEA7j99",
         instagram_id: "lovehomesick",
-        verified: "2025-07-28",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "$4 beer, $6 wine, cocktail/food specials",
             ],
             menu_url: Some("https://www.lovehomesick.com/menus"),
             happytimes: [
-                Range((Mon, Fri), (1600, 1800)),
+                Range((Mon, Fri), (1400, 1800)),
             ],
         ),
     ),
@@ -336,7 +336,7 @@
         phone: Some("732-361-5185"),
         map_id: "XTH1TCX3uhLAhEnA7",
         instagram_id: "ironwhale_asburypark",
-        verified: "2025-07-28",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "small plate specials, $3 off beer, $6 marg, $4 off wine, $5 off cocktails",
@@ -362,7 +362,7 @@
         phone: Some("732-776-6666"),
         map_id: "syPQ7ghpEdEWFyoN8",
         instagram_id: "johnnymacs_nj",
-        verified: "2024-09-06",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "free pizza every day",
@@ -389,7 +389,7 @@
         phone: Some("732-774-6666"),
         map_id: "gfUG4XZcvStqBq8v9",
         instagram_id: "kimmaries_nj",
-        verified: "2025-07-28",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "$5 local drafts, $6 wine/sangria, $7 mixed drinks, HH food menu",
@@ -415,16 +415,8 @@
         phone: Some("732-307-9640"),
         map_id: "25nt6Rkk8iBUR47n9",
         instagram_id: "laylowap",
-        verified: "2025-04-15",
-        kind: HappyHour(
-            description: [
-                "$9 Classic Cocktails",
-            ],
-            menu_url: None,
-            happytimes: [
-                Single(Sun, (1700, 1900)),
-            ],
-        ),
+        verified: "2025-09-11",
+        kind: Other,
     ),
     (
         name: "Lola\'s European Cafe",
@@ -441,7 +433,7 @@
         phone: Some("732-455-3610"),
         map_id: "kYgmLGxAsaK3uoRv6",
         instagram_id: "loteria_ap",
-        verified: "2025-05-16",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "Food and drink specials",
@@ -467,14 +459,14 @@
         phone: Some("732-774-1264"),
         map_id: "ec8WZbz7MxZEA7j99",
         instagram_id: "dear_lovesick",
-        verified: "2025-07-28",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
-                "$5 beers, $12 cocktails",
+                "$5 beers, $10 cocktails",
             ],
             menu_url: Some("https://www.dearlovesick.com/menus"),
             happytimes: [
-                Range((Mon, Fri), (1700, 1900)),
+                Range((Thu, Fri), (1700, 1900)),
             ],
         ),
     ),
@@ -556,7 +548,7 @@
         phone: Some("732-361-3639"),
         map_id: "ZtPN9i7Caahubo4K7",
         instagram_id: "palmettoasburypark",
-        verified: "2025-04-15",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "Half off all drinks",
@@ -582,7 +574,7 @@
         phone: Some("732-774-3395"),
         map_id: "gygCnArxk4vf6X9U9",
         instagram_id: "pascalandsabine",
-        verified: "2025-06-20",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "Happy Hour, Apero Hour Fri&Sat",
@@ -609,7 +601,7 @@
         phone: Some("732-776-7826"),
         map_id: "RFU8QwfbpqvaMiXR7",
         instagram_id: "plazatapatia",
-        verified: "2024-09-07",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "Fajita & Sangria specials",
@@ -626,7 +618,7 @@
         phone: Some("732-776-7661"),
         map_id: "EwjBKgVGcwUNQF6V8",
         instagram_id: "portaasburypark",
-        verified: "2025-06-20",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "$5 select draft, $7 wine, $10 cocktails, HH food menu",
@@ -643,7 +635,7 @@
         phone: Some("732-776–7463"),
         map_id: "t4XRRU3E1MvC32hF8",
         instagram_id: "rbar_asburypark",
-        verified: "2025-04-15",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "$15 sample platter, $3 Narragansett, $5 Guinness, cocktails",
@@ -660,7 +652,7 @@
         phone: Some("732-455-8333"),
         map_id: "mkGxdhbCtuL2to288",
         instagram_id: "heyreyla",
-        verified: "2025-04-15",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "$9 cocktails, $7 wine",
@@ -687,7 +679,7 @@
         phone: Some("732-774-1400"),
         map_id: "8uA51tyubw2hYxZB9",
         instagram_id: "robinsonalehouse",
-        verified: "2025-05-19",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "$4 draft, $7 marg,sangria,wine, $8 cocktails, half price appetizers",
@@ -749,7 +741,7 @@
         phone: Some("732-775-7776"),
         map_id: "hRnXVr3yCqFiSbCF9",
         instagram_id: "stellamarinaasbury",
-        verified: "2025-09-02",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "specials",
@@ -802,7 +794,7 @@
         phone: Some("732-455-3003"),
         map_id: "NTV7Dkwq2BadhE7MA",
         instagram_id: "talulaspizza",
-        verified: "2025-04-15",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
                 "$5 rotating draft, $6 house wine, $10 gin&jams, $8 lambrusco",
@@ -856,14 +848,14 @@
         phone: Some("732-749-5786"),
         map_id: "vzuUmqZoxs7Z5Ly89",
         instagram_id: "watermark_asbury_park",
-        verified: "2025-07-18",
+        verified: "2025-09-11",
         kind: HappyHour(
             description: [
-                "cocktails",
+                "cocktails, $5 beers",
             ],
             menu_url: Some("https://menu.thesafemenu.com/watermark/menus/happy-hour/"),
             happytimes: [
-                Range((Mon, Thu), (1600, 1800)),
+                Range((Wed, Thu), (1600, 1800)),
             ],
         ),
     ),
