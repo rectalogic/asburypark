@@ -548,12 +548,13 @@
         phone: Some("732-361-3639"),
         map_id: "ZtPN9i7Caahubo4K7",
         instagram_id: "palmettoasburypark",
-        verified: "2025-09-11",
+        verified: "2025-09-15",
         kind: HappyHour(
             description: [
                 "Half off all drinks",
+                "$2 oysters, small plates $6-12",
             ],
-            menu_url: Some("https://www.instagram.com/p/DHq9TjyudAZ"),
+            menu_url: Some("https://www.facebook.com/photo?fbid=122135392400840918&set=pb.61575227553706.-2207520000"),
             happytimes: [
                 Range((Mon, Fri), (1600, 1800)),
             ],
