@@ -336,14 +336,14 @@
         phone: Some("732-361-5185"),
         map_id: "XTH1TCX3uhLAhEnA7",
         instagram_id: "ironwhale_asburypark",
-        verified: "2025-09-11",
+        verified: "2025-09-17",
         kind: HappyHour(
             description: [
                 "small plate specials, $3 off beer, $6 marg, $4 off wine, $5 off cocktails",
             ],
-            menu_url: Some("https://cdn.mcloones.com/pdf/iron-whale/menus/2025/IW-Happy-Hour-2025.pdf"),
+            menu_url: Some("https://cdn.mcloones.com/pdf/iron-whale/menus/2025/IW-Happy-Hour-9.15.25.pdf"),
             happytimes: [
-                Range((Mon, Fri), (1300, 1600)),
+                Range((Mon, Fri), (1400, 1800)),
             ],
         ),
     ),
