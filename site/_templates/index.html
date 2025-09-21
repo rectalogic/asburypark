@@ -1,33 +1,65 @@
 {% macro restaurant_macro(restaurant) %}
-<a href="{{ restaurant.url }}">{{ restaurant.name | escape }}</a> {{ phone_macro(restaurant) }}
-<div class="verified"><small><em>Verified: <time>{{ restaurant.verified }}</time></em></small></div>
-{% endmacro -%}
-
-{% macro map_macro(restaurant) %}
-<a href="https://maps.app.goo.gl/{{ restaurant.map_id }}"><img width="25" title="Map" src="images/maps-icon.svg"/><small>Map</small></a>
-{%- endmacro -%}
-
-{% macro phone_macro(restaurant) %}
-{% if restaurant.phone %}
+<a href="{{ restaurant.url }}">{{ restaurant.name | escape }}</a> {{
+phone_macro(restaurant) }}
+<div class="verified">
+    <small
+        ><em>Verified: <time>{{ restaurant.verified }}</time></em></small
+    >
+</div>
+{% endmacro -%} {% macro map_macro(restaurant) %}
+<a href="https://maps.app.goo.gl/{{ restaurant.map_id }}"
+    ><img width="25" title="Map" src="images/maps-icon.svg" /><small
+        >Map</small
+    ></a
+>
+{%- endmacro -%} {% macro phone_macro(restaurant) %} {% if restaurant.phone %}
 <a href="{{ restaurant.phone.url }}">{{ restaurant.phone.display }}</a>
-{%- endif %}
-{%- endmacro -%}
-
-{% macro instagram_macro(restaurant) %}
-{% if restaurant.instagram_id %}
-<a href="https://www.instagram.com/{{ restaurant.instagram_id }}"><img width="25" title="Instagram" src="https://www.cdnlogo.com/logos/i/92/instagram.svg"/><small>Instagram</small></a>
-{%- endif %}
-{% endmacro -%}
-
-{% macro menu_macro(restaurant) %}
-{% if restaurant.menu_url %}
-<a href="{{ restaurant.menu_url }}"><img width="25" title="Happy Hour Menu" src="images/menu.svg"/><small>Menu</small></a>
-{%- endif %}
-{% endmacro -%}
+{%- endif %} {%- endmacro -%} {% macro instagram_macro(restaurant) %} {% if
+restaurant.instagram_id %}
+<a href="https://www.instagram.com/{{ restaurant.instagram_id }}"
+    ><img
+        width="25"
+        title="Instagram"
+        src="https://www.cdnlogo.com/logos/i/92/instagram.svg"
+    /><small>Instagram</small></a
+>
+{%- endif %} {% endmacro -%} {% macro menu_macro(restaurant) %} {% if
+restaurant.menu_url %}
+<a href="{{ restaurant.menu_url }}"
+    ><img width="25" title="Happy Hour Menu" src="images/menu.svg" /><small
+        >Menu</small
+    ></a
+>
+{%- endif %} {% endmacro -%}
 
 <!doctype html>
 <html lang="en">
     <head>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://asburypark.rectalogic.com" />
+        <meta property="og:title" content="Asbury Park Happy Hours" />
+        <meta
+            property="og:description"
+            content="Filterable list of all known happy hours in Asbury Park, NJ."
+        />
+        <meta
+            property="og:image"
+            content="https://asburypark.rectalogic.com/images/tillie.jpg"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:domain" value="asburypark.rectalogic.com" />
+        <meta name="twitter:title" value="Asbury Park Happy Hours" />
+        <meta
+            name="twitter:description"
+            value="Filterable list of all known happy hours in Asbury Park, NJ."
+        />
+        <meta
+            name="twitter:image"
+            content="https://asburypark.rectalogic.com/images/tillie.jpg"
+        />
+        <meta name="twitter:url" value="https://asburypark.rectalogic.com" />
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="color-scheme" content="light dark" />
@@ -35,78 +67,93 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
         />
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="style.css" />
         <script defer src="filter.js"></script>
         <title>Asbury Park Happy Hours</title>
     </head>
     <body>
         <header>
             <nav>
-              <ul>
-                <li><strong>Asbury Park Happy Hours</strong></li>
-              </ul>
-              <ul>
-                <li><a href="#restaurant-happy-hours">Happy Hours</a></li>
-                <li><a href="#restaurant-byob">BYOB</a></li>
-                <li><a href="#restaurant-other">Other</a></li>
-                <li><a href="#restaurant-closed">Closed</a></li>
-              </ul>
+                <ul>
+                    <li><strong>Asbury Park Happy Hours</strong></li>
+                </ul>
+                <ul>
+                    <li><a href="#restaurant-happy-hours">Happy Hours</a></li>
+                    <li><a href="#restaurant-byob">BYOB</a></li>
+                    <li><a href="#restaurant-other">Other</a></li>
+                    <li><a href="#restaurant-closed">Closed</a></li>
+                </ul>
             </nav>
         </header>
 
         <main class="container-fluid">
             <details class="notice">
                 <summary role="button">Submit updates</summary>
-                Happy Hours change frequently,
-                check restaurant website/Instagram for updates. Use the
+                Happy Hours change frequently, check restaurant
+                website/Instagram for updates. Use the
                 <a href="https://forms.gle/F3xaERaDYpjN1Brz6">feedback form</a>
                 to report updates.
                 <footer>
-                    <small>Follow <a href="https://www.instagram.com/asburypark_happyhours"><img width="15" src="https://www.cdnlogo.com/logos/i/92/instagram.svg" /> @asburypark_happyhours</a></small>
+                    <small
+                        >Follow
+                        <a
+                            href="https://www.instagram.com/asburypark_happyhours"
+                            ><img
+                                width="15"
+                                src="https://www.cdnlogo.com/logos/i/92/instagram.svg"
+                            />
+                            @asburypark_happyhours</a
+                        ></small
+                    >
                 </footer>
             </details>
 
             <section id="restaurant-happy-hours">
                 <h4>Happy Hours</h4>
                 <form>
-                  <fieldset class="grid">
-                    <select id="day" aria-label="Day" required>
-                      <option value="all" selected>All Days</option>
-                      {% for day in restaurants.day_options %}
-                      <option value="{{ day[0] }}">{{ day[1] }}</option>
-                      {% endfor %}
-                    </select>
-                    <select id="hour" aria-label="Hour" required>
-                        <option value="all" selected>All Hours</option>
-                        {% for hour in restaurants.hour_options %}
-                        <option value="{{ hour[0] }}">{{ hour[1] }}</option>
-                        {% endfor %}
-                    </select>
-                  </fieldset>
+                    <fieldset class="grid">
+                        <select id="day" aria-label="Day" required>
+                            <option value="all" selected>All Days</option>
+                            {% for day in restaurants.day_options %}
+                            <option value="{{ day[0] }}">{{ day[1] }}</option>
+                            {% endfor %}
+                        </select>
+                        <select id="hour" aria-label="Hour" required>
+                            <option value="all" selected>All Hours</option>
+                            {% for hour in restaurants.hour_options %}
+                            <option value="{{ hour[0] }}">{{ hour[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </fieldset>
                 </form>
 
                 <div class="restaurants">
                     {% for restaurant in restaurants.happy_hour %}
-                        <article class="restaurant hh" {{ restaurant.happytimes.data_attributes }}>
-                            <header>
-                                {{ restaurant_macro(restaurant) }}
-                            </header>
-                            <content>
-                                {% for time in restaurant.happytimes.times %}
-                                    <time class="dayhour" {{ time.data_attributes }}>{{ time.description }}</time>
+                    <article
+                        class="restaurant hh"
+                        {{
+                        restaurant.happytimes.data_attributes
+                        }}
+                    >
+                        <header>{{ restaurant_macro(restaurant) }}</header>
+                        <content>
+                            {% for time in restaurant.happytimes.times %}
+                            <time class="dayhour" {{ time.data_attributes }}
+                                >{{ time.description }}</time
+                            >
+                            {% endfor %}
+                            <ul>
+                                {% for desc in restaurant.description %}
+                                <li>{{ desc | escape }}</li>
                                 {% endfor %}
-                                <ul>
-                                    {% for desc in restaurant.description %}
-                                        <li>{{ desc | escape }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </content>
-                            <footer>
-                                {{ map_macro(restaurant) }}
-                                {{ instagram_macro(restaurant) }}
-                                {{ menu_macro(restaurant) }}
-                            </footer>
-                        </article>
+                            </ul>
+                        </content>
+                        <footer>
+                            {{ map_macro(restaurant) }} {{
+                            instagram_macro(restaurant) }} {{
+                            menu_macro(restaurant) }}
+                        </footer>
+                    </article>
                     {% endfor %}
                 </div>
             </section>
@@ -115,16 +162,14 @@
                 <h4>BYOB</h4>
                 <div class="restaurants">
                     {% for restaurant in restaurants.byob %}
-                        <article class="restaurant">
-                            <header>
-                                {{ restaurant_macro(restaurant) }}
-                            </header>
-                            <content>BYOB</content>
-                            <footer>
-                                {{ map_macro(restaurant) }}
-                                {{ instagram_macro(restaurant) }}
-                            </footer>
-                        </article>
+                    <article class="restaurant">
+                        <header>{{ restaurant_macro(restaurant) }}</header>
+                        <content>BYOB</content>
+                        <footer>
+                            {{ map_macro(restaurant) }} {{
+                            instagram_macro(restaurant) }}
+                        </footer>
+                    </article>
                     {% endfor %}
                 </div>
             </section>
@@ -133,16 +178,14 @@
                 <h4>Closed</h4>
                 <div class="restaurants">
                     {% for restaurant in restaurants.closed %}
-                        <article class="restaurant">
-                            <header>
-                                {{ restaurant_macro(restaurant) }}
-                            </header>
-                            <content>Closed</content>
-                            <footer>
-                                {{ map_macro(restaurant) }}
-                                {{ instagram_macro(restaurant) }}
-                            </footer>
-                        </article>
+                    <article class="restaurant">
+                        <header>{{ restaurant_macro(restaurant) }}</header>
+                        <content>Closed</content>
+                        <footer>
+                            {{ map_macro(restaurant) }} {{
+                            instagram_macro(restaurant) }}
+                        </footer>
+                    </article>
                     {% endfor %}
                 </div>
             </section>
@@ -151,16 +194,14 @@
                 <h4>Other</h4>
                 <div class="restaurants">
                     {% for restaurant in restaurants.other %}
-                        <article class="restaurant">
-                            <header>
-                                {{ restaurant_macro(restaurant) }}
-                            </header>
-                            <content>Other</content>
-                            <footer>
-                                {{ map_macro(restaurant) }}
-                                {{ instagram_macro(restaurant) }}
-                            </footer>
-                        </article>
+                    <article class="restaurant">
+                        <header>{{ restaurant_macro(restaurant) }}</header>
+                        <content>Other</content>
+                        <footer>
+                            {{ map_macro(restaurant) }} {{
+                            instagram_macro(restaurant) }}
+                        </footer>
+                    </article>
                     {% endfor %}
                 </div>
             </section>
