@@ -518,11 +518,20 @@
     (
         name: "Moonstruck",
         url: "http://moonstrucknj.com/",
-        phone: None,
+        phone: Some("732-988-0123"),
         map_id: "tp8aof7cfVMNs6nB7",
         instagram_id: "moonstrucknj",
-        verified: "2024-04-16",
-        kind: Other,
+        verified: "2025-09-21",
+        kind: HappyHour(
+            description: [
+                "$4/$5 beer, $6 well drinks, 1/2 price wine",
+                "flatbreads and other food specials",
+            ],
+            menu_url: Some("https://moonstrucknj.com/menu/happy-hour-drink-specials/"),
+            happytimes: [
+                Range((Wed, Fri), (1500, 1800)),
+            ],
+        ),
     ),
     (
         name: "Mutiny BBQ Co",
