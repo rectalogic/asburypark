@@ -172,17 +172,16 @@
         phone: Some("732-455-3609"),
         map_id: "HYVrZQRjA4NaWxpS9",
         instagram_id: "capitoline_ap",
-        verified: "2025-09-11",
+        verified: "2025-09-24",
         kind: HappyHour(
             description: [
                 "HH food menu",
                 "$5 beer, $7 wine, $10 martini, $8 mocktails, food specials",
             ],
-            menu_url: Some("https://www.instagram.com/p/DOd5LHFDol-/"),
+            menu_url: Some("https://www.facebook.com/share/r/19VGgqhpY3/"),
             happytimes: [
                 Range((Wed, Thu), (1700, 1900)),
-                Single(Fri, (1400, 1700)),
-                Single(Sun, (1200, 2100)),
+                Single(Sun, (1200, 2000)),
             ],
         ),
     ),
@@ -433,14 +432,15 @@
         phone: Some("732-455-3610"),
         map_id: "kYgmLGxAsaK3uoRv6",
         instagram_id: "loteria_ap",
-        verified: "2025-09-11",
+        verified: "2025-09-24",
         kind: HappyHour(
             description: [
                 "Food and drink specials",
             ],
-            menu_url: Some("https://www.instagram.com/p/DJrS6dPx4Lb/"),
+            menu_url: Some("https://www.instagram.com/p/DO_lMlfkV7_"),
             happytimes: [
-                Single(Thu, (1600, 1800)),
+                Range((Wed,Thu), (1600, 1900)),
+                Single(Sun, (1200, 2000)),
             ],
         ),
     ),
