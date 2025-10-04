@@ -545,11 +545,21 @@
     (
         name: "Mutiny Beach",
         url: "http://mutinybeach.com/",
-        phone: None,
+        phone: Some("732-455-8500"),
         map_id: "MWMV9Gbqs16cmrvj8",
         instagram_id: "mutinybeach",
-        verified: "2025-04-21",
-        kind: Other,
+        verified: "2025-10-04",
+        kind: HappyHour(
+            description: [
+                "$4 Miller, $5 wine, $6 well cocktails",
+                "$10 plates",
+                "buy one get one 50% off sandwiches",
+            ],
+            menu_url: Some("https://www.instagram.com/p/DPXFRWDEdtz"),
+            happytimes: [
+                Single(Fri, (1600, 1900)),
+            ],
+        ),
     ),
     (
         name: "The Palmetto",
