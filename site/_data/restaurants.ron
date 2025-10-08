@@ -779,13 +779,14 @@
         phone: Some("732-361-0577"),
         map_id: "it6W5GhgwGuwSPLeA",
         instagram_id: "swimcrushap",
-        verified: "2025-06-13",
+        verified: "2025-10-08",
         kind: HappyHour(
             description: [
                 "happy hour",
             ],
-            menu_url: Some("https://www.instagram.com/p/DK2seKsxTVd/"),
+            menu_url: Some("https://www.instagram.com/p/DPjg77CDaJB/"),
             happytimes: [
+                Single(Sun, (1200, 1600)),
                 Range((Mon, Fri), (1500, 1700)),
             ],
         ),
