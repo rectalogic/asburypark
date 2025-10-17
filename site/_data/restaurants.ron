@@ -521,7 +521,7 @@
         phone: Some("732-988-0123"),
         map_id: "tp8aof7cfVMNs6nB7",
         instagram_id: "moonstrucknj",
-        verified: "2025-09-21",
+        verified: "2025-10-17",
         kind: HappyHour(
             description: [
                 "$4/$5 beer, $6 well drinks, 1/2 price wine",
@@ -529,7 +529,7 @@
             ],
             menu_url: Some("https://moonstrucknj.com/menu/happy-hour-drink-specials/"),
             happytimes: [
-                Range((Wed, Fri), (1500, 1800)),
+                Range((Wed, Fri), (1600, 1900)),
             ],
         ),
     ),
