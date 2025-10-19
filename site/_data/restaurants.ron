@@ -734,8 +734,17 @@
         phone: None,
         map_id: "8Kz19Vu3cJwbSsxbA",
         instagram_id: "shuckedbylocal130",
-        verified: "2025-09-02",
-        kind: Other,
+        verified: "2025-10-19",
+        kind: HappyHour(
+            description: [
+                "Food specials",
+                "$3 off drafts, $2 off wines, $7 asbury cocktails, $8 margaritas"
+            ],
+            menu_url: Some("https://www.instagram.com/p/DP4Lgm0kTun"),
+            happytimes: [
+                Range((Thu, Fri), (1600, 1900)),
+            ],
+        ),
     ),
     (
         name: "Soundbooth",
