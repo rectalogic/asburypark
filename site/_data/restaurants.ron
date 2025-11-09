@@ -5,15 +5,15 @@
         phone: Some("732-444-2043"),
         map_id: "f6RFthcQQrifNNwn8",
         instagram_id: "ap.rooftop",
-        verified: "2025-09-11",
+        verified: "2025-11-09",
         kind: HappyHour(
             description: [
                 "$5 drafts, $9 wine, $10 cocktails",
                 "food specials",
             ],
-            menu_url: Some("https://cdn.mcloones.com/pdf/ap-rooftop/menus/2025/Happy-Hour-at-AP-Rooftop.pdf?v=1"),
+            menu_url: Some("https://cdn.mcloones.com/pdf/ap-rooftop/menus/2025/2025-Happy-Hour-AP-Rooftop.pdf"),
             happytimes: [
-                Range((Mon, Fri), (1400, 1700)),
+                Range((Mon, Fri), (1500, 1800)),
             ],
         ),
     ),
