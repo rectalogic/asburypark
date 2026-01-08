@@ -134,17 +134,14 @@
         phone: Some("732-361-7159"),
         map_id: "JiKYhYvKsK2ysBZs9",
         instagram_id: "theblackswanap",
-        verified: "2025-09-11",
+        verified: "2026-01-08",
         kind: HappyHour(
             description: [
-                "50% off all alcohol, HH food menu",
-                "Wed 2nd burger $5",
+                "$2 off drafts, $9 wine, $12 cocktails, HH food menu",
             ],
-            menu_url: Some("https://www.theblackswanap.com/happy-hour"),
+            menu_url: Some("https://www.instagram.com/p/DTBCKbyEW_X/"),
             happytimes: [
-                Single(Mon, (1600, 1800)),
-                Single(Tue, (1600, 2200)),
-                Range((Wed, Fri), (1600, 1800)),
+                Range((Mon, Fri), (1500, 1800)),
             ],
         ),
     ),
