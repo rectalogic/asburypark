@@ -770,17 +770,8 @@
         phone: Some("732-775-7776"),
         map_id: "hRnXVr3yCqFiSbCF9",
         instagram_id: "stellamarinaasbury",
-        verified: "2025-12-17",
-        kind: HappyHour(
-            description: [
-                "specials",
-            ],
-            menu_url: Some("https://stellamarinarestaurant.com"),
-            happytimes: [
-                Range((Mon, Fri), (1200, 1800)),
-                Range((Sat, Sun), (1200, 1600)),
-            ],
-        ),
+        verified: "2026-03-12",
+        kind: Closed,
     ),
     (
         name: "Swimcrush AP",
