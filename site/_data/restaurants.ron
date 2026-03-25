@@ -315,8 +315,17 @@
         phone: Some("732-774-1264"),
         map_id: "ec8WZbz7MxZEA7j99",
         instagram_id: "lovehomesick",
-        verified: "2026-03-24",
-        kind: Closed,
+        verified: "2025-12-17",
+        kind: HappyHour(
+            description: [
+                "$4 beer, $6 wine, cocktail/food specials",
+            ],
+            menu_url: Some("https://www.lovehomesick.com/menus"),
+            happytimes: [
+                Range((Thu, Fri), (1600, 1800)),
+                Single(Sat, (1400, 1800)),
+            ],
+        ),
     ),
     (
         name: "Iron Whale",
@@ -449,8 +458,17 @@
         phone: Some("732-774-1264"),
         map_id: "ec8WZbz7MxZEA7j99",
         instagram_id: "dear_lovesick",
-        verified: "2026-03-24",
-        kind: Closed,
+        verified: "2025-12-17",
+        kind: HappyHour(
+            description: [
+                "$5 beers, $10 cocktails",
+            ],
+            menu_url: Some("https://www.dearlovesick.com/menus"),
+            happytimes: [
+                Single(Thu, (1700, 2200)),
+                Single(Sun, (1700, 2200)),
+            ],
+        ),
     ),
     (
         name: "Low Dive",
