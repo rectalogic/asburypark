@@ -255,6 +255,15 @@
         kind: Byob,
     ),
     (
+        name: "The Drawing Room (Gallery Bar)",
+        url: "https://asburyoceanclub.com/hotel/the-drawing-room",
+        phone: Some("732-825-6000"),
+        map_id: "UsriPX65RL4hLFnt6",
+        instagram_id: "asburyoceanclubhotel",
+        verified: "2026-04-06",
+        kind: Other,
+    ),
+    (
         name: "El Rey",
         url: "https://www.elreyasburypark.com/",
         phone: None,
@@ -430,12 +439,12 @@
         phone: Some("732-455-3610"),
         map_id: "kYgmLGxAsaK3uoRv6",
         instagram_id: "loteria_ap",
-        verified: "2025-12-17",
+        verified: "2026-04-06",
         kind: HappyHour(
             description: [
                 "Food and drink specials",
             ],
-            menu_url: Some("https://www.instagram.com/p/DQrl8SYEShJ/?igsh=cGJ2N2JqeDNpNW4x"),
+            menu_url: Some("https://www.instagram.com/p/DWzR8bEkUTh/"),
             happytimes: [
                 Range((Wed,Thu), (1600, 1900)),
                 Single(Fri, (1600, 1800)),
