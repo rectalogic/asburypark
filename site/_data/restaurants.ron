@@ -576,13 +576,13 @@
         phone: Some("732-361-3639"),
         map_id: "ZtPN9i7Caahubo4K7",
         instagram_id: "palmettoasburypark",
-        verified: "2026-01-14",
+        verified: "2026-04-26",
         kind: HappyHour(
             description: [
-                "$ Miller Lite, $6 Kane, $5 off cocktails",
-                "food specials",
+                "$4 Miller Lite, $6 Kane, $5 off cocktails, $8 wine",
+                "$10 snacks",
             ],
-            menu_url: Some("https://mcusercontent.com/e8eada5e1c9c3aa7a6b978fe3/images/5ddd4533-ff9a-9a06-69f5-cbdfafacf46a.jpg"),
+            menu_url: Some("https://www.instagram.com/p/DTLhlkBk00K/"),
             happytimes: [
                 Range((Mon, Fri), (1500, 1800)),
             ],
