@@ -425,6 +425,15 @@
         kind: Other,
     ),
     (
+        name: "LiLi Oceanfront Restaurant",
+        url: "https://www.liliasbury.com",
+        phone: None,
+        map_id: "JEK1TWUkPJ2ioyKj6",
+        instagram_id: "liliasburypark",
+        verified: "2026-05-11",
+        kind: Other,
+    ),
+    (
         name: "Lola\'s European Cafe",
         url: "https://lolaseuropeancafe.com/",
         phone: None,
