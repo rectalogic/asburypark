@@ -5,15 +5,15 @@
         phone: Some("732-444-2043"),
         map_id: "f6RFthcQQrifNNwn8",
         instagram_id: "ap.rooftop",
-        verified: "2025-11-09",
+        verified: "2026-06-06",
         kind: HappyHour(
             description: [
-                "$5 drafts, $9 wine, $10 cocktails",
+                "$5 drafts, $4 bottle, $9 wine, $10 cocktails",
                 "food specials",
             ],
-            menu_url: Some("https://cdn.mcloones.com/pdf/ap-rooftop/menus/2025/2025-Happy-Hour-AP-Rooftop.pdf"),
+            menu_url: Some("https://cdn.mcloones.com/pdf/ap-rooftop/menus/2026/Happy-Hour-AP-Rooftop-5.11.26.pdf"),
             happytimes: [
-                Range((Mon, Fri), (1500, 1800)),
+                Range((Mon, Fri), (1400, 1700)),
             ],
         ),
     ),
@@ -342,14 +342,14 @@
         phone: Some("732-361-5185"),
         map_id: "XTH1TCX3uhLAhEnA7",
         instagram_id: "ironwhale_asburypark",
-        verified: "2026-03-27",
+        verified: "2026-06-06",
         kind: HappyHour(
             description: [
-                "small plate specials, $3 off beer, $6 marg, $4 off wine, $5 off cocktails",
+                "small plate specials, $3 off beer, $8 marg, $4 off wine, $5 off cocktails",
             ],
-            menu_url: Some("https://cdn.mcloones.com/pdf/iron-whale/menus/2026/Iron-Whale-Happy-Hour-2026.pdf"),
+            menu_url: Some("https://cdn.mcloones.com/pdf/iron-whale/menus/2026/Iron-Whale-2026-Happy-Hour.pdf"),
             happytimes: [
-                Range((Mon, Fri), (1400, 1800)),
+                Range((Mon, Fri), (1300, 1700)),
             ],
         ),
     ),
@@ -565,14 +565,14 @@
         phone: Some("732-455-8500"),
         map_id: "MWMV9Gbqs16cmrvj8",
         instagram_id: "mutinybeach",
-        verified: "2025-12-17",
+        verified: "2026-06-06",
         kind: HappyHour(
             description: [
                 "$4 Miller, $5 wine, $6 well cocktails",
                 "$10 plates",
                 "buy one get one 50% off sandwiches",
             ],
-            menu_url: Some("https://www.instagram.com/p/DPXFRWDEdtz"),
+            menu_url: Some("https://www.instagram.com/p/DTTCA4lkUoj"),
             happytimes: [
                 Single(Fri, (1600, 1900)),
             ],
@@ -584,13 +584,13 @@
         phone: Some("732-361-3639"),
         map_id: "ZtPN9i7Caahubo4K7",
         instagram_id: "palmettoasburypark",
-        verified: "2026-04-26",
+        verified: "2026-06-06",
         kind: HappyHour(
             description: [
                 "$4 Miller Lite, $6 Kane, $5 off cocktails, $8 wine",
-                "$10 snacks",
+                "$10 snacks, $2 oysters",
             ],
-            menu_url: Some("https://www.instagram.com/p/DTLhlkBk00K/"),
+            menu_url: Some("https://www.instagram.com/p/DYC01HZFK3Z/"),
             happytimes: [
                 Range((Mon, Fri), (1500, 1800)),
             ],
@@ -715,12 +715,13 @@
         phone: Some("732-774-1400"),
         map_id: "8uA51tyubw2hYxZB9",
         instagram_id: "robinsonalehouse",
-        verified: "2026-03-27",
+        verified: "2026-06-06",
         kind: HappyHour(
             description: [
-                "$4 draft, $7 marg,sangria,wine, $8 cocktails, half price appetizers",
+                "$4 draft, $7 marg,sangria,wine, $8 cocktails",
+                "food specials",
             ],
-            menu_url: Some("https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2025/AP-Happy-Hour-2026.pdf"),
+            menu_url: Some("https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2026/RAH-Asbury-Park-Happy-Hour-2026.pdf"),
             happytimes: [
                 Range((Mon, Fri), (1600, 1800)),
             ],
@@ -750,15 +751,15 @@
         phone: None,
         map_id: "8Kz19Vu3cJwbSsxbA",
         instagram_id: "shuckedbylocal130",
-        verified: "2025-12-17",
+        verified: "2026-06-06",
         kind: HappyHour(
             description: [
-                "Food specials",
-                "$3 off drafts, $2 off wines, $7 asbury cocktails, $8 margaritas"
+                "food & drink specials",
             ],
-            menu_url: Some("https://www.instagram.com/p/DP4Lgm0kTun"),
+            menu_url: Some("https://www.instagram.com/p/DY49kmOlU03/"),
             happytimes: [
-                Range((Thu, Fri), (1600, 1900)),
+                Single(Mon, (1500, 1800)),
+                Single(Thu, (1500, 1800)),
             ],
         ),
     ),
@@ -795,15 +796,14 @@
         phone: Some("732-361-0577"),
         map_id: "it6W5GhgwGuwSPLeA",
         instagram_id: "swimcrushap",
-        verified: "2025-10-08",
+        verified: "2026-06-06",
         kind: HappyHour(
             description: [
                 "happy hour",
             ],
             menu_url: Some("https://www.instagram.com/p/DPjg77CDaJB/"),
             happytimes: [
-                Single(Sun, (1200, 1600)),
-                Range((Mon, Fri), (1500, 1700)),
+                Range((Mon, Fri), (1500, 1800)),
             ],
         ),
     ),
@@ -885,14 +885,14 @@
         phone: Some("732-749-5786"),
         map_id: "vzuUmqZoxs7Z5Ly89",
         instagram_id: "watermark_asbury_park",
-        verified: "2025-12-17",
+        verified: "2026-06-06",
         kind: HappyHour(
             description: [
-                "cocktails, $5 beers",
+                "cocktails, food specials",
             ],
             menu_url: Some("https://menu.thesafemenu.com/watermark/menus/happy-hour/"),
             happytimes: [
-                Range((Thu, Fri), (1700, 1900)),
+                Range((Wed, Fri), (1600, 1800)),
             ],
         ),
     ),
