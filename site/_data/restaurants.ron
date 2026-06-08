@@ -29,11 +29,20 @@
     (
         name: "Asbury Ale House",
         url: "https://asburyalehouse.com/",
-        phone: None,
+        phone: Some("732-455-3808"),
         map_id: "iJx2hGS5UWZpFTgr9",
         instagram_id: "asburyalehouse",
-        verified: "2025-08-28",
-        kind: Other,
+        verified: "2026-06-08",
+        kind: HappyHour(
+            description: [
+                "$3 domestic drafts, drink specials",
+                "$10 bites, $12 shareables",
+            ],
+            menu_url: Some("https://www.instagram.com/p/DZQJSPOIszm/"),
+            happytimes: [
+                Range((Mon, Fri), (1600, 1800)),
+            ],
+        ),
     ),
     (
         name: "Asbury Festhalle & Biergarten",
