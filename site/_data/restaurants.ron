@@ -173,6 +173,24 @@
         kind: Other,
     ),
     (
+        name: "Brickwall",
+        url: "https://www.smithmade.org",
+        phone: Some("732-774-1264"),
+        map_id: "83mrvVLibxwA89i68",
+        instagram_id: "brickwallasburypark",
+        verified: "2026-06-19",
+        kind: HappyHour(
+            description: [
+                "$2 bud/miller, $6 wine, $10 martini",
+            ],
+            menu_url: Some("https://www.instagram.com/p/DZxXVz2kRYr/"),
+            happytimes: [
+                Single(Mon, (1600, 1800)),
+                Range((Thu, Fri), (1600, 1800)),
+            ],
+        ),
+    ),
+    (
         name: "Capitoline",
         url: "https://capitolineap.com/",
         phone: Some("732-455-3609"),
@@ -326,24 +344,6 @@
         instagram_id: "hadakaasbury",
         verified: "2024-06-20",
         kind: Byob,
-    ),
-    (
-        name: "Homesick",
-        url: "https://www.lovehomesick.com",
-        phone: Some("732-774-1264"),
-        map_id: "ec8WZbz7MxZEA7j99",
-        instagram_id: "lovehomesick",
-        verified: "2025-12-17",
-        kind: HappyHour(
-            description: [
-                "$4 beer, $6 wine, cocktail/food specials",
-            ],
-            menu_url: Some("https://www.lovehomesick.com/menus"),
-            happytimes: [
-                Range((Thu, Fri), (1600, 1800)),
-                Single(Sat, (1400, 1800)),
-            ],
-        ),
     ),
     (
         name: "Iron Whale",
