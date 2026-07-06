@@ -457,14 +457,15 @@
         phone: Some("732-455-3610"),
         map_id: "kYgmLGxAsaK3uoRv6",
         instagram_id: "loteria_ap",
-        verified: "2026-05-26",
+        verified: "2026-07-06",
         kind: HappyHour(
             description: [
                 "Food and drink specials",
             ],
-            menu_url: Some("https://www.instagram.com/p/DYe90g1EUEc/"),
+            menu_url: Some("https://www.instagram.com/p/Dabc0prJ3Ay/"),
             happytimes: [
                 Range((Wed,Thu), (1600, 1900)),
+                Single(Fri, (1400, 1700)),
                 Single(Sun, (1400, 1700)),
             ],
         ),
