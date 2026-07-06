@@ -760,12 +760,12 @@
         phone: None,
         map_id: "8Kz19Vu3cJwbSsxbA",
         instagram_id: "shuckedbylocal130",
-        verified: "2026-06-06",
+        verified: "2026-07-06",
         kind: HappyHour(
             description: [
                 "food & drink specials",
             ],
-            menu_url: Some("https://www.instagram.com/p/DY49kmOlU03/"),
+            menu_url: Some("https://www.instagram.com/p/DaSzVMABsts"),
             happytimes: [
                 Single(Mon, (1500, 1800)),
                 Single(Thu, (1500, 1800)),
