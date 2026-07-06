@@ -174,16 +174,16 @@
     ),
     (
         name: "Brickwall",
-        url: "https://www.smithmade.org",
+        url: "https://www.brickwallasburypark.com",
         phone: Some("732-774-1264"),
         map_id: "83mrvVLibxwA89i68",
         instagram_id: "brickwallasburypark",
-        verified: "2026-06-19",
+        verified: "2026-07-06",
         kind: HappyHour(
             description: [
                 "$2 bud/miller, $6 wine, $10 martini",
             ],
-            menu_url: Some("https://www.instagram.com/p/DZxXVz2kRYr/"),
+            menu_url: Some("https://www.brickwallasburypark.com/menus"),
             happytimes: [
                 Single(Mon, (1600, 1800)),
                 Range((Thu, Fri), (1600, 1800)),
