@@ -196,16 +196,17 @@
         phone: Some("732-455-3609"),
         map_id: "HYVrZQRjA4NaWxpS9",
         instagram_id: "capitoline_ap",
-        verified: "2025-12-17",
+        verified: "2026-08-07",
         kind: HappyHour(
             description: [
                 "HH food menu",
                 "$5 beer, $7 wine, $10 martini, $8 mocktails, food specials",
             ],
-            menu_url: Some("https://www.instagram.com/p/DQrknkhDviO/?igsh=a2VqMjkxZzVjeXh5"),
+            menu_url: Some("https://www.instagram.com/p/DbjXGBtqBFg/"),
             happytimes: [
-                Range((Thu, Fri), (1700, 1900)),
-                Single(Sun, (1200, 1800)),
+                Range((Wed, Thu), (1700, 1900)),
+                Single(Fri, (1400, 1700)),
+                Single(Sun, (1200, 1600)),
             ],
         ),
     ),
