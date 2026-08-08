@@ -301,6 +301,15 @@
         kind: Byob,
     ),
     (
+        name: "Esquina 525",
+        url: "https://www.theesquina525.com/",
+        phone: None,
+        map_id: "rGN6XVei5YBFgk9u6",
+        instagram_id: "theesquina525",
+        verified: "2026-08-08",
+        kind: Other,
+    ),
+    (
         name: "Flavia\'s Cucina Romana",
         url: "https://www.flaviascucina.com/",
         phone: None,
