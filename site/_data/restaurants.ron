@@ -449,8 +449,17 @@
         phone: None,
         map_id: "WYioyMmgcgTLLD3h9",
         instagram_id: "liliasburypark",
-        verified: "2026-05-11",
-        kind: Other,
+        verified: "2026-08-20",
+        kind: HappyHour(
+            description: [
+                "$12 cocktails, $12 food specials",
+                "$2 oysters/clams",
+            ],
+            menu_url: Some("https://www.instagram.com/p/DcQ7D27x8mZ/"),
+            happytimes: [
+                Range((Mon,Fri), (1400, 1700)),
+            ],
+        ),
     ),
     (
         name: "Lola\'s European Cafe",
