@@ -143,12 +143,12 @@
         phone: Some("732-361-7159"),
         map_id: "JiKYhYvKsK2ysBZs9",
         instagram_id: "theblackswanap",
-        verified: "2026-01-08",
+        verified: "2026-08-24",
         kind: HappyHour(
             description: [
-                "$2 off drafts, $9 wine, $12 cocktails, HH food menu",
+                "$5 drafts, $8 mixed drinks, $11 specialty cocktails, HH food menu",
             ],
-            menu_url: Some("https://www.instagram.com/p/DTBCKbyEW_X/"),
+            menu_url: Some("https://www.theblackswanap.com/happy-hour"),
             happytimes: [
                 Range((Mon, Fri), (1500, 1800)),
             ],
