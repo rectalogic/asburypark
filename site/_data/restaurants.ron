@@ -799,8 +799,16 @@
         phone: None,
         map_id: "wsNi3pFngY3SzyGp8",
         instagram_id: "theasburyhotel",
-        verified: "2024-04-16",
-        kind: Other,
+        verified: "2026-09-17",
+        kind: HappyHour(
+            description: [
+                "select beer $5, wine $8, cocktails $10",
+            ],
+            menu_url: Some("https://www.instagram.com/p/DdW_Rl5CArl"),
+            happytimes: [
+                Range((Sun, Thu), (1600, 1900)),
+            ],
+        ),
     ),
     (
         name: "Speakeatery",
