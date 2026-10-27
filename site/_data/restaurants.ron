@@ -59,8 +59,16 @@
         phone: None,
         map_id: "SbJ9RtgSfWNwAjED7",
         instagram_id: "asburylanesdiner",
-        verified: "2024-06-24",
-        kind: Other,
+        verified: "2026-10-27",
+        kind: HappyHour(
+            description: [
+                "Burger & beer $20",
+            ],
+            menu_url: Some("https://www.instagram.com/p/De9jtZkCH-d/?img_index=1"),
+            happytimes: [
+                Single(Mon, (1600, 2200)),
+            ],
+        ),
     ),
     (
         name: "Asbury Park Brewery",
@@ -684,10 +692,11 @@
         phone: Some("732-776-7661"),
         map_id: "EwjBKgVGcwUNQF6V8",
         instagram_id: "portaasburypark",
-        verified: "2025-12-17",
+        verified: "2026-10-27",
         kind: HappyHour(
             description: [
-                "$5 select draft, $7 wine, $10 cocktails, HH food menu",
+                "$5 select draft (Peroni & Miller Lite)",
+                "$7 wine, $10 cocktails, HH food menu",
             ],
             menu_url: Some("https://www.pizzaporta.com/menus"),
             happytimes: [
