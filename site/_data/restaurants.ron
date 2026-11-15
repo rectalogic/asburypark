@@ -606,18 +606,8 @@
         phone: Some("732-455-8500"),
         map_id: "MWMV9Gbqs16cmrvj8",
         instagram_id: "mutinybeach",
-        verified: "2026-06-06",
-        kind: HappyHour(
-            description: [
-                "$4 Miller, $5 wine, $6 well cocktails",
-                "$10 plates",
-                "buy one get one 50% off sandwiches",
-            ],
-            menu_url: Some("https://www.instagram.com/p/DTTCA4lkUoj"),
-            happytimes: [
-                Single(Fri, (1600, 1900)),
-            ],
-        ),
+        verified: "2026-11-15",
+        kind: Closed,
     ),
     (
         name: "The Palmetto",
@@ -846,16 +836,8 @@
         phone: Some("732-361-0577"),
         map_id: "it6W5GhgwGuwSPLeA",
         instagram_id: "swimcrushap",
-        verified: "2026-06-06",
-        kind: HappyHour(
-            description: [
-                "happy hour",
-            ],
-            menu_url: Some("https://www.instagram.com/p/DPjg77CDaJB/"),
-            happytimes: [
-                Range((Mon, Fri), (1500, 1800)),
-            ],
-        ),
+        verified: "2026-11-15",
+        kind: Closed,
     ),
     (
         name: "TJ\'s Pizza",
