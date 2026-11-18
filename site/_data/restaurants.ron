@@ -747,15 +747,15 @@
         phone: Some("732-774-1400"),
         map_id: "8uA51tyubw2hYxZB9",
         instagram_id: "robinsonalehouse",
-        verified: "2026-06-06",
+        verified: "2026-11-18",
         kind: HappyHour(
             description: [
                 "$4 draft, $7 marg,sangria,wine, $8 cocktails",
                 "food specials",
             ],
-            menu_url: Some("https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2026/RAH-Asbury-Park-Happy-Hour-2026.pdf"),
+            menu_url: Some("https://cdn.mcloones.com/pdf/robinson-ale-house-asbury-park/menus/2026/Happy-Hour-Asbury-Park-Autumn-2026.pdf"),
             happytimes: [
-                Range((Mon, Fri), (1600, 1800)),
+                Range((Mon, Fri), (1400, 1800)),
             ],
         ),
     ),
